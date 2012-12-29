@@ -2,7 +2,7 @@
 	<h3>Rating History</h3>	
 	<?php if(isset($video_ratings)) :?> 
 	
-						
+	<div class="table-report">					
 	<table class='table table-striped'>
 		<thead>
 			<tr>					
@@ -36,4 +36,5 @@
 		<?php endif; ?>
 		</tbody>
 	</table>
+	</div>
 </div>

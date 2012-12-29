@@ -25,7 +25,7 @@
 			<a href="<?php echo site_url(SITE_AREA .'/content/company') ?>" id="sidebar-list">List</a>
 		</li>
 	
-		<li <?php echo $this->uri->segment(2) == 'company_company' ? 'class="active"' : '' ?>><a href="<?php echo site_url('company/company_company/company_admin/') ?>" id="sidebar-report">Report</a></li>
+		<li <?php echo $this->uri->segment(2) == 'company_company' ? 'class="active"' : '' ?>><a href="<?php echo site_url('company/company_company/company_list/') ?>" id="sidebar-report">Report</a></li>
 		<li><a href="#">Link</a></li>
 		</ul>
 	</div><!--/.well -->	

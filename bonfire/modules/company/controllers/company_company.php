@@ -6,7 +6,7 @@
 		
 		
 		public function __construct()
-		                                           {
+		{
 			parent::__construct();
 			
 			$this->load->library('form_validation');
@@ -25,17 +25,17 @@
 			Displays a list of form data.
 		*/
 		public function index()
-		                                           {
+		{
 			
 		}
 		
 		//--------------------------------------------------------------------
 		public function get_logo($path)
-		                                           {
+		{
 			$this->config->load('upload');
 			$exts = explode("|",$this->config->item('allowed_types'));
 			foreach ($exts as $ext)
-			                                       {
+			{
 				$img = LOGO_PATH.$path."logo.".$ext;
 				if(file_exists("./".$img))
 				return base_url().$img;
@@ -46,92 +46,38 @@
 		public function company_admin($company_id = 3)
 		{		
 			$company_data = $this->company_model->find_by('id', $company_id, 'and', 1);
-			console::log($company_data['company_url'], true);
 			Template::set('company_data', $company_data);
 			Template::set_theme('Two');
 			Template::render();			
 		}
+		public function company_list()
+		{
+			$records = $this->company_model->find_all();
+			Template::set('records', $records);
+			console::log(print_r($records,true));
+			//Template::set('toolbar_title', 'Manage Company');
+			Template::set_theme('Two');
+			Template::render();
+		}
 		public function video_list($company_id = 3)
 		{
-			//		Template::set('vid', $vid);
-			//		Template::render();
 			$this->load->model('video/video_model', null, true);
 			$videos = $this->video_model->find_all_by('video_company_id', $company_id, 'and', 1);			
 			if($videos !== false){
-				//			print_r($videos, true);
-				//			console::log(print_r($videos, true));
 				Template::set('videos', $videos);
 				Template::set_theme('Two');
 				Template::render();
 			}		
 			else{
-				//			console::log(print_r('error', true));	
 			}
 		}
 		
-		//fields:title,description,length,upload_time,view_count,average_rating
-		public function _get_video_info($video_id)
-		{
-			$return=array();
-			$this->load->model('video/video_model', null, true);
-			$this->load->model('video_view_history/video_view_history_model', null, true);
-			$this->load->model('reviews/reviews_model', null, true);
-			$video_info = $this->video_model->find_by('id', $video_id, 'and', 1);
-			if($video_info === false) return false;
-			$return['id'] = $video_info['id'];
-			$return['title'] = $video_info['video_title'];
-			$return['description']= $video_info['video_description'];
-			$return['length']= $video_info['video_length'];
-			$return['upload_time']= $video_info['created_on'];
-			$return['view_count'] = $this->video_view_history_model->get_view_count($video_id);
-			$return['average_rating'] = $this->reviews_model->average_rating($video_id)===false?"n/a":$this->reviews_model->average_rating($video_id);
-			// Console::log(print_r($return,true));
-			return $return;
-		}
 		
-		//fields:gender,birth_month,birth_year,race,education,occupation,zipcode,time,ip
-		public function _get_view_history($video_id)
-		{
-			$return = array();
-			$this->load->model('video_view_history/video_view_history_model', null, true);
-			$this->load->model('user_info/user_info_model', null, true);
-			$video_histories = $this->video_view_history_model->find_all_by('video_view_history_video_id', $video_id, 'and', 1);
-			if($video_histories === false) return false;
-			foreach($video_histories as $k=>$v)
-			{
-				$user_info = $this->user_info_model->get_user_info($v['video_view_history_user_id']);
-				if($user_info!==false)
-				{
-					$return[$k]['gender'] = $user_info['user_info_gender']==1?'M':'F';
-					$return[$k]['birth_month'] = $user_info['user_info_birth_month'];
-					$return[$k]['birth_year'] = $user_info['user_info_birth_year'];
-					$return[$k]['race'] = $user_info['user_info_race'];
-					$return[$k]['education'] = $user_info['user_info_education'];
-					$return[$k]['zipcode'] = $user_info['user_info_zipcode'];
-					$return[$k]['occupation'] = $user_info['user_info_occupation_id'];
-				}
-				else
-				{
-					$return[$k]['gender'] = '';
-					$return[$k]['birth_month'] = '';
-					$return[$k]['birth_year'] = '';
-					$return[$k]['race'] = '';
-					$return[$k]['education'] = '';
-					$return[$k]['zipcode'] = '';
-					$return[$k]['occupation'] = '';
-				}
-				$return[$k]['time'] = date("Y-m-d h:j:s", $v['video_view_history_created_on']);
-				$return[$k]['ip'] = $v['video_view_history_ip'];
-			}
-			// Console::log(print_r($return,true));
-			return $return;
-		}
-
 		public function video_report($video_id)
 		{
 			Assets::add_js($this->load->view('inline_js/report.js.php',null,true),'inline');
-			$video_info = $this->_get_video_info($video_id);
-			$view_histories = $this->_get_view_history($video_id);
+			$video_info = $this->company_model->get_video_info($video_id);
+			$view_histories = $this->company_model->get_view_history($video_id);
 			Template::set('video_info', $video_info);
 			Template::set('view_histories', $view_histories);
 			Template::set_theme('Two');
