@@ -15,3 +15,11 @@ a.logo{
 .navbar-inner {
 	//background-image:-webkit-linear-gradient(top, #808080, #808080);
 }
+.table-report {
+	overflow：auto;
+	height:300px;
+}
+/* thead { display:block;  margin:0px; cell-spacing:0px; left:0px; }
+tbody { display:block; overflow:auto; height:100px; }
+th { height:50px; width:80px; }
+td { height:50px; width:80px; margin:0px; cell-spacing:0px;} */
