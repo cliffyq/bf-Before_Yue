@@ -67,4 +67,61 @@
 			return $return;
 		}
 		
+		public function get_review_history($video_id)
+		{
+			$return = array();
+			$this->load->model('reviews/reviews_model', null, true);
+			$this->load->model('question/question_model', null, true);
+			$this->load->model('answer/answer_model', null, true);
+			$this->load->model('user_info/user_info_model', null, true);
+			$video_reviews = $this->reviews_model->find_all_by('reviews_video_id', $video_id, 'and', 1);
+			if($video_reviews === false) return false;
+			foreach($video_reviews as $k=>$v)
+			{
+				$user_info = $this->user_info_model->get_user_info($v['reviews_user_id']);
+				if($user_info!==false)
+				{
+					$return[$k]['gender'] = $user_info['user_info_gender']==1?'M':'F';
+					$return[$k]['birth_month'] = $user_info['user_info_birth_month'];
+					$return[$k]['birth_year'] = $user_info['user_info_birth_year'];
+					$return[$k]['race'] = $user_info['user_info_race'];
+					$return[$k]['education'] = $user_info['user_info_education'];
+					$return[$k]['zipcode'] = $user_info['user_info_zipcode'];
+					$return[$k]['occupation'] = $user_info['user_info_occupation_id'];
+				}
+				else
+				{
+					$return[$k]['gender'] = '';
+					$return[$k]['birth_month'] = '';
+					$return[$k]['birth_year'] = '';
+					$return[$k]['race'] = '';
+					$return[$k]['education'] = '';
+					$return[$k]['zipcode'] = '';
+					$return[$k]['occupation'] = '';
+				}
+				$return[$k]['time'] = date("Y-m-d h:j:s", $v['reviews_last_update']);
+				$return[$k]['rating'] = $v['reviews_rating'];
+				//display answers and questions
+				$return[$k]['questions & answers'] = '';
+				$answer_temp = json_decode($v['reviews_answers'], true);
+				$answer_keys = array_values ($answer_temp);
+				$question_keys = array_keys ($answer_temp);
+				foreach($question_keys as $j=>$v)
+				{
+					$question = $this->question_model->find_by('id', $v, 'and', 1);
+					$question_value = $question['question_content'];
+					$answer_id = $question['question_answer_id'];
+					$answer = $this->answer_model->find_by('id', $answer_id, 'and', 1);
+					$answer_array = json_decode($answer['answer_content'], true);
+					$answer_value = $answer_array[$answer_keys[$j]];
+					$q_and_a = 'Q'.($j+1).':"'.$question_value.'",A'.($j+1).':"'.$answer_value.'",';
+					$return[$k]['questions & answers'] .= $q_and_a;
+				}
+				
+			}
+			return $return;
+		}
+		
 	}
+	
+	

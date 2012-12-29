@@ -43,7 +43,7 @@
 			return '';
 		}
 		
-		public function company_admin($company_id = 3)
+		public function company_admin($company_id)
 		{		
 			$company_data = $this->company_model->find_by('id', $company_id, 'and', 1);
 			Template::set('company_data', $company_data);
@@ -78,79 +78,22 @@
 			Assets::add_js($this->load->view('inline_js/report.js.php',null,true),'inline');
 			$video_info = $this->company_model->get_video_info($video_id);
 			$view_histories = $this->company_model->get_view_history($video_id);
+			$review_histories = $this->company_model->get_review_history($video_id);
+			console::log(print_r($review_histories,true));
 			Template::set('video_info', $video_info);
 			Template::set('view_histories', $view_histories);
+			Template::set('review_histories', $review_histories);	
 			Template::set_theme('Two');
 			Template::render();
 		}
-		
-		function video_report_prototype($video_id)
-		{
-			Assets::add_js($this->load->view('inline_js/report.js.php',null,true),'inline');
-			$this->load->model('video_view_history/video_view_history_model', null, true);
-			$video_histories = $this->video_view_history_model->find_all_by('video_view_history_video_id', $video_id, 'and', 1);
-			if($video_histories === false) return false;
-			$view_count = count($video_histories);
-			for($i=0; $i<$view_count; $i++){
-				$video_histories[$i]['video_view_history_created_on'] = date("Y-m-d h:j:s", $video_histories[$i]['video_view_history_created_on']);
-			}
-			
-			if($video_id !== false){
-				$this->load->model('video/video_model', null, true);
-				$this->load->model('reviews/reviews_model', null, true);
-				$this->load->model('question/question_model', null, true);
-				$this->load->model('answer/answer_model', null, true);
-				
-				$average_rating = $this->reviews_model->average_rating($video_id);
-				if($average_rating === false){
-					$average_rating = "N/A";
-				}
-				$video_info = $this->video_model->find_by('id', $video_id, 'and', 1);			
-				
-				$video_ratings = $this->reviews_model->find_all_by('reviews_video_id', $video_id, 'and', 1);
-				$review_count = count($video_ratings);
-				console::log(print_r($review_count, true));	
-				$question_count = 0;//set the initial value of question count
-				if ($video_ratings !== false){
-					for($i=0; $i<$review_count; $i++){
-						//convert timestamp
-						$video_ratings[$i]['reviews_last_update'] = date("Y-m-d h:j:s", $video_ratings[$i]['reviews_last_update']);
-						//						console::log(print_r($video_ratings[$i]['reviews_last_update'], true));
-						
-						$answer_temp = json_decode($video_ratings[$i]['reviews_answers'], true);
-						$answer_keys = array_values ($answer_temp);
-						$question_keys = array_keys ($answer_temp);
-						$question_count = count($question_keys);
-						for($j=0; $j<$question_count; $j++){	
-							$question = $this->question_model->find_by('id', $question_keys[$j], 'and', 1);
-							$question_value = $question['question_content'];
-							$answer_index = $question['question_answer_id'];
-							$answer = $this->answer_model->find_by('id', $answer_index, 'and', 1);
-							$answer_array = json_decode($answer['answer_content'], true);
-							$answer_value = $answer_array[$answer_keys[$j]];
-							//$QnA = $question_value.$answer_value;
-							$video_ratings[$i]['Q'.$j] = $question_value;
-							$video_ratings[$i]['A'.$j] = $answer_value; 
-						}				 
-					}
-					
-					Template::set('video_id', $video_id);		
-					Template::set('video_info', $video_info);
-					Template::set('question_count', $question_count);					
-					Template::set('view_count', $view_count);
-					Template::set('video_ratings', $video_ratings);	
-					Template::set('average_rating', $average_rating);
-					Template::set('video_histories', $video_histories);
-					
-				}
-				Template::render();
-			}
-		}
-		public function export_csv($export_type='review',$video_id)
+		public function export_csv($export_type,$video_id)
 		{
 			$this->load->helper('download');
-			$info = $this->_get_video_info($video_id);
-			$results = $this->_get_view_history($video_id);
+			$info = $this->company_model->get_video_info($video_id);
+			if($export_type == 'view')
+			$results = $this->company_model->get_view_history($video_id);
+			if($export_type == 'review')
+			$results = $this->company_model->get_review_history($video_id);
 			if($results === false||$info===false) return false;
 			$csv = '';
 			//$infoheaderDisplayed = false;
