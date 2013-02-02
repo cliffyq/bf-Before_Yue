@@ -323,7 +323,7 @@ if ( ! function_exists('form_dropdown'))
 	 *
 	 * @return string A string with the formatted input element, label tag and wrapping divs.
 	 */
-	function form_dropdown($data, $options=array(), $selected='', $label='', $extra='', $tooltip = '')
+	function form_dropdown($data, $options=array(), $selected='', $label='', $additional_class='', $extra='', $tooltip = '')
 	{
 		$defaults = array('name' => (( ! is_array($data)) ? $data : ''));
 
@@ -391,7 +391,7 @@ if ( ! function_exists('form_dropdown'))
 		$output = <<<EOL
 
 <div class="control-group {$error}">
-	<label class="control-label" for="{$defaults['name']}">{$label}</label>
+	<label class="control-label {$additional_class}" for="{$defaults['name']}">{$label}</label>
 	<div class="controls">
 		 <select {$output} {$extra}>
 			{$options_vals}

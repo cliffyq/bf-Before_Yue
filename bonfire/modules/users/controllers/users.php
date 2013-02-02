@@ -408,7 +408,7 @@
 			*
 			* @return void
 		*/
-		public function register()
+		public function register($role="user")
 		{
 			// Are users even allowed to register?
 			if (!$this->settings_lib->item('auth.allow_register'))
@@ -423,6 +423,17 @@
 			$meta_fields = config_item('user_meta_fields');
 			Template::set('meta_fields', $meta_fields);
 			
+			if($role=="company"){
+				//for industry dropdown
+				$this->load->model('industry/industry_model');
+				$industries = $this->industry_model->find_all(1);
+				$company_industry_dropdown = array(''=>"Please Select:");
+				foreach($industries as $r)
+				{
+					$company_industry_dropdown[$r['id']] = $r['industry_industry_name'];
+				}
+				$company_industry_dropdown_class = 'class="span4"';
+			}
 			if ($this->input->post('submit'))
 			{
 				// Console::log(print_r('oid:'.($this->input->post('ccc')=== false).'v:'.($this->input->post('veteran')=== false),true));
@@ -446,23 +457,32 @@
 				$this->form_validation->set_rules('first_name', 'lang:bf_first_name', 'trim|strip_tags|required|alpha|max_length[25]|xss_clean');
 				$this->form_validation->set_rules('last_name', 'lang:bf_last_name', 'trim|strip_tags|required|alpha|max_length[25]|xss_clean');
 				$this->form_validation->set_rules('gender', 'lang:bf_gender', 'trim|strip_tags|required|integer|xss_clean');
-				$this->form_validation->set_rules('industry', 'lang:bf_industry', 'trim|strip_tags|integer|xss_clean');
-				$this->form_validation->set_rules('occupation', 'lang:bf_occupation', 'trim|strip_tags|integer|xss_clean');
-				$this->form_validation->set_rules('veteran', 'lang:bf_veteran', 'trim|strip_tags|integer|xss_clean');
-				$meta_data = array();
-				foreach ($meta_fields as $field)
+				if($role=="company")
 				{
-					if ((!isset($field['admin_only']) || $field['admin_only'] === FALSE
-					|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
-					&& isset($this->current_user) && $this->current_user->role_id == 1))
-					&& (!isset($field['frontend']) || $field['frontend'] === TRUE))
+					$this->form_validation->set_rules('company_name', 'lang:bf_company_name', 'trim|strip_tags|alpha_dash|required|xss_clean');
+					$this->form_validation->set_rules('company_logo', 'lang:company_logo', 'trim|strip_tags|required|xss_clean');
+					$this->form_validation->set_rules('company_url', 'lang:bf_company_url', 'trim|strip_tags|xss_clean');
+					$this->form_validation->set_rules('company_industry_id', 'lang:bf_company_industry_id', 'trim|strip_tags|integer|xss_clean');
+					$this->form_validation->set_rules('company_description', 'lang:company_description', 'trim|strip_tags|xss_clean');
+				}
+				else{
+					$this->form_validation->set_rules('industry', 'lang:bf_industry', 'trim|strip_tags|integer|xss_clean');
+					$this->form_validation->set_rules('occupation', 'lang:bf_occupation', 'trim|strip_tags|integer|xss_clean');
+					$this->form_validation->set_rules('veteran', 'lang:bf_veteran', 'trim|strip_tags|integer|xss_clean');	
+					$meta_data = array();
+					foreach ($meta_fields as $field)
 					{
-						$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
-						
-						$meta_data[$field['name']] = $this->input->post($field['name']);
+						if ((!isset($field['admin_only']) || $field['admin_only'] === FALSE
+						|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
+						&& isset($this->current_user) && $this->current_user->role_id == 1))
+						&& (!isset($field['frontend']) || $field['frontend'] === TRUE))
+						{
+							$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
+							
+							$meta_data[$field['name']] = $this->input->post($field['name']);
+						}
 					}
 				}
-				
 				if ($this->form_validation->run($this) !== FALSE)
 				{
 					// Time to save the user...
@@ -503,9 +523,9 @@
 						);
 						
 						$user_info['user_info_industry_id'] = $this->input->post('industry_id')!==false OR $this->input->post('industry_id')!='' ? $this->input->post('industry_id') : null;
-
+						
 						$user_info['user_info_occupation_id'] = $this->input->post('occupation_id')!==false OR $this->input->post('occupation_id')!='' ?  $this->input->post('occupation_id') : null;
-
+						
 						$user_info['user_info_veteran'] = $this->input->post('veteran')!==false ? $this->input->post('veteran') : null;
 						
 						$this->load->model('user_info/user_info_model')->insert($user_info);
@@ -628,8 +648,18 @@
 			$this->user_model->password_hints();
 			
 			Template::set('languages', unserialize($this->settings_lib->item('site.languages')));
+			if($role=="company")
+			{
+				Template::set_view('/users/company_register');
+				Template::set('company_industry_dropdown', $company_industry_dropdown);
+				Template::set('company_industry_dropdown_class', $company_industry_dropdown_class);
+				
+			}
+			else
+			{
+				Template::set_view('/users/register');
+			}
 			
-			Template::set_view('users/users/register');
 			Template::set('page_title', 'Register');
 			Assets::clear_cache();
 			Assets::add_module_js('users', 'bootstrap-datepicker.js');

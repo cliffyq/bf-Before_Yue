@@ -76,7 +76,11 @@ $lang['bf_occupation']	= 'Occupation';
 $lang['bf_veteran']	= 'Veteran';
 $lang['bf_submit']	= 'Submit';
 $lang['bf_skip']	= 'Skip';
-
+$lang['bf_company_name']	= 'Company Name';
+$lang['bf_company_logo']	= 'Company Logo';
+$lang['bf_company_url']	= 'Company URL';
+$lang['bf_company_industry_id']	= 'Company Industry';
+$lang['bf_company_description']	= 'Company Description';
 //--------------------------------------------------------------------
 // ! CRUD SETTINGS
 //--------------------------------------------------------------------
