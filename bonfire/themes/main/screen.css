@@ -5,6 +5,8 @@ body {
 	background-color: #d9dde8;
 }
 
+
+
 h1,h2,h3 {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 	font-weight: normal;
@@ -269,7 +271,7 @@ Toolbar Keys
 Grids
  */
 .row,.last-column {
-	overflow: hidden;
+	*overflow: hidden;
 	*overflow: visible;
 	*zoom: 1;
 }

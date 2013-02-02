@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['homepage_manage']			= 'Manage homepage';
+$lang['homepage_edit']				= 'Edit';
+$lang['homepage_true']				= 'True';
+$lang['homepage_false']				= 'False';
+$lang['homepage_create']			= 'Create';
+$lang['homepage_list']				= 'List';
+$lang['homepage_new']				= 'New';
+$lang['homepage_edit_text']			= 'Edit this to suit your needs';
+$lang['homepage_no_records']			= 'There aren\'t any homepage in the system.';
+$lang['homepage_create_new']			= 'Create a new homepage.';
+$lang['homepage_create_success']			= 'homepage successfully created.';
+$lang['homepage_create_failure']			= 'There was a problem creating the homepage: ';
+$lang['homepage_create_new_button']			= 'Create New homepage';
+$lang['homepage_invalid_id']			= 'Invalid homepage ID.';
+$lang['homepage_edit_success']			= 'homepage successfully saved.';
+$lang['homepage_edit_failure']			= 'There was a problem saving the homepage: ';
+$lang['homepage_delete_success']			= 'record(s) successfully deleted.';
+$lang['homepage_delete_failure']			= 'We could not delete the record: ';
+$lang['homepage_delete_error']			= 'You have not selected any records to delete.';
+$lang['homepage_actions']			= 'Actions';
+$lang['homepage_cancel']			= 'Cancel';
+$lang['homepage_delete_record']			= 'Delete this homepage';
+$lang['homepage_delete_confirm']			= 'Are you sure you want to delete this homepage?';
+$lang['homepage_edit_heading']			= 'Edit homepage';
+
+// Activities
+$lang['homepage_act_create_record']			= 'Created record with ID';
+$lang['homepage_act_edit_record']			= 'Updated record with ID';
+$lang['homepage_act_delete_record']			= 'Deleted record with ID';
