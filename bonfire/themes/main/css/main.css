@@ -1,11 +1,11 @@
 a.logo{
 	display:inline-block;
-	background:url(../images/mo.png) no-repeat;
-	background-size:32px 32px;
-	height:32px;
-    width:32px;
+	background:url(../images/logo.png) no-repeat;
+	background-size:150px 41px;
+	height:41px;
+    width:130px;
 	float: left;
-	margin-top: 5px;
+	margin-top: 0px;
 }
 .navbar .nav > li > a{
 	padding: 5px 10px;
@@ -15,3 +15,5 @@ a.logo{
 .navbar-inner {
 	//background-image:-webkit-linear-gradient(top, #808080, #808080);
 }
+
+

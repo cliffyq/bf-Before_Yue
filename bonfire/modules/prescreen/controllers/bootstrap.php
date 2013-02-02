@@ -39,7 +39,7 @@
 		
 		public function login_part()
 		{
-		   return $this->load->view('bootstrap/login',null,true);
+		    $this->load->view('bootstrap/login',null);
 		}
 		
 			public function register_part()

@@ -1,6 +1,6 @@
 <?php echo theme_view('parts/_header'); ?>
 
-<div class="container-fluid body"> <!-- Start of Main Container -->
+<div class=""> <!-- Start of Main Container -->
 
 <?php
 

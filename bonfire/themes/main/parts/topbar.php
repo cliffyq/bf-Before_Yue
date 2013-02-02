@@ -17,29 +17,43 @@
 					
 					<?php //style="height:40px" ?>
 					<?php if (isset($current_user->email)) : ?>
-					<li>
-						<a class="header-link" href="<?php echo site_url('register');?>">
-						<?php echo lang('bf_action_register') ?>
+						<a href="../prescreen/bootstrap/general_page">
+						<button class="btn get_in_btn"  class="btn">
+							Get In
+						</button>
 						</a>
-					</li>
-					<li>
-						<a class="header-link" href="<?php echo site_url('login');?>" class="login-btn">
-						<?php echo lang('bf_action_login') ?>
-						</a>
-					</li>
+
 					<?php else :  ?>
 					
-					<li>
-						<a class="header-link" href="<?php echo site_url('register');?>">
-						<?php echo lang('bf_action_register') ?>
-						</a>
+					<li class="">
+						
+							<button class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+							<?php echo lang('bf_action_login') ?>
+							</button>
+							<ul class="dropdown-menu " style="text-align:center; Padding:10px">
+								<?php echo form_open('login', array('autocomplete' => 'off')); ?>
+									<input type="text" name="login" id="login_value" value="<?php echo set_value('login'); ?>" tabindex="1" placeholder="<?php echo $this->settings_lib->item('auth.login_type') == 'both' ? lang('bf_username') .'/'. lang('bf_email') : ucwords($this->settings_lib->item('auth.login_type')) ?>" />
+									<input class="" type="password" name="password" id="password" value="" tabindex="2" placeholder="<?php echo lang('bf_password'); ?>" />		
+									<?php if ($this->settings_lib->item('auth.allow_remember')) : ?>
+									<label class="checkbox" for="remember_me">
+										<input type="checkbox" name="remember_me" id="remember_me" value="1" tabindex="3" />
+										<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>
+									</label>
+									<input class="btn btn-success" type="submit" name="submit" id="submit" value="Sign In" tabindex="5" />
+									<input class="btn btn-primary" onClick="location.href='../register';" name="button2" type="button" id="button2" value="Register" />
+		
+									<?php endif; ?>
+								<?php echo form_close(); ?>
+							</ul>
+						
 					</li>
+				<!--
 					<li>
 						<a class="header-link" href="<?php echo site_url('login');?>" class="login-btn">
-						<?php echo lang('bf_action_login') ?>
+						<?php //echo lang('bf_action_login') ?>
 						</a>
 					</li>
-					
+				-->	
 					<?php endif; ?>
 				</ul>
 				
