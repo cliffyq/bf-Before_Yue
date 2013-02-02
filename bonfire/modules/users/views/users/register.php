@@ -1,6 +1,6 @@
-<section id="register">
+<section id="register" class="main_content">
 	<div class="page-header">
-		<h1><?php echo 'Sign Up'; ?></h1>
+		<h2><?php echo 'Sign Up'; ?></h2>
 	</div>
 	
 	<?php if (auth_errors() || validation_errors()) : ?>
@@ -15,7 +15,7 @@
 	<?php endif; ?>
 	
 	<div class="row-fluid">
-		<div class="span10 offset2">
+		<div class="span8 offset2">
 			<div class="alert alert-info fade in">
 				<a data-dismiss="alert" class="close">&times;</a>
 				<h4 class="alert-heading"><?php echo lang('bf_required_note'); ?></h4>
@@ -36,7 +36,6 @@
 					<input class="span4" type="text" name="email" id="email"  value="<?php echo set_value('email'); ?>"  placeholder="<?php echo lang('bf_email'); ?>" required="required" />
 				</div>
 			</div>
-			
 			<?php if ( $this->settings_lib->item('auth.login_type') !== 'email' OR $this->settings_lib->item('auth.use_usernames') == 1): ?>
 			
 			<div class="control-group <?php echo iif( form_error('username') , 'error'); ?>">
@@ -128,7 +127,7 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span10 offset2">
+				<div class="span8 offset2">
 					<div class="alert alert-info additional_info">
 						<button type="button" class="close" data-dismiss="alert">×</button>
 						<h4 class="alert-heading">Below are additional informations.</h4>
@@ -136,18 +135,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="control-group">
-				<label class="control-label" for="industry_id"><?php echo lang('bf_industry'); ?></label>
-				<div class="controls">
-					<select id="industry_id" class="span4" name="industry_id">
-						<option value="">Please Select:</option>
-						<option value="1">Business</option>
-						<option value="2">Education</option>
-						<option value="3">Sports</option>
-						<option value="4">Other</option>
-					</select> 
-				</div>
-			</div>
+			<?php echo form_dropdown('company_industry_id', $industry_dropdown,'',lang('bf_company_industry_id'),'required',$industry_dropdown_class);?>
 			
 			<div class="control-group">
 				<label class="control-label" for="occupation_id"><?php echo lang('bf_occupation'); ?></label>
@@ -173,14 +161,6 @@
 					type="radio" id="veteran_n" name="veteran" value="0"/> No</label>
 				</div>
 			</div>
-			<?php
-				// Allow modules to render custom fields
-				Events::trigger('render_user_form1');
-			?>
-			
-			<!-- Start of User Meta -->
-			<?php $this->load->view('users/user_meta', array('frontend_only' => TRUE));?>
-			<!-- End of User Meta -->
 			
 			<div class="control-group">
 				<div class="controls">
