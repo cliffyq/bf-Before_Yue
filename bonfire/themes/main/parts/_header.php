@@ -1,6 +1,6 @@
 <?php
 	// Setup our default assets to load.
-	Assets::add_js( 'bootstrap.min.js' );
+	Assets::add_js( array('bootstrap.min.js', 'dropdown_control.js'));
 	Assets::add_css( array('bootstrap.css', 'bootstrap-responsive.css','main.css'));
 			
 	$inline  = '$(".dropdown-toggle").dropdown();';

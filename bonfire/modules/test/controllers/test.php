@@ -124,21 +124,9 @@
 			console::log ('now='.print_r($test,true));
 			
 		}
-		public function json_test()
+		public function dropdown_test()
 		{
-			///$this->load->library('javascript');
-			/*$arr = array('q'=>array('d'=>3,'sdf'=>'s'),'a'=>array('g'=>3));
-				$json =json_encode($arr);
-				$de = json_decode($json,true);
-			Console::log($json.','.print_r($de,true));*/
-			/*$this->session->set_userdata('reviewed','{"new":{},"previous":{}}');
-				$s = $this->session->userdata('reviewed');
-				Console::log(print_r($s,true));
-				$reviewed = json_decode($s, true);
-			Console::log(print_r($reviewed,true));*/
-			$a = json_decode('false', true);
-			Console::log(print_r($a,true));
-			
+			template::render();
 		}
 		public function clear_session()
 		{
