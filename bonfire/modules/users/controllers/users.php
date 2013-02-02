@@ -423,17 +423,15 @@
 			$meta_fields = config_item('user_meta_fields');
 			Template::set('meta_fields', $meta_fields);
 			
-			if($role=="company"){
-				//for industry dropdown
-				$this->load->model('industry/industry_model');
-				$industries = $this->industry_model->find_all(1);
-				$company_industry_dropdown = array(''=>"Please Select:");
-				foreach($industries as $r)
-				{
-					$company_industry_dropdown[$r['id']] = $r['industry_industry_name'];
-				}
-				$company_industry_dropdown_class = 'class="span4"';
+			//for industry dropdown
+			$this->load->model('industry/industry_model');
+			$industries = $this->industry_model->find_all(1);
+			$industry_dropdown = array(''=>"Please Select:");
+			foreach($industries as $r)
+			{
+				$industry_dropdown[$r['id']] = $r['industry_industry_name'];
 			}
+			$industry_dropdown_class = 'class="span4"';
 			if ($this->input->post('submit'))
 			{
 				// Console::log(print_r('oid:'.($this->input->post('ccc')=== false).'v:'.($this->input->post('veteran')=== false),true));
@@ -651,17 +649,17 @@
 			if($role=="company")
 			{
 				Template::set_view('/users/company_register');
-				Template::set('company_industry_dropdown', $company_industry_dropdown);
-				Template::set('company_industry_dropdown_class', $company_industry_dropdown_class);
+				
 				
 			}
 			else
 			{
 				Template::set_view('/users/register');
 			}
-			
-			Template::set('page_title', 'Register');
-			Assets::clear_cache();
+			Template::set_theme('main','junk');
+			Template::set('industry_dropdown', $industry_dropdown);
+			Template::set('industry_dropdown_class', $industry_dropdown_class);
+			Template::set('page_title', 'Register');			
 			Assets::add_module_js('users', 'bootstrap-datepicker.js');
 			Assets::add_module_css('users', 'datepicker.css');
 			Assets:: add_js($this->load->view('inline_js/jquery.maskedinput-1.3.js.php',null,True),'inline');

@@ -1,6 +1,6 @@
-<section id="company-register">
+<section id="company-register" class="main_content">
 	<div class="page-header">
-		<h1><?php echo 'Sign Up'; ?></h1>
+		<h2><?php echo 'Company Registration'; ?></h2>
 	</div>
 	
 	<?php if (auth_errors() || validation_errors()) : ?>
@@ -15,7 +15,7 @@
 	<?php endif; ?>
 	
 	<div class="row-fluid">
-		<div class="span10 offset2">
+		<div class="span8 offset2">
 			<div class="alert alert-info fade in">
 				<a data-dismiss="alert" class="close">&times;</a>
 				<h4 class="alert-heading"><?php echo lang('bf_required_note'); ?></h4>
@@ -128,7 +128,7 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span10 offset2">
+				<div class="span8 offset2">
 					<div class="alert alert-info additional_info">
 						<button type="button" class="close" data-dismiss="alert">×</button>
 						<h4 class="alert-heading">Below are additional informations.</h4>
@@ -162,7 +162,7 @@
 				
 				
 			</div>
-			<?php echo form_dropdown('company_industry_id', $company_industry_dropdown,'',lang('bf_company_industry_id'),'required',$company_industry_dropdown_class);?>
+			<?php echo form_dropdown('company_industry_id', $industry_dropdown,'',lang('bf_company_industry_id'),'required',$industry_dropdown_class);?>
 			
 			<div class="control-group">
 				<label class="control-label required" for="company_description"><?php echo lang('bf_company_description'); ?></label>
