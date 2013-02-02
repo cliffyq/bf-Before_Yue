@@ -46,6 +46,7 @@ $route['(:any)/ajax/(:any)/(:any)']="$2/$3";
 // Authorization
 $route['login']					= 'users/login';
 $route['register']				= 'users/register';
+$route['company_register']				= 'users/register/company';
 $route['logout']				= 'users/logout';
 $route['forgot_password']		= 'users/forgot_password';
 $route['reset_password/(:any)/(:any)']	= "users/reset_password/$1/$2";

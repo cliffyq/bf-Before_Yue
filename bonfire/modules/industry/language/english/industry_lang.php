@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['industry_manage']			= 'Manage Industry';
+$lang['industry_edit']				= 'Edit';
+$lang['industry_true']				= 'True';
+$lang['industry_false']				= 'False';
+$lang['industry_create']			= 'Create';
+$lang['industry_list']				= 'List';
+$lang['industry_new']				= 'New';
+$lang['industry_edit_text']			= 'Edit this to suit your needs';
+$lang['industry_no_records']			= 'There aren\'t any industry in the system.';
+$lang['industry_create_new']			= 'Create a new Industry.';
+$lang['industry_create_success']			= 'Industry successfully created.';
+$lang['industry_create_failure']			= 'There was a problem creating the industry: ';
+$lang['industry_create_new_button']			= 'Create New Industry';
+$lang['industry_invalid_id']			= 'Invalid Industry ID.';
+$lang['industry_edit_success']			= 'Industry successfully saved.';
+$lang['industry_edit_failure']			= 'There was a problem saving the industry: ';
+$lang['industry_delete_success']			= 'record(s) successfully deleted.';
+$lang['industry_delete_failure']			= 'We could not delete the record: ';
+$lang['industry_delete_error']			= 'You have not selected any records to delete.';
+$lang['industry_actions']			= 'Actions';
+$lang['industry_cancel']			= 'Cancel';
+$lang['industry_delete_record']			= 'Delete this Industry';
+$lang['industry_delete_confirm']			= 'Are you sure you want to delete this industry?';
+$lang['industry_edit_heading']			= 'Edit Industry';
+
+// Activities
+$lang['industry_act_create_record']			= 'Created record with ID';
+$lang['industry_act_edit_record']			= 'Updated record with ID';
+$lang['industry_act_delete_record']			= 'Deleted record with ID';
