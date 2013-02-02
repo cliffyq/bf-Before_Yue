@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['preview_manage']			= 'Manage preview';
+$lang['preview_edit']				= 'Edit';
+$lang['preview_true']				= 'True';
+$lang['preview_false']				= 'False';
+$lang['preview_create']			= 'Create';
+$lang['preview_list']				= 'List';
+$lang['preview_new']				= 'New';
+$lang['preview_edit_text']			= 'Edit this to suit your needs';
+$lang['preview_no_records']			= 'There aren\'t any preview in the system.';
+$lang['preview_create_new']			= 'Create a new preview.';
+$lang['preview_create_success']			= 'preview successfully created.';
+$lang['preview_create_failure']			= 'There was a problem creating the preview: ';
+$lang['preview_create_new_button']			= 'Create New preview';
+$lang['preview_invalid_id']			= 'Invalid preview ID.';
+$lang['preview_edit_success']			= 'preview successfully saved.';
+$lang['preview_edit_failure']			= 'There was a problem saving the preview: ';
+$lang['preview_delete_success']			= 'record(s) successfully deleted.';
+$lang['preview_delete_failure']			= 'We could not delete the record: ';
+$lang['preview_delete_error']			= 'You have not selected any records to delete.';
+$lang['preview_actions']			= 'Actions';
+$lang['preview_cancel']			= 'Cancel';
+$lang['preview_delete_record']			= 'Delete this preview';
+$lang['preview_delete_confirm']			= 'Are you sure you want to delete this preview?';
+$lang['preview_edit_heading']			= 'Edit preview';
+
+// Activities
+$lang['preview_act_create_record']			= 'Created record with ID';
+$lang['preview_act_edit_record']			= 'Updated record with ID';
+$lang['preview_act_delete_record']			= 'Deleted record with ID';
