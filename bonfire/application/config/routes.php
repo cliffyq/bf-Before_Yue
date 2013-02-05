@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "preview/homepage";
 $route['404_override'] = '';
 //Ajax 
 $route['(:any)/(:any)/ajax/(:any)/(:any)/(:any)']="$3/$4/$5";

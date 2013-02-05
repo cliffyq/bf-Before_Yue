@@ -202,9 +202,9 @@
 			
 			if ($type == 'insert')
 			{
-				
-				$path = url_title($data['company_name'],'underscore').'/';
-				$fdata = $this->upload_logo('company_logo',$path);
+				$return = $this->company_model->create_company($data);
+/* 				$path = url_title($data['company_name'],'underscore').'/';
+				$fdata = $this->_upload_logo('company_logo',$path);
 				if(isset($fdata['error'])||!isset($fdata['upload_data']) || $fdata['upload_data'] == NULL){
 					
 					return FALSE;
@@ -212,14 +212,14 @@
 				$data['company_logo'] = $path;
 				$id = $this->company_model->insert($data);
 				if (!is_numeric($id)) return FALSE;
-				$return = $id;
+				$return = $id; */
 				
 			}
 			else if ($type == 'update')
 			{
 				if($this->input->post('company_logo')) {
 					$path = $this->company_model->get_field($id, 'company_logo');
-					$fdata = $this->upload_logo('company_logo',$path);
+					$fdata = $this->_upload_logo('company_logo',$path);
 					if(isset($fdata['error'])||!isset($fdata['upload_data']) || $fdata['upload_data'] == NULL){
 						
 						$this->error='upload error';
@@ -236,7 +236,7 @@
 		
 		//--------------------------------------------------------------------
 		//upload logo, $field_name = form input name, $path = path relative to the LOGO_PATH
-		private function upload_logo($field_name,$path){                
+		public function _upload_logo($field_name,$path){                
 			
 			$this->config->load('upload');
 			$preference['upload_path'] = './'.LOGO_PATH.$path;

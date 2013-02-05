@@ -929,7 +929,7 @@ label {
   margin-bottom: 5px;
 }
 
-select,
+/* select,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -959,7 +959,7 @@ input[type="color"],
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-}
+} */
 
 input,
 textarea {

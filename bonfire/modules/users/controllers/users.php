@@ -431,7 +431,7 @@
 			{
 				$industry_dropdown[$r['id']] = $r['industry_industry_name'];
 			}
-			$industry_dropdown_class = 'class="span4"';
+			$industry_dropdown_class = 'class="input-xlarge"';
 			if ($this->input->post('submit'))
 			{
 				// Console::log(print_r('oid:'.($this->input->post('ccc')=== false).'v:'.($this->input->post('veteran')=== false),true));
@@ -504,11 +504,11 @@
 					
 					if ($user_id = $this->user_model->insert($data))
 					{
-						$str = explode("-",$this->input->post('birth_month'));
+						$str = explode("/",$this->input->post('birth_month'));
 						$user_info = array(
 						'user_info_user_id'           => $user_id,
-						'user_info_birth_year'		=> $str[0],
-						'user_info_birth_month'		=> $str[1],
+						'user_info_birth_year'		=> $str[1],
+						'user_info_birth_month'		=> $str[0],
 						'user_info_zipcode'		=> $this->input->post('zipcode'),
 						'user_info_race'		=> $this->input->post('race'),
 						'user_info_education'		=> $this->input->post('education'),
@@ -658,7 +658,7 @@
 			}
 			Template::set_theme('main','junk');
 			Template::set('industry_dropdown', $industry_dropdown);
-			Template::set('industry_dropdown_class', $industry_dropdown_class);
+			//Template::set('industry_dropdown_class', $industry_dropdown_class);
 			Template::set('page_title', 'Register');			
 			Assets::add_module_js('users', 'bootstrap-datepicker.js');
 			Assets::add_module_css('users', 'datepicker.css');
