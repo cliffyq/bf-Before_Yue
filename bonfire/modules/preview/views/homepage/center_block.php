@@ -30,11 +30,11 @@
 		<div class="showcase-slide">
 			<!-- Put the slide content in a div with the class .showcase-content. -->
 			<div class="showcase-content">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage1.gif" alt="01" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage1.gif" alt="01" />
 			</div>
 			<!-- Put the thumbnail content in a div with the class .showcase-thumbnail -->
 			<div class="showcase-thumbnail">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage1.gif" alt="01" width="140px" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage1.gif" alt="01" width="140px" />
 				<!-- The div below with the class .showcase-thumbnail-caption contains the thumbnail caption. -->
 				<div class="showcase-thumbnail-caption">WATCH</div>
 				<!-- The div below with the class .showcase-thumbnail-cover is used for the thumbnails active state. -->
@@ -47,10 +47,10 @@
 		</div>
 		<div class="showcase-slide">
 			<div class="showcase-content">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage2.jpg" alt="02" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage2.jpg" alt="02" />
 			</div>
 			<div class="showcase-thumbnail">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage2.jpg" alt="01" width="140px" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage2.jpg" alt="01" width="140px" />
 				<div class="showcase-thumbnail-caption">RATE</div>
 				<div class="showcase-thumbnail-cover"></div>
 			</div>
@@ -59,10 +59,10 @@
 		</div>
 		<div class="showcase-slide">
 			<div class="showcase-content">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage3.jpg" alt="03" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage3.jpg" alt="03" />
 			</div>
 			<div class="showcase-thumbnail">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage3.jpg" alt="03" width="140px" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage3.jpg" alt="03" width="140px" />
 				<div class="showcase-thumbnail-caption">BANK</div>
 				<div class="showcase-thumbnail-cover"></div>
 			</div>
@@ -70,11 +70,11 @@
 		<div class="showcase-slide">
 			<div class="showcase-content">
 				<a href="../register">
-					<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage4.jpg" alt="04" />
+					<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage4.jpg" alt="04" />
 				</a>
 			</div>
 			<div class="showcase-thumbnail">
-				<img style="height:100%; width:100%" src="../bonfire/themes/main/images/SlideImage4.jpg" alt="01" width="140px" />
+				<img style="height:100%; width:100%" src="<?php echo base_url();?>/assets/images/homepage/SlideImage4.jpg" alt="01" width="140px" />
 				<div class="showcase-thumbnail-caption">Sign Up</div>
 				<div class="showcase-thumbnail-cover"></div>
 			</div>
