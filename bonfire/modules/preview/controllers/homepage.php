@@ -12,6 +12,8 @@
 		
 		public function index()
 		{
+			if($this->auth->is_logged_in())
+			Template::redirect('/prescreen/bootstrap/general_page');
 			$center_block_part=$this->load->module('preview/homepage')->center_block_part();
 			$header_block_part=$this->load->module('preview/homepage')->header_block_part();
 			$footer_block_part=$this->load->module('preview/homepage')->footer_block_part();
@@ -30,7 +32,7 @@
 			Template::set('header_block_part',$header_block_part);
 			Template::set('footer_block_part',$footer_block_part);
 			//			Template::set('little_block_parts',$little_block_parts);
-			
+			Template::set_view("/homepage/index");
 			Template::render();		    
 		}
 		/*	
