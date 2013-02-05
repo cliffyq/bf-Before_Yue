@@ -15,7 +15,9 @@ body
 .footer_href
 {
 	color: #b63432;
-}
+	font-size:15px;
+	font-weight:bold;
+	}
 
 .footer_href:hover {
 	color: #0078c4;
@@ -79,15 +81,22 @@ h2
 	text-align:center;
 	margin-top: 18px;
 	background-image: url('../images/homepage/Footer.jpg');
+	height: 30px;
+	line-height: 30px;
 }
 
 .logo_div{
 	width:440px;
 }
+.main_content .control-group .additional_field{
+	color:#999999;
+	}
 
 
 
-
+.main_content select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+	color:#696969;
+	}
 .menu a
 {
 	color: #999;
