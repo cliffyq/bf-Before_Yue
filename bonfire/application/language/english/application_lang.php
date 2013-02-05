@@ -68,7 +68,7 @@ $lang['bf_first_name']		= 'First Name';
 $lang['bf_gender']		= 'Gender';
 $lang['bf_female']		= 'Female';
 $lang['bf_male']		= 'Male';
-$lang['bf_birth_month']		= 'Birth Month';
+$lang['bf_birth_month']		= 'DOB – mm/year';
 $lang['bf_last_name']		= 'Last Name';
 $lang['bf_err_birth_month']		= 'The %s is not valid.';
 $lang['bf_industry']	= 'Industry';
@@ -76,7 +76,11 @@ $lang['bf_occupation']	= 'Occupation';
 $lang['bf_veteran']	= 'Veteran';
 $lang['bf_submit']	= 'Submit';
 $lang['bf_skip']	= 'Skip';
-
+$lang['bf_company_name']	= 'Company Name';
+$lang['bf_company_logo']	= 'Company Logo';
+$lang['bf_company_url']	= 'Company URL';
+$lang['bf_company_industry_id']	= 'Industry';
+$lang['bf_company_description']	= 'Company Description';
 //--------------------------------------------------------------------
 // ! CRUD SETTINGS
 //--------------------------------------------------------------------

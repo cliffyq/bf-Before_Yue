@@ -346,6 +346,19 @@
 			}
 			echo "\r\n";
 		}
+		function industry()
+		{
+			$this->load->model('industry/industry_model');
+			$a = $this->industry_model->find_all(1);
+			//Console::log(print_r($a,true));
+			$options = array();
+			foreach($a as $r)
+			{
+				$options[$r['id']] = $r['industry_industry_name'];
+				
+			}
+			Console::log(print_r($options,true));
+		}
 		//--------------------------------------------------------------------
 	}
 	

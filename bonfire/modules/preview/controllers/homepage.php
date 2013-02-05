@@ -20,8 +20,6 @@
 			
 			Template::set_theme('main','junk');
 			Assets::clear_cache();
-			Assets::add_module_css('preview', 'test.css');
-			Assets::add_module_css('preview', 'style.css');
 			Assets::add_module_js('preview', 'preview.js');
 			Assets::add_module_js('preview', 'jquery.aw-showcase.js');
 			Assets::add_js($this->load->view('inline_js/showcase.js.php',null,true),'inline');
@@ -32,7 +30,7 @@
 			Template::set('header_block_part',$header_block_part);
 			Template::set('footer_block_part',$footer_block_part);
 			//			Template::set('little_block_parts',$little_block_parts);
-			
+			Template::set_view('/homepage/index');
 			Template::render();		    
 		}
 		/*	

@@ -122,6 +122,48 @@
 			return $return;
 		}
 		
+		public function create_company($data)
+		{
+			if(!is_array($data)||empty($data))
+			return false;
+			$path = url_title($data['company_name'],'underscore').'/';
+			$fdata = $this->upload_logo('company_logo',$path);
+			if(isset($fdata['error'])||!isset($fdata['upload_data']) || $fdata['upload_data'] == NULL){
+				
+				return FALSE;
+			}
+			$data['company_logo'] = $path;
+			$id = $this->insert($data);
+			if (!is_numeric($id)) return FALSE;
+			$return = $id;
+		}
+		
+		
+		//--------------------------------------------------------------------
+		//upload logo, $field_name = form input name, $path = path relative to the LOGO_PATH
+		public function _upload_logo($field_name,$path){                
+			
+			$this->config->load('upload');
+			$preference['upload_path'] = './'.LOGO_PATH.$path;
+			$preference['allowed_types'] = $this->config->item('allowed_types');
+			$preference['max_size'] = $this->config->item('max_size');
+			$preference['file_name'] = $this->config->item('file_name');
+			if(!is_dir($preference['upload_path']))
+			{
+				mkdir($preference['upload_path'],0777,true);
+			}
+			$this->load->library('upload',$preference);
+			$this->error='';
+			if ( ! $this->upload->do_upload($field_name))
+			{
+				$data['error'] = $this->upload->display_errors();
+			}
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+			}
+			return $data;
+		}
 	}
 	
 	
