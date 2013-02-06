@@ -32,7 +32,7 @@
 			Template::set('header_block_part',$header_block_part);
 			Template::set('footer_block_part',$footer_block_part);
 			//			Template::set('little_block_parts',$little_block_parts);
-			Template::set_view("/homepage/index");
+			Template::set_view('/homepage/index');
 			Template::render();		    
 		}
 		/*	
