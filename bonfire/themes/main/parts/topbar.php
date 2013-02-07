@@ -8,8 +8,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</a>
-			
-			<a href="<?php site_url('/'); ?>" title = "<?php e($this->settings_lib->item('site.title')); ?>" class="logo">
+			<a href="<?=site_url('/');?>" class="logo"></a>
 			</a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="nav-collapse collapse">
@@ -45,7 +44,7 @@
 										<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>
 									</label>
 									<input class="btn btn-success" type="submit" name="submit" id="submit" value="Sign In" tabindex="5" />
-									<input class="btn btn-primary" onClick="location.href='../register';" name="button2" type="button" id="button2" value="Register" />
+									<input class="btn btn-primary" onClick="location.href='<?= site_url('/register')?>';" name="button2" type="button" id="button2" value="Register" />
 		
 									<?php endif; ?>
 								<?php echo form_close(); ?>
