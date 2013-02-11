@@ -359,6 +359,25 @@
 			}
 			Console::log(print_r($options,true));
 		}
+		function bm()
+		{
+			$str = "02/2000";
+			$mmyyyy = explode("/",$str);
+			$bmstr = $mmyyyy [1]."-".$mmyyyy [0];
+			$bm = strtotime($bmstr);
+			if($bm === false) echo "false";
+			echo (time()-$bm)/(60*60*24*365);
+		}
+		function config()
+		{
+			$config = read_config('upload', TRUE, 'company');
+			console::log(print_r($config,true));
+		}
+		function role()
+		{
+			$role = $this->load->model('roles/role_model')->find_by_name('company');
+			console::log(print_r($role,true));
+		}
 		//--------------------------------------------------------------------
 	}
 	
