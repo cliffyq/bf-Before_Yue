@@ -419,9 +419,9 @@
 			$this->load->model('roles/role_model');
 			$this->load->helper('date');
 			
-			$this->load->config('user_meta');
-			$meta_fields = config_item('user_meta_fields');
-			Template::set('meta_fields', $meta_fields);
+			//$this->load->config('user_meta');
+			/* 			$meta_fields = config_item('user_meta_fields');
+			Template::set('meta_fields', $meta_fields); */
 			
 			//for industry dropdown
 			$this->load->model('industry/industry_model');
@@ -442,45 +442,42 @@
 				if ($this->settings_lib->item('auth.use_usernames'))
 				{
 					$this->form_validation->set_rules('username', 'lang:bf_username', 'required|trim|strip_tags|max_length[30]|unique[users.username]|xss_clean');
-				}
-				
+				}	
 				$this->form_validation->set_rules('password', 'lang:bf_password', 'required|trim|strip_tags|min_length[8]|max_length[120]|valid_password');
-				$this->form_validation->set_rules('pass_confirm', 'lang:bf_password_confirm', 'required|trim|strip_tags|matches[password]');
-				
-				$this->form_validation->set_rules('zipcode', 'lang:bf_zipcode', 'required|trim|strip_tags|xss_clean|exact_length[5]');
-				$this->form_validation->set_rules('education', 'lang:bf_education', 'required|trim|strip_tags|xss_clean');
-				$this->form_validation->set_rules('race', 'lang:bf_race', 'trim|strip_tags|xss_clean');
-				$this->form_validation->set_message('birth_month_check', lang('bf_err_birth_month'));
-				$this->form_validation->set_rules('birth_month', 'lang:bf_birth_month', 'trim|strip_tags|callback_birth_month_check|xss_clean');
-				$this->form_validation->set_rules('first_name', 'lang:bf_first_name', 'trim|strip_tags|required|alpha|max_length[25]|xss_clean');
-				$this->form_validation->set_rules('last_name', 'lang:bf_last_name', 'trim|strip_tags|required|alpha|max_length[25]|xss_clean');
-				$this->form_validation->set_rules('gender', 'lang:bf_gender', 'trim|strip_tags|required|integer|xss_clean');
+				$this->form_validation->set_rules('pass_confirm', 'lang:bf_password_confirm', 'required|trim|strip_tags|matches[password]');				
+				$this->form_validation->set_rules('zipcode', 'lang:bf_zipcode', 'required|trim|strip_tags|xss_clean|exact_length[5]');				
+				$this->form_validation->set_rules('first_name', 'lang:bf_first_name', 'trim|strip_tags|alpha|max_length[25]|xss_clean');
+				$this->form_validation->set_rules('last_name', 'lang:bf_last_name', 'trim|strip_tags|alpha|max_length[25]|xss_clean');				
 				if($role=="company")
 				{
-					$this->form_validation->set_rules('company_name', 'lang:bf_company_name', 'trim|strip_tags|alpha_dash|required|xss_clean');
-					$this->form_validation->set_rules('company_logo', 'lang:company_logo', 'trim|strip_tags|required|xss_clean');
-					$this->form_validation->set_rules('company_url', 'lang:bf_company_url', 'trim|strip_tags|xss_clean');
-					$this->form_validation->set_rules('company_industry_id', 'lang:bf_company_industry_id', 'trim|strip_tags|integer|xss_clean');
-					$this->form_validation->set_rules('company_description', 'lang:company_description', 'trim|strip_tags|xss_clean');
+					$this->form_validation->set_rules('company_name', 'lang:bf_company_name', 'trim|strip_tags|alpha_dash|required|xss_clean|max_length[100]');
+					//$this->form_validation->set_rules('company_logo', 'lang:company_logo', 'required');
+					$this->form_validation->set_rules('company_url', 'lang:bf_company_url', 'trim|strip_tags|required|xss_clean|max_length[255]');
+					$this->form_validation->set_rules('company_industry_id', 'lang:bf_company_industry_id', 'trim|strip_tags|required|integer|xss_clean');
+					$this->form_validation->set_rules('company_description', 'lang:company_description', 'trim|required|strip_tags|xss_clean|max_length[1000]');
 				}
 				else{
+					$this->form_validation->set_rules('education', 'lang:bf_education', 'required|trim|strip_tags|xss_clean');
+					$this->form_validation->set_rules('race', 'lang:bf_race', 'trim|strip_tags|xss_clean');
+					$this->form_validation->set_rules('birth_month', 'lang:bf_birth_month', 'trim|strip_tags|callback__birth_month_check|xss_clean');
+					$this->form_validation->set_rules('gender', 'lang:bf_gender', 'trim|strip_tags|integer|xss_clean');
 					$this->form_validation->set_rules('industry', 'lang:bf_industry', 'trim|strip_tags|integer|xss_clean');
-					$this->form_validation->set_rules('occupation', 'lang:bf_occupation', 'trim|strip_tags|integer|xss_clean');
 					$this->form_validation->set_rules('veteran', 'lang:bf_veteran', 'trim|strip_tags|integer|xss_clean');	
-					$meta_data = array();
-					foreach ($meta_fields as $field)
-					{
+					//$meta_data = array();
+					/* 					foreach ($meta_fields as $field)
+						{
 						if ((!isset($field['admin_only']) || $field['admin_only'] === FALSE
 						|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
 						&& isset($this->current_user) && $this->current_user->role_id == 1))
 						&& (!isset($field['frontend']) || $field['frontend'] === TRUE))
 						{
-							$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
-							
-							$meta_data[$field['name']] = $this->input->post($field['name']);
+						$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
+						
+						$meta_data[$field['name']] = $this->input->post($field['name']);
 						}
-					}
+					} */
 				}
+				$succeeded=0;
 				if ($this->form_validation->run($this) !== FALSE)
 				{
 					// Time to save the user...
@@ -489,9 +486,9 @@
 					'username'	=> isset($_POST['username']) ? $_POST['username'] : '',
 					'password'	=> $_POST['password'],
 					'language'	=> 'english',
-					// 'timezone'	=> $this->input->post('timezones'),
 					);
-					
+					if($role=='company')
+					$data['role_id'] = $this->role_model->find_by_name('company')->role_id;
 					// User activation method
 					$activation_method = $this->settings_lib->item('auth.user_activation_method');
 					
@@ -504,31 +501,52 @@
 					
 					if ($user_id = $this->user_model->insert($data))
 					{
-						$str = explode("/",$this->input->post('birth_month'));
-						$user_info = array(
-						'user_info_user_id'           => $user_id,
-						'user_info_birth_year'		=> $str[1],
-						'user_info_birth_month'		=> $str[0],
-						'user_info_zipcode'		=> $this->input->post('zipcode'),
-						'user_info_race'		=> $this->input->post('race'),
-						'user_info_education'		=> $this->input->post('education'),
-						'user_info_first_name'		=> $this->input->post('first_name'),
-						'user_info_last_name'		=> $this->input->post('last_name'),
-						'user_info_gender'		=> $this->input->post('gender'),
-						'user_info_occupation_id'		=> $this->input->post('occupation_id'),
-						'user_info_veteran'		=> $this->input->post('veteran'),
-						'user_info_tutorial_flag' => 1,					
-						);
 						
-						$user_info['user_info_industry_id'] = $this->input->post('industry_id')!==false OR $this->input->post('industry_id')!='' ? $this->input->post('industry_id') : null;
-						
-						$user_info['user_info_occupation_id'] = $this->input->post('occupation_id')!==false OR $this->input->post('occupation_id')!='' ?  $this->input->post('occupation_id') : null;
-						
-						$user_info['user_info_veteran'] = $this->input->post('veteran')!==false ? $this->input->post('veteran') : null;
-						
-						$this->load->model('user_info/user_info_model')->insert($user_info);
+						if($role == 'user')
+						{
+							$str = explode("/",$this->input->post('birth_month'));
+							//required fields
+							$user_info = array(
+							'user_info_user_id'           => $user_id,
+							'user_info_birth_year'		=> $str[1],
+							'user_info_birth_month'		=> $str[0],
+							'user_info_zipcode'		=> $this->input->post('zipcode'),
+							'user_info_race'		=> $this->input->post('race'),
+							'user_info_education'		=> $this->input->post('education'),
+							'user_info_tutorial_flag' => 1,);
+							//additional fields
+							$user_info['user_info_industry_id'] = $this->input->post('industry_id')!==false OR $this->input->post('industry_id')!='' ? $this->input->post('industry_id') : null;
+							$user_info['user_info_first_name'] = $this->input->post('first_name')!='' ? $this->input->post('first_name') : null;
+							$user_info['user_info_last_name'] = $this->input->post('last_name')!='' ? $this->input->post('last_name') : null;
+							$user_info['user_info_veteran'] = $this->input->post('veteran')!==false ? $this->input->post('veteran') : null;
+							$user_info['user_info_gender'] = $this->input->post('gender')!==false ? $this->input->post('gender') : null;
+							
+							//insert
+							$succeeded = $this->load->model('user_info/user_info_model')->insert($user_info);
+						}
+						elseif ($role == 'company')
+						{
+							//required fields
+							$company_info = array(
+							'company_userid'=>$user_id,
+							'company_name'=>$this->input->post('company_name'),
+							'company_url'=>$this->input->post('company_url'),
+							'company_industry_id'=>$this->input->post('company_industry_id'),
+							'company_description'=>$this->input->post('company_description'),
+							'company_zipcode'=>$this->input->post('zipcode'),
+							);
+							//additional fields
+							$company_info['company_first_name'] = $this->input->post('first_name')!='' ? $this->input->post('first_name') : null;
+							$company_info['company_last_name'] = $this->input->post('last_name')!='' ? $this->input->post('last_name') : null;
+							//insert
+							$succeeded = $this->load->model('company/company_model')->create_company($company_info);
+						}
+						if(!$succeeded)
+						$this->user_model->delete($user_id);
+					}
+					if($succeeded){
 						// now add the meta is there is meta data
-						$this->user_model->save_meta_for($user_id, $meta_data);
+						//$this->user_model->save_meta_for($user_id, $meta_data);
 						
 						/*
 							* USER ACTIVATIONS ENHANCEMENT
@@ -630,7 +648,10 @@
 					else
 					{
 						Template::set_message(lang('us_registration_fail'), 'error');
+						if($role=='user')
 						redirect('/register');
+						elseif($role=='company')
+						redirect('/company_register');
 					}//end if
 				}//end if
 			}//end if
@@ -938,9 +959,11 @@
 			Template::render();
 		}
 		//a user must be at least 5 years old
-		public function birth_month_check($str)
+		public function _birth_month_check($str)
 		{
-			$bm = strtotime($str);
+			$mmyyyy = explode("/",$str);
+			$bmstr = $mmyyyy [1]."-".$mmyyyy [0];
+			$bm = strtotime($bmstr);
 			if($bm === false) return false;
 			return (time()-$bm)>(60*60*24*365*5);
 		}

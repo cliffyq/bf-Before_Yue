@@ -102,19 +102,7 @@
 					</select> 
 				</div>
 			</div>
-			
-			<div class="control-group offset1">
-				<label class="control-label required" for="first_name"><?php echo lang('bf_full_name'); ?></label>
-				<div class="controls"> 
-					<input value="<?php echo set_value('first_name') ?>"  type="text"  class="input-medium inline" placeholder="First name" id="first_name"
-					name="first_name" value="" pattern="[a-z A-Z]{1,25}" maxlength="25"
-					required="required" /> 
-					<input value="<?php echo set_value('last_name') ?>"
-					type="text" placeholder="Last name" id="last_name" name="last_name"
-					value="" pattern="[a-z A-Z]{1,25}" maxlength="25" class="input-medium inline" 
-					required="required" /> 
-				</div>
-			</div>
+
 
 			<div class="row-fluid">
 				<div class="span8 offset2">
@@ -127,7 +115,7 @@
 			</div>
 						
 			<div class="control-group offset1">
-				<label class="control-label required" ><?php echo lang('bf_gender'); ?></label>
+				<label class="control-label" ><?php echo lang('bf_gender'); ?></label>
 				<div class="controls row-fluid  additional_field">
 					<label class="radio inline" for="gender_f" >
 						<input
@@ -137,7 +125,19 @@
 					type="radio" id="gender_m" name="gender" value="1"/> <?php echo lang('bf_male'); ?></label>
 				</div>
 			</div>
-		
+					
+			<div class="control-group offset1">
+				<label class="control-label " for="first_name"><?php echo lang('bf_full_name'); ?></label>
+				<div class="controls additional_field"> 
+					<input value="<?php echo set_value('first_name') ?>"  type="text"  class="input-medium inline" placeholder="First name" id="first_name"
+					name="first_name" value="" pattern="[a-z A-Z]{1,25}" maxlength="25"
+					 /> 
+					<input value="<?php echo set_value('last_name') ?>"
+					type="text" placeholder="Last name" id="last_name" name="last_name"
+					value="" pattern="[a-z A-Z]{1,25}" maxlength="25" class="input-medium inline" 
+					 /> 
+				</div>
+			</div>
 			<?php echo form_dropdown('company_industry_id', $industry_dropdown,'',lang('bf_company_industry_id'),'offset1','required','class="input-xlarge additional_field"');?>
 
 			
