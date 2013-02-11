@@ -17,7 +17,7 @@
 	<div class="row-fluid">
 		<div class="span12">
 			
-			<?php echo form_open_multipart('register', array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
+			<?php echo form_open_multipart('company_register', array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 			
 						<div class="control-group offset1">
 				<label class="control-label required" for="company_name"><?php echo lang('bf_company_name'); ?></label>
@@ -102,11 +102,11 @@
 				<div class="controls"> 
 					<input value="<?php echo set_value('first_name') ?>"  type="text"  class="input-medium inline" placeholder="First name" id="first_name"
 					name="first_name" value="" pattern="[a-z A-Z]{1,25}" maxlength="25"
-					required="required" /> 
+					 /> 
 					<input value="<?php echo set_value('last_name') ?>"
 					type="text" placeholder="Last name" id="last_name" name="last_name"
 					value="" pattern="[a-z A-Z]{1,25}" maxlength="25" class="input-medium inline" 
-					required="required" /> 
+					 /> 
 				</div>
 			</div>
 

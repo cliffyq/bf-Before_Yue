@@ -58,9 +58,3 @@
 	<option value="6">Other</option>
 </select></div>
 
-<div><label>Occupation</label><select>
-	<option value="0">Manager</option>
-	<option value="1">Teacher</option>
-	<option value="2">Journalist</option>
-	<option value="5">Other</option>
-</select></div>
