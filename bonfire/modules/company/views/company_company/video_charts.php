@@ -40,7 +40,7 @@
 		<div class="chart_content_genernal">
 			<div class = "row video_list" >
 				<?php foreach($video_cards as $video_card): ?>
-				<div class= 'span5'>
+				<div class= 'span4'>
 					<?php echo $video_card;?>
 					
 				</div>		
