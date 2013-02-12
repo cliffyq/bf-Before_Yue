@@ -29,7 +29,7 @@
 			$video_part=$this->load->module('prescreen/bootstrap')->video_part();
 			
 			
-            Template::set_theme('main','junk');
+            //Template::set_theme('main','junk');
 			Template::set('login_part',$login_part);
 			Template::set('register_part',$register_part);
 			Template::set('video_part',$video_part);
@@ -72,5 +72,10 @@
 			template::render();
 		}
 		
-		
+		public function videojs()
+		{	
+			$video=$this->load->module('video/view',47);
+			Template::set('video',$video);
+			template::render();
+		}
 	}	

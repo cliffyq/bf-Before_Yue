@@ -23,10 +23,9 @@
 		*/
 		public function index()
 		{
-		
-
 			$records = $this->load->model('video/video_model')->find_all();
-			
+			Template::set_theme('main','junk');
+			//Assets::add_css('test.css');
 			Template::set('records', $records);
 			Template::set('toolbar_title', 'Userview');
 			Template::render();

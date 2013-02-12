@@ -253,7 +253,6 @@
 						return FALSE;
 					}
 				}
-				
 				$return = $this->video_model->update($id, $data);
 			}
 			

@@ -16,23 +16,25 @@
 					
 					<?php //style="height:40px" ?>
 					<?php if (isset($current_user->email)) : ?>
-						<a href="../prescreen/bootstrap/general_page">
-							<button class="btn get_in_btn"  class="btn">
-								Get In
+					<li class="">
+							<button class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+								User
+								<span class="caret"></span>
 							</button>
-							<a href="<?php echo site_url('logout');?>">
-								<button class="btn">
-									<?php echo lang('bf_action_logout') ?>
-								</button>
-							</a>
-						</a>
+							<ul class="dropdown-menu " style="text-align:center; Padding:10px">
+									
+										<input class="btn btn-info"  class="btn" type="button" value="Dive In" />
+										<input class="btn btn-danger" onClick="location.href='<?php echo site_url('logout');?>';" type="button" id="button2" value="Log Out" />	
+							</ul>
+					</li>
 
 					<?php else :  ?>
 					
 					<li class="">
 						
 							<button class="dropdown-toggle btn" data-toggle="dropdown" href="#">
-							<?php echo lang('bf_action_login') ?>
+								<?php echo lang('bf_action_login') ?>
+								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu " style="text-align:center; Padding:10px">
 								<?php echo form_open('login', array('autocomplete' => 'off')); ?>

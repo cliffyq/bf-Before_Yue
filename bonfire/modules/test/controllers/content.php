@@ -27,8 +27,8 @@
 		
 		public function send_data()
 		{
-		        $data= 'Got you';
-                return  $data ;			
+		        Template::render();
+                		
 		}
 		
 		public function back($id)

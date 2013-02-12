@@ -96,8 +96,7 @@
 				redirect('user');
 			}
 			//Template::set($data);
-			//Template ::render();
-			
+			//Template ::render();	
 		}
 		
 	}		
