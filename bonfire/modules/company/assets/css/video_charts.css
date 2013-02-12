@@ -1,0 +1,23 @@
+.time{
+ z-index:1;
+}
+
+.chart_content_genernal{
+	
+	float: right;
+margin-top: 10px;
+margin-left: 2px;
+margin-bottom: 20px;
+padding: 10px;
+z-index:0;
+
+	}
+	
+.chart_general{
+	background: #f5f5f5;
+	}
+	
+.video_chart_search{
+	margin-top: 20px;
+	
+	}

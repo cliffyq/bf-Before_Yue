@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['ajax_manage']			= 'Manage Ajax';
+$lang['ajax_edit']				= 'Edit';
+$lang['ajax_true']				= 'True';
+$lang['ajax_false']				= 'False';
+$lang['ajax_create']			= 'Create';
+$lang['ajax_list']				= 'List';
+$lang['ajax_new']				= 'New';
+$lang['ajax_edit_text']			= 'Edit this to suit your needs';
+$lang['ajax_no_records']			= 'There aren\'t any ajax in the system.';
+$lang['ajax_create_new']			= 'Create a new Ajax.';
+$lang['ajax_create_success']			= 'Ajax successfully created.';
+$lang['ajax_create_failure']			= 'There was a problem creating the ajax: ';
+$lang['ajax_create_new_button']			= 'Create New Ajax';
+$lang['ajax_invalid_id']			= 'Invalid Ajax ID.';
+$lang['ajax_edit_success']			= 'Ajax successfully saved.';
+$lang['ajax_edit_failure']			= 'There was a problem saving the ajax: ';
+$lang['ajax_delete_success']			= 'record(s) successfully deleted.';
+$lang['ajax_delete_failure']			= 'We could not delete the record: ';
+$lang['ajax_delete_error']			= 'You have not selected any records to delete.';
+$lang['ajax_actions']			= 'Actions';
+$lang['ajax_cancel']			= 'Cancel';
+$lang['ajax_delete_record']			= 'Delete this Ajax';
+$lang['ajax_delete_confirm']			= 'Are you sure you want to delete this ajax?';
+$lang['ajax_edit_heading']			= 'Edit Ajax';
+
+// Activities
+$lang['ajax_act_create_record']			= 'Created record with ID';
+$lang['ajax_act_edit_record']			= 'Updated record with ID';
+$lang['ajax_act_delete_record']			= 'Deleted record with ID';

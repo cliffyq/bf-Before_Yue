@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['purchase_history_manage']			= 'Manage Purchase history';
+$lang['purchase_history_edit']				= 'Edit';
+$lang['purchase_history_true']				= 'True';
+$lang['purchase_history_false']				= 'False';
+$lang['purchase_history_create']			= 'Create';
+$lang['purchase_history_list']				= 'List';
+$lang['purchase_history_new']				= 'New';
+$lang['purchase_history_edit_text']			= 'Edit this to suit your needs';
+$lang['purchase_history_no_records']			= 'There aren\'t any purchase_history in the system.';
+$lang['purchase_history_create_new']			= 'Create a new Purchase history.';
+$lang['purchase_history_create_success']			= 'Purchase history successfully created.';
+$lang['purchase_history_create_failure']			= 'There was a problem creating the purchase_history: ';
+$lang['purchase_history_create_new_button']			= 'Create New Purchase history';
+$lang['purchase_history_invalid_id']			= 'Invalid Purchase history ID.';
+$lang['purchase_history_edit_success']			= 'Purchase history successfully saved.';
+$lang['purchase_history_edit_failure']			= 'There was a problem saving the purchase_history: ';
+$lang['purchase_history_delete_success']			= 'record(s) successfully deleted.';
+$lang['purchase_history_delete_failure']			= 'We could not delete the record: ';
+$lang['purchase_history_delete_error']			= 'You have not selected any records to delete.';
+$lang['purchase_history_actions']			= 'Actions';
+$lang['purchase_history_cancel']			= 'Cancel';
+$lang['purchase_history_delete_record']			= 'Delete this Purchase history';
+$lang['purchase_history_delete_confirm']			= 'Are you sure you want to delete this purchase_history?';
+$lang['purchase_history_edit_heading']			= 'Edit Purchase history';
+
+// Activities
+$lang['purchase_history_act_create_record']			= 'Created record with ID';
+$lang['purchase_history_act_edit_record']			= 'Updated record with ID';
+$lang['purchase_history_act_delete_record']			= 'Deleted record with ID';

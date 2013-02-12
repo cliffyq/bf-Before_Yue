@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['answer_manage']			= 'Manage answer';
+$lang['answer_edit']				= 'Edit';
+$lang['answer_true']				= 'True';
+$lang['answer_false']				= 'False';
+$lang['answer_create']			= 'Create';
+$lang['answer_list']				= 'List';
+$lang['answer_new']				= 'New';
+$lang['answer_edit_text']			= 'Edit this to suit your needs';
+$lang['answer_no_records']			= 'There aren\'t any answer in the system.';
+$lang['answer_create_new']			= 'Create a new answer.';
+$lang['answer_create_success']			= 'answer successfully created.';
+$lang['answer_create_failure']			= 'There was a problem creating the answer: ';
+$lang['answer_create_new_button']			= 'Create New answer';
+$lang['answer_invalid_id']			= 'Invalid answer ID.';
+$lang['answer_edit_success']			= 'answer successfully saved.';
+$lang['answer_edit_failure']			= 'There was a problem saving the answer: ';
+$lang['answer_delete_success']			= 'record(s) successfully deleted.';
+$lang['answer_delete_failure']			= 'We could not delete the record: ';
+$lang['answer_delete_error']			= 'You have not selected any records to delete.';
+$lang['answer_actions']			= 'Actions';
+$lang['answer_cancel']			= 'Cancel';
+$lang['answer_delete_record']			= 'Delete this answer';
+$lang['answer_delete_confirm']			= 'Are you sure you want to delete this answer?';
+$lang['answer_edit_heading']			= 'Edit answer';
+
+// Activities
+$lang['answer_act_create_record']			= 'Created record with ID';
+$lang['answer_act_edit_record']			= 'Updated record with ID';
+$lang['answer_act_delete_record']			= 'Deleted record with ID';

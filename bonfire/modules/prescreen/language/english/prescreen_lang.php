@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['prescreen_manage']			= 'Manage prescreen';
+$lang['prescreen_edit']				= 'Edit';
+$lang['prescreen_true']				= 'True';
+$lang['prescreen_false']				= 'False';
+$lang['prescreen_create']			= 'Create';
+$lang['prescreen_list']				= 'List';
+$lang['prescreen_new']				= 'New';
+$lang['prescreen_edit_text']			= 'Edit this to suit your needs';
+$lang['prescreen_no_records']			= 'There aren\'t any prescreen in the system.';
+$lang['prescreen_create_new']			= 'Create a new prescreen.';
+$lang['prescreen_create_success']			= 'prescreen successfully created.';
+$lang['prescreen_create_failure']			= 'There was a problem creating the prescreen: ';
+$lang['prescreen_create_new_button']			= 'Create New prescreen';
+$lang['prescreen_invalid_id']			= 'Invalid prescreen ID.';
+$lang['prescreen_edit_success']			= 'prescreen successfully saved.';
+$lang['prescreen_edit_failure']			= 'There was a problem saving the prescreen: ';
+$lang['prescreen_delete_success']			= 'record(s) successfully deleted.';
+$lang['prescreen_delete_failure']			= 'We could not delete the record: ';
+$lang['prescreen_delete_error']			= 'You have not selected any records to delete.';
+$lang['prescreen_actions']			= 'Actions';
+$lang['prescreen_cancel']			= 'Cancel';
+$lang['prescreen_delete_record']			= 'Delete this prescreen';
+$lang['prescreen_delete_confirm']			= 'Are you sure you want to delete this prescreen?';
+$lang['prescreen_edit_heading']			= 'Edit prescreen';
+
+// Activities
+$lang['prescreen_act_create_record']			= 'Created record with ID';
+$lang['prescreen_act_edit_record']			= 'Updated record with ID';
+$lang['prescreen_act_delete_record']			= 'Deleted record with ID';

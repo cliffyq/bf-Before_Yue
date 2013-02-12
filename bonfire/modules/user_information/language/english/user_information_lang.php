@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['user_information_manage']			= 'Manage user information';
+$lang['user_information_edit']				= 'Edit';
+$lang['user_information_true']				= 'True';
+$lang['user_information_false']				= 'False';
+$lang['user_information_create']			= 'Create';
+$lang['user_information_list']				= 'List';
+$lang['user_information_new']				= 'New';
+$lang['user_information_edit_text']			= 'Edit this to suit your needs';
+$lang['user_information_no_records']			= 'There aren\'t any user_information in the system.';
+$lang['user_information_create_new']			= 'Create a new user information.';
+$lang['user_information_create_success']			= 'user information successfully created.';
+$lang['user_information_create_failure']			= 'There was a problem creating the user_information: ';
+$lang['user_information_create_new_button']			= 'Create New user information';
+$lang['user_information_invalid_id']			= 'Invalid user information ID.';
+$lang['user_information_edit_success']			= 'user information successfully saved.';
+$lang['user_information_edit_failure']			= 'There was a problem saving the user_information: ';
+$lang['user_information_delete_success']			= 'record(s) successfully deleted.';
+$lang['user_information_delete_failure']			= 'We could not delete the record: ';
+$lang['user_information_delete_error']			= 'You have not selected any records to delete.';
+$lang['user_information_actions']			= 'Actions';
+$lang['user_information_cancel']			= 'Cancel';
+$lang['user_information_delete_record']			= 'Delete this user information';
+$lang['user_information_delete_confirm']			= 'Are you sure you want to delete this user_information?';
+$lang['user_information_edit_heading']			= 'Edit user information';
+
+// Activities
+$lang['user_information_act_create_record']			= 'Created record with ID';
+$lang['user_information_act_edit_record']			= 'Updated record with ID';
+$lang['user_information_act_delete_record']			= 'Deleted record with ID';

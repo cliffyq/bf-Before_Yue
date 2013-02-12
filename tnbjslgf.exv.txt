@@ -1,0 +1,326 @@
+Merge remote-tracking branch 'upstream/company-registration'
+
+Conflicts:
+	bonfire/themes/main/index.php
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	new file:   assets/images/Footer.jpg
+#	new file:   assets/images/Logo.png
+#	new file:   assets/images/black-opacity-40.png
+#	new file:   assets/images/black-opacity-60.png
+#	new file:   assets/images/black-opacity-80.png
+#	new file:   assets/images/homepage/Footer.jpg
+#	new file:   assets/images/homepage/Logo.png
+#	new file:   assets/images/homepage/SlideImage1.gif
+#	new file:   assets/images/homepage/SlideImage2.jpg
+#	new file:   assets/images/homepage/SlideImage3.jpg
+#	new file:   assets/images/homepage/SlideImage4.jpg
+#	new file:   assets/images/homepage/arrows.png
+#	new file:   assets/images/homepage/black-opacity-40.png
+#	new file:   assets/images/homepage/black-opacity-60.png
+#	new file:   assets/images/homepage/black-opacity-80.png
+#	new file:   assets/images/homepage/wall7.jpg
+#	new file:   assets/images/homepage/white-opacity-40.png
+#	new file:   assets/images/homepage/white-opacity-60.png
+#	new file:   assets/images/homepage/white-opacity-80.png
+#	new file:   assets/images/wall7.jpg
+#	new file:   assets/images/white-opacity-40.png
+#	new file:   assets/images/white-opacity-60.png
+#	new file:   assets/images/white-opacity-80.png
+#	modified:   bonfire/application/config/routes.php
+#	new file:   bonfire/application/db/backups/20130202.txt
+#	new file:   bonfire/application/db/backups/development_backup_2013-01-28_025439.txt
+#	new file:   bonfire/application/db/backups/development_backup_2013-02-2_225450.txt
+#	new file:   bonfire/application/db/backups/development_backup_2013-02-6_062532.txt
+#	modified:   bonfire/application/helpers/MY_form_helper.php
+#	modified:   bonfire/application/language/english/application_lang.php
+#	new file:   bonfire/modules/ajax/test1_8.txt
+#	modified:   bonfire/modules/comment/controllers/comment.php
+#	modified:   bonfire/modules/comment/views/comment_panel_ajax.php
+#	new file:   bonfire/modules/company/assets/css/video_charts.css
+#	modified:   bonfire/modules/company/controllers/company_company.php
+#	modified:   bonfire/modules/company/controllers/content.php
+#	modified:   bonfire/modules/company/models/company_model.php
+#	new file:   bonfire/modules/company/views/company_company/company_list.php
+#	new file:   bonfire/modules/company/views/company_company/company_page.php
+#	new file:   bonfire/modules/company/views/company_company/video_charts.php
+#	new file:   bonfire/modules/company/views/company_company/video_charts_ajax.php
+#	modified:   bonfire/modules/company/views/company_company/video_report.php
+#	new file:   bonfire/modules/company/views/inline_js/video_charts_pag_ajax.js.php
+#	new file:   bonfire/modules/homepage/assets/js/homepage.js
+#	new file:   bonfire/modules/homepage/config/config.php
+#	new file:   bonfire/modules/homepage/controllers/homepage.php
+#	new file:   bonfire/modules/homepage/language/english/homepage_lang.php
+#	new file:   bonfire/modules/homepage/migrations/001_Install_homepage_permissions.php
+#	new file:   bonfire/modules/homepage/views/content/_sub_nav.php
+#	new file:   bonfire/modules/homepage/views/content/create.php
+#	new file:   bonfire/modules/homepage/views/content/edit.php
+#	new file:   bonfire/modules/homepage/views/content/index.php
+#	new file:   bonfire/modules/homepage/views/developer/_sub_nav.php
+#	new file:   bonfire/modules/homepage/views/developer/create.php
+#	new file:   bonfire/modules/homepage/views/developer/edit.php
+#	new file:   bonfire/modules/homepage/views/developer/index.php
+#	new file:   bonfire/modules/homepage/views/home/index.php
+#	new file:   bonfire/modules/homepage/views/homepage/center_block.php
+#	new file:   bonfire/modules/homepage/views/homepage/center_block_part.php
+#	new file:   bonfire/modules/homepage/views/homepage/index.php
+#	new file:   bonfire/modules/homepage/views/index.php
+#	new file:   bonfire/modules/homepage/views/reports/_sub_nav.php
+#	new file:   bonfire/modules/homepage/views/reports/create.php
+#	new file:   bonfire/modules/homepage/views/reports/edit.php
+#	new file:   bonfire/modules/homepage/views/reports/index.php
+#	new file:   bonfire/modules/homepage/views/settings/_sub_nav.php
+#	new file:   bonfire/modules/homepage/views/settings/create.php
+#	new file:   bonfire/modules/homepage/views/settings/edit.php
+#	new file:   bonfire/modules/homepage/views/settings/index.php
+#	new file:   bonfire/modules/industry/assets/js/industry.js
+#	new file:   bonfire/modules/industry/config/config.php
+#	new file:   bonfire/modules/industry/controllers/content.php
+#	new file:   bonfire/modules/industry/controllers/developer.php
+#	new file:   bonfire/modules/industry/controllers/industry.php
+#	new file:   bonfire/modules/industry/controllers/reports.php
+#	new file:   bonfire/modules/industry/controllers/settings.php
+#	new file:   bonfire/modules/industry/language/english/industry_lang.php
+#	new file:   bonfire/modules/industry/migrations/001_Install_industry_permissions.php
+#	new file:   bonfire/modules/industry/migrations/002_Install_industry.php
+#	renamed:    bonfire/modules/company/models/company_model.php -> bonfire/modules/industry/models/industry_model.php
+#	new file:   bonfire/modules/industry/views/content/_sub_nav.php
+#	new file:   bonfire/modules/industry/views/content/create.php
+#	new file:   bonfire/modules/industry/views/content/edit.php
+#	new file:   bonfire/modules/industry/views/content/index.php
+#	new file:   bonfire/modules/industry/views/developer/_sub_nav.php
+#	new file:   bonfire/modules/industry/views/developer/create.php
+#	new file:   bonfire/modules/industry/views/developer/edit.php
+#	new file:   bonfire/modules/industry/views/developer/index.php
+#	new file:   bonfire/modules/industry/views/index.php
+#	new file:   bonfire/modules/industry/views/reports/_sub_nav.php
+#	new file:   bonfire/modules/industry/views/reports/create.php
+#	new file:   bonfire/modules/industry/views/reports/edit.php
+#	new file:   bonfire/modules/industry/views/reports/index.php
+#	new file:   bonfire/modules/industry/views/settings/_sub_nav.php
+#	new file:   bonfire/modules/industry/views/settings/create.php
+#	new file:   bonfire/modules/industry/views/settings/edit.php
+#	new file:   bonfire/modules/industry/views/settings/index.php
+#	modified:   bonfire/modules/prescreen/controllers/bootstrap.php
+#	new file:   bonfire/modules/prescreen/controllers/themetest.php
+#	new file:   bonfire/modules/prescreen/views/bootstrap/general_page - backup.php
+#	modified:   bonfire/modules/prescreen/views/bootstrap/general_page.php
+#	new file:   bonfire/modules/prescreen/views/bootstrap/topbug.php
+#	new file:   bonfire/modules/prescreen/views/themetest/foreachtest.php
+#	new file:   bonfire/modules/prescreen/views/themetest/multisort.php
+#	new file:   bonfire/modules/prescreen/views/themetest/topbug.php
+#	new file:   bonfire/modules/prescreen/views/themetest/videojs.php
+#	new file:   bonfire/modules/preview/assets/css/center_video.css
+#	new file:   bonfire/modules/preview/assets/css/style.css
+#	new file:   bonfire/modules/preview/assets/css/test.css
+#	new file:   bonfire/modules/preview/assets/js/jquery.aw-showcase.js
+#	new file:   bonfire/modules/preview/assets/js/preview.js
+#	new file:   bonfire/modules/preview/config/config.php
+#	new file:   bonfire/modules/preview/controllers/homepage.php
+#	new file:   bonfire/modules/preview/language/english/preview_lang.php
+#	new file:   bonfire/modules/preview/migrations/001_Install_preview_permissions.php
+#	new file:   bonfire/modules/preview/views/content/_sub_nav.php
+#	new file:   bonfire/modules/preview/views/content/create.php
+#	new file:   bonfire/modules/preview/views/content/edit.php
+#	new file:   bonfire/modules/preview/views/content/index.php
+#	new file:   bonfire/modules/preview/views/developer/_sub_nav.php
+#	new file:   bonfire/modules/preview/views/developer/create.php
+#	new file:   bonfire/modules/preview/views/developer/edit.php
+#	new file:   bonfire/modules/preview/views/developer/index.php
+#	new file:   bonfire/modules/preview/views/homepage/center_block.php
+#	new file:   bonfire/modules/preview/views/homepage/footer_block.php
+#	new file:   bonfire/modules/preview/views/homepage/header_block.php
+#	new file:   bonfire/modules/preview/views/homepage/index.php
+#	new file:   bonfire/modules/preview/views/index.php
+#	new file:   bonfire/modules/preview/views/inline_js/homepage_control.js.php
+#	new file:   bonfire/modules/preview/views/inline_js/showcase.js.php
+#	new file:   bonfire/modules/preview/views/reports/_sub_nav.php
+#	new file:   bonfire/modules/preview/views/reports/create.php
+#	new file:   bonfire/modules/preview/views/reports/edit.php
+#	new file:   bonfire/modules/preview/views/reports/index.php
+#	new file:   bonfire/modules/preview/views/settings/_sub_nav.php
+#	new file:   bonfire/modules/preview/views/settings/create.php
+#	new file:   bonfire/modules/preview/views/settings/edit.php
+#	new file:   bonfire/modules/preview/views/settings/index.php
+#	modified:   bonfire/modules/purchase_history/controllers/user.php
+#	modified:   bonfire/modules/test/controllers/test.php
+#	new file:   bonfire/modules/test/views/dropdown_test.php
+#	new file:   bonfire/modules/test/views/test/dropdown_test.php
+#	modified:   bonfire/modules/user/controllers/user.php
+#	modified:   bonfire/modules/users/controllers/users.php
+#	new file:   bonfire/modules/users/views/users/company_register.php
+#	modified:   bonfire/modules/users/views/users/register.php
+#	new file:   bonfire/modules/video/assets/css/video_card.css
+#	modified:   bonfire/modules/video/controllers/video.php
+#	modified:   bonfire/modules/video/models/video_model.php
+#	new file:   bonfire/modules/video/views/video_card.php
+#	modified:   bonfire/modules/video/views/view.php
+#	modified:   bonfire/modules/video_view_history/models/video_view_history_model.php
+#	new file:   bonfire/themes/Two column/ajax.php
+#	new file:   bonfire/themes/Two column/css/bootstrap-responsive.css
+#	new file:   bonfire/themes/Two column/css/bootstrap-responsive.min.css
+#	new file:   bonfire/themes/Two column/css/bootstrap.css
+#	new file:   bonfire/themes/Two column/css/bootstrap.min.css
+#	new file:   bonfire/themes/Two column/css/main.css
+#	new file:   bonfire/themes/Two column/css/style.css
+#	new file:   bonfire/themes/Two column/css/test.css
+#	new file:   bonfire/themes/Two column/images/Footer.jpg
+#	new file:   bonfire/themes/Two column/images/Logo.png
+#	new file:   bonfire/themes/Two column/images/LogoPSD.jpg
+#	new file:   bonfire/themes/Two column/images/SlideImage1.gif
+#	new file:   bonfire/themes/Two column/images/SlideImage2.jpg
+#	new file:   bonfire/themes/Two column/images/SlideImage3.jpg
+#	new file:   bonfire/themes/Two column/images/SlideImage4.jpg
+#	new file:   bonfire/themes/Two column/images/black-opacity-60.png
+#	new file:   bonfire/themes/Two column/images/black-opacity-80.png
+#	new file:   bonfire/themes/Two column/images/glyphicons-halflings-sprite.png
+#	new file:   bonfire/themes/Two column/images/glyphicons-halflings-white.png
+#	new file:   bonfire/themes/Two column/images/glyphicons-halflings.png
+#	new file:   bonfire/themes/Two column/images/homepage/Footer.jpg
+#	new file:   bonfire/themes/Two column/images/homepage/Logo.png
+#	new file:   bonfire/themes/Two column/images/homepage/arrows.png
+#	new file:   bonfire/themes/Two column/images/homepage/black-opacity-40.png
+#	new file:   bonfire/themes/Two column/images/homepage/black-opacity-60.png
+#	new file:   bonfire/themes/Two column/images/homepage/black-opacity-80.png
+#	new file:   bonfire/themes/Two column/images/homepage/wall7.jpg
+#	new file:   bonfire/themes/Two column/images/homepage/white-opacity-40.png
+#	new file:   bonfire/themes/Two column/images/homepage/white-opacity-60.png
+#	new file:   bonfire/themes/Two column/images/homepage/white-opacity-80.png
+#	renamed:    bonfire/themes/main/images/logo.jpg -> bonfire/themes/Two column/images/logo.jpg
+#	new file:   bonfire/themes/Two column/images/logo_v1.png
+#	renamed:    bonfire/themes/main/images/mo.png -> bonfire/themes/Two column/images/mo.png
+#	renamed:    bonfire/themes/main/images/peter.png -> bonfire/themes/Two column/images/peter.png
+#	new file:   bonfire/themes/Two column/images/user.png
+#	new file:   bonfire/themes/Two column/images/wall1.png
+#	new file:   bonfire/themes/Two column/images/wall2.png
+#	new file:   bonfire/themes/Two column/images/wall3.png
+#	new file:   bonfire/themes/Two column/images/wall4.png
+#	new file:   bonfire/themes/Two column/images/wall7.jpg
+#	new file:   bonfire/themes/Two column/images/white-opacity-40.png
+#	new file:   bonfire/themes/Two column/images/white-opacity-60.png
+#	new file:   bonfire/themes/Two column/images/white-opacity-80.png
+#	new file:   bonfire/themes/Two column/index.php
+#	new file:   bonfire/themes/Two column/js/bootstrap.js
+#	new file:   bonfire/themes/Two column/js/bootstrap.min.js
+#	new file:   bonfire/themes/Two column/js/dropdown_control.js
+#	new file:   bonfire/themes/Two column/parts/_footer.php
+#	new file:   bonfire/themes/Two column/parts/_header.php
+#	new file:   bonfire/themes/Two column/parts/companyside.php
+#	new file:   bonfire/themes/Two column/parts/head.php
+#	new file:   bonfire/themes/Two column/parts/modal_login.php
+#	new file:   bonfire/themes/Two column/parts/sidebar.php
+#	new file:   bonfire/themes/Two column/parts/topbar.php
+#	new file:   bonfire/themes/Two column/screen-rtl.css
+#	new file:   bonfire/themes/Two column/screen.css
+#	modified:   bonfire/themes/Two/css/main.css
+#	modified:   bonfire/themes/Two/parts/sidebar.php
+#	modified:   bonfire/themes/main/css/main.css
+#	new file:   bonfire/themes/main/css/style.css
+#	new file:   bonfire/themes/main/css/test.css
+#	new file:   bonfire/themes/main/images/Footer.jpg
+#	new file:   bonfire/themes/main/images/Logo.png
+#	new file:   bonfire/themes/main/images/SlideImage1.gif
+#	new file:   bonfire/themes/main/images/SlideImage2.jpg
+#	new file:   bonfire/themes/main/images/SlideImage3.jpg
+#	new file:   bonfire/themes/main/images/SlideImage4.jpg
+#	new file:   bonfire/themes/main/images/black-opacity-60.png
+#	new file:   bonfire/themes/main/images/black-opacity-80.png
+#	new file:   bonfire/themes/main/images/homepage/Footer.jpg
+#	new file:   bonfire/themes/main/images/homepage/Logo.png
+#	new file:   bonfire/themes/main/images/homepage/arrows.png
+#	new file:   bonfire/themes/main/images/homepage/black-opacity-40.png
+#	new file:   bonfire/themes/main/images/homepage/black-opacity-60.png
+#	new file:   bonfire/themes/main/images/homepage/black-opacity-80.png
+#	new file:   bonfire/themes/main/images/homepage/wall7.jpg
+#	new file:   bonfire/themes/main/images/homepage/white-opacity-40.png
+#	new file:   bonfire/themes/main/images/homepage/white-opacity-60.png
+#	new file:   bonfire/themes/main/images/homepage/white-opacity-80.png
+#	new file:   bonfire/themes/main/images/logo_v1.png
+#	new file:   bonfire/themes/main/images/wall7.jpg
+#	new file:   bonfire/themes/main/images/white-opacity-40.png
+#	new file:   bonfire/themes/main/images/white-opacity-60.png
+#	new file:   bonfire/themes/main/images/white-opacity-80.png
+#	modified:   bonfire/themes/main/index.php
+#	new file:   bonfire/themes/main/js/dropdown_control.js
+#	modified:   bonfire/themes/main/parts/_footer.php
+#	modified:   bonfire/themes/main/parts/_header.php
+#	modified:   bonfire/themes/main/parts/topbar.php
+#	modified:   bonfire/themes/main/screen.css
+#	new file:   bonfire/user/assets/js/user.js
+#	new file:   bonfire/user/config/config.php
+#	new file:   bonfire/user/controllers/reload.php
+#	new file:   bonfire/user/controllers/user.php
+#	new file:   bonfire/user/language/english/user_lang.php
+#	new file:   bonfire/user/migrations/001_Install_user_permissions.php
+#	new file:   bonfire/user/views/content/_sub_nav.php
+#	new file:   bonfire/user/views/content/create.php
+#	new file:   bonfire/user/views/content/db_comment.php
+#	new file:   bonfire/user/views/content/edit.php
+#	new file:   bonfire/user/views/content/index.php
+#	new file:   bonfire/user/views/content/load_data.php
+#	new file:   bonfire/user/views/content/pagination.php
+#	new file:   bonfire/user/views/content/save_data.php
+#	new file:   bonfire/user/views/content/upload.php
+#	new file:   bonfire/user/views/content/videofunction.php
+#	new file:   bonfire/user/views/content/view-old.php
+#	new file:   bonfire/user/views/content/view.php
+#	new file:   bonfire/user/views/developer/_sub_nav.php
+#	new file:   bonfire/user/views/developer/create.php
+#	new file:   bonfire/user/views/developer/edit.php
+#	new file:   bonfire/user/views/developer/index.php
+#	new file:   bonfire/user/views/index.php
+#	new file:   bonfire/user/views/reports/_sub_nav.php
+#	new file:   bonfire/user/views/reports/create.php
+#	new file:   bonfire/user/views/reports/edit.php
+#	new file:   bonfire/user/views/reports/index.php
+#	new file:   bonfire/user/views/settings/_sub_nav.php
+#	new file:   bonfire/user/views/settings/create.php
+#	new file:   bonfire/user/views/settings/edit.php
+#	new file:   bonfire/user/views/settings/index.php
+#	new file:   bonfire/user/views/view.php
+#	new file:   bonfire/user/views/view/_sub_nav.php
+#	new file:   bonfire/user/views/view/create.php
+#	new file:   bonfire/user/views/view/edit.php
+#	new file:   bonfire/user/views/view/index.php
+#	new file:   bonfire/users/assets/js/jquery.strength.js
+#	new file:   bonfire/users/assets/js/password_strength.js
+#	new file:   bonfire/users/config/config.php
+#	new file:   bonfire/users/controllers/settings.php
+#	new file:   bonfire/users/controllers/users.php
+#	new file:   bonfire/users/language/english/users_lang.php
+#	new file:   bonfire/users/language/persian/users_lang.php
+#	new file:   bonfire/users/language/portuguese/users_lang.php
+#	new file:   bonfire/users/libraries/auth.php
+#	new file:   bonfire/users/models/user_model.php
+#	new file:   bonfire/users/views/settings/_sub_nav.php
+#	new file:   bonfire/users/views/settings/access_logs.php
+#	new file:   bonfire/users/views/settings/index.php
+#	new file:   bonfire/users/views/settings/user_form.php
+#	new file:   bonfire/users/views/user_meta.php
+#	new file:   bonfire/users/views/users/activate.php
+#	new file:   bonfire/users/views/users/forgot_password.php
+#	new file:   bonfire/users/views/users/login.php
+#	new file:   bonfire/users/views/users/profile.php
+#	new file:   bonfire/users/views/users/register.php
+#	new file:   bonfire/users/views/users/resend_activation.php
+#	new file:   bonfire/users/views/users/reset_password.php
+#	new file:   bonfire/users/views/users_js.php
+#	new file:   cuepoint.js
+#	new file:   jquery.js
+#
+
