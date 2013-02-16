@@ -37,4 +37,5 @@
 		{
 			return $this->count_by('video_view_history_video_id',$vid);
 		}
+		
 	}

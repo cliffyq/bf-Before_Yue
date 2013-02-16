@@ -29,13 +29,47 @@
 		
 		public function get_company($vid)
 		{
-				$row=$this->find_by('id',$vid);
-				if ($row ===false) return false;
- 				$company=$this->load->model('company/company_model')->find_by('id',$row->video_company_id);
-				if(strpos($company->company_url, 'http://')===false)
+			$row=$this->find_by('id',$vid);
+			if ($row ===false) return false;
+			$company=$this->load->model('company/company_model')->find_by('id',$row->video_company_id);
+			if(strpos($company->company_url, 'http://')===false)
+			{
+				$company->company_url='http://'. $company->company_url;
+			}
+			return $company;
+		}
+		
+		
+		public function video_chart($option='viewcount',$time_filter="all",$limit = 0, $offset = 0)
+		{
+			$return = array('rows'=>array(),'row_count'=>0);
+			
+			if ($time_filter=='all') $time_filter=strtotime('now');
+			
+			$time=date('Y-m-d', strtotime("-1".$time_filter));
+			// orderby viewcount, other options should use DB query.
+			$query=$this->db->get_where($this->table,array('created_on >'=>$time));
+			$results = $query->result_array();
+			if(!empty($results))
+			{
+				//$query=$this->find_all_by('created_on <',$time);
+				//$results = $query->result_array();
+				foreach ($results as $key=>&$result)
 				{
-				  $company->company_url='http://'. $company->company_url;
+					$result['viewcount']=$this->load->model('video_view_history/video_view_history_model')->get_view_count($result['id']);
+					$viewcount[$key]=$result['viewcount'];
+					$return['row_count']++;
 				}
-				return $company;
+				array_multisort($viewcount,SORT_DESC,$results);
+				//$residue = $return['row_count'] - $offset*$limit;
+				//$residue = $limit>$residue? $residue:$limit;
+				$return['rows']=array_slice($results,$offset,$limit);
+				
+				return $return;
+			}
+			else
+			return $return;
+			
+			
 		}
 	}

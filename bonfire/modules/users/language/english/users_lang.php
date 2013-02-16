@@ -39,7 +39,7 @@ $lang['us_log_logged_out']			= 'logged out from';
 $lang['us_log_reset']				= 'reset their password.';
 $lang['us_log_register']			= 'registered a new account.';
 $lang['us_log_edit_profile']		= 'updated their profile';
-$lang['us_log_status_change']       = 'status changed';
+
 
 $lang['us_deleted_users']			= 'Deleted Users';
 $lang['us_purge_del_accounts']		= 'Purge Deleted Accounts';

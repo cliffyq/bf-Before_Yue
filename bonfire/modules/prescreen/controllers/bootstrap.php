@@ -55,22 +55,53 @@
 		public function general_page()
 		{
 			
-			/*
+			
 			$video_part=$this->load->module('prescreen/bootstrap')->video_part();
 			Template::set('video_part',$video_part);
-			Template::set_theme('Two','junk');
+			Template::set_theme('Two column','junk');
 			Template::render();
-			*/
 			
+			/*
 			$data['video_part']=$this->load->module('prescreen/bootstrap')->video_part();
 			$this->load->view('bootstrap/general_page',$data);
-			
+			*/
 		}
 		
 		public function public_page()
 		{
+			Template::set_theme('main','junk');
 			template::render();
 		}
 		
+		public function  wy()
+		{	
+			//Assets::add_module_css('prescreen','test118');
+			Template::set_theme('main','junk');
+			Template::render();
+		}
+		
+		public function  zindex()
+		{
+		  $this->load->view('bootstrap/zindex');
+		  //Template::render();
+		}
+		
+		public function dropdown()
+		{ 
+		  Template::render();
+		  return $this->load->view('bootstrap/dropdown','null',true);
+		}
+		
+		public function drop()
+		{
+		    Template::set('drop',$this->dropdown());
+			Template::render();
+		}
+		
+		public function topbug()
+		{
+			Template::set_theme('main','junk');
+			Template::render();
+		}
 		
 	}	
