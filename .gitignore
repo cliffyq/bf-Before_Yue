@@ -50,5 +50,5 @@ bonfire/.ideas
 #ignore config
 bonfire/application/config/config.php
 
-#ignore videos
-upload/video/*
+#ignore uploads
+upload/*
