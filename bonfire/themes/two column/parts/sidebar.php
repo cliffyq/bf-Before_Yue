@@ -1,4 +1,4 @@
-<div class="sidebar-nav">
+<div class="well sidebar-nav">
 	<ul class="nav nav-list">
 		<li class="nav-header">Video</li>
 				<li <?php echo $this->uri->uri_string() == 'prescreen/bootstrap/general_page' ? 'class="active"' : '' ?>>

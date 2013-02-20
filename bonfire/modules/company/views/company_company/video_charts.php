@@ -1,5 +1,6 @@
-<div class="container-fluid chart_general main_content" >
+<div class="container-fluid chart_general" >
 	
+
 	<div class='chart_title_general'> 
 		
 		<h2 style="center">Charts</h2>
@@ -38,11 +39,13 @@
 			<?php if (isset($video_cards) && is_array($video_cards) && count($video_cards)) : ?>
 				<?php foreach($video_cards as $key=>$video_card): ?>
 				<div class= 'span4 <?php echo $key%3?'':'first' ?>'>
+
 					<?php echo $video_card;?>
 					
 				</div>		
 				<?php endforeach; ?>
 			</div><!--Video list-->
+
 			
 			<div id="video_chart_pagination_view_ajax_paging" class = 'pagination pagination-mini'>
 				<?php echo $pagination_links; ?>
@@ -52,6 +55,7 @@
 					No records found that match your selection.
 				
 			<?php endif; ?>
+
 		</div><!--chart_content-->
 	</div><!--chart_body-->
 	

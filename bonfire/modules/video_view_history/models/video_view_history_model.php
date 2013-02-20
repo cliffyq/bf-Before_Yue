@@ -33,9 +33,10 @@
 			$viewed_videos_json = json_encode($viewed_videos);
 			$this->session->set_userdata('viewed_videos',$viewed_videos_json);		
 		}
-		public function get_view_count($vid)
+		public function get_view_count($vid,$time=0)
 		{
-			return $this->count_by('video_view_history_video_id',$vid);
+			$request=array('video_view_history_video_id ='=>$vid,'video_view_history_created_on >'=>$time);
+			return $this->count_by($request);
 		}
 		
 	}

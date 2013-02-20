@@ -37,8 +37,6 @@ width: 80%;
 }
 
 .video_title {
-
-padding-bottom: 3px;
 color: #333;
 font-size: 13px;
 font-weight: bold;
@@ -66,6 +64,7 @@ height:20px;
 width:20px;
 }
 
+
 .ellipsis {
 display: block;
 position: relative;
@@ -75,3 +74,4 @@ text-overflow: ellipsis;
 white-space: nowrap;
 zoom: 1;
 }
+

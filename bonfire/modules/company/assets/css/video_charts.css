@@ -1,3 +1,4 @@
+
 .chart_general 
 {
 	background: #f5f5f5;
@@ -30,11 +31,10 @@
 {
 	float: right;
 	height:20px;
-	
-}
+}	
 
-.chart_content_genernal{
-	
+.chart_content_genernal
+	{
 
 	margin-left: 2px;
 	margin-bottom: 20px;
@@ -54,4 +54,3 @@
 	
 
 
-.

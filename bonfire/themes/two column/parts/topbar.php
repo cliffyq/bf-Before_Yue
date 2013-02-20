@@ -19,36 +19,36 @@
 					<?php //style="height:40px" ?>
 					<?php if (isset($current_user->email)) : ?>
 					<!--user menu-->
-					<div class="nav pull-right" id="user-menu">
-						<div class="btn-group">
-							<a href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>" id="tb_email" class="btn dark" title="<?php echo lang('bf_user_settings') ?>">
+					<li class="">
+						
+						<button class="btn  dropdown-toggle" data-toggle="dropdown" href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>" id="tb_email" class="btn dark" title="<?php echo lang('bf_user_settings') ?>">
 							<?php echo (isset($current_user->display_name) && !empty($current_user->display_name)) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email); ?>
-							</a>
-							<!-- Change **light** to **dark** to match colors -->
-							<a class="btn dropdown-toggle light" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-							<ul class="dropdown-menu toolbar-profile">
-								<li>
-									<div class="inner">
-										<!--<div class="toolbar-profile-img">   --------------wrong image address, need to be corrected
-											<?php// echo gravatar_link($current_user->email, 96, null, $current_user->display_name) ?>
-										</div> -->
-										<div class="toolbar-profile-img">
-										   <img src=<?= base_url();?>/bonfire/themes/two%20column/images/user.png  height='100px'/>
-											</div> 
-										
-										<div class="toolbar-profile-info">
-											<p><b><?php echo $current_user->display_name ?></b><br/>
-												<?php e($current_user->email) ?>
-												<br/>
-											</p>
-											<a href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>"><?php echo lang('bf_user_settings')?></a>
-											<a href="<?php echo site_url('logout'); ?>"><?php echo lang('bf_action_logout')?></a>
-										</div>
+							<span class="caret"></span>
+						</button>
+						<!-- Change **light** to **dark** to match colors 
+						<a class="btn dropdown-toggle light" data-toggle="dropdown" href="#"><span class="caret"></span></a>-->
+						<ul class="dropdown-menu toolbar-profile">
+							<li>
+								<div class="inner">
+									<!--<div class="toolbar-profile-img">   --------------wrong image address, need to be corrected
+										<?php// echo gravatar_link($current_user->email, 96, null, $current_user->display_name) ?>
+									</div> -->
+									<div class="toolbar-profile-img">
+										<img src=<?= base_url();?>/bonfire/themes/two%20column/images/user.png  height='100px'/>
+									</div> 
+									
+									<div class="toolbar-profile-info">
+										<p><b><?php echo $current_user->display_name ?></b><br/>
+											<?php e($current_user->email) ?>
+											<br/>
+										</p>
+										<a href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>"><?php echo lang('bf_user_settings')?></a>
+										<a href="<?php echo site_url('logout'); ?>"><?php echo lang('bf_action_logout')?></a>
 									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
+								</div>
+							</li>
+						</ul>
+					</li>
 					
 					<?php else :  ?>
 					

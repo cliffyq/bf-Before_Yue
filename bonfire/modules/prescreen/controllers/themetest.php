@@ -95,10 +95,14 @@
 		
 		public function timetest()
 		{
-			//$time= strtotime("now");
-			$date="week";
-
-			$time=date('Y-m-d', strtotime("-1".$date));
+			$newdate="yesterday";
+			$time= strtotime("yesterday");
+			console::log($time);
+			
+			$time= strtotime("now");
+			console::log($time);
+			$date="day";
+			$time=strtotime("today-1".$date);
 			$old=$this->load->model('video/video_model')->find(47,1);
 			console::log($time);
 			console::log($old['created_on']);
@@ -109,6 +113,7 @@
 		{
 			
 		}
+
 		
 		
 	}		
