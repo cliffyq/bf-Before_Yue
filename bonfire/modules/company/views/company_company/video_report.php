@@ -26,6 +26,7 @@
 						<th>User Birth Year</th>
 						<th>User Race</th>
 						<th>User Education</th>
+						<th>User Occupation</th>
 						<th>User Zipcode</th>
 						<th>User IP</th>
 						<th>Time</th>			
@@ -39,6 +40,7 @@
 						<td><?= isset($view_history['birth_year'])?$view_history['birth_year']:''?></td>
 						<td><?= isset($view_history['race'])?$view_history['race']:''?></td>
 						<td><?= isset($view_history['education'])?$view_history['education']:''?></td>
+						<td><?= isset($view_history['occupation'])?$view_history['occupation']:''?></td>
 						<td><?= isset($view_history['zipcode'])?$view_history['zipcode']:''?></td>
 						<td><?= $view_history['ip']?></td>
 						<td><?= $view_history['time']?></td>
@@ -47,7 +49,7 @@
 					<?php endif; ?>	
 				</tbody>
 			</table>
-		</div>	
+		</div></div>
 	</div>
 	<div class="admin-box review_history">
 	
@@ -68,6 +70,7 @@
 					<th>User Birth Year</th>
 					<th>User Race</th>
 					<th>User Education</th>
+					<th>User Occupation</th>
 					<th>User Zipcode</th>
 					<th>Questions & Answers </th>
 					<th>Rating </th>
@@ -81,7 +84,8 @@
 					<td><?= isset($review_history['birth_month'])?$review_history['birth_month']:''?></td>
 					<td><?= isset($review_history['birth_year'])?$review_history['birth_year']:''?></td>
 					<td><?= isset($review_history['race'])?$review_history['race']:''?></td>
-					<td><?= isset($review_history['education'])?$review_history['education']:''?></td>		
+					<td><?= isset($review_history['education'])?$review_history['education']:''?></td>
+					<td><?= isset($review_history['occupation'])?$review_history['occupation']:''?></td>
 					<td><?= isset($review_history['zipcode'])?$review_history['zipcode']:''?></td>
 					<td><?= $review_history['questions & answers'] ?></td>
 					<td><?= $review_history['rating'] ?></td>

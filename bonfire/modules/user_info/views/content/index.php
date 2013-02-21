@@ -21,6 +21,7 @@
 					<th>Veteran</th>
 					<th>Zipcode</th>
 					<th>Industry ID</th>
+					<th>Occupation ID</th>
 				</tr>
 			</thead>
 			<?php if (isset($records) && is_array($records) && count($records)) : ?>
@@ -60,6 +61,7 @@
 				<td><?php echo $record->user_info_veteran?></td>
 				<td><?php echo $record->user_info_zipcode?></td>
 				<td><?php echo $record->user_info_industry_id?></td>
+				<td><?php echo $record->user_info_occupation_id?></td>
 				</tr>
 			<?php endforeach; ?>
 			<?php else: ?>

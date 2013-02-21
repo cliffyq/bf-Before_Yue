@@ -1,0 +1,56 @@
+
+.chart_general 
+{
+	background: #f5f5f5;
+}
+
+.chart_title_general
+{
+
+}
+
+.chart_body_general
+{
+	
+}
+
+.sort_selection
+{
+	margin-top: 10px;
+	margin-left: 2px;
+	margin-bottom:;
+	padding: 10px;
+}
+
+
+.sort_selection.time{
+	z-index:1;
+}
+
+.pagination
+{
+	float: right;
+	height:20px;
+}	
+
+.chart_content_genernal
+	{
+
+	margin-left: 2px;
+	margin-bottom: 20px;
+	padding: 10px;
+	
+	
+}
+
+.video_list
+{
+	
+}
+
+.video_list .first{
+	margin-left: 0px;
+	}
+	
+
+
