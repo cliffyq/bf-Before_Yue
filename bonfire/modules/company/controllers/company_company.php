@@ -65,7 +65,7 @@
 			$videos = $this->video_model->find_all_by('video_company_id', $company_id, 'and', 1);			
 			if($videos !== false){
 				Template::set('videos', $videos);
-				Template::set_theme('Two');
+				Template::set_theme('Two column');
 				Template::render();
 			}		
 			else{
@@ -127,7 +127,90 @@
 			$return.= "\r\n";
 			return $return;
 		}
+		
+		
+		public function video_charts($sort_option = "viewcount",$time_filter='all',$per_page = 6, $offset = 0)
+		{
+			$this->load->library('pagination');
+			$config['base_url'] = base_url() . 'company/company_company/video_charts/'.$sort_option.'/'.$time_filter.'/'.$per_page.'/';
+			$config['per_page'] = $per_page;
+			$config['uri_segment'] = 7;
+			$config['full_tag_open'] = '<ul>';
+			$config['full_tag_close'] = '</ul>';
+			$config['first_tag_open'] = '<li>';			
+			$config['first_tag_close'] = '</li>';
+			$config['last_tag_open'] = '<li>';
+			$config['last_tag_close'] = '</li>';
+			$config['next_tag_open'] = '<li>';
+			$config['next_tag_close'] = '</li>';
+			$config['prev_tag_open'] = '<li>';
+			$config['prev_tag_close'] = '</li>';
+			$config['cur_tag_open'] = '<li class="active"><a>';
+			$config['cur_tag_close'] = '</a></li>';
+			$config['num_tag_open'] = '<li>';
+			$config['num_tag_close'] = '</li>';
+			
+			switch($sort_option)
+			{
+				case 'viewcount': $selection['sort']['text']='Most viewed';break;
+			}
+			$selection['sort']['data']=$sort_option;
+			
+			
+			switch($time_filter)
+			{
+				case 'day': $selection['timefilter']['text']='Today';break;
+				case 'week': $selection['timefilter']['text']='This Week';break;
+				case 'month': $selection['timefilter']['text']='This Month';break;
+				case 'all': $selection['timefilter']['text']='All';break;
+			}
+			$selection['timefilter']['data']=$time_filter;
+			
+			
+			$this->pagination->initialize($config);
+			
+			$this->load->model('video/video_model', null, true);
+			$video_cards = $this->video_model->video_chart($sort_option,$time_filter,$config['per_page'], $this->uri->segment($config['uri_segment']));
+			//$data['rows'] = $video_cards['rows'];
+			$config['total_rows'] = $video_cards['row_count'];
+			console::log($video_cards);
+			
+			
+			$this->pagination->initialize($config);
+			$video_cards['pagination_links'] = $this->pagination->create_links();
+			Assets::add_js($this->load->view('inline_js/video_charts_pag_ajax.js.php',null,true),'inline');
+			$videos=array();
+			foreach($video_cards['rows'] as $key=>$video_card)
+			//console::log($video_card);
+			{
+				$videos[$key]=$this->load->module('video')->video_card($video_card,$key+$offset);
+				//console::log($video_card);
+			}
+			Template::set('video_cards',$videos);
+			Template::set('selection',$selection);
+			
+			// Template::set('rows',$video_cards['rows']);
+			Template::set('pagination_links',$video_cards['pagination_links']);
+			Assets::add_module_css('company','video_charts.css');
+			
+			if ($this->input->is_ajax_request()) {
+				
+				Template::set_view('company_company/video_charts_ajax');
+				Template::render();
+				
+				//template::redirect('/');
+			}
+			else
+			
+			Template::set_theme('two column');
+			Template::render();
+			
+			
+			
+			
+			//Template::Render();
+		}
 	}			
-	
-	
-	
+
+
+

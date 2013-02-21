@@ -44,7 +44,7 @@
 										<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>
 									</label>
 									<input class="btn btn-success" type="submit" name="submit" id="submit" value="Sign In" tabindex="5" />
-									<input class="btn btn-primary" onClick="location.href='<?= site_url('/register')?>';" name="button2" type="button" id="button2" value="Register" />
+									<input class="btn btn-primary" onClick="location.href='<?php echo site_url('/register')?>';" name="button2" type="button" id="button2" value="Register" />
 		
 									<?php endif; ?>
 								<?php echo form_close(); ?>

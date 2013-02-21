@@ -29,7 +29,7 @@
 			return $return;
 		}
 		
-		//fields:gender,birth_month,birth_year,race,education,zipcode,time,ip
+		//fields:gender,birth_month,birth_year,race,education,occupation,zipcode,time,ip
 		public function get_view_history($video_id)
 		{
 			$return = array();
@@ -48,6 +48,7 @@
 					$return[$k]['race'] = $user_info['user_info_race'];
 					$return[$k]['education'] = $user_info['user_info_education'];
 					$return[$k]['zipcode'] = $user_info['user_info_zipcode'];
+					$return[$k]['occupation'] = $user_info['user_info_occupation_id'];
 				}
 				else
 				{
@@ -57,6 +58,7 @@
 					$return[$k]['race'] = '';
 					$return[$k]['education'] = '';
 					$return[$k]['zipcode'] = '';
+					$return[$k]['occupation'] = '';
 				}
 				$return[$k]['time'] = date("Y-m-d h:j:s", $v['video_view_history_created_on']);
 				$return[$k]['ip'] = $v['video_view_history_ip'];
@@ -85,6 +87,7 @@
 					$return[$k]['race'] = $user_info['user_info_race'];
 					$return[$k]['education'] = $user_info['user_info_education'];
 					$return[$k]['zipcode'] = $user_info['user_info_zipcode'];
+					$return[$k]['occupation'] = $user_info['user_info_occupation_id'];
 				}
 				else
 				{
@@ -94,6 +97,7 @@
 					$return[$k]['race'] = '';
 					$return[$k]['education'] = '';
 					$return[$k]['zipcode'] = '';
+					$return[$k]['occupation'] = '';
 				}
 				$return[$k]['time'] = date("Y-m-d h:j:s", $v['reviews_last_update']);
 				$return[$k]['rating'] = $v['reviews_rating'];
@@ -118,12 +122,12 @@
 			return $return;
 		}
 		
-		public function create_company($data,$logo_fieldname='company_logo')
+		public function create_company($data)
 		{
 			if(!is_array($data)||empty($data))
 			return false;
 			$path = url_title($data['company_name'],'underscore').'/';
-			$fdata = $this->_upload_logo($logo_fieldname,$path);
+			$fdata = $this->upload_logo('company_logo',$path);
 			if(isset($fdata['error'])||!isset($fdata['upload_data']) || $fdata['upload_data'] == NULL){
 				
 				return FALSE;
@@ -131,15 +135,19 @@
 			$data['company_logo'] = $path;
 			$id = $this->insert($data);
 			if (!is_numeric($id)) return FALSE;
-			return $id;
+			$return = $id;
 		}
 		
 		
 		//--------------------------------------------------------------------
 		//upload logo, $field_name = form input name, $path = path relative to the LOGO_PATH
 		public function _upload_logo($field_name,$path){                
-			$preference = read_config('upload', TRUE, 'company');
+			
+			$this->config->load('upload');
 			$preference['upload_path'] = './'.LOGO_PATH.$path;
+			$preference['allowed_types'] = $this->config->item('allowed_types');
+			$preference['max_size'] = $this->config->item('max_size');
+			$preference['file_name'] = $this->config->item('file_name');
 			if(!is_dir($preference['upload_path']))
 			{
 				mkdir($preference['upload_path'],0777,true);

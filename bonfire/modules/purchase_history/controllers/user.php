@@ -38,7 +38,7 @@ class user extends Admin_Controller {
 				}
 			}
 		Template::set('records', $records);
-		Template::set_theme('Two');
+		Template::set_theme('Two column');
 		Template::render();
 	}
 
