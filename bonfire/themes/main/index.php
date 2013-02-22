@@ -1,4 +1,5 @@
 <?php echo theme_view('parts/_header'); ?>
+<div class=""> <!-- Start of Main Container -->
 
 
 <?php
