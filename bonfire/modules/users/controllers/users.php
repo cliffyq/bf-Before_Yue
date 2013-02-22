@@ -108,14 +108,15 @@
 					}//end if
 				}//end if
 				
+				Template::set_theme('main','junk');
 				Template::set_view('users/users/login');
 				Template::set('page_title', 'Login');
-				Template::render('login');
+				Template::render();
 			}
 			else
 			{
 				
-				Template::redirect('/prescreen/bootstrap/general_page');
+				Template::redirect('/company/company_company/video_charts');
 			}//end if
 			
 		}//end login()

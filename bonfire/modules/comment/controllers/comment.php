@@ -74,7 +74,6 @@
 			Assets::add_js($this->load->view('inline_js/pag_ajax.js.php',null,true),'inline');			
 			
 			if ($this->input->is_ajax_request()) {
-			  
 				Template::set('rows',$data['rows']);
 				Template::set('pagination_links',$data['pagination_links']);
 				Template::set('vid',$data['vid']);

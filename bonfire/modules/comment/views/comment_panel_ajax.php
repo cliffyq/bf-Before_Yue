@@ -1,7 +1,7 @@
 <div id = "video_comment" class = 'row'>
 		<textarea class = "video_comment_content span5"></textarea>
 		<button id = <?php echo $vid ?> class = "btn video_comment_post span1 offset1 hidden">post</button>
-	</div>
+</div>
 	
 	<!--example id='comment_content_pagination_view_ajax_paging'-->
 	<div id = 'comment_section' class = 'row'>

@@ -39,7 +39,9 @@ $("#comment_content_pagination_view_ajax_paging a").live('click',function(event)
 		});
 	*/	
 //	alert(pag_href);
+//	
 	applyPagination(pag_href);
+//	alert('#reviews_user_review_panel_submit_button').attr('class');
 });
 
 function applyPagination(pag_href,clear_textarea) {	

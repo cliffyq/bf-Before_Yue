@@ -796,7 +796,7 @@ class BF_Model extends CI_Model
 	 *
 	 * @return bool|int
 	 */
-	public function count_by($field='', $value=NULL)
+	public function count_by($field='', $value=NULL, $type='and')
 	{
 		if (empty($field))
 		{
@@ -807,7 +807,26 @@ class BF_Model extends CI_Model
 
 		$this->set_selects();
 
-		$this->db->where($field, $value);
+		if (is_array($field))
+		{
+			foreach ($field as $key => $value)
+			{
+				if ($type == 'or')
+				{
+					$this->db->or_where($key, $value);
+				}
+				else
+				{
+					$this->db->where($key, $value);
+				}
+			}
+		}
+		else
+		{
+			$this->db->where($field, $value);
+		}
+		
+		
 
 		return (int)$this->db->count_all_results($this->table);
 

@@ -100,4 +100,24 @@
 			
 		}
 		
+		public function video_card($video,$index)
+		{
+			// $video['id']=47;
+			// $video['name']='test';
+			// $video['viewcount']=999;
+			$video['position']=$index+1;
+			$data['video']=$video;
+			//console::log($video);
+			$data['company']=$this->video_model->get_company($video['id']);
+			Assets::add_module_css('video','video_card.css');
+			
+			return  $this->load->view('video_card',$data,true);
+			/*
+			Template::set('company',$company);
+			Template::set('video',$video);
+			Template::render();
+			*/
+		}
+		
+		
 	}		
