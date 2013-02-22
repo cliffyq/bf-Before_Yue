@@ -191,7 +191,6 @@ class reports extends Admin_Controller {
 		$this->form_validation->set_rules('user_info_veteran','Veteran','max_length[1]');
 		$this->form_validation->set_rules('user_info_zipcode','Zipcode','max_length[5]');
 		$this->form_validation->set_rules('user_info_industry_id','Industry ID','max_length[3]');
-		$this->form_validation->set_rules('user_info_occupation_id','Occupation ID','max_length[3]');
 
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -213,7 +212,6 @@ class reports extends Admin_Controller {
 		$data['user_info_veteran']        = $this->input->post('user_info_veteran');
 		$data['user_info_zipcode']        = $this->input->post('user_info_zipcode');
 		$data['user_info_industry_id']        = $this->input->post('user_info_industry_id');
-		$data['user_info_occupation_id']        = $this->input->post('user_info_occupation_id');
 
 		if ($type == 'insert')
 		{
