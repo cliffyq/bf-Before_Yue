@@ -5,7 +5,7 @@
 	
 	<div class="row-fluid">
 		<div class="span12">
-			<?php echo form_open('additional_info', array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
+			<?php echo form_open('users/test/additional_info', array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 		
 			<div class="control-group">
 				<label class="control-label required" for="industry_id"><?php echo lang('bf_industry'); ?></label>
@@ -20,18 +20,6 @@
 				</div>
 			</div>
 			
-			<div class="control-group">
-				<label class="control-label required" for="occupation"><?php echo lang('bf_occupation'); ?></label>
-				<div class="controls">
-					<select id="occupation" class="span4" name="industry">
-							<option value="">Please Select:</option>
-							<option value="1">Manager</option>
-							<option value="2">Student</option>
-							<option value="3">Teacher</option>
-							<option value="4">Other</option>
-					</select> 
-				</div>
-			</div>
 			
 			<div class="control-group">
 				<label class="control-label required" ><?php echo lang('bf_veteran'); ?></label>
@@ -41,7 +29,18 @@
 					</label>
 				</div>
 			</div>
-			
+						<div class="control-group offset1">
+				<label class="control-label required" for="first_name"><?php echo lang('bf_full_name'); ?></label>
+				<div class="controls"> 
+					<input value="<?php echo set_value('first_name') ?>"  type="text"  class="input-medium inline" placeholder="First name" id="first_name"
+					name="first_name" value="" pattern="[a-z A-Z]{1,25}" maxlength="25"
+					 /> 
+					<input value="<?php echo set_value('last_name') ?>"
+					type="text" placeholder="Last name" id="last_name" name="last_name"
+					value="" pattern="[a-z A-Z]{1,25}" maxlength="25" class="input-medium inline" 
+					 /> 
+				</div>
+			</div>
 			<div class="control-group">
 				<div class="controls">
 					<div class="span7 row-fluid">
@@ -54,7 +53,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </section>

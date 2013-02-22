@@ -127,15 +127,6 @@ $id = isset($user_info['id']) ? $user_info['id'] : '';
 
 
         </div>
-        <div class="control-group <?php echo form_error('user_info_occupation_id') ? 'error' : ''; ?>">
-            <?php echo form_label('Occupation ID', 'user_info_occupation_id', array('class' => "control-label") ); ?>
-            <div class='controls'>
-        <input id="user_info_occupation_id" type="text" name="user_info_occupation_id" maxlength="3" value="<?php echo set_value('user_info_occupation_id', isset($user_info['user_info_occupation_id']) ? $user_info['user_info_occupation_id'] : ''); ?>"  />
-        <span class="help-inline"><?php echo form_error('user_info_occupation_id'); ?></span>
-        </div>
-
-
-        </div>
 
 
 

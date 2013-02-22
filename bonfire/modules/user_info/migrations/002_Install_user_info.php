@@ -72,11 +72,6 @@ class Migration_Install_user_info extends Migration {
 				'constraint' => 3,
 				
 			),
-			'user_info_occupation_id' => array(
-				'type' => 'TINYINT',
-				'constraint' => 3,
-				
-			),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);
