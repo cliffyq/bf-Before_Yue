@@ -23,6 +23,7 @@
 		<th>Veteran</th>
 		<th>Zipcode</th>
 		<th>Industry ID</th>
+		<th>Occupation ID</th>
 		
 		</thead>
 		<tbody>

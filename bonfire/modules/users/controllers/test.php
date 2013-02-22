@@ -68,8 +68,7 @@
 			* @return void
 		*/
 		public function additional_info()
-		{if($this->input->post('first_name')===false)
-			console::log('1');
+		{
 			Template::render();
 		}//end login()
 		
