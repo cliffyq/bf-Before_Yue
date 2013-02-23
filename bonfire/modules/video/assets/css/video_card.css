@@ -48,7 +48,8 @@ color: #888;
 font-size: 11px;
 }
 
-.metadata .viewcount {
+.metadata .sort_option {
+
 float: right;
 color: #888;
 font-weight: normal;

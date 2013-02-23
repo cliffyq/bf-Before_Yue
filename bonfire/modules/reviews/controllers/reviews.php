@@ -35,13 +35,16 @@
 		
 		//--------------------------------------------------------------------
 		
-		public function avg_rating($vid)
+		public function avg_rating($vid,$rating=NULL)
 		{
-			
+			if(isset($rating))
+			$data['avg'] = $rating;
+			else
 			$data['avg'] = $this->reviews_model->average_rating($vid);
 			Assets::add_module_js('reviews','jquery.raty.js');
 			Assets::add_js($this->load->view('inline_js/avg_rating.js.php',null,true),'inline');
 			return $this->load->view('avg_rating',$data, true);
+			//Template::render();
 		}
 		
 		public function _review_panel($vid)

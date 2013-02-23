@@ -30,16 +30,17 @@
 			return $this->video_view_history_model->find_by(array('video_view_history_video_id ' => $video_id, 'video_view_history_user_id' => $user_id))===false?false:true;
 		}
 		
-		public function average_rating($vid)
+		public function average_rating($vid,$time=0)
 		{
 			$arr=array();
-			$obj=$this->find_all_by('reviews_video_id',$vid);
+			$request=array('reviews_video_id ='=>$vid,'reviews_last_update >'=>$time);
+			$obj=$this->find_all_by($request);
 			if($obj === false) return false;
 			foreach ($obj as $v)
 			{
 				$arr[]= $v->reviews_rating;
 			}
-			if(empty($arr)) return false;
+			if(empty($arr)) return 0;
 			$rating= round(array_sum($arr)/count($arr),2);
 			return $rating;
 		}

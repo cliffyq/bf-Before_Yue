@@ -12,6 +12,11 @@ body
 	margin-bottom: 30px;
 }
 
+.top_search_panel
+{
+	margin-top:6px;
+}
+
 .footer_href
 {
 	color: #b63432;

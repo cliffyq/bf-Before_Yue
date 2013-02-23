@@ -152,7 +152,8 @@
 			
 			switch($sort_option)
 			{
-				case 'viewcount': $selection['sort']['text']='Most viewed';break;
+				case 'viewcount': $selection['sort']['text']='Most Viewed';break;
+				case 'toprated': $selection['sort']['text']='Top Rated';break;
 			}
 			$selection['sort']['data']=$sort_option;
 			
@@ -173,7 +174,7 @@
 			$video_cards = $this->video_model->video_chart($sort_option,$time_filter,$config['per_page'], $this->uri->segment($config['uri_segment']));
 			//$data['rows'] = $video_cards['rows'];
 			$config['total_rows'] = $video_cards['row_count'];
-			console::log($video_cards);
+			//console::log($video_cards);
 			
 			
 			$this->pagination->initialize($config);
