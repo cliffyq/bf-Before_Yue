@@ -15,7 +15,8 @@
 			<div class="btn-group ">
 				<button class="btn  dropdown-toggle" data-toggle="dropdown"><?php echo $selection['sort']['text'] ?><span class="caret"></span></button>
 				<ul class="dropdown-menu">
-					<li><?php echo anchor(site_url('company/company_company/video_charts/viewcount/'.$selection['timefilter']['data']),'Most viewed')?></li>
+					<li><?php echo anchor(site_url('company/company_company/video_charts/viewcount/'.$selection['timefilter']['data']),'Most Viewed')?></li>
+					<li><?php echo anchor(site_url('company/company_company/video_charts/toprated/'.$selection['timefilter']['data']),'Top Rated')?></li>
 				</ul>
 			</div>
 			

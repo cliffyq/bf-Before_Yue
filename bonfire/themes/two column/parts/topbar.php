@@ -11,12 +11,10 @@
 			<a href="<?=site_url('/');?>" class="logo"></a>
 			</a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
-			<div class="nav-collapse collapse">
-				
+			<div class="">
 				
 				<ul class="nav pull-right">
 					
-					<?php //style="height:40px" ?>
 					<?php if (isset($current_user->email)) : ?>
 					<!--user menu-->
 					<li class="">
@@ -84,7 +82,12 @@
 					<?php endif; ?>
 				</ul>
 				
+				
+				
 			</div><!--/.nav-collapse -->
+			<div class="input-append input-prepend offset9 top_search_panel">
+					<input type="text" placeholder="Search All"><button type="submit" class="btn" ><i class="icon-search"></i></button>
+			</div>
 		</div>	<!-- /.container -->
 	</div>	<!-- /.navbar-inner -->
 </div>	<!-- /.navbar -->

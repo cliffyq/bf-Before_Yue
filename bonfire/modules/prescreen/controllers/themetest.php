@@ -24,7 +24,7 @@
 		
 		public function videojs()
 		{
-		   $video = $this->load->module('video')->view(47);
+			$video = $this->load->module('video')->view(47);
 			template::set('videos',$video);
 			Template::render();
 		}
@@ -70,7 +70,7 @@
 			
 			// orderby viewcount, other options should use DB query.
 			$results=$this->load->model('video/video_model')->find_all(1);
-		
+			
 			foreach ($results as $key=>&$result)
 			{
 				$result['viewcount']=$this->load->model('video_view_history/video_view_history_model')->get_view_count($result['id']);
@@ -80,7 +80,7 @@
 			array_multisort($viewcount,SORT_DESC,$results);
 			$return['rows']=array_slice($results,$offset*$limit,$limit);
 			
-
+			
 			console::log($return);
 		}
 		
@@ -109,11 +109,20 @@
 			console::log($time>$old['created_on']?'1':'2');
 		}
 		
-		public function sider_active()
+		public function toprated()
 		{
+			//$result=$this->load->model('reviews/reviews_model')->average_rating(47);
+			$option='toprated';
+			$results=$this->load->model('video/video_model')->find_all(1);
+			foreach ($results as $key=>&$result)
+			{
+				$result[$option]=$this->load->model('reviews/reviews_model')->average_rating($result['id']);
+				$viewcount[$key]=$result[$option];
 			
+			}
+			console::log($results);
 		}
-
 		
 		
-	}		
+		
+	}				

@@ -44,28 +44,32 @@
 		{
 			$return = array('rows'=>array(),'row_count'=>0);
 			
-			if ($time_filter=='all') $time=0;
-			
-			else
-			$time=strtotime("today-1".$time_filter);
-			// orderby viewcount, other options should use DB query.
-			//$query=$this->db->get_where($this->table,array('created_on >'=>$time));
-			//$results = $query->result_array();
-			
 			$results=$this->find_all(1);
+			
 			if(!empty($results))
-			{
-				//$query=$this->find_all_by('created_on <',$time);
-				//$results = $query->result_array();
+			{	
+				//time filter
+				if ($time_filter=='all') $time=0;
+				else
+				$time=strtotime("today-1".$time_filter);
+				
+				
 				foreach ($results as $key=>&$result)
 				{
-					$result['viewcount']=$this->load->model('video_view_history/video_view_history_model')->get_view_count($result['id'],$time);
-					$viewcount[$key]=$result['viewcount'];
+					switch($option)
+					{
+						case 'viewcount': $result[$option]=$this->load->model('video_view_history/video_view_history_model')->get_view_count($result['id'],$time);break;
+						case 'toprated': $result[$option]=$this->load->model('reviews/reviews_model')->average_rating($result['id'],$time);break;
+					}
+					
+					$viewcount[$key]=$result[$option];
 					$return['row_count']++;
+					
 				}
+				
+				
 				array_multisort($viewcount,SORT_DESC,$results);
-				//$residue = $return['row_count'] - $offset*$limit;
-				//$residue = $limit>$residue? $residue:$limit;
+				
 				$return['rows']=array_slice($results,$offset,$limit);
 				
 				return $return;
@@ -74,7 +78,7 @@
 			return $return;
 			
 			
-		}
+			}
 		
 		
 		

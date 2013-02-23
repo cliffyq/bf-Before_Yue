@@ -39,7 +39,7 @@
 		{
 			Assets::add_module_css('video','video-js.css');
 			Assets::add_module_js('video','video.js');
-			Assets::add_js($this->load->view('inline/videofunction',null,TRUE),'inline');
+			Assets::add_js($this->load->view('inline_js/videofunction',null,TRUE),'inline');
 			
 			if (empty($vid))
 			{
@@ -102,10 +102,15 @@
 		
 		public function video_card($video,$index)
 		{
-			// $video['id']=47;
-			// $video['name']='test';
-			// $video['viewcount']=999;
+			
 			$video['position']=$index+1;
+			//if (isset($video['toprated']))
+			//$video['toprated']=$this->load->modules('reviews')->avg_rating($video['id']);
+			//{
+			//$data['average_rating']=$this->load->module('reviews')->avg_rating($video['id'],$video['toprated']);
+			//Assets::add_module_js('reviews','jquery.raty.js');
+			//Assets::add_js($this->load->view('inline_js/avg_rating.js.php',null,true),'inline');
+			//}
 			$data['video']=$video;
 			//console::log($video);
 			$data['company']=$this->video_model->get_company($video['id']);
