@@ -115,7 +115,7 @@
 			else
 			{
 				
-				Template::redirect('/prescreen/bootstrap/general_page');
+				Template::redirect('/company/company_company/video_uploading');
 			}//end if
 			
 		}//end login()

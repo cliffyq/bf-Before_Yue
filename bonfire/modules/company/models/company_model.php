@@ -138,7 +138,7 @@
 		//--------------------------------------------------------------------
 		//upload logo, $field_name = form input name, $path = path relative to the LOGO_PATH
 		public function _upload_logo($field_name,$path){                
-			$preference = read_config('upload', TRUE, 'company');
+			$preference = read_config('upload_logo', TRUE, 'company');
 			$preference['upload_path'] = './'.LOGO_PATH.$path;
 			if(!is_dir($preference['upload_path']))
 			{
@@ -156,6 +156,11 @@
 			}
 			return $data;
 		}
+		
+		
+		
+		
+		
 	}
 	
 	

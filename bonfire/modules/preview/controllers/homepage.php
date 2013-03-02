@@ -13,7 +13,7 @@
 		public function index()
 		{
 			if($this->auth->is_logged_in())
-			Template::redirect('/prescreen/bootstrap/general_page');
+			Template::redirect('/company/company_company/video_uploading');
 			$center_block_part=$this->load->module('preview/homepage')->center_block_part();
 			$header_block_part=$this->load->module('preview/homepage')->header_block_part();
 			$footer_block_part=$this->load->module('preview/homepage')->footer_block_part();
