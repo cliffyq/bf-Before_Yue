@@ -173,8 +173,10 @@
 				$user_company = $this->company_model->find_by('company_userid', $user_id)->id;
 				//console::log('company id: '.$user_company);
 				if($video_company !== $user_company){//check if user has the correct company of video
-					template::set('error', "Wrong company, don't be a cheater!");
+					template::set('msg', 'error');
 					Template::set_theme('two column');
+					template::set_view('company_company/operation_status');
+					
 				}
 				else {
 					$result->ajax = 0;
@@ -193,8 +195,27 @@
 			
 		}			
 	
-		public function video_info_updating($video_id, $company_name, $video_path)
+		public function video_info_updating($video_id=false, $company_name=false, $video_path=false)
 		{
+			$result = $this->video_company_checking($video_id, $company_name, $video_path);
+			
+			template::set_theme('two column');
+			if($result !== false || $this->input->post()!==false){
+				$video_data = array(
+					'video_title' => $this->input->post('video_title'),
+					'video_description' => $this->input->post('video_description'),				
+				);
+				$this->load->model('video/video_model');
+				$this->video_model->update($video_id, $video_data);
+				template::set('msg', 'ok');
+			}
+			else{template::set('msg', 'error');}
+			//console::log($this->input->post());
+			template::set_view('company_company/operation_status');
+			template::render();
+		}
+		
+		private function video_company_checking($video_id=false, $company_name=false, $video_path=false){//check whether the video belongs to this company
 			$this->load->model('video/video_model');
 			
 			$path = $company_name.'/'.$video_path.'/';
@@ -202,22 +223,41 @@
 			$user_company = $this->company_model->find_by('company_userid', $user_id)->id;
 			//check if this video belongs to this user
 			$result = $this->video_model->find_all_by( array('id'=>$video_id, 'video_company_id'=>$user_company, 'video_path'=>$path) );
-			console::log($result);
-			template::set_theme('two column');
-			if($result !== false && $this->input->post()!==false){
-				$video_data = array(
-					'video_title' => $this->input->post('video_title'),
-					'video_description' => $this->input->post('video_description'),				
-				);
-				$this->video_model->update($video_id, $video_data);
+			return $result;
+		}
+	
+		public function video_deleting($video_id=false, $company_name=false, $video_path=false){
+			$result = $this->video_company_checking($video_id, $company_name, $video_path);
+			if($result !== false || $this->input->post()!==false){
+				$this->load->model('video/video_model');
+				$this->video_model->delete($video_id);
+				$path = $company_name.'/'.$video_path.'/';
+				$this->file_deleting($path);
+				console::log(site_url('upload/video').'/'.$company_name.'/'.$video_path);
 				template::set('msg', 'ok');
 			}
 			else{template::set('msg', 'error');}
-			console::log($this->input->post());
+			
+			
+			Template::set_theme('two column');		
+			template::set_view('company_company/operation_status');
 			template::render();
 		}
-	
-	
+		
+		private function file_deleting($path){
+			$this->config->load('upload_video');
+			$preference = read_config('upload_video', TRUE, 'company');
+			$preference['upload_path'] = './'.VIDEO_UPLOAD_PATH.$path;
+			$dirname = $preference['upload_path'];
+			$folder_handler = dir($dirname);
+		    while ($file = $folder_handler->read()) {
+		        if ($file == "." || $file == "..")
+		            continue;
+		        	unlink($dirname.$file);
+		    	}
+		   $folder_handler->close();
+		   rmdir($dirname);
+		}
 	
 	}
 	

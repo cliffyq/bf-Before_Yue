@@ -9,8 +9,8 @@
 				
 					<?php $attributes = array('id' => 'video_upload', 'class' => "form-horizontal");
 						echo form_open_multipart('company/company_company/video_transport', $attributes);?>
-						<div class="control-group ">
-						 	<label class="control-label">choose your media</label>
+						<div class="control-group video_choosing">
+						 	<label class="control-label ">choose your media</label>
 							<div class="controls upload_button">
 								<span class="btn btn-success btn-wrap">
 								 	<i class="icon-arrow-up"></i>

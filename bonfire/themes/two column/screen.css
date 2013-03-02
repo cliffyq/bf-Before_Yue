@@ -624,9 +624,13 @@ Additional Buttons
 }
 
 .status_img{
-	width: 150px;
+	width: 120px;
 }
 
+.video_box{
+	margin-left: 100px; 
+	width:480px;
+}
 /*
  * Drop-down menu 3rd Level fix/hack?
  */

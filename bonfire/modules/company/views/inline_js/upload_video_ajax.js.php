@@ -1,3 +1,4 @@
+
 var video_id;
 var options = { 
         target:        '',   // target element(s) to be updated with server response 
@@ -19,19 +20,13 @@ var options = {
 
 function showRequest(){
 	$('.video_choosing').fadeOut('slow');
+	
 }
 
 function showResponse(result){
-	//alert(data);
-	//$('.show_response').html(data);
 	video_id = result;
-	console.log(video_id);
-	$('.video_info_setting').load(
-		'video_info_setting/'+video_id,
-		function(){
-			$('.video_info_setting').fadeIn('slow');
-		}
-	);
+	//console.log(video_id);
+	$('.video_info_setting').load('video_info_setting/'+video_id);
 }
 
 var bar = $('.bar'); 
