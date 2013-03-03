@@ -19,8 +19,10 @@ var options = {
     }; 
 
 function showRequest(){
+	$('.progress_bar').removeClass('hidden');
+	$('.alert').remove();
 	$('.video_choosing').fadeOut('slow');
-	
+	$('.loading_div').removeClass('hidden');
 }
 
 function showResponse(result){
@@ -50,12 +52,15 @@ $("#video_upload").change(function(e){
     get_ext = get_ext.reverse();
     //alert(get_ext[0]);
     var exts = ['mp4', 'ogv', 'wma', 'avi', 'webm'];
-	if ( $.inArray ( get_ext[0].toLowerCase(), exts ) > -1 ){
-        $('#video_upload').ajaxSubmit(options);
-    } else {
-        alert( 'Invalid file!' );
-    }
-    
+    if(file != false){
+		if ( $.inArray ( get_ext[0].toLowerCase(), exts ) > -1 ){
+	        $('#video_upload').ajaxSubmit(options);
+	    } else {
+	    	if(!$('.alert-error').length){
+	        	$(this).before("<div class='alert alert-error span8 offset2' style='text-align: center'><button type='button' class='close' data-dismiss='alert' >×</button><h4 >Wrong type!</h4>Please choose those videos of types allowed.</div>")
+	    	}
+	    }
+   }
     
     return false;
 });

@@ -1,7 +1,6 @@
-/*
-alert("aaa");
-$('#video_upadte').change(function(e){
+
+//alert("aaa");
+$('#video_update').change(function(e){
 	alert("aaa");
 	
 })
-*/

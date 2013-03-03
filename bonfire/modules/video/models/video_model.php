@@ -47,6 +47,9 @@
 		
 		public function video_saving() {
 			$path = $this->_set_video_path();
+			if($path ==false){
+				return false;
+			}
 			$this->config->load('upload_video');
 			$preference = read_config('upload_video', TRUE, 'company');
 			$preference['upload_path'] = './'.VIDEO_UPLOAD_PATH.$path;
@@ -80,7 +83,11 @@
 				
 				$this->load->model('company/company_model');
 				$user_id = $this->auth->user_id();
-				$company_id = $this->company_model->find_by('company_userid', $user_id)->id;
+				$company_object = $this->company_model->find_by('company_userid', $user_id);
+				if($company_object == false){
+					return false;
+				}
+				$company_id = $company_object->id;
 				$video_data = array(
 					'video_title' => 'need a title',
 					'video_company_id' => $company_id,
@@ -99,7 +106,12 @@
 				$this->load->model('company/company_model');
 				$this->load->helper('base64');
 				$user_id = $this->auth->user_id();
-				$company_dir = $this->company_model->find_by('company_userid',$user_id)->company_name;
+				$company_object = $this->company_model->find_by('company_userid',$user_id);
+				if($company_object == False){
+					return false;
+				}
+				$company_dir = $company_object->company_name;
+				
 				$time = new DateTime();
 				$timestamp = $time->getTimestamp();
 				$video_dir = urlsafe_b64encode(hash('crc32b',$timestamp));

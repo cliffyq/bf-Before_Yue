@@ -32,7 +32,8 @@
 						<div class="control-group">
 						 	<label class="control-label">Thumbnail</label>
 							<div class="controls">
-								 <img></img>
+								 <input class="thumbnail_choice hidden" name="video_thumbnail" value="1">
+								 <img class="thumbnail_img"></img>
 								 <img></img>
 								 <img></img>
 							</div>
