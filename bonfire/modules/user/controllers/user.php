@@ -8,7 +8,7 @@
 		public function __construct()
 		{
 			parent::__construct();
-			
+
 			Template::set_block('sub_nav', 'content/_sub_nav');
 		}
 		
@@ -23,10 +23,7 @@
 		*/
 		public function index()
 		{
-			
-			
 			$records = $this->load->model('video/video_model')->find_all();
-			
 			Template::set('records', $records);
 			Template::set('toolbar_title', 'Userview');
 			Template::set_theme('Two column');
@@ -43,7 +40,7 @@
 			
 			//add review panel
 			$review_panel = $this->load->module('reviews')->_review_panel($id);
-			
+		
 			$comment_panel=$this->load->module('comment')->comment_panel($id);
 			
 			$video_panel=$this->load->module('video')->_video_panel($id);
@@ -67,4 +64,4 @@
 		}
 		
 		
-	}			
+	}		

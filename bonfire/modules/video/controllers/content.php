@@ -90,6 +90,7 @@
 				
 				Template::set_message('save failed', 'error');
 			}*/
+			console::log(1);
 			Template::set('toolbar_title', lang('video_create') . ' Video');
 			Template::render();
 		}
@@ -253,7 +254,6 @@
 						return FALSE;
 					}
 				}
-				
 				$return = $this->video_model->update($id, $data);
 			}
 			

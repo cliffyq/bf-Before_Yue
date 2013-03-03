@@ -443,10 +443,10 @@
 				if ($this->settings_lib->item('auth.use_usernames'))
 				{
 					$this->form_validation->set_rules('username', 'lang:bf_username', 'required|trim|strip_tags|max_length[30]|unique[users.username]|xss_clean');
-				}	
+				}
 				$this->form_validation->set_rules('password', 'lang:bf_password', 'required|trim|strip_tags|min_length[8]|max_length[120]|valid_password');
-				$this->form_validation->set_rules('pass_confirm', 'lang:bf_password_confirm', 'required|trim|strip_tags|matches[password]');				
-				$this->form_validation->set_rules('zipcode', 'lang:bf_zipcode', 'required|trim|strip_tags|xss_clean|exact_length[5]');				
+				$this->form_validation->set_rules('pass_confirm', 'lang:bf_password_confirm', 'required|trim|strip_tags|matches[password]');
+				$this->form_validation->set_rules('zipcode', 'lang:bf_zipcode', 'required|trim|strip_tags|xss_clean|exact_length[5]');
 				$this->form_validation->set_rules('first_name', 'lang:bf_first_name', 'trim|strip_tags|alpha|max_length[25]|xss_clean');
 				$this->form_validation->set_rules('last_name', 'lang:bf_last_name', 'trim|strip_tags|alpha|max_length[25]|xss_clean');				
 				if($role=="company")
@@ -466,18 +466,18 @@
 					$this->form_validation->set_rules('veteran', 'lang:bf_veteran', 'trim|strip_tags|integer|xss_clean');	
 					//$meta_data = array();
 					/* 					foreach ($meta_fields as $field)
-						{
+					{
 						if ((!isset($field['admin_only']) || $field['admin_only'] === FALSE
 						|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
 						&& isset($this->current_user) && $this->current_user->role_id == 1))
 						&& (!isset($field['frontend']) || $field['frontend'] === TRUE))
 						{
-						$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
-						
-						$meta_data[$field['name']] = $this->input->post($field['name']);
+							$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
+							
+							$meta_data[$field['name']] = $this->input->post($field['name']);
 						}
 					} */
-				}
+					}
 				$succeeded=0;
 				if ($this->form_validation->run($this) !== FALSE)
 				{
@@ -505,23 +505,23 @@
 						
 						if($role == 'user')
 						{
-							$str = explode("/",$this->input->post('birth_month'));
+						$str = explode("/",$this->input->post('birth_month'));
 							//required fields
-							$user_info = array(
-							'user_info_user_id'           => $user_id,
-							'user_info_birth_year'		=> $str[1],
-							'user_info_birth_month'		=> $str[0],
-							'user_info_zipcode'		=> $this->input->post('zipcode'),
-							'user_info_race'		=> $this->input->post('race'),
-							'user_info_education'		=> $this->input->post('education'),
+						$user_info = array(
+						'user_info_user_id'           => $user_id,
+						'user_info_birth_year'		=> $str[1],
+						'user_info_birth_month'		=> $str[0],
+						'user_info_zipcode'		=> $this->input->post('zipcode'),
+						'user_info_race'		=> $this->input->post('race'),
+						'user_info_education'		=> $this->input->post('education'),
 							'user_info_tutorial_flag' => 1,);
 							//additional fields
-							$user_info['user_info_industry_id'] = $this->input->post('industry_id')!==false OR $this->input->post('industry_id')!='' ? $this->input->post('industry_id') : null;
+						$user_info['user_info_industry_id'] = $this->input->post('industry_id')!==false OR $this->input->post('industry_id')!='' ? $this->input->post('industry_id') : null;
 							$user_info['user_info_first_name'] = $this->input->post('first_name')!='' ? $this->input->post('first_name') : null;
 							$user_info['user_info_last_name'] = $this->input->post('last_name')!='' ? $this->input->post('last_name') : null;
-							$user_info['user_info_veteran'] = $this->input->post('veteran')!==false ? $this->input->post('veteran') : null;
+						$user_info['user_info_veteran'] = $this->input->post('veteran')!==false ? $this->input->post('veteran') : null;
 							$user_info['user_info_gender'] = $this->input->post('gender')!==false ? $this->input->post('gender') : null;
-							
+						
 							//insert
 							$succeeded = $this->load->model('user_info/user_info_model')->insert($user_info);
 						}

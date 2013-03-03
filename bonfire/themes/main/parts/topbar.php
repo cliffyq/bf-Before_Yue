@@ -8,7 +8,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</a>
-			<a href="<?=site_url('/');?>" class="logo"></a>
+			<a href="<?=site_url('/');?>" title = "<?php e($this->settings_lib->item('site.title')) class="logo"></a>
 			</a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="nav-collapse collapse">
@@ -16,16 +16,42 @@
 					
 					<?php //style="height:40px" ?>
 					<?php if (isset($current_user->email)) : ?>
-						<a href="../prescreen/bootstrap/general_page">
-							<button class="btn get_in_btn"  class="btn">
-								Get In
+					<li class="">
+						<button class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>" id="tb_email" class="btn dark" title="<?php echo lang('bf_user_settings') ?>">
+							<?php echo (isset($current_user->display_name) && !empty($current_user->display_name)) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email); ?>
 							</button>
-							<a href="<?php echo site_url('logout');?>">
-								<button class="btn">
-									<?php echo lang('bf_action_logout') ?>
-								</button>
-							</a>
-						</a>
+						<!-- Change **light** to **dark** to match colors 
+						<a class="btn dropdown-toggle light" data-toggle="dropdown" href="#"><span class="caret"></span></a>-->
+						<ul class="dropdown-menu toolbar-profile">
+							<li>
+								<div class="inner">
+									<!--<div class="toolbar-profile-img">   --------------wrong image address, need to be corrected
+										<?php// echo gravatar_link($current_user->email, 96, null, $current_user->display_name) ?>
+									</div> -->
+									<div class="toolbar-profile-img">
+										<img src=<?= base_url();?>/bonfire/themes/two%20column/images/user.png  height='100px'/>
+									</div> 
+									
+									<div class="toolbar-profile-info">
+										<p><b><?php echo $current_user->display_name ?></b><br/>
+											<?php e($current_user->email) ?>
+											<br/>
+										</p>
+										<a href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>"><?php echo lang('bf_user_settings')?></a>
+										<a href="<?php echo site_url('logout'); ?>"><?php echo lang('bf_action_logout')?></a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					
+					
+					
+					
+					
+					
+					
+					
 
 					<?php else :  ?>
 					
@@ -33,6 +59,7 @@
 						
 							<button class="dropdown-toggle btn" data-toggle="dropdown" href="#">
 							<?php echo lang('bf_action_login') ?>
+							<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu " style="text-align:center; Padding:10px">
 								<?php echo form_open('login', array('autocomplete' => 'off')); ?>
@@ -44,7 +71,7 @@
 										<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>
 									</label>
 									<input class="btn btn-success" type="submit" name="submit" id="submit" value="Sign In" tabindex="5" />
-									<input class="btn btn-primary" onClick="location.href='<?php echo site_url('/register')?>';" name="button2" type="button" id="button2" value="Register" />
+									<input class="btn btn-primary" onClick="location.href='<?= site_url('/register')?>';" name="button2" type="button" id="button2" value="Register" />
 		
 									<?php endif; ?>
 								<?php echo form_close(); ?>
@@ -67,3 +94,4 @@
 </div>	<!-- /.navbar -->
 <!-- End of Navbar Template -->
 
+				

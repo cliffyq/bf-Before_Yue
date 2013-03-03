@@ -21,9 +21,9 @@
 					<!--user menu-->
 					<li class="">
 						
-						<button class="btn  dropdown-toggle" data-toggle="dropdown" href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>" id="tb_email" class="btn dark" title="<?php echo lang('bf_user_settings') ?>">
+						<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>" id="tb_email" class="btn dark" title="<?php echo lang('bf_user_settings') ?>">
+							<i class="icon-user"></i>
 							<?php echo (isset($current_user->display_name) && !empty($current_user->display_name)) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email); ?>
-							<span class="caret"></span>
 						</button>
 						<!-- Change **light** to **dark** to match colors 
 						<a class="btn dropdown-toggle light" data-toggle="dropdown" href="#"><span class="caret"></span></a>-->
