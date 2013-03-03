@@ -5,11 +5,16 @@
 			if($video_info->ajax == 0): ?>
 				<h2>Video Info Settings</h2>
 			<?php endif ?>
-			<div class="video_box" >
-				<video style="width:100%" src="<?=site_url('upload/video').'/'.$video_info->video_path.'video.mp4';?>" controls></video>
-			</div>
+			
 		<?php $attributes = array('id' => 'video_upadte', 'class' => "form-horizontal", 'method' => "POST");
 		 echo form_open_multipart('company/company_company/video_info_updating/'.$video_info->id.'/'.$video_info->video_path, $attributes) ?>		
+						<div class="control-group">
+						 	<label class="control-label">Video</label>
+							<div class="video_box controls" >
+								<video style="width:100%" src="<?=site_url('upload/video').'/'.$video_info->video_path.'video.mp4';?>" controls></video>
+							</div>
+						</div>
+						
 						<div class="control-group">
 						 	<label class="control-label">Title</label>
 							<div class="controls">

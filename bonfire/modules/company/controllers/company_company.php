@@ -250,6 +250,7 @@
 			$preference['upload_path'] = './'.VIDEO_UPLOAD_PATH.$path;
 			$dirname = $preference['upload_path'];
 			$folder_handler = dir($dirname);
+			
 		    while ($file = $folder_handler->read()) {
 		        if ($file == "." || $file == "..")
 		            continue;
@@ -257,6 +258,7 @@
 		    	}
 		   $folder_handler->close();
 		   rmdir($dirname);
+		   
 		}
 	
 	}

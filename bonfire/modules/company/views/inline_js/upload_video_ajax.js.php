@@ -44,7 +44,19 @@ function showProgress(event, position, total, percentComplete) {
 
 $("#video_upload").change(function(e){
  	e.preventDefault();
-    $('#video_upload').ajaxSubmit(options);
+    
+    var file = $('input[type="file"]').val();
+    var get_ext = file.split('.');    
+    get_ext = get_ext.reverse();
+    //alert(get_ext[0]);
+    var exts = ['mp4', 'ogv', 'wma', 'avi', 'webm'];
+	if ( $.inArray ( get_ext[0].toLowerCase(), exts ) > -1 ){
+        $('#video_upload').ajaxSubmit(options);
+    } else {
+        alert( 'Invalid file!' );
+    }
+    
+    
     return false;
 });
         

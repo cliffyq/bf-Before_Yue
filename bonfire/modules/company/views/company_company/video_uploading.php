@@ -21,7 +21,7 @@
 						</div>
 						
 						<div class="control-group">
-							<label class="control-label">progress</label>
+							<label class="control-label">uploading progress</label>
 							<div class="controls">
 								<div class="progress" style="width:500px; margin-top:5px"> 
 								    <span class="bar"></span><span class="percent">0%</span > 

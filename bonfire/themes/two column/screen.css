@@ -494,7 +494,7 @@ Link Lists
 Forms
  */
 .form-horizontal .control-group {
-	border-bottom: 1px solid #e5e5e5;
+	
 	padding-bottom: 18px;
 	padding-top: 18px;
 	margin-bottom: 0;
@@ -629,7 +629,7 @@ Additional Buttons
 
 .video_box{
 	margin-left: 100px; 
-	width:480px;
+	width:320px;
 }
 /*
  * Drop-down menu 3rd Level fix/hack?
