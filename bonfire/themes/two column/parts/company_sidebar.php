@@ -10,6 +10,7 @@
 
 
 		<li class="nav-header">MEDIA</li>
+<<<<<<< HEAD
 		<li
 		<?php echo   $this->uri->uri_string() == site_url('company/company_company/video_uploading') ? 'class="active"' : '' ?>>
 		<a href="<?php echo site_url('company/company_company/video_uploading') ?>" id="sidebar-new-meida">Upload New Media</a>
@@ -18,6 +19,14 @@
 		<?php echo   $this->uri->uri_string() == site_url(SITE_AREA .'/user/incentive/index') ? 'class="active"' : '' ?>>
 			<a href="<?php echo site_url(SITE_AREA .'/user/incentive/index') ?>"
 			id="sidebar-current-media">View Current Media</a>
+=======
+		<li <?php echo   $this->uri->uri_string() == site_url('company/company_company/video_uploading') ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('company/company_company/video_uploading') ?>" id="sidebar-new-meida">Upload New Video</a>
+		</li>
+		
+		<li <?php echo   $this->uri->uri_string() == site_url('company/company_company/video_manager') ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('/company/company_company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
+>>>>>>> 33d6210e26b8d81c5853fc7f1e3fcbcbcd6f0bde
 		</li>
 
 		<li class="nav-header">INCENTIVES</li>
