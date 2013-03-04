@@ -2,7 +2,7 @@
 	<?= $company_data['company_name'] ?>
 </h1>
 <img
-	src="<?php echo modules::run('company_company/get_logo', $company_data['company_logo'])?>"
+	src="<?php echo modules::run('company/company_company/get_logo', $company_data['company_logo'])?>"
 	alt="Company logo" height="30" class="logo" />
 <div>
 	<a href="http://<?= $company_data['company_url'] ?>"><?= $company_data['company_url'] ?>

@@ -50,7 +50,7 @@ if (!defined('BASEPATH'))
 			Template::set('records', $records);
 			console::log(print_r($records,true));
 			//Template::set('toolbar_title', 'Manage Company');
-			Template::set_theme('Two');
+			Template::set_theme('Two column');
 			Template::render();
 		}
 
@@ -158,7 +158,9 @@ if (!defined('BASEPATH'))
 				}
 					
 				$user_id = $this->auth->user_id();
-				$user_company = $this->company_model->find_by('company_userid', $user_id)->id;
+				$result = $this->company_model->find_by('company_userid', $user_id);
+				if(!$result) return false;
+				$user_company = $result->id;
 				//console::log('company id: '.$user_company);
 				if($video_company !== $user_company){//check if user has the correct company of video
 					template::set('msg', 'error');

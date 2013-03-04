@@ -4,7 +4,7 @@
 	<a
 		href="<?php echo base_url()?>company/company_company/company_admin/<?php echo $record->id ?>"><?php echo $record->company_name?>
 	</a> <img
-		src="<?php echo modules::run('company/content/get_logo', $record->company_logo)?>"
+		src="<?php echo modules::run('company/company_company/get_logo', $record->company_logo)?>"
 		alt="Company logo" height="30" class="logo" />
 </div>
 <?php endforeach?>
