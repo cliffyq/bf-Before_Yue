@@ -12,7 +12,7 @@ class reports extends Admin_Controller {
 		$this->auth->restrict('Company.Reports.View');
 		$this->load->model('company_model', null, true);
 		$this->lang->load('company');
-		
+
 		Template::set_block('sub_nav', 'reports/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Company object.
+	Creates a Company object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Company data.
+	Allows editing of Company data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class reports extends Admin_Controller {
 	/*
 		Method: save_company()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_company($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class reports extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('company_name','Company Name','max_length[100]');
 		$this->form_validation->set_rules('company_logo','Company logo','max_length[255]');
 		$this->form_validation->set_rules('company_url','Company url','max_length[255]');
@@ -191,7 +191,7 @@ class reports extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['company_name']        = $this->input->post('company_name');
 		$data['company_logo']        = $this->input->post('company_logo');

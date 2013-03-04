@@ -4,18 +4,18 @@ class Migration_Permissions_for_core_modules extends Migration
 {
 
 	private $permission_array = array(
-					'Bonfire.Activities.View' => 'To view the Activities menu.',
-					'Bonfire.Database.View' => 'To view the Database menu.',
-					'Bonfire.Migrations.View' => 'To view the Migrations menu.',
-					'Bonfire.Modulebuilder.View' => 'To view the Modulebuilder menu.',
-					'Bonfire.Roles.View' => 'To view the Roles menu.',
-					'Bonfire.Sysinfo.View' => 'To view the System Information page.',
-					'Bonfire.Translate.Manage' => 'To manage the Language Translation.',
-					'Bonfire.Translate.View' => 'To view the Language Translate menu.',
-					'Bonfire.UI.View' => 'To view the UI/Keyboard Shortcut menu.',
-					'Bonfire.Update.Manage' => 'To manage the Bonfire Update.',
-					'Bonfire.Update.View' => 'To view the Developer Update menu.',
-				);
+			'Bonfire.Activities.View' => 'To view the Activities menu.',
+			'Bonfire.Database.View' => 'To view the Database menu.',
+			'Bonfire.Migrations.View' => 'To view the Migrations menu.',
+			'Bonfire.Modulebuilder.View' => 'To view the Modulebuilder menu.',
+			'Bonfire.Roles.View' => 'To view the Roles menu.',
+			'Bonfire.Sysinfo.View' => 'To view the System Information page.',
+			'Bonfire.Translate.Manage' => 'To manage the Language Translation.',
+			'Bonfire.Translate.View' => 'To view the Language Translate menu.',
+			'Bonfire.UI.View' => 'To view the UI/Keyboard Shortcut menu.',
+			'Bonfire.Update.Manage' => 'To manage the Bonfire Update.',
+			'Bonfire.Update.View' => 'To view the Developer Update menu.',
+	);
 
 
 	public function up()

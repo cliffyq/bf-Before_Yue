@@ -12,7 +12,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -42,7 +42,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Images extends Base_Controller {
 
 	/**
@@ -107,13 +107,13 @@ class Images extends Base_Controller {
 		if (!is_file($new_file) || $force != 'yes')
 		{
 			$config = array(
-				'image_library'		=> 'gd2',
-				'source_image'		=> $img_file,
-				'new_image'			=> $new_file,
-				'create_thumb'		=> false,
-				'maintain_ratio'	=> $crop == 'yes' ? true : false,
-				'width'				=> $width,
-				'height'			=> $height,
+					'image_library'		=> 'gd2',
+					'source_image'		=> $img_file,
+					'new_image'			=> $new_file,
+					'create_thumb'		=> false,
+					'maintain_ratio'	=> $crop == 'yes' ? true : false,
+					'width'				=> $width,
+					'height'			=> $height,
 			);
 
 			$this->load->library('image_lib', $config);
@@ -122,8 +122,8 @@ class Images extends Base_Controller {
 		}
 
 		$this->output
-			->set_content_type($ext)
-			->set_output(file_get_contents($new_file));
+		->set_content_type($ext)
+		->set_output(file_get_contents($new_file));
 	}//end index()
 
 	//--------------------------------------------------------------------

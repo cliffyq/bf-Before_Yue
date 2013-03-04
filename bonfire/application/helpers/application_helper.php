@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 /**
  * Application Helpers
@@ -25,7 +25,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/application_helpers.html
  *
- */
+*/
 
 if ( ! function_exists('gravatar_link'))
 {
@@ -63,18 +63,21 @@ if ( ! function_exists('gravatar_link'))
 
 			// Check if HTTP or HTTPS Request should be used
 
-			if(isset($_SERVER['HTTPS'])){ $http_protocol = "https://secure.";} else { $http_protocol = "http://www.";}
+			if(isset($_SERVER['HTTPS'])){
+				$http_protocol = "https://secure.";
+			} else { $http_protocol = "http://www.";
+			}
 
 			// URL for Gravatar
 			$gravatarURL =  $http_protocol . "gravatar.com/avatar.php?gravatar_id=%s&amp;default=%s&amp;size=%s&amp;border=%s&amp;rating=%s";
 			$avatarURL = sprintf
 			(
-				$gravatarURL,
-				md5($email),
-				$default_image,
-				$size,
-				$border,
-				$rating
+					$gravatarURL,
+					md5($email),
+					$default_image,
+					$size,
+					$border,
+					$rating
 			);
 		}
 		else
@@ -84,7 +87,7 @@ if ( ! function_exists('gravatar_link'))
 
 		$alt = htmlentities($alt, ENT_QUOTES, 'UTF-8');
 		$title = htmlentities($title, ENT_QUOTES, 'UTF-8');
-		
+
 		$id = ($id !== NULL) ? ' id="' .$id .'" ' : ' ';
 		$class = ($class !== NULL) ? ' class="' .$class .'"' : ' ';
 
@@ -185,7 +188,7 @@ if ( ! function_exists('module_controller_exists'))
 	 * Determines whether a controller exists for a module.
 	 *
 	 * @param $controller string The name of the controller to look for (without the .php)
-	 * @param $module string The name of module to look in.
+	 	* @param $module string The name of module to look in.
 	 *
 	 * @return boolean
 	 */
@@ -322,7 +325,7 @@ if ( ! function_exists('module_files'))
 					if (!empty($module_folder) && isset($values[$module_folder]) && count($values[$module_folder]))
 					{
 						$files[$mod_name] = array(
-							$module_folder	=> $values[$module_folder]
+								$module_folder	=> $values[$module_folder]
 						);
 					}
 					// Add the entire module
@@ -407,11 +410,11 @@ if ( ! function_exists('dump'))
 		$total_arguments = count($arguments);
 
 		echo '<fieldset style="background: #fefefe !important; border:2px red solid; padding:5px">';
-	    echo '<legend style="background:lightgrey; padding:5px;">'.$callee['file'].' @ line: '.$callee['line'].'</legend><pre>';
+		echo '<legend style="background:lightgrey; padding:5px;">'.$callee['file'].' @ line: '.$callee['line'].'</legend><pre>';
 
-	    $i = 0;
-	    foreach ($arguments as $argument)
-	    {
+		$i = 0;
+		foreach ($arguments as $argument)
+		{
 			echo '<br/><strong>Debug #'.(++$i).' of '.$total_arguments.'</strong>: ';
 
 			if ( (is_array($argument) || is_object($argument)) && count($argument))
@@ -433,10 +436,10 @@ if (!function_exists('e'))
 	/*
 		Function: e()
 
-		A convenience function to make sure your output is safe to display.
-		Helps to defeat XSS attacks by running the text through htmlentities().
+	A convenience function to make sure your output is safe to display.
+	Helps to defeat XSS attacks by running the text through htmlentities().
 
-		Should be used anywhere you are displaying user-submitted text.
+	Should be used anywhere you are displaying user-submitted text.
 	*/
 	function e($str)
 	{
@@ -531,15 +534,15 @@ if ( !function_exists('obj_value') )
 if ( !function_exists('iif') )
 {
 	/**
-	* If then Else Statement wrapped in one function, If $expression = true then $returntrue else $returnfalse
-	*
-	* @param mixed $expression    IF Statement to be checked
-	* @param mixed $returntrue    What to Return on True
-	* @param mixed $returnfalse   What to Return on False
-	* @param bool  $echo          Defaults to false, if set to true will echo instead of return
-	*
-	* @return mixed    If echo is set to true will echo the value of the expression, defaults to returning the value
-	*/
+	 * If then Else Statement wrapped in one function, If $expression = true then $returntrue else $returnfalse
+	 *
+	 * @param mixed $expression    IF Statement to be checked
+	 * @param mixed $returntrue    What to Return on True
+	 * @param mixed $returnfalse   What to Return on False
+	 * @param bool  $echo          Defaults to false, if set to true will echo instead of return
+	 *
+	 * @return mixed    If echo is set to true will echo the value of the expression, defaults to returning the value
+	 */
 	function iif($expression, $returntrue, $returnfalse = '', $echo = false )
 	{
 		if ( $echo === false )
@@ -556,46 +559,46 @@ if ( !function_exists('iif') )
 
 if ( !function_exists('list_contexts') )
 {
-    /**
-     * 	Returns a list of the contexts specified for the application. The options $landing_page_filter
-     * can be applied to force return of contexts that have a landing page (index.php) available.
-     *
-     *	@param	$landing_page_filter	Boolean		TRUE to filter FALSE for all
-     *	@return 						array	The context values array
-     */
-    function list_contexts($landing_page_filter = false)
-    {
-        $ci = &get_instance();
+	/**
+	 * 	Returns a list of the contexts specified for the application. The options $landing_page_filter
+	 * can be applied to force return of contexts that have a landing page (index.php) available.
+	 *
+	 *	@param	$landing_page_filter	Boolean		TRUE to filter FALSE for all
+	 *	@return 						array	The context values array
+	 */
+	function list_contexts($landing_page_filter = false)
+	{
+		$ci = &get_instance();
 
-        $contexts = $ci->config->item('contexts');
-        if (empty($contexts) || !is_array($contexts) || !count($contexts))
-        {
-            return false;
-        }
+		$contexts = $ci->config->item('contexts');
+		if (empty($contexts) || !is_array($contexts) || !count($contexts))
+		{
+			return false;
+		}
 
-        // Ensure settings context exists
-        if (!in_array('settings', $contexts))
-        {
-            array_push($contexts, 'settings');
-        }
+		// Ensure settings context exists
+		if (!in_array('settings', $contexts))
+		{
+			array_push($contexts, 'settings');
+		}
 
-        // Ensure developer context exists
-        if (!in_array('developer', $contexts))
-        {
-            array_push($contexts, 'developer');
-        }
-        // Optional removal of contexts without landing pages
-        if ($landing_page_filter === true)
-        {
-            while ($context = current($contexts))
-            {
-                if (!file_exists(realpath(VIEWPATH).DIRECTORY_SEPARATOR.SITE_AREA.DIRECTORY_SEPARATOR.$context.DIRECTORY_SEPARATOR.'index.php'))
-                {
-                    array_splice($contexts, key($contexts), 1);
-                }
-                next($contexts);
-            }
-        }
-        return $contexts;
-    }
+		// Ensure developer context exists
+		if (!in_array('developer', $contexts))
+		{
+			array_push($contexts, 'developer');
+		}
+		// Optional removal of contexts without landing pages
+		if ($landing_page_filter === true)
+		{
+			while ($context = current($contexts))
+			{
+				if (!file_exists(realpath(VIEWPATH).DIRECTORY_SEPARATOR.SITE_AREA.DIRECTORY_SEPARATOR.$context.DIRECTORY_SEPARATOR.'index.php'))
+				{
+					array_splice($contexts, key($contexts), 1);
+				}
+				next($contexts);
+			}
+		}
+		return $contexts;
+	}
 }

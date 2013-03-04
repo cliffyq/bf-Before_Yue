@@ -12,7 +12,7 @@ class reports extends Admin_Controller {
 		$this->auth->restrict('Video_view_history.Reports.View');
 		$this->load->model('video_view_history_model', null, true);
 		$this->lang->load('video_view_history');
-		
+
 		Template::set_block('sub_nav', 'reports/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a video view history object.
+	Creates a video view history object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of video view history data.
+	Allows editing of video view history data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class reports extends Admin_Controller {
 	/*
 		Method: save_video_view_history()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_video_view_history($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class reports extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('video_view_history_video_id','video_id','max_length[11]');
 		$this->form_validation->set_rules('video_view_history_user_id','user_id','max_length[20]');
 		$this->form_validation->set_rules('video_view_history_ip','ip','max_length[15]');
@@ -190,7 +190,7 @@ class reports extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['video_view_history_video_id']        = $this->input->post('video_view_history_video_id');
 		$data['video_view_history_user_id']        = $this->input->post('video_view_history_user_id');

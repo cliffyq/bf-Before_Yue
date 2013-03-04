@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@
  * @author     Lonnie Ezell
  * @link       http://cibonfire.com/docs/guides/models.html
  *
- */
+*/
 class BF_Model extends CI_Model
 {
 
@@ -90,37 +90,37 @@ class BF_Model extends CI_Model
 
 	/*
 		Var: $log_user
-		If TRUE, will log user id for 'created_by', 'modified_by' and 'deleted_by'.
+	If TRUE, will log user id for 'created_by', 'modified_by' and 'deleted_by'.
 
-		Access:
-			Protected
+	Access:
+	Protected
 	*/
 	protected $log_user = FALSE;
 
 	/*
 		Var: $created_by_field
-		Field name to use to the created by column in the DB table.
+	Field name to use to the created by column in the DB table.
 
-		Access:
-			Protected
+	Access:
+	Protected
 	*/
 	protected $created_by_field = 'created_by';
 
 	/*
 		Var: $modified_by_field
-		Field name to use to the modified by column in the DB table.
+	Field name to use to the modified by column in the DB table.
 
-		Access:
-			Protected
+	Access:
+	Protected
 	*/
 	protected $modified_by_field = 'modified_by';
 
 	/*
 		Var: $deleted_by_field
-		Field name to use for the deleted by column in the DB table.
+	Field name to use for the deleted by column in the DB table.
 
-		Access:
-			Protected
+	Access:
+	Protected
 	*/
 	protected $deleted_by_field = 'deleted_by';
 
@@ -151,12 +151,12 @@ class BF_Model extends CI_Model
 	protected $selects = '';
 
 	/*
-	Var: $escape
+	 Var: $escape
 	If FALSE, the select() method will not try to protect your field or table names with backticks.
 	This is useful if you need a compound select statement.
 
 	Access:
-		Protected
+	Protected
 	*/
 	protected $escape = TRUE;
 
@@ -422,7 +422,7 @@ class BF_Model extends CI_Model
 	}//end insert()
 
 	//---------------------------------------------------------------
-	
+
 	/**
 	 * Inserts a batch of data into the database.
 	 *
@@ -436,14 +436,14 @@ class BF_Model extends CI_Model
 		{
 			return FALSE;
 		}
-		
+
 		$set = array();
 
 		// Add the created field
 		if ($this->set_created === TRUE )
 		{
 			$set[$this->created_field] = $this->set_date();
-		} 
+		}
 
 		if ($this->set_created === TRUE && $this->log_user === TRUE)
 		{
@@ -523,26 +523,26 @@ class BF_Model extends CI_Model
 	 * @return bool TRUE/FALSE
 	 */
 	/*public function update_where($field=NULL, $value=NULL, $data=NULL)
+	 {
+	if (empty($field) || empty($value) || !is_array($data))
 	{
-		if (empty($field) || empty($value) || !is_array($data))
-		{
-			$this->error = $this->lang->line('bf_model_no_data');
-			$this->logit('['. get_class($this) .': '. __METHOD__ .'] '. $this->lang->line('bf_model_no_data'));
-			return FALSE;
-		}
+	$this->error = $this->lang->line('bf_model_no_data');
+	$this->logit('['. get_class($this) .': '. __METHOD__ .'] '. $this->lang->line('bf_model_no_data'));
+	return FALSE;
+	}
 
-		// Add the modified field
-		if ($this->set_modified === TRUE && !array_key_exists($this->modified_field, $data))
-		{
-			$data[$this->modified_field] = $this->set_date();
-		}
+	// Add the modified field
+	if ($this->set_modified === TRUE && !array_key_exists($this->modified_field, $data))
+	{
+	$data[$this->modified_field] = $this->set_date();
+	}
 
-		if ($this->set_modified === TRUE && $this->log_user === TRUE && !array_key_exists($this->modified_by_field, $data))
-		{
-			$data[$this->modified_by_field] = $this->auth->user_id();
-		}
+	if ($this->set_modified === TRUE && $this->log_user === TRUE && !array_key_exists($this->modified_by_field, $data))
+	{
+	$data[$this->modified_by_field] = $this->auth->user_id();
+	}
 
-		return $this->db->update($this->table, $data, array($field => $value));
+	return $this->db->update($this->table, $data, array($field => $value));
 
 	}*///end update_where()
 
@@ -638,7 +638,7 @@ class BF_Model extends CI_Model
 			if ($this->soft_deletes === TRUE)
 			{
 				$data = array(
-					'deleted'	=> 1
+						'deleted'	=> 1
 				);
 
 				if ($this->log_user === TRUE && !array_key_exists($this->deleted_by_field, $data))
@@ -711,8 +711,8 @@ class BF_Model extends CI_Model
 			if ($this->log_user === TRUE)
 			{
 				$this->db->update($this->table, array(
-					'deleted' => 1,
-					$this->deleted_by_field => $this->auth->user_id(),
+						'deleted' => 1,
+						$this->deleted_by_field => $this->auth->user_id(),
 				));
 			}
 			else
@@ -825,8 +825,8 @@ class BF_Model extends CI_Model
 		{
 			$this->db->where($field, $value);
 		}
-		
-		
+
+
 
 		return (int)$this->db->count_all_results($this->table);
 
@@ -1087,7 +1087,7 @@ class BF_Model extends CI_Model
 
 	}//end _function_check()
 
-    //---------------------------------------------------------------
+	//---------------------------------------------------------------
 
 	/**
 	 * A utility function to allow child models to use the type of

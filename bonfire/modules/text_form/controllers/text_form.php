@@ -12,7 +12,7 @@ class text_form extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('text_form_model', null, true);
 		$this->lang->load('text_form');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class text_form extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{

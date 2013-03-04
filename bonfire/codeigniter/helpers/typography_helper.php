@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/typography_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
  * @access	public
  * @param	string
  * @return	string
- */
+*/
 if ( ! function_exists('nl2br_except_pre'))
 {
 	function nl2br_except_pre($str)

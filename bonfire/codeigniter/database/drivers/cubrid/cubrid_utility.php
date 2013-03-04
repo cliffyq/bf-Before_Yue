@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		Esen Sagynov
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_cubrid_utility extends CI_DB_utility {
 
 	/**

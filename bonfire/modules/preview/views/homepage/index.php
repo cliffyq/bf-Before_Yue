@@ -3,7 +3,7 @@
 </div>-->
 
 <div class="center_panel">
-	<?php echo $center_block_part;?>								
+	<?php echo $center_block_part;?>
 </div>
 
 

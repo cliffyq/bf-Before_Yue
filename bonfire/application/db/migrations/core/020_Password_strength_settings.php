@@ -12,11 +12,11 @@ class Migration_Password_strength_settings extends Migration
 		$prefix = $this->db->dbprefix;
 
 		$default_settings = "
-			INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES
-			 ('auth.password_min_length', 'core', '8'),
-			 ('auth.password_force_numbers','core',0),
-			 ('auth.password_force_symbols','core',0),
-			 ('auth.password_force_mixed_case','core',0);
+		INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES
+		('auth.password_min_length', 'core', '8'),
+		('auth.password_force_numbers','core',0),
+		('auth.password_force_symbols','core',0),
+		('auth.password_force_mixed_case','core',0);
 		";
 
 		if ($this->db->query($default_settings))
@@ -34,9 +34,9 @@ class Migration_Password_strength_settings extends Migration
 
 		// remove the keys
 		$this->db->query("DELETE FROM {$prefix}settings WHERE (name = 'auth.password_min_length'
-			OR name ='auth.password_force_numbers'
-			OR name ='auth.password_force_symbols'
-			OR name ='auth.password_force_mixed_case'
+		OR name ='auth.password_force_numbers'
+		OR name ='auth.password_force_symbols'
+		OR name ='auth.password_force_mixed_case'
 		)");
 
 	}

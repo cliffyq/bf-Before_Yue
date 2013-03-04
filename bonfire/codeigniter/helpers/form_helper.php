@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/form_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@
  * @param	array	a key/value pair of attributes
  * @param	array	a key/value pair hidden data
  * @return	string
- */
+*/
 if ( ! function_exists('form_open'))
 {
 	function form_open($action = '', $attributes = '', $hidden = array())
@@ -64,8 +64,8 @@ if ( ! function_exists('form_open'))
 
 		$form .= '>';
 
-		// Add CSRF field if enabled, but leave it out for GET requests and requests to external websites	
-		if ($CI->config->item('csrf_protection') === TRUE AND ! (strpos($action, $CI->config->base_url()) === FALSE OR strpos($form, 'method="get"')))	
+		// Add CSRF field if enabled, but leave it out for GET requests and requests to external websites
+		if ($CI->config->item('csrf_protection') === TRUE AND ! (strpos($action, $CI->config->base_url()) === FALSE OR strpos($form, 'method="get"')))
 		{
 			$hidden[$CI->security->get_csrf_token_name()] = $CI->security->get_csrf_hash();
 		}
@@ -983,7 +983,7 @@ if ( ! function_exists('_attributes_to_string'))
 				$attributes .= ' accept-charset="'.strtolower(config_item('charset')).'"';
 			}
 
-		return ' '.$attributes;
+			return ' '.$attributes;
 		}
 
 		if (is_object($attributes) AND count($attributes) > 0)
@@ -1034,17 +1034,17 @@ if ( ! function_exists('_get_validation_object'))
 
 		// We set this as a variable since we're returning by reference.
 		$return = FALSE;
-		
+
 		if (FALSE !== ($object = $CI->load->is_loaded('form_validation')))
 		{
 			if ( ! isset($CI->$object) OR ! is_object($CI->$object))
 			{
 				return $return;
 			}
-			
+
 			return $CI->$object;
 		}
-		
+
 		return $return;
 	}
 }

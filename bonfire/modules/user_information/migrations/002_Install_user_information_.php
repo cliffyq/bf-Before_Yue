@@ -7,21 +7,21 @@ class Migration_Install_user_information_ extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'user_information_user_id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
-			'user_information_current_points' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'user_information_user_id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
+				'user_information_current_points' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

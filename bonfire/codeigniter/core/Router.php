@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @author		ExpressionEngine Dev Team
  * @category	Libraries
  * @link		http://codeigniter.com/user_guide/general/routing.html
- */
+*/
 class CI_Router {
 
 	/**
@@ -47,14 +47,14 @@ class CI_Router {
 	 *
 	 * @var array
 	 * @access public
-	 */
+	*/
 	var $error_routes	= array();
 	/**
 	 * Current class name
 	 *
 	 * @var string
 	 * @access public
-	 */
+	*/
 	var $class			= '';
 	/**
 	 * Current method name

@@ -12,7 +12,7 @@ class question extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('question_model', null, true);
 		$this->lang->load('question');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class question extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -34,7 +34,7 @@ class question extends Front_Controller {
 	}
 
 	//--------------------------------------------------------------------
-	
+
 
 	//for debug
 	public function  question_show($qid)
@@ -43,5 +43,5 @@ class question extends Front_Controller {
 		Template:: set('question',$records);
 		Template:: render();
 	}
-	
+
 }

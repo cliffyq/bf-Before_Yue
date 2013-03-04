@@ -1,35 +1,35 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Migration_Version_02_upgrades extends Migration {
-	
-	public function up() 
+
+	public function up()
 	{
 		$prefix = $this->db->dbprefix;
 
 		// email Queue
 		$sql = "ALTER TABLE {$prefix}permissions
-				ADD COLUMN `Bonfire.Emailer.View` TINYINT(1) DEFAULT 0 NOT NULL";
-		$this->db->query($sql);	
-		
+		ADD COLUMN `Bonfire.Emailer.View` TINYINT(1) DEFAULT 0 NOT NULL";
+		$this->db->query($sql);
+
 		$this->db->query("UPDATE {$prefix}permissions SET `Bonfire.Emailer.View`=1 WHERE `role_id`=1");
 
-		
+
 		// Users table changes
 		$this->dbforge->modify_column('users', array(
-			'temp_password_hash' => array(
-				'name'	=> 'reset_hash',
-				'type'	=> 'VARCHAR',
-				'constraint'	=> 40,
-				'null'			=> true
-			)
+				'temp_password_hash' => array(
+						'name'	=> 'reset_hash',
+						'type'	=> 'VARCHAR',
+						'constraint'	=> 40,
+						'null'			=> true
+				)
 		));
 
 		$this->dbforge->add_column('users', array(
-			'reset_by'	=> array(
-				'type'			=> 'INT',
-				'constraint'	=> 10,
-				'null'			=> true
-			)
+				'reset_by'	=> array(
+						'type'			=> 'INT',
+						'constraint'	=> 10,
+						'null'			=> true
+				)
 		));
 
 		// Add countries table for our users.
@@ -41,29 +41,29 @@ class Migration_Version_02_upgrades extends Migration {
 		$this->dbforge->add_field("numcode SMALLINT");
 		$this->dbforge->add_key('iso', true);
 		$this->dbforge->create_table('countries');
-		
+
 		// Add a country_iso field so that we can use with users.
 		$this->dbforge->add_column('users', array(
-			'country_iso'	=> array(
-				'type'			=> 'CHAR',
-				'constraint'	=> 2,
-				'default'		=> 'US'
-			)
+				'country_iso'	=> array(
+						'type'			=> 'CHAR',
+						'constraint'	=> 2,
+						'default'		=> 'US'
+				)
 		));
-		
+
 		// Change zipcode back to string
 		$this->dbforge->modify_column('users', array(
 				'zipcode' => array(
-					'name'			=> 'zipcode',
-					'type'			=> 'VARCHAR',
-					'constraint'	=> 20,
-					'null'			=> true
+						'name'			=> 'zipcode',
+						'type'			=> 'VARCHAR',
+						'constraint'	=> 20,
+						'null'			=> true
 				)
-			));
-		
+		));
+
 		// Remove the zip_extra field
 		$this->dbforge->drop_column('users', 'zip_extra');
-		
+
 		// And... the countries themselves. (whew!)
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('AF','AFGHANISTAN','Afghanistan','AFG','004');");
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('AL','ALBANIA','Albania','ALB','008');");
@@ -304,7 +304,7 @@ class Migration_Version_02_upgrades extends Migration {
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('YE','YEMEN','Yemen','YEM','887');");
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('ZM','ZAMBIA','Zambia','ZMB','894');");
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('ZW','ZIMBABWE','Zimbabwe','ZWE','716');");
-		
+
 		// Activity Table
 		$this->dbforge->add_field('activity_id BIGINT(20) NOT NULL AUTO_INCREMENT');
 		$this->dbforge->add_field('user_id BIGINT(20) NOT NULL DEFAULT 0');
@@ -314,70 +314,70 @@ class Migration_Version_02_upgrades extends Migration {
 		$this->dbforge->add_key('activity_id', true);
 		$this->dbforge->create_table('activities');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	public function down() 
+
+	public function down()
 	{
 		$prefix = $this->db->dbprefix;
-	
+
 		if ($this->db->field_exists('`Bonfire.Emailer.View`', 'permissions'))
 		{
 			$this->db->query("ALTER TABLE `{$prefix}permissions` DROP COLUMN `Bonfire.Emailer.View`");
 		}
-		
+
 		if ($this->db->field_exists('reset_hash', 'users'))
 		{
 			$this->dbforge->modify_column('users', array(
-				'reset_hash' => array(
-					'name'	=> 'temp_password_hash',
-					'type'	=> 'VARCHAR',
-					'constraint'	=> 40
-				)
+					'reset_hash' => array(
+							'name'	=> 'temp_password_hash',
+							'type'	=> 'VARCHAR',
+							'constraint'	=> 40
+					)
 			));
 		}
-		
+
 		// Drop reset_by from users
 		if ($this->db->field_exists('reset_by', 'users'))
 		{
 			$this->dbforge->drop_column('users', 'reset_by');
 		}
-		
+
 		// Drop country_iso from users
 		if ($this->db->field_exists('country_iso', 'users'))
 		{
 			$this->dbforge->drop_column('users', 'country_iso');
 		}
-		
+
 		// Drop our countries table
 		$this->dbforge->drop_table('countries');
-		
+
 		// Give us back our zip_extra column
 		if ($this->db->field_exists('zip_extra', 'users') == false)
 		{
 			$this->dbforge->add_column('users', array(
-				'zip_extra'	=> array(
-					'type'			=> 'INT',
-					'constraint'	=> 5,
-					'null'			=> true
-				)
+					'zip_extra'	=> array(
+							'type'			=> 'INT',
+							'constraint'	=> 5,
+							'null'			=> true
+					)
 			));
 		}
-		
+
 		// Change zipcode back to int
 		$this->dbforge->modify_column('users', array(
 				'zipcode' => array(
-					'name'			=> 'zipcode',
-					'type'			=> 'INT',
-					'constraint'	=> 7,
-					'null'			=> true
+						'name'			=> 'zipcode',
+						'type'			=> 'INT',
+						'constraint'	=> 7,
+						'null'			=> true
 				)
-			));
+		));
 			
 		// Activity Table
 		$this->dbforge->drop_table('activities');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 }

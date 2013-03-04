@@ -12,7 +12,7 @@ class content extends Admin_Controller {
 		$this->auth->restrict('Video_extra_information.Content.View');
 		$this->load->model('video_extra_information_model', null, true);
 		$this->lang->load('video_extra_information');
-		
+
 		Template::set_block('sub_nav', 'content/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class content extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class content extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a video extra information object.
+	Creates a video extra information object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class content extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of video extra information data.
+	Allows editing of video extra information data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class content extends Admin_Controller {
 	/*
 		Method: save_video_extra_information()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_video_extra_information($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class content extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('video_extra_information_video_id','video_id','max_length[11]');
 		$this->form_validation->set_rules('video_extra_information_points','points','max_length[11]');
 
@@ -188,7 +188,7 @@ class content extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['video_extra_information_video_id']        = $this->input->post('video_extra_information_video_id');
 		$data['video_extra_information_points']        = $this->input->post('video_extra_information_points');

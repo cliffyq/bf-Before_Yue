@@ -12,7 +12,7 @@ class answer extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('answer_model', null, true);
 		$this->lang->load('answer');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class answer extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{

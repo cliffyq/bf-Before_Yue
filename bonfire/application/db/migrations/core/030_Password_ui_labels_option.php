@@ -12,7 +12,7 @@ class Migration_Password_ui_labels_option extends Migration
 		$prefix = $this->db->dbprefix;
 
 		$default_settings = "
-			INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES('auth.password_show_labels','core',0);";
+		INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES('auth.password_show_labels','core',0);";
 
 		if ($this->db->query($default_settings))
 		{

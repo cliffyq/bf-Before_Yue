@@ -7,16 +7,16 @@ class Migration_Install_answer extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'answer_content' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 255,
-				
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'answer_content' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 255,
+
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

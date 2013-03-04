@@ -12,7 +12,7 @@ class settings extends Admin_Controller {
 		$this->auth->restrict('Industry.Settings.View');
 		$this->load->model('industry_model', null, true);
 		$this->lang->load('industry');
-		
+
 		Template::set_block('sub_nav', 'settings/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class settings extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class settings extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Industry object.
+	Creates a Industry object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class settings extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Industry data.
+	Allows editing of Industry data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class settings extends Admin_Controller {
 	/*
 		Method: save_industry()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_industry($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class settings extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('industry_industry_name','Industry','required|max_length[40]');
 
 		if ($this->form_validation->run() === FALSE)
@@ -187,7 +187,7 @@ class settings extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['industry_industry_name']        = $this->input->post('industry_industry_name');
 

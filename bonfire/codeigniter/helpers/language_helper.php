@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/language_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@
  * @param	string	the language line
  * @param	string	the id of the form element
  * @return	string
- */
+*/
 if ( ! function_exists('lang'))
 {
 	function lang($line, $id = '')

@@ -23,59 +23,59 @@ for($counter=1; $field_total >= $counter; $counter++)
 	switch($field_type)
 	{
 
-	// Some consideration has gone into how these should be implemented
-	// I came to the conclusion that it should just setup a mere framework
-	// and leave helpful comments for the developer
-	// Modulebuilder is meant to have a minimium amount of features.
-	// It sets up the parts of the form that are repitive then gets the hell out
-	// of the way.
+		// Some consideration has gone into how these should be implemented
+		// I came to the conclusion that it should just setup a mere framework
+		// and leave helpful comments for the developer
+		// Modulebuilder is meant to have a minimium amount of features.
+		// It sets up the parts of the form that are repitive then gets the hell out
+		// of the way.
 
-	// This approach maintains these aims/goals
+		// This approach maintains these aims/goals
 
-	case('textarea'):
+		case('textarea'):
 
-		if (!empty($textarea_editor) )
-		{
-			// if a date field hasn't been included already then add in the jquery ui files
-			if ($textarea_editor == 'ckeditor') {
-				$view .= '
-					if( !(\''.$field_name.'\' in CKEDITOR.instances)) {
-						CKEDITOR.replace( \''.$field_name.'\' );
-					}
-';
-			}
-			elseif ($textarea_editor == 'xinha') {
-				//
-				if ($xinha_names != '')
-				{
-					$xinha_names .= ', ';
+			if (!empty($textarea_editor) )
+			{
+				// if a date field hasn't been included already then add in the jquery ui files
+				if ($textarea_editor == 'ckeditor') {
+					$view .= '
+							if( !(\''.$field_name.'\' in CKEDITOR.instances)) {
+									CKEDITOR.replace( \''.$field_name.'\' );
 				}
-				$xinha_names .= '\''.$field_name.'\'';
+											';
+				}
+				elseif ($textarea_editor == 'xinha') {
+					//
+					if ($xinha_names != '')
+					{
+						$xinha_names .= ', ';
+					}
+					$xinha_names .= '\''.$field_name.'\'';
 
+				}
+				elseif ($textarea_editor == 'markitup') {
+					$view .= '$("#' . $field_name . '").markItUp(mySettings);' . PHP_EOL;
+				}
 			}
-			elseif ($textarea_editor == 'markitup') {
-				$view .= '$("#' . $field_name . '").markItUp(mySettings);' . PHP_EOL;
-			}
-		}
-		break;
+			break;
 
-	case('input'):
-	case('password'):
-	default: // input.. added bit of error detection setting select as default
+		case('input'):
+		case('password'):
+		default: // input.. added bit of error detection setting select as default
 
-		$db_field_type = set_value("db_field_type$counter");
-		if ($db_field_type != NULL)
-		{
-			if ($db_field_type == 'DATE')
+			$db_field_type = set_value("db_field_type$counter");
+			if ($db_field_type != NULL)
 			{
-				$view .= '$(\'#'.$field_name.'\').datepicker({ dateFormat: \'yy-mm-dd\'});' . PHP_EOL;
+				if ($db_field_type == 'DATE')
+				{
+					$view .= '$(\'#'.$field_name.'\').datepicker({ dateFormat: \'yy-mm-dd\'});' . PHP_EOL;
+				}
+				elseif ($db_field_type == 'DATETIME')
+				{
+					$view .= '$(\'#'.$field_name.'\').datetimepicker({ dateFormat: \'yy-mm-dd\', timeFormat: \'hh:mm:ss\'});' . PHP_EOL;
+				}
 			}
-			elseif ($db_field_type == 'DATETIME')
-			{
-				$view .= '$(\'#'.$field_name.'\').datetimepicker({ dateFormat: \'yy-mm-dd\', timeFormat: \'hh:mm:ss\'});' . PHP_EOL;
-			}
-		}
-		break;
+			break;
 
 	} // end switch
 
@@ -86,27 +86,27 @@ for($counter=1; $field_total >= $counter; $counter++)
 if ($xinha_names != '')
 {
 	$view .= '
-				var xinha_plugins =
-				[
-				 \'Linker\'
-				];
-				var xinha_editors =
-				[
-				  '.$xinha_names.'
-				];
+			var xinha_plugins =
+			[
+			\'Linker\'
+			];
+			var xinha_editors =
+			[
+			'.$xinha_names.'
+					];
 
-				function xinha_init()
-				{
-				  if(!Xinha.loadPlugins(xinha_plugins, xinha_init)) return;
+					function xinha_init()
+					{
+					if(!Xinha.loadPlugins(xinha_plugins, xinha_init)) return;
 
-				  var xinha_config = new Xinha.Config();
+					var xinha_config = new Xinha.Config();
 
-				  xinha_editors = Xinha.makeEditors(xinha_editors, xinha_config, xinha_plugins);
+					xinha_editors = Xinha.makeEditors(xinha_editors, xinha_config, xinha_plugins);
 
-				  Xinha.startEditors(xinha_editors);
-				}
-				xinha_init();
-';
+					Xinha.startEditors(xinha_editors);
+}
+					xinha_init();
+					';
 }
 
 echo $view;

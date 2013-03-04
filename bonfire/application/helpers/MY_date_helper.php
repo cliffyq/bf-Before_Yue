@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 /**
  * Date Helpers
@@ -24,7 +24,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/address_helpers.html
  *
- */
+*/
 
 if ( ! function_exists('relative_time'))
 {
@@ -40,7 +40,7 @@ if ( ! function_exists('relative_time'))
 		$difference = time() - $timestamp;
 
 		$periods = array("moment", "min", "hour", "day", "week",
-		"month", "years", "decade");
+				"month", "years", "decade");
 
 		$lengths = array("60","60","24","7","4.35","12","10");
 
@@ -109,10 +109,10 @@ if (!function_exists('date_difference'))
 		}
 
 		$times = array(
-			'week'		=> 604800,
-			'day'		=> 86400,
-			'hour'		=> 3600,
-			'minute'	=> 60
+				'week'		=> 604800,
+				'day'		=> 86400,
+				'hour'		=> 3600,
+				'minute'	=> 60
 		);
 
 		if ($reformat === true)

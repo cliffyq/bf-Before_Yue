@@ -58,22 +58,22 @@ for($counter=1; $field_total >= $counter; $counter++)
 		continue; 	// move onto next iteration of the loop
 	}
 	$headers .= '
-					<th>'. set_value("view_field_label$counter").'</th>';
+			<th>'. set_value("view_field_label$counter").'</th>';
 }
 if ($use_soft_deletes == 'true')
 {
 	$headers .= '
-					<th>Deleted</th>';
+			<th>Deleted</th>';
 }
 if ($use_created == 'true')
 {
 	$headers .= '
-					<th>Created</th>';
+			<th>Created</th>';
 }
 if ($use_modified == 'true')
 {
 	$headers .= '
-					<th>Modified</th>';
+			<th>Modified</th>';
 }
 
 $table_records = '';
@@ -106,10 +106,10 @@ for($counter=1; $field_total >= $counter; $counter++)
 		$table_records .= "
 				<?php if (\$this->auth->has_permission('{edit_permission}')) : ?>
 				<td><?php echo anchor(SITE_AREA .'/".$controller_name."/".$module_name_lower."/edit/'. \$record->".$primary_key_field.", {$pencil_icon} \$record->".$field_name.") ?></td>
-				<?php else: ?>
-				<td><?php echo \$record->".$field_name." ?></td>
-				<?php endif; ?>
-			";
+						<?php else: ?>
+						<td><?php echo \$record->".$field_name." ?></td>
+								<?php endif; ?>
+								";
 	}
 	else {
 		$table_records .= '
@@ -119,19 +119,19 @@ for($counter=1; $field_total >= $counter; $counter++)
 if ($use_soft_deletes == 'true')
 {
 	$table_records .= '
-				<td><?php echo $record->deleted > 0 ? lang(\''.$module_name_lower.'_true\') : lang(\''.$module_name_lower.'_false\')?></td>';
+			<td><?php echo $record->deleted > 0 ? lang(\''.$module_name_lower.'_true\') : lang(\''.$module_name_lower.'_false\')?></td>';
 	$field_total++;
 }
 if ($use_created == 'true')
 {
 	$table_records .= '
-				<td><?php echo $record->'.set_value("created_field").'?></td>';
+			<td><?php echo $record->'.set_value("created_field").'?></td>';
 	$field_total++;
 }
 if ($use_modified == 'true')
 {
 	$table_records .= '
-				<td><?php echo $record->'.set_value("modified_field").'?></td>';
+			<td><?php echo $record->'.set_value("modified_field").'?></td>';
 	$field_total++;
 }
 

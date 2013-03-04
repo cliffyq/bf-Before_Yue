@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 2.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Core
  * @author		ExpressionEngine Dev Team
  * @link
- */
+*/
 
 class CI_Cache_dummy extends CI_Driver {
 
@@ -89,10 +89,10 @@ class CI_Cache_dummy extends CI_Driver {
 	 * @param 	string		user/filehits
 	 * @return 	boolean		FALSE
 	 */
-	 public function cache_info($type = NULL)
-	 {
-		 return FALSE;
-	 }
+	public function cache_info($type = NULL)
+	{
+		return FALSE;
+	}
 
 	// ------------------------------------------------------------------------
 

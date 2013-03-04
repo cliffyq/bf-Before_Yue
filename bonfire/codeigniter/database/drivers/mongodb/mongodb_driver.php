@@ -1,28 +1,28 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
-	Class: CI_DB_mongodb_driver
-	
-	Note: _DB is an extender class that the app controller
-	creates dynamically based on whether the active record
-	class is being used or not.
-	
-	Implements a CodeIgniter database driver for MongoDB.
-	
-	This class stands on the excellent work of others, including
-	*	Alex Bilbie's MongoDB library (https://github.com/alexbilbie/codeigniter-mongodb-library)
-	* 	Gabriel Garcia's MongoDB library (https://github.com/Garciat/codeigniter-mongodb)
-	
-	Author: Lonnie Ezell
+ Class: CI_DB_mongodb_driver
+
+Note: _DB is an extender class that the app controller
+creates dynamically based on whether the active record
+class is being used or not.
+
+Implements a CodeIgniter database driver for MongoDB.
+
+This class stands on the excellent work of others, including
+*	Alex Bilbie's MongoDB library (https://github.com/alexbilbie/codeigniter-mongodb-library)
+* 	Gabriel Garcia's MongoDB library (https://github.com/Garciat/codeigniter-mongodb)
+
+Author: Lonnie Ezell
 */
 class CI_DB_mongodb_driver extends CI_DB {
 
 	public $dbdriver = 'mongodb';
-	
+
 	// clause and character used for LIKE escape sequences - not used in MongoDB
 	protected $_like_escape_str = '';
 	protected $_like_escape_chr = '';
-	
+
 	/**
 	 * The syntax to count rows is slightly different across different
 	 * database engines, so this string appears in each driver and is
@@ -30,35 +30,35 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 */
 	var $_count_string = 'SELECT COUNT(*) AS ';
 	var $_random_keyword = ' RAND()'; // database specific random keyword
-	
+
 	// whether SET NAMES must be used to set the character set
 	var $use_set_names;
-	
+
 	//--------------------------------------------------------------------
-	
-	public function __construct($params) 
+
+	public function __construct($params)
 	{
 		parent::__construct($params);
-		
+
 		$this->connection_string();
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	
+
+
 	/**
 	 * Non-persistent database connection
 	 *
 	 * @access	private called by the base class
 	 * @return	resource
 	 */
-	public function db_connect() 
+	public function db_connect()
 	{
 		if (!class_exists('Mongo'))
 		{
 			show_error('The MongoDB PECL extension has not been installed or enabled', 500);
 		}
-		
+
 		try{
 			$this->connection = new Mongo($this->connection_string);
 			return $this->connection;
@@ -68,24 +68,24 @@ class CI_DB_mongodb_driver extends CI_DB {
 			show_error('Unable to connect to MongoDB.', 500);
 		}
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Persistent database connection
 	 *
 	 * @access	private called by the base class
 	 * @return	resource
 	 */
-	public function db_pconnect() 
+	public function db_pconnect()
 	{
 		if (!class_exists('Mongo'))
 		{
 			show_error('The MongoDB PECL extension has not been installed or enabled', 500);
 		}
-		
+
 		$persist = 'ci_mongo_persist';
-		
+
 		try{
 			$this->connection = new Mongo($this->connection_string, array('persist' => $persist));
 			return $this->connection;
@@ -95,22 +95,22 @@ class CI_DB_mongodb_driver extends CI_DB {
 			show_error('Unable to connect to MongoDB.', 500);
 		}
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Select the database
 	 *
 	 * @access	private called by the base class
 	 * @return	resource
 	 */
-	public function db_select() 
+	public function db_select()
 	{
 		return $this->connection->selectDB($this->database);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Set client character set
 	 *
@@ -119,18 +119,18 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 * @param	string
 	 * @return	resource
 	 */
-	public function db_set_charset($charset, $collation) 
-	{ 
+	public function db_set_charset($charset, $collation)
+	{
 		/*
 			The MongoDB driver assumes that all data
-			is in UTF-8, so just return TRUE here.
+		is in UTF-8, so just return TRUE here.
 		*/
-		
+
 		return TRUE;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Execute the query
 	 *
@@ -138,13 +138,13 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 * @param	string	an SQL query
 	 * @return	resource
 	 */
-	protected function _execute($sql) 
+	protected function _execute($sql)
 	{
 		echo $sql ."<br/>";
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Escape the SQL Identifiers
 	 *
@@ -154,16 +154,16 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 * @param	string
 	 * @return	string
 	 */
-	protected function _escape_identifiers($item) 
+	protected function _escape_identifiers($item)
 	{
 		/*
 			MongoDB doesn't require escaping identifiers.
-		*/	
+		*/
 		return TRUE;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * From Tables
 	 *
@@ -174,18 +174,18 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 * @param	type
 	 * @return	type
 	 */
-	protected function _from_tables($tables) 
+	protected function _from_tables($tables)
 	{
 		if (!is_array($tables))
 		{
 			$tables = (array)$tables;
 		}
-		
+
 		return implode(',', $tables);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Insert statement
 	 *
@@ -201,9 +201,9 @@ class CI_DB_mongodb_driver extends CI_DB {
 	{
 		//return "INSERT INTO ".$table." (".implode(', ', $keys).") VALUES (".implode(', ', $values).")";
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Replace statement
 	 *
@@ -217,11 +217,11 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 */
 	protected function _replace($table, $keys, $values)
 	{
-	//	return "REPLACE INTO ".$table." (".implode(', ', $keys).") VALUES (".implode(', ', $values).")";
+		//	return "REPLACE INTO ".$table." (".implode(', ', $keys).") VALUES (".implode(', ', $values).")";
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Insert_batch statement
 	 *
@@ -237,9 +237,9 @@ class CI_DB_mongodb_driver extends CI_DB {
 	{
 		//return "INSERT INTO ".$table." (".implode(', ', $keys).") VALUES ".implode(', ', $values);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Update statement
 	 *
@@ -255,11 +255,11 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 */
 	protected function _update($table, $values, $where, $orderby = array(), $limit = FALSE)
 	{
-	
+
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Update_Batch statement
 	 *
@@ -273,11 +273,11 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 */
 	protected function _update_batch($table, $values, $index, $where = NULL)
 	{
-	
+
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Truncate statement
 	 *
@@ -293,9 +293,9 @@ class CI_DB_mongodb_driver extends CI_DB {
 	{
 		//return "TRUNCATE ".$table;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Delete statement
 	 *
@@ -309,51 +309,51 @@ class CI_DB_mongodb_driver extends CI_DB {
 	 */
 	protected function _delete($table, $where = array(), $like = array(), $limit = FALSE)
 	{
-	
+
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	//--------------------------------------------------------------------
 	// !PRIVATE METHODS
 	//--------------------------------------------------------------------
-	
-	/** 
+
+	/**
 	 * Generates the connection string for the database.
 	 */
-	private function connection_string() 
+	private function connection_string()
 	{
 		$connection_string = "mongodb://";
-		
+
 		if (empty($this->hostname))
 		{
 			show_error('The Host name must be set to connect to MongoDB.', 500);
 		}
-		
+
 		if (empty($this->database))
 		{
 			show_error('The Database name must be set to connect to MongoDB.', 500);
 		}
-		
+
 		if (!empty($this->username) && !empty($this->password))
 		{
 			$connection_string .= "{$this->username}:{$this->password}@";
 		}
-		
+
 		if (isset($this->port) && !empty($this->port))
 		{
 			$connection_string .= "{$this->hostname}:{$this->port}";
-		} 
+		}
 		else
 		{
 			$connection_string .= "{$this->hostname}";
 		}
-		
+
 		$this->connection_string = trim($connection_string);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 }
 
 //--------------------------------------------------------------------

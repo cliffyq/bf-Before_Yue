@@ -7,16 +7,16 @@ class Migration_Install_pre_screen extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'prescreen_content' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 30,
-				
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'prescreen_content' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 30,
+
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

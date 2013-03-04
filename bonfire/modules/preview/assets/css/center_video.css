@@ -1,23 +1,26 @@
 .center_video {
-		list-style: none;
-		padding: 0;
-		margin: 25em auto;
-		text-align: center;
-		width: 60em;
-		height: 28em;
-		}
-		.video_unit {
-		height: auto;
-		width: 43em;
-		margin: -17.5em auto;
-		padding: 0px;
-		text-align: center;
-		cursor: pointer;
-		}
-		.video_unit * {
-		width: 100%;
-		height: auto;
-		}
-		.video_unit.roundabout-in-focus {
-		cursor: default;
-		}
+	list-style: none;
+	padding: 0;
+	margin: 25em auto;
+	text-align: center;
+	width: 60em;
+	height: 28em;
+}
+
+.video_unit {
+	height: auto;
+	width: 43em;
+	margin: -17.5em auto;
+	padding: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.video_unit * {
+	width: 100%;
+	height: auto;
+}
+
+.video_unit.roundabout-in-focus {
+	cursor: default;
+}

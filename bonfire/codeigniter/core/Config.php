@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @category	Libraries
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/config.html
- */
+*/
 class CI_Config {
 
 	/**
@@ -38,13 +38,13 @@ class CI_Config {
 	 * List of all loaded config files
 	 *
 	 * @var array
-	 */
+	*/
 	var $is_loaded = array();
 	/**
 	 * List of paths to search when trying to load a config file
 	 *
 	 * @var array
-	 */
+	*/
 	var $_config_paths = array(APPPATH);
 
 	/**
@@ -57,7 +57,7 @@ class CI_Config {
 	 * @param   boolean  if configuration values should be loaded into their own section
 	 * @param   boolean  true if errors should just return false, false if an error message should be displayed
 	 * @return  boolean  if the file was successfully loaded or not
-	 */
+	*/
 	function __construct()
 	{
 		$this->config =& get_config();
@@ -102,8 +102,8 @@ class CI_Config {
 		foreach ($this->_config_paths as $path)
 		{
 			$check_locations = defined('ENVIRONMENT')
-				? array(ENVIRONMENT.'/'.$file, $file)
-				: array($file);
+			? array(ENVIRONMENT.'/'.$file, $file)
+			: array($file);
 
 			foreach ($check_locations as $location)
 			{
@@ -316,7 +316,7 @@ class CI_Config {
 				$uri = $str;
 			}
 		}
-	    return $uri;
+		return $uri;
 	}
 
 	// --------------------------------------------------------------------

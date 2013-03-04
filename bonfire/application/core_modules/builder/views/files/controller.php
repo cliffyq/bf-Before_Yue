@@ -1,11 +1,11 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
-	Define the various parts of the class here as variables with
-	{placeholders} for variable data. Below, we'll replace the parts
-	as needed.
+ Define the various parts of the class here as variables with
+{placeholders} for variable data. Below, we'll replace the parts
+as needed.
 
-	This should make modifying the way the class is built much easier.
+This should make modifying the way the class is built much easier.
 */
 
 $controller_name_lower = strtolower($controller_name);
@@ -30,14 +30,14 @@ END;
 //--------------------------------------------------------------------
 
 $mb_constructor = "
-	public function __construct()
-	{
+		public function __construct()
+		{
 		parent::__construct();
 
 		{restrict}";
 if ($db_required != '') {
 	$mb_constructor .= "
-		\$this->load->model('".$module_name_lower."_model', null, true);";
+			\$this->load->model('".$module_name_lower."_model', null, true);";
 }
 
 $mb_constructor .= "
@@ -48,212 +48,212 @@ $mb_constructor .= "
 if ($controller_name != $module_name_lower)
 {
 	$mb_constructor .= "
-		Template::set_block('sub_nav', '".$controller_name_lower."/_sub_nav');";
+			Template::set_block('sub_nav', '".$controller_name_lower."/_sub_nav');";
 }
 
 $mb_constructor .= "
-	}
+}
 
-	//--------------------------------------------------------------------
+		//--------------------------------------------------------------------
 
 
-";
+		";
 
 //--------------------------------------------------------------------
 
 $mb_index = "
-	/*
+		/*
 		Method: index()
 
 		Displays a list of form data.
-	*/
-	public function index()
-	{
-";
+		*/
+		public function index()
+		{
+		";
 if ($db_required != '') {
 	$mb_index .= "
-		// Deleting anything?
-		if (isset(\$_POST['delete']))
-		{
+			// Deleting anything?
+			if (isset(\$_POST['delete']))
+			{
 			\$checked = \$this->input->post('checked');
 
 			if (is_array(\$checked) && count(\$checked))
 			{
-				\$result = FALSE;
-				foreach (\$checked as \$pid)
-				{
-					\$result = \$this->".$module_name_lower."_model->delete(\$pid);
-				}
+			\$result = FALSE;
+			foreach (\$checked as \$pid)
+			{
+			\$result = \$this->".$module_name_lower."_model->delete(\$pid);
+}
 
-				if (\$result)
-				{
+					if (\$result)
+					{
 					Template::set_message(count(\$checked) .' '. lang('".$module_name_lower."_delete_success'), 'success');
-				}
-				else
-				{
-					Template::set_message(lang('".$module_name_lower."_delete_failure') . \$this->".$module_name_lower."_model->error, 'error');
-				}
-			}
-		}
+}
+							else
+							{
+							Template::set_message(lang('".$module_name_lower."_delete_failure') . \$this->".$module_name_lower."_model->error, 'error');
+}
+}
+}
 
-		\$records = \$this->".$module_name_lower."_model->find_all();
+									\$records = \$this->".$module_name_lower."_model->find_all();
 
-		Template::set('records', \$records);";
+											Template::set('records', \$records);";
 }
 
 $mb_index .= "
 		Template::set('toolbar_title', 'Manage ".$module_name."');
-		Template::render();
-	}
+				Template::render();
+}
 
-	//--------------------------------------------------------------------
+				//--------------------------------------------------------------------
 
 
-";
+				";
 
 //--------------------------------------------------------------------
 
 $mb_index_front = "
-	/*
+		/*
 		Method: index()
 
 		Displays a list of form data.
-	*/
-	public function index()
-	{
-";
+		*/
+		public function index()
+		{
+		";
 if ($db_required != '') {
 	$mb_index_front .= "
-		\$records = \$this->".$module_name_lower."_model->find_all();
+			\$records = \$this->".$module_name_lower."_model->find_all();
 
-		Template::set('records', \$records);";
+					Template::set('records', \$records);";
 }
 
 $mb_index_front .= "
 		Template::render();
-	}
+}
 
-	//--------------------------------------------------------------------
+		//--------------------------------------------------------------------
 
 
-";
+		";
 
 //--------------------------------------------------------------------
 
 $mb_create = "
-	/*
+		/*
 		Method: create()
 
 		Creates a ".$module_name." object.
-	*/
-	public function create()
-	{
-		\$this->auth->restrict('{create_permission}');
-";
+				*/
+				public function create()
+				{
+				\$this->auth->restrict('{create_permission}');
+				";
 if ($db_required != '') {
 	$mb_create .= "
-		if (\$this->input->post('save'))
-		{
+			if (\$this->input->post('save'))
+			{
 			if (\$insert_id = \$this->save_".$module_name_lower."())
 			{
-				// Log the activity
-				\$this->activity_model->log_activity(\$this->current_user->id, lang('".$module_name_lower."_act_create_record').': ' . \$insert_id . ' : ' . \$this->input->ip_address(), '".$module_name_lower."');
+					// Log the activity
+					\$this->activity_model->log_activity(\$this->current_user->id, lang('".$module_name_lower."_act_create_record').': ' . \$insert_id . ' : ' . \$this->input->ip_address(), '".$module_name_lower."');
 
-				Template::set_message(lang('".$module_name_lower."_create_success'), 'success');
-				Template::redirect(SITE_AREA .'/".$controller_name."/".$module_name_lower."');
-			}
-			else
-			{
-				Template::set_message(lang('".$module_name_lower."_create_failure') . \$this->".$module_name_lower."_model->error, 'error');
-			}
-		}";
+							Template::set_message(lang('".$module_name_lower."_create_success'), 'success');
+									Template::redirect(SITE_AREA .'/".$controller_name."/".$module_name_lower."');
+}
+											else
+											{
+											Template::set_message(lang('".$module_name_lower."_create_failure') . \$this->".$module_name_lower."_model->error, 'error');
+}
+}";
 }
 
 $mb_create .= "
 		Assets::add_module_js('".$module_name_lower."', '".$module_name_lower.".js');
 
-		Template::set('toolbar_title', lang('".$module_name_lower."_create') . ' ".$module_name."');
-		Template::render();
-	}
+				Template::set('toolbar_title', lang('".$module_name_lower."_create') . ' ".$module_name."');
+						Template::render();
+}
 
-	//--------------------------------------------------------------------
+						//--------------------------------------------------------------------
 
 
-";
+						";
 
 //--------------------------------------------------------------------
 
 $mb_edit = "
-	/*
+		/*
 		Method: edit()
 
 		Allows editing of ".$module_name." data.
-	*/
-	public function edit()
-	{
-		\$id = \$this->uri->segment(5);
+				*/
+				public function edit()
+				{
+				\$id = \$this->uri->segment(5);
 
-		if (empty(\$id))
-		{
-			Template::set_message(lang('".$module_name_lower."_invalid_id'), 'error');
-			redirect(SITE_AREA .'/".$controller_name."/".$module_name_lower."');
-		}
-";
+				if (empty(\$id))
+				{
+				Template::set_message(lang('".$module_name_lower."_invalid_id'), 'error');
+						redirect(SITE_AREA .'/".$controller_name."/".$module_name_lower."');
+}
+								";
 if ($db_required != '') {
 	$mb_edit .= "
-		if (isset(\$_POST['save']))
-		{
+			if (isset(\$_POST['save']))
+			{
 			\$this->auth->restrict('{edit_permission}');
 
 			if (\$this->save_".$module_name_lower."('update', \$id))
 			{
-				// Log the activity
-				\$this->activity_model->log_activity(\$this->current_user->id, lang('".$module_name_lower."_act_edit_record').': ' . \$id . ' : ' . \$this->input->ip_address(), '".$module_name_lower."');
+					// Log the activity
+					\$this->activity_model->log_activity(\$this->current_user->id, lang('".$module_name_lower."_act_edit_record').': ' . \$id . ' : ' . \$this->input->ip_address(), '".$module_name_lower."');
 
-				Template::set_message(lang('".$module_name_lower."_edit_success'), 'success');
-			}
-			else
-			{
-				Template::set_message(lang('".$module_name_lower."_edit_failure') . \$this->".$module_name_lower."_model->error, 'error');
-			}
-		}";
+							Template::set_message(lang('".$module_name_lower."_edit_success'), 'success');
+}
+									else
+									{
+									Template::set_message(lang('".$module_name_lower."_edit_failure') . \$this->".$module_name_lower."_model->error, 'error');
+}
+}";
 
 	if (in_array('delete', $action_names)) {
 		$mb_edit .= "
-		else if (isset(\$_POST['delete']))
-		{
-			\$this->auth->restrict('{delete_permission}');
+				else if (isset(\$_POST['delete']))
+				{
+				\$this->auth->restrict('{delete_permission}');
 
-			if (\$this->".$module_name_lower."_model->delete(\$id))
-			{
-				// Log the activity
-				\$this->activity_model->log_activity(\$this->current_user->id, lang('".$module_name_lower."_act_delete_record').': ' . \$id . ' : ' . \$this->input->ip_address(), '".$module_name_lower."');
+				if (\$this->".$module_name_lower."_model->delete(\$id))
+				{
+						// Log the activity
+						\$this->activity_model->log_activity(\$this->current_user->id, lang('".$module_name_lower."_act_delete_record').': ' . \$id . ' : ' . \$this->input->ip_address(), '".$module_name_lower."');
 
-				Template::set_message(lang('".$module_name_lower."_delete_success'), 'success');
+								Template::set_message(lang('".$module_name_lower."_delete_success'), 'success');
 
-				redirect(SITE_AREA .'/".$controller_name."/".$module_name_lower."');
-			} else
-			{
-				Template::set_message(lang('".$module_name_lower."_delete_failure') . \$this->".$module_name_lower."_model->error, 'error');
-			}
-		}";
+										redirect(SITE_AREA .'/".$controller_name."/".$module_name_lower."');
+	} else
+	{
+												Template::set_message(lang('".$module_name_lower."_delete_failure') . \$this->".$module_name_lower."_model->error, 'error');
+	}
+	}";
 	}
 
 	$mb_edit .= "
-		Template::set('".$module_name_lower."', \$this->".$module_name_lower."_model->find(\$id));";
+			Template::set('".$module_name_lower."', \$this->".$module_name_lower."_model->find(\$id));";
 }
 
 $mb_edit .= "
 		Assets::add_module_js('".$module_name_lower."', '".$module_name_lower.".js');
 
-		Template::set('toolbar_title', lang('".$module_name_lower."_edit') . ' ".$module_name."');
-		Template::render();
-	}
+				Template::set('toolbar_title', lang('".$module_name_lower."_edit') . ' ".$module_name."');
+						Template::render();
+}
 
-	//--------------------------------------------------------------------
+						//--------------------------------------------------------------------
 
 
-";
+						";
 
 //--------------------------------------------------------------------
 
@@ -344,8 +344,8 @@ for($counter=1; $field_total >= $counter; $counter++)
 		if ($db_field_type == 'DATE' AND $date_included === FALSE)
 		{
 			$extras .= '
-			Assets::add_css(\'flick/jquery-ui-1.8.13.custom.css\');
-			Assets::add_js(\'jquery-ui-1.8.13.min.js\');';
+					Assets::add_css(\'flick/jquery-ui-1.8.13.custom.css\');
+					Assets::add_js(\'jquery-ui-1.8.13.min.js\');';
 			$date_included = TRUE;
 		}
 		elseif ($db_field_type == 'DATETIME' && $datetime_included === FALSE)
@@ -354,42 +354,42 @@ for($counter=1; $field_total >= $counter; $counter++)
 			if ($date_included === FALSE)
 			{
 				$extras .= '
-			Assets::add_css(\'flick/jquery-ui-1.8.13.custom.css\');
-			Assets::add_js(\'jquery-ui-1.8.13.min.js\');';
+						Assets::add_css(\'flick/jquery-ui-1.8.13.custom.css\');
+						Assets::add_js(\'jquery-ui-1.8.13.min.js\');';
 			}
 			$extras .= '
-			Assets::add_css(\'jquery-ui-timepicker.css\');
-			Assets::add_js(\'jquery-ui-timepicker-addon.js\');';
+					Assets::add_css(\'jquery-ui-timepicker.css\');
+					Assets::add_js(\'jquery-ui-timepicker-addon.js\');';
 			$date_included = TRUE;
 			$datetime_included = TRUE;
 		}
 		elseif (($db_field_type == 'TEXT' || $db_field_type == 'MEDIUMTEXT' || $db_field_type == 'LONGTEXT')
-			&& $textarea_included === FALSE
-			&& !empty($textarea_editor)
+				&& $textarea_included === FALSE
+				&& !empty($textarea_editor)
 		)
 		{
 			// if a date field hasn't been included already then add in the jquery ui files
 			if ($textarea_editor == 'ckeditor') {
 				$extras .= '
-			Assets::add_js(Template::theme_url(\'js/editors/ckeditor/ckeditor.js\'));';
+						Assets::add_js(Template::theme_url(\'js/editors/ckeditor/ckeditor.js\'));';
 			}
 			elseif ($textarea_editor == 'xinha') {
 				$extras .= '
-			Assets::add_js(Template::theme_url(\'js/editors/xinha_conf.js\'));
-			Assets::add_js(Template::theme_url(\'js/editors/xinha/XinhaCore.js\'));';
+						Assets::add_js(Template::theme_url(\'js/editors/xinha_conf.js\'));
+						Assets::add_js(Template::theme_url(\'js/editors/xinha/XinhaCore.js\'));';
 			}
 			elseif ($textarea_editor == 'markitup') {
 				$extras .= '
-			Assets::add_css(Template::theme_url(\'js/editors/markitup/skins/markitup/style.css\'));
-			Assets::add_css(Template::theme_url(\'js/editors/markitup/sets/default/style.css\'));
+						Assets::add_css(Template::theme_url(\'js/editors/markitup/skins/markitup/style.css\'));
+						Assets::add_css(Template::theme_url(\'js/editors/markitup/sets/default/style.css\'));
 
-			Assets::add_js(Template::theme_url(\'js/editors/markitup/jquery.markitup.js\'));
-			Assets::add_js(Template::theme_url(\'js/editors/markitup/sets/default/set.js\'));';
+						Assets::add_js(Template::theme_url(\'js/editors/markitup/jquery.markitup.js\'));
+						Assets::add_js(Template::theme_url(\'js/editors/markitup/sets/default/set.js\'));';
 			}
 			elseif ($textarea_editor == 'tinymce') {
 				$extras .= '
-			Assets::add_js(Template::theme_url(\'js/editors/tiny_mce/tiny_mce.js\'));
-			Assets::add_js(Template::theme_url(\'js/editors/tiny_mce/tiny_mce_init.js\'));';
+						Assets::add_js(Template::theme_url(\'js/editors/tiny_mce/tiny_mce.js\'));
+						Assets::add_js(Template::theme_url(\'js/editors/tiny_mce/tiny_mce_init.js\'));';
 			}
 			$textarea_included = TRUE;
 		}
@@ -452,7 +452,7 @@ if ($controller_name != $module_name_lower)
 
 	$rules = '';
 	$save_data_array = '
-		$data = array();';
+			$data = array();';
 
 	$last_field = 0;
 	for($counter=1; $field_total >= $counter; $counter++)
@@ -468,37 +468,37 @@ if ($controller_name != $module_name_lower)
 
 		// we set this variable as it will be used to place the comma after the last item to build the insert db array
 		$last_field = $counter;
-            
+
 		if($db_required == 'new' && $table_as_field_prefix === TRUE)
 		{
-				$field_name = $module_name_lower . '_' . set_value("view_field_name$counter");
+			$field_name = $module_name_lower . '_' . set_value("view_field_name$counter");
 		}
 		elseif($db_required == 'new' && $table_as_field_prefix === FALSE)
 		{
-				$field_name = set_value("view_field_name$counter");
+			$field_name = set_value("view_field_name$counter");
 		}
-		else 
+		else
 		{
-				$field_name = set_value("view_field_name$counter");
+			$field_name = set_value("view_field_name$counter");
 		}
 		$form_name = $module_name_lower . '_' . set_value("view_field_name$counter");
 		$rules .= '
-		$this->form_validation->set_rules(\''.$form_name.'\',\''.set_value("view_field_label$counter").'\',\'';
+				$this->form_validation->set_rules(\''.$form_name.'\',\''.set_value("view_field_label$counter").'\',\'';
 
-	// setup the data array for saving to the db
-	// set defaults for certain field types
-	switch (set_value("db_field_type$counter"))
-	{
-		case 'DATE':
-			$save_data_array .= "\n\t\t".'$data[\''.$field_name.'\']        = $this->input->post(\''.$form_name.'\') ? $this->input->post(\''.$form_name.'\') : \'0000-00-00\';';
-			break;
-		case 'DATETIME':
-			$save_data_array .= "\n\t\t".'$data[\''.$field_name.'\']        = $this->input->post(\''.$form_name.'\') ? $this->input->post(\''.$form_name.'\') : \'0000-00-00 00:00:00\';';
-			break;
-		default:
-			$save_data_array .= "\n\t\t".'$data[\''.$field_name.'\']        = $this->input->post(\''.$form_name.'\');';
-			break;
-	}
+		// setup the data array for saving to the db
+		// set defaults for certain field types
+		switch (set_value("db_field_type$counter"))
+		{
+			case 'DATE':
+				$save_data_array .= "\n\t\t".'$data[\''.$field_name.'\']        = $this->input->post(\''.$form_name.'\') ? $this->input->post(\''.$form_name.'\') : \'0000-00-00\';';
+				break;
+			case 'DATETIME':
+				$save_data_array .= "\n\t\t".'$data[\''.$field_name.'\']        = $this->input->post(\''.$form_name.'\') ? $this->input->post(\''.$form_name.'\') : \'0000-00-00 00:00:00\';';
+				break;
+			default:
+				$save_data_array .= "\n\t\t".'$data[\''.$field_name.'\']        = $this->input->post(\''.$form_name.'\');';
+				break;
+		}
 
 
 		// set a friendly variable name

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_mysql_utility extends CI_DB_utility {
 
 	/**
@@ -147,10 +147,10 @@ class CI_DB_mysql_utility extends CI_DB_utility {
 			{
 				// Most versions of MySQL store timestamp as a string
 				$is_int[$i] = (in_array(
-										strtolower(mysql_field_type($query->result_id, $i)),
-										array('tinyint', 'smallint', 'mediumint', 'int', 'bigint'), //, 'timestamp'),
-										TRUE)
-										) ? TRUE : FALSE;
+						strtolower(mysql_field_type($query->result_id, $i)),
+						array('tinyint', 'smallint', 'mediumint', 'int', 'bigint'), //, 'timestamp'),
+						TRUE)
+				) ? TRUE : FALSE;
 
 				// Create a string of field names
 				$field_str .= '`'.$field->name.'`, ';

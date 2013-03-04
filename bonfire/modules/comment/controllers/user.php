@@ -12,7 +12,7 @@ class user extends Admin_Controller {
 		$this->auth->restrict('Comment.User.View');
 		$this->load->model('comment_model', null, true);
 		$this->lang->load('comment');
-		
+
 		Template::set_block('sub_nav', 'user/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class user extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class user extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Comment object.
+	Creates a Comment object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class user extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Comment data.
+	Allows editing of Comment data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class user extends Admin_Controller {
 	/*
 		Method: save_comment()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_comment($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class user extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('comment_user_id','Comment User ID','max_length[20]');
 		$this->form_validation->set_rules('comment_user','Username','max_length[50]');
 		$this->form_validation->set_rules('comment_ip','IP','max_length[15]');
@@ -193,7 +193,7 @@ class user extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['comment_user_id']        = $this->input->post('comment_user_id');
 		$data['comment_user']        = $this->input->post('comment_user');

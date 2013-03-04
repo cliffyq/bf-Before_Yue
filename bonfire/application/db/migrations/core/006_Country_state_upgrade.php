@@ -1,34 +1,34 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Migration_Country_state_upgrade extends Migration {
-	
-	public function up() 
+
+	public function up()
 	{
 		$prefix = $this->db->dbprefix;
-		
+
 		/*
-			Take care of a few preliminaries before updating: 
+			Take care of a few preliminaries before updating:
 			
-			- Add a state_code column to the user table
-TODO			- Map users.state_id to the correct state_code and update each user
-			- Remove the state_id column from the users table
-			- Remove the country_id column from the users table - doesn't seem to be updated anyway
+		- Add a state_code column to the user table
+		TODO			- Map users.state_id to the correct state_code and update each user
+		- Remove the state_id column from the users table
+		- Remove the country_id column from the users table - doesn't seem to be updated anyway
 			
-			- Remove the states table
-			- Remove the countries table
+		- Remove the states table
+		- Remove the countries table
 		*/
 
 		// Add a state_code column to the user table
 		$this->dbforge->add_column('users', array(
 				'state_code'	=> array(
-					'type'			=> 'CHAR',
-					'constraint'	=> 4,
-					'null'			=> TRUE,
-					'default'		=> NULL
+						'type'			=> 'CHAR',
+						'constraint'	=> 4,
+						'null'			=> TRUE,
+						'default'		=> NULL
 				)
-			)
+		)
 		);
-		
+
 		// Map users.state_id to the correct state_code and update each user
 		$sql = "SELECT * FROM {$prefix}states";
 		$old_states_query = $this->db->query($sql);
@@ -44,7 +44,7 @@ TODO			- Map users.state_id to the correct state_code and update each user
 		// loop through the current users
 		foreach ($users_query->result_array() as $user_rec)
 		{
-			
+
 			if (!empty($user_rec['state_id']))
 			{
 				$this->db->query("UPDATE {$prefix}users SET `state_code` = '{$old_states_array[$user_rec['state_id']]}' WHERE `id` = '{$user_rec['id']}';");
@@ -53,36 +53,36 @@ TODO			- Map users.state_id to the correct state_code and update each user
 
 		// Remove the state_id column from the users table
 		$this->dbforge->drop_column('users', 'state_id');
-		
+
 		// Remove the country_id column from the users table
 		$this->dbforge->drop_column('users', 'country_id');
 
 		// Remove the states table
 		$this->dbforge->drop_table('states');
-		
+
 		// Remove the countries table
 		$this->dbforge->drop_table('countries');
-		
+
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	public function down() 
+
+	public function down()
 	{
 		$prefix = $this->db->dbprefix;
-		
+
 		/*
 			oh no we have to rollback ??
-			really??
-			please no!
-		
-			ok then.
-			- Reinstate the states table
-			- Reinstate the countries table
-			- Add the country_id column into the users table
-			- Add the state_id column into the users table
-TODO			- Map the state_code values to the state_id and update each user
-			- Remove the state_code column from the users table
+		really??
+		please no!
+
+		ok then.
+		- Reinstate the states table
+		- Reinstate the countries table
+		- Add the country_id column into the users table
+		- Add the state_id column into the users table
+		TODO			- Map the state_code values to the state_id and update each user
+		- Remove the state_code column from the users table
 		*/
 
 		// Reinstate the states table
@@ -91,7 +91,7 @@ TODO			- Map the state_code values to the state_id and update each user
 		$this->dbforge->add_field("`abbrev` char(2) NOT NULL");
 		$this->dbforge->add_key('id', true);
 		$this->dbforge->create_table('states');
-		
+
 		$this->db->query("INSERT INTO {$prefix}states VALUES(1, 'Alaska', 'AK')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(2, 'Alabama', 'AL')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(3, 'American Samoa', 'AS')");
@@ -156,7 +156,7 @@ TODO			- Map the state_code values to the state_id and update each user
 		$this->db->query("INSERT INTO {$prefix}states VALUES(64, 'Armed Forces Middle East', 'AE')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(65, 'Armed Forces Pacific', 'AP')");
 
-		
+
 		// Add countries table for our users.
 		// Source: http://27.org/isocountrylist/
 		$this->dbforge->add_field("iso CHAR(2) DEFAULT 'US' NOT NULL");
@@ -407,28 +407,28 @@ TODO			- Map the state_code values to the state_id and update each user
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('YE','YEMEN','Yemen','YEM','887');");
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('ZM','ZAMBIA','Zambia','ZMB','894');");
 		$this->db->query("INSERT INTO {$prefix}countries VALUES ('ZW','ZIMBABWE','Zimbabwe','ZWE','716');");
-		
-		
+
+
 		// Add the country_id column into the users table
 		$this->dbforge->add_column('users', array(
 				'country_id'	=> array(
-					'type'			=> 'INT',
-					'constraint'	=> 11,
-					'null'			=> TRUE
+						'type'			=> 'INT',
+						'constraint'	=> 11,
+						'null'			=> TRUE
 				)
-			)
+		)
 		);
 
 		// Add the state_id column into the users table
 		$this->dbforge->add_column('users', array(
 				'state_id'	=> array(
-					'type'			=> 'INT',
-					'constraint'	=> 11,
-					'null'			=> TRUE
+						'type'			=> 'INT',
+						'constraint'	=> 11,
+						'null'			=> TRUE
 				)
-			)
+		)
 		);
-		
+
 		// Map the state_code values to the state_id and update each user
 		$sql = "SELECT * FROM {$prefix}states";
 		$old_states_query = $this->db->query($sql);
@@ -444,7 +444,7 @@ TODO			- Map the state_code values to the state_id and update each user
 		// loop through the current users
 		foreach ($users_query->result_array() as $user_rec)
 		{
-			
+
 			if (!empty($user_rec['state_code']))
 			{
 				$this->db->query("UPDATE {$prefix}users SET `state_id` = '{$old_states_array[$user_rec['state_code']]}' WHERE `id` = '{$user_rec['id']}';");
@@ -454,7 +454,7 @@ TODO			- Map the state_code values to the state_id and update each user
 		// Remove the state_code column from the users table
 		$this->dbforge->drop_column('users', 'state_code');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 }

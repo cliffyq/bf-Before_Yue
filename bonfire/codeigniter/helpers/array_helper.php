@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/array_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -38,7 +38,7 @@
  * @param	array
  * @param	mixed
  * @return	mixed	depends on what the array contains
- */
+*/
 if ( ! function_exists('element'))
 {
 	function element($item, $array, $default = FALSE)
@@ -93,12 +93,12 @@ if ( ! function_exists('elements'))
 	function elements($items, $array, $default = FALSE)
 	{
 		$return = array();
-		
+
 		if ( ! is_array($items))
 		{
 			$items = array($items);
 		}
-		
+
 		foreach ($items as $item)
 		{
 			if (isset($array[$item]))

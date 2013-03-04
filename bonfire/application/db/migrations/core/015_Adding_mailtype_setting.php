@@ -7,8 +7,8 @@ class Migration_Adding_mailtype_setting extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$default_settings = "
-			INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES
-			 ('mailtype', 'email', 'text');
+		INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES
+		('mailtype', 'email', 'text');
 		";
 
 		if ($this->db->query($default_settings))
@@ -24,7 +24,7 @@ class Migration_Adding_mailtype_setting extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$default_settings = "
-			DELETE FROM `{$prefix}settings` WHERE `name` = 'mailtype';
+		DELETE FROM `{$prefix}settings` WHERE `name` = 'mailtype';
 		";
 
 		$this->db->query($default_settings);

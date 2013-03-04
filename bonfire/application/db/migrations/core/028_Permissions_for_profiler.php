@@ -5,8 +5,8 @@ class Migration_Permissions_for_profiler extends Migration
 	//--------------------------------------------------------------------
 
 	private $permission_array = array(
-					'Bonfire.Profiler.View' => 'To view the Console Profiler Bar.',
-					);
+			'Bonfire.Profiler.View' => 'To view the Console Profiler Bar.',
+	);
 
 	//--------------------------------------------------------------------
 
@@ -18,9 +18,9 @@ class Migration_Permissions_for_profiler extends Migration
 		foreach ($this->permission_array as $name => $description)
 		{
 			$this->db->query("INSERT INTO {$prefix}permissions(name, description) VALUES('".$name."', '".$description."')");
-			
+
 			$insert_id = $this->db->insert_id();
-			// gives administrators and developer roles full right to manage permissions		
+			// gives administrators and developer roles full right to manage permissions
 			$this->db->query("INSERT INTO {$prefix}role_permissions VALUES(1,{$insert_id})");
 			$this->db->query("INSERT INTO {$prefix}role_permissions VALUES(6,{$insert_id})");
 

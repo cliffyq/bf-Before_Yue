@@ -7,29 +7,29 @@ class Migration_Install_video_extra_information_ extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'video_extra_information_video_id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
-			'video_extra_information_points' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
-			'created_on' => array(
-				'type' => 'datetime',
-				'default' => '0000-00-00 00:00:00',
-			),
-			'modified_on' => array(
-				'type' => 'datetime',
-				'default' => '0000-00-00 00:00:00',
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'video_extra_information_video_id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
+				'video_extra_information_points' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
+				'created_on' => array(
+						'type' => 'datetime',
+						'default' => '0000-00-00 00:00:00',
+				),
+				'modified_on' => array(
+						'type' => 'datetime',
+						'default' => '0000-00-00 00:00:00',
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

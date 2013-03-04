@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@
  * @version    3.0
  * @link       http://cibonfire.com/docs/guides/views.html
  *
- */
+*/
 class Template
 {
 
@@ -122,7 +122,7 @@ class Template
 	 * @static
 	 *
 	 * @var array
-	 */
+	*/
 	public static $blocks = array();
 
 
@@ -134,7 +134,7 @@ class Template
 	 * @static
 	 *
 	 * @var string
-	 */
+	*/
 	protected static $message;
 
 
@@ -156,7 +156,7 @@ class Template
 	 * @static
 	 *
 	 * @var string
-	 */
+	*/
 	public static $site_path;
 
 
@@ -267,9 +267,9 @@ class Template
 
 		// Grab our current view name, based on controller/method
 		// which routes to views/controller/method.
-		
+
 		if (empty(self::$current_view))
-		{			
+		{
 			self::$current_view =  self::$ci->router->class . '/' . self::$ci->router->method;
 		}
 
@@ -278,7 +278,9 @@ class Template
 		//
 		self::load_view($layout, self::$data, $controller, TRUE, $output);
 
-		if (empty($output)) { show_error('Unable to find theme layout: '. $layout); }
+		if (empty($output)) {
+			show_error('Unable to find theme layout: '. $layout);
+		}
 
 		Events::trigger('after_layout_render', $output);
 
@@ -306,7 +308,9 @@ class Template
 	{
 		$output = '';
 
-		if (self::$debug) { echo 'Current View = '. self::$current_view; }
+		if (self::$debug) {
+			echo 'Current View = '. self::$current_view;
+		}
 
 		self::load_view(self::$current_view, NULL, self::$ci->router->class .'/'. self::$ci->router->method, FALSE, $output);
 
@@ -391,7 +395,9 @@ class Template
 			$block_name = $default_view;
 		}
 
-		if (self::$debug) { echo "Looking for block: <b>{$block_name}</b>."; }
+		if (self::$debug) {
+			echo "Looking for block: <b>{$block_name}</b>.";
+		}
 
 		self::load_view($block_name, $data, FALSE, $themed, $output);
 
@@ -872,8 +878,8 @@ class Template
 					{
 						self::$ci->load->library('parser');
 					}
-					
-//					$output = self::$ci->load->_ci_load(array('_ci_path' => $view.'.php','_ci_vars' => $data,'_ci_return' => TRUE));					
+
+					//					$output = self::$ci->load->_ci_load(array('_ci_path' => $view.'.php','_ci_vars' => $data,'_ci_return' => TRUE));
 
 					if (count($data) > 0)
 					{
@@ -953,21 +959,29 @@ class Template
 			/*
 				First, check the active theme
 			*/
-			if (self::$debug) { echo "[Find File] Looking for view in active theme: <b>". self::$site_path . $path .'/'. self::$active_theme . $view .'.php</b><br/>'; }
+			if (self::$debug) {
+				echo "[Find File] Looking for view in active theme: <b>". self::$site_path . $path .'/'. self::$active_theme . $view .'.php</b><br/>';
+			}
 
 			if (!empty(self::$active_theme) && is_file(self::$site_path . $path .'/'. self::$active_theme . $view .'.php'))
 			{
-				if (self::$debug) { echo 'Found <b>'. $view .'</b> in Active Theme.<br/>'; }
+				if (self::$debug) {
+					echo 'Found <b>'. $view .'</b> in Active Theme.<br/>';
+				}
 				$view_path = self::$site_path . $path .'/'. self::$active_theme;
 			}
 
 			/*
 				If not in the active theme, then try the default theme
 			*/
-			if (self::$debug) { echo "[Find File] Looking for view in default theme: <b>". self::$site_path . $path .'/'. self::$default_theme . $view .'.php</b><br/>'; }
+			if (self::$debug) {
+				echo "[Find File] Looking for view in default theme: <b>". self::$site_path . $path .'/'. self::$default_theme . $view .'.php</b><br/>';
+			}
 			if (empty($view_path) && is_file(self::$site_path . $path .'/'. self::$default_theme . $view .'.php'))
 			{
-				if (self::$debug) { echo 'Found <b>'. $view .'</b> in Default Theme.<br/>'; }
+				if (self::$debug) {
+					echo 'Found <b>'. $view .'</b> in Default Theme.<br/>';
+				}
 
 				$view_path = self::$site_path . $path .'/'. self::$default_theme;
 			}
@@ -982,7 +996,9 @@ class Template
 			// Set CI's view path to point to the right location.
 			//self::$ci->load->_ci_view_path = $view_path;
 
-			if (self::$debug) { echo '[Find File] Rendering file at: '. $view_path . $view .'.php<br/><br/>'; }
+			if (self::$debug) {
+				echo '[Find File] Rendering file at: '. $view_path . $view .'.php<br/><br/>';
+			}
 
 			// Grab the output of the view.
 			if (self::$parse_views === TRUE)

@@ -1,24 +1,24 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
-	Copyright (c) 2011 Lonnie Ezell
+ Copyright (c) 2011 Lonnie Ezell
 
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-	
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 */
 
 // INDEX page
@@ -64,7 +64,7 @@ $lang['mb_form_note'] = '<p><b>Fill out the fields you would like in your module
 $lang['mb_table_note'] = '<p>Your table will be created with at least one field, the primary key field that will be used as a unique identifier and as an index. If you required additional fields, click the number you require to add them to this form.</p>';
 
 $lang['mb_field_note'] = '<p><b>NOTE : FOR ALL FIELDS</b><br />If DB field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\xyz\' or \'a\\\'b\').</p>';
-	
+
 $lang['mb_form_errors']			= 'Please correct the errors below.';
 $lang['mb_form_mod_details']	= 'Module Details ';
 $lang['mb_form_mod_name']		= 'Module Name';
@@ -100,7 +100,7 @@ $lang['mb_form_length']			= 'Maximum Length <b>-or-</b> Values';
 $lang['mb_form_length_ph']		= '30, 255, 1000, etc...';
 $lang['mb_form_dbtype']			= 'Database Type';
 $lang['mb_form_rules']			= 'Validation Rules';
-$lang['mb_form_rules_limits']	= 'Input Limitations'; 
+$lang['mb_form_rules_limits']	= 'Input Limitations';
 $lang['mb_form_required']		= 'Required';
 $lang['mb_form_unique']			= 'Unique';
 $lang['mb_form_trim']			= 'Trim';

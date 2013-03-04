@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_mysql_forge extends CI_DB_forge {
 
 	/**
@@ -96,12 +96,12 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 							case 'float':
 							case 'numeric':
 								$sql .= '('.implode(',', $attributes['CONSTRAINT']).')';
-							break;
+								break;
 
 							case 'enum':
 							case 'set':
 								$sql .= '("'.implode('","', $attributes['CONSTRAINT']).'")';
-							break;
+								break;
 
 							default:
 								$sql .= '('.$attributes['CONSTRAINT'].')';

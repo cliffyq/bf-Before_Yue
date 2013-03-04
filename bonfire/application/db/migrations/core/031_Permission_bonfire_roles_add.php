@@ -5,7 +5,7 @@ class Migration_Permission_bonfire_roles_add extends Migration
 	//--------------------------------------------------------------------
 
 	private $permission_array = array(
-		array('name' => 'Bonfire.Roles.Add', 'description' => 'To add New Roles', 'status' => 'active'),
+			array('name' => 'Bonfire.Roles.Add', 'description' => 'To add New Roles', 'status' => 'active'),
 	);
 
 	//--------------------------------------------------------------------

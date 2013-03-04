@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 
 if (!function_exists('render_search_box'))
 {

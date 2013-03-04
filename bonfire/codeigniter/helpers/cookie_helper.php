@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/cookie_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@
  * @param	string	the cookie path
  * @param	string	the cookie prefix
  * @return	void
- */
+*/
 if ( ! function_exists('set_cookie'))
 {
 	function set_cookie($name = '', $value = '', $expire = '', $domain = '', $path = '/', $prefix = '', $secure = FALSE)

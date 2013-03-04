@@ -1,18 +1,18 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-	class upload extends Admin_Controller {
-		
-		//--------------------------------------------------------------------
-		
-		
-		public function __construct()
-		{
-			parent::__construct();
+class upload extends Admin_Controller {
 
-		}
-		
-		public function index()
-		{
-			$this->load->view('upload/index.php');
+	//--------------------------------------------------------------------
+
+
+	public function __construct()
+	{
+		parent::__construct();
+
+	}
+
+	public function index()
+	{
+		$this->load->view('upload/index.php');
 			
-		}
-	}	
+	}
+}

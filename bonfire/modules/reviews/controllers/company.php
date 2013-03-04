@@ -12,7 +12,7 @@ class company extends Admin_Controller {
 		$this->auth->restrict('Reviews.Company.View');
 		$this->load->model('reviews_model', null, true);
 		$this->lang->load('reviews');
-		
+
 		Template::set_block('sub_nav', 'company/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class company extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class company extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Reviews object.
+	Creates a Reviews object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class company extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Reviews data.
+	Allows editing of Reviews data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class company extends Admin_Controller {
 	/*
 		Method: save_reviews()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_reviews($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class company extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('reviews_video_id','Video ID','max_length[11]');
 		$this->form_validation->set_rules('reviews_user_id','User ID','max_length[20]');
 		$this->form_validation->set_rules('reviews_answers','Answers','max_length[50]');
@@ -192,7 +192,7 @@ class company extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['reviews_video_id']        = $this->input->post('reviews_video_id');
 		$data['reviews_user_id']        = $this->input->post('reviews_user_id');

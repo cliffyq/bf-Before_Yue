@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 2.1.1
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Database
  * @author		EllisLab Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_pdo_result extends CI_DB_result {
 
 	/**
@@ -44,7 +44,7 @@ class CI_DB_pdo_result extends CI_DB_result {
 		}
 		else
 		{
-			return $this->result_id->rowCount();	
+			return $this->result_id->rowCount();
 		}
 	}
 
@@ -93,14 +93,14 @@ class CI_DB_pdo_result extends CI_DB_result {
 	function field_data()
 	{
 		$data = array();
-	
+
 		try
 		{
 			for($i = 0; $i < $this->num_fields(); $i++)
 			{
 				$data[] = $this->result_id->getColumnMeta($i);
 			}
-			
+
 			return $data;
 		}
 		catch (Exception $e)
@@ -171,7 +171,7 @@ class CI_DB_pdo_result extends CI_DB_result {
 	 * @return	object
 	 */
 	function _fetch_object()
-	{	
+	{
 		return $this->result_id->fetchObject();
 	}
 

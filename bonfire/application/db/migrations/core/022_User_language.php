@@ -8,20 +8,20 @@ class Migration_User_language extends Migration {
 		$this->load->dbforge();
 
 		$field = array(
-			'language' => array(
-				'type'			=> 'varchar',
-				'constraint'	=> 20,
-				'default'		=> 'english'
-			)
+				'language' => array(
+						'type'			=> 'varchar',
+						'constraint'	=> 20,
+						'default'		=> 'english'
+				)
 		);
 
 		$this->dbforge->add_column('users', $field);
 
 		$languages = serialize(array('english', 'portuguese', 'persian'));
 		$language_setting = "
-			INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES
-			 ('site.languages', 'core', '".$languages."');
-		";
+		INSERT INTO `{$prefix}settings` (`name`, `module`, `value`) VALUES
+		('site.languages', 'core', '".$languages."');
+				";
 
 		$this->db->query($language_setting);
 

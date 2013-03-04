@@ -16,18 +16,18 @@ class Migration_Remove_old_schema_table extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'version' => array(
-				'type' => 'int',
-				'constraint' => 4,
-				'null' => FALSE,
-				'default' => 0,
-			),
-			'app_version' => array(
-				'type' => 'int',
-				'constraint' => 4,
-				'null' => FALSE,
-				'default' => 0,
-			),
+				'version' => array(
+						'type' => 'int',
+						'constraint' => 4,
+						'null' => FALSE,
+						'default' => 0,
+				),
+				'app_version' => array(
+						'type' => 'int',
+						'constraint' => 4,
+						'null' => FALSE,
+						'default' => 0,
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->create_table($prefix.'schema_version_old');

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_sqlsrv_result extends CI_DB_result {
 
 	/**
@@ -67,7 +67,7 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 		{
 			$field_names[] = $field['Name'];
 		}
-		
+
 		return $field_names;
 	}
 
@@ -92,10 +92,10 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 			$F->max_length	= $field['Size'];
 			$F->primary_key = 0;
 			$F->default		= '';
-			
+
 			$retval[] = $F;
 		}
-		
+
 		return $retval;
 	}
 

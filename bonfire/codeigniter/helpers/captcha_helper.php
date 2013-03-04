@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/xml_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@
  * @param	string	URL to the CAPTCHA image folder
  * @param	string	server path to font
  * @return	string
- */
+*/
 if ( ! function_exists('create_captcha'))
 {
 	function create_captcha($data = '', $img_path = '', $img_url = '', $font_path = '')
@@ -106,8 +106,8 @@ if ( ! function_exists('create_captcha'))
 		// Do we have a "word" yet?
 		// -----------------------------------
 
-	   if ($word == '')
-	   {
+		if ($word == '')
+		{
 			$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 			$str = '';
@@ -117,7 +117,7 @@ if ( ! function_exists('create_captcha'))
 			}
 
 			$word = $str;
-	   }
+		}
 
 		// -----------------------------------
 		// Determine angle and position

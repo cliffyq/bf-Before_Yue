@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Parser
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/parser.html
- */
+*/
 class CI_Parser {
 
 	var $l_delim = '{';

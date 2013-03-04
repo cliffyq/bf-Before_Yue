@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Developer extends Admin_Controller
 {
 
@@ -235,12 +235,12 @@ class Developer extends Admin_Controller
 				$filename = $this->backup_folder . $_POST['file_name'] . '.' . $_POST['file_type'];
 
 				$prefs = array(
-								'tables' 		=> $_POST['tables'],
-								'format'		=> $_POST['file_type'],
-								'filename'		=> $filename,
-								'add_drop'		=> $add_drop,
-								'add_insert'	=> $add_insert
-							);
+						'tables' 		=> $_POST['tables'],
+						'format'		=> $_POST['file_type'],
+						'filename'		=> $filename,
+						'add_drop'		=> $add_drop,
+						'add_insert'	=> $add_insert
+				);
 				$backup =& $this->dbutil->backup($prefs);
 
 				$this->load->helper('file');

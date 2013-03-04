@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/url_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@
  * @access	public
  * @param	string
  * @return	string
- */
+*/
 if ( ! function_exists('site_url'))
 {
 	function site_url($uri = '')
@@ -50,7 +50,7 @@ if ( ! function_exists('site_url'))
 
 /**
  * Base URL
- * 
+ *
  * Create a local URL based on your basepath.
  * Segments can be passed in as a string or an array, same as site_url
  * or a URL to a file can be passed in, e.g. to an image file.
@@ -340,7 +340,8 @@ if ( ! function_exists('safe_mailto'))
 		$x = array_reverse($x);
 		ob_start();
 
-	?><script type="text/javascript">
+		?>
+<script type="text/javascript">
 	//<![CDATA[
 	var l=new Array();
 	<?php
@@ -351,11 +352,12 @@ if ( ! function_exists('safe_mailto'))
 	if (l[i].substring(0, 1) == '|') document.write("&#"+unescape(l[i].substring(1))+";");
 	else document.write(unescape(l[i]));}
 	//]]>
-	</script><?php
+	</script>
+<?php
 
-		$buffer = ob_get_contents();
-		ob_end_clean();
-		return $buffer;
+$buffer = ob_get_contents();
+ob_end_clean();
+return $buffer;
 	}
 }
 
@@ -466,7 +468,7 @@ if ( ! function_exists('prep_url'))
  * Create URL Title
  *
  * Takes a "title" string as input and creates a
- * human-friendly URL string with a "separator" string 
+ * human-friendly URL string with a "separator" string
  * as the word separator.
  *
  * @access	public
@@ -478,15 +480,15 @@ if ( ! function_exists('url_title'))
 {
 	function url_title($str, $separator = '-', $lowercase = FALSE)
 	{
-		if ($separator == 'dash') 
+		if ($separator == 'dash')
 		{
-		    $separator = '-';
+			$separator = '-';
 		}
 		else if ($separator == 'underscore')
 		{
-		    $separator = '_';
+			$separator = '_';
 		}
-		
+
 		$q_separator = preg_quote($separator);
 
 		$trans = array(
@@ -538,9 +540,9 @@ if ( ! function_exists('redirect'))
 		switch($method)
 		{
 			case 'refresh'	: header("Refresh:0;url=".$uri);
-				break;
+			break;
 			default			: header("Location: ".$uri, TRUE, $http_response_code);
-				break;
+			break;
 		}
 		exit;
 	}

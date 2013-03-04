@@ -4,22 +4,22 @@ class Migration_Install_test_permissions extends Migration {
 
 	// permissions to migrate
 	private $permission_values = array(
-		array('name' => 'Test.Content.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Content.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Content.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Content.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Reports.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Reports.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Reports.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Reports.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Settings.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Settings.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Settings.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Settings.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Developer.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Developer.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Developer.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Test.Developer.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Content.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Content.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Content.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Content.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Reports.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Reports.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Reports.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Reports.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Settings.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Settings.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Settings.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Settings.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Developer.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Developer.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Developer.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Test.Developer.Delete', 'description' => '', 'status' => 'active',),
 	);
 
 	//--------------------------------------------------------------------
@@ -44,7 +44,7 @@ class Migration_Install_test_permissions extends Migration {
 	{
 		$prefix = $this->db->dbprefix;
 
-        // permissions
+		// permissions
 		foreach ($this->permission_values as $permission_value)
 		{
 			$query = $this->db->select('permission_id')->get_where("permissions", array('name' => $permission_value['name'],));

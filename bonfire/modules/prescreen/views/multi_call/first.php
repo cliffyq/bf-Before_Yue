@@ -1,2 +1,2 @@
-   One 
-   <?= $second ?>
+ One
+<?= $second ?>

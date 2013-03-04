@@ -4,22 +4,22 @@ class Migration_Install_preview_permissions extends Migration {
 
 	// permissions to migrate
 	private $permission_values = array(
-		array('name' => 'Preview.Content.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Content.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Content.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Content.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Reports.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Reports.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Reports.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Reports.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Settings.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Settings.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Settings.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Settings.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Developer.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Developer.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Developer.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Preview.Developer.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Content.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Content.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Content.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Content.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Reports.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Reports.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Reports.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Reports.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Settings.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Settings.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Settings.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Settings.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Developer.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Developer.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Developer.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Preview.Developer.Delete', 'description' => '', 'status' => 'active',),
 	);
 
 	//--------------------------------------------------------------------
@@ -44,7 +44,7 @@ class Migration_Install_preview_permissions extends Migration {
 	{
 		$prefix = $this->db->dbprefix;
 
-        // permissions
+		// permissions
 		foreach ($this->permission_values as $permission_value)
 		{
 			$query = $this->db->select('permission_id')->get_where("permissions", array('name' => $permission_value['name'],));

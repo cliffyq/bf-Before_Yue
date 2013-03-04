@@ -12,7 +12,7 @@ class company extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('company_model', null, true);
 		$this->lang->load('company');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class company extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -34,18 +34,18 @@ class company extends Front_Controller {
 	}
 
 	//--------------------------------------------------------------------
-public function get_logo($path)
+	public function get_logo($path)
+	{
+		$this->config->load('upload');
+		$exts = explode("|",$this->config->item('allowed_types'));
+		foreach ($exts as $ext)
 		{
-			$this->config->load('upload');
-			$exts = explode("|",$this->config->item('allowed_types'));
-			foreach ($exts as $ext)
-			{
-				$img = LOGO_PATH.$path."logo.".$ext;
-				if(file_exists("./".$img))
+			$img = LOGO_PATH.$path."logo.".$ext;
+			if(file_exists("./".$img))
 				return base_url().$img;
-			}
-			return '';
 		}
+		return '';
+	}
 
 
 

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/email_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@
  *
  * @access	public
  * @return	bool
- */
+*/
 if ( ! function_exists('valid_email'))
 {
 	function valid_email($address)

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @link		http://codeigniter.com/user_guide/database/
  * @param 	string
  * @param 	bool	Determines if active record should be used or not
- */
+*/
 function &DB($params = '', $active_record_override = NULL)
 {
 	// Load the DB config file if a DSN string wasn't passed
@@ -62,10 +62,10 @@ function &DB($params = '', $active_record_override = NULL)
 
 		/* parse the URL from the DSN string
 		 *  Database settings can be passed as discreet
-		 *  parameters or as a data source name in the first
-		 *  parameter. DSNs must have this prototype:
-		 *  $dsn = 'driver://username:password@hostname/database';
-		 */
+		*  parameters or as a data source name in the first
+		*  parameter. DSNs must have this prototype:
+		*  $dsn = 'driver://username:password@hostname/database';
+		*/
 
 		if (($dns = @parse_url($params)) === FALSE)
 		{
@@ -73,12 +73,12 @@ function &DB($params = '', $active_record_override = NULL)
 		}
 
 		$params = array(
-							'dbdriver'	=> $dns['scheme'],
-							'hostname'	=> (isset($dns['host'])) ? rawurldecode($dns['host']) : '',
-							'username'	=> (isset($dns['user'])) ? rawurldecode($dns['user']) : '',
-							'password'	=> (isset($dns['pass'])) ? rawurldecode($dns['pass']) : '',
-							'database'	=> (isset($dns['path'])) ? rawurldecode(substr($dns['path'], 1)) : ''
-						);
+				'dbdriver'	=> $dns['scheme'],
+				'hostname'	=> (isset($dns['host'])) ? rawurldecode($dns['host']) : '',
+				'username'	=> (isset($dns['user'])) ? rawurldecode($dns['user']) : '',
+				'password'	=> (isset($dns['pass'])) ? rawurldecode($dns['pass']) : '',
+				'database'	=> (isset($dns['path'])) ? rawurldecode(substr($dns['path'], 1)) : ''
+		);
 
 		// were additional config items set?
 		if (isset($dns['query']))

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_mysqli_driver extends CI_DB {
 
 	var $dbdriver = 'mysqli';
@@ -56,7 +56,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 
 	// whether SET NAMES must be used to set the character set
 	var $use_set_names;
-	
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -589,7 +589,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	{
 		return "REPLACE INTO ".$table." (".implode(', ', $keys).") VALUES (".implode(', ', $values).")";
 	}
-	
+
 	// --------------------------------------------------------------------
 
 	/**

@@ -1,77 +1,75 @@
 .video_card {
-float: right;
-margin-top: 2px;
-margin-left: 2px;
-margin-bottom: 20px;
-padding: 5px;
-width: auto;
-background: #fff;
--moz-border-radius: 2px;
--webkit-border-radius: 2px;
-border-radius: 2px;
--moz-box-shadow: 0 1px 2px #aaa;
--ms-box-shadow: 0 1px 2px #aaa;
--webkit-box-shadow: 0 1px 2px #aaa;
-box-shadow: 0 1px 2px #aaa;
+	float: right;
+	margin-top: 2px;
+	margin-left: 2px;
+	margin-bottom: 20px;
+	padding: 5px;
+	width: auto;
+	background: #fff;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-box-shadow: 0 1px 2px #aaa;
+	-ms-box-shadow: 0 1px 2px #aaa;
+	-webkit-box-shadow: 0 1px 2px #aaa;
+	box-shadow: 0 1px 2px #aaa;
 }
 
 .position {
-float: left;
-margin: 4px 4px 0 0;
-padding-top: 8px;
-width: 14%;
-height: 28px;
-background: #ddd;
-color: #333;
-font-size: 19px;
-text-align: center;
--moz-border-radius: 2px;
--webkit-border-radius: 2px;
-border-radius: 2px;
+	float: left;
+	margin: 4px 4px 0 0;
+	padding-top: 8px;
+	width: 14%;
+	height: 28px;
+	background: #ddd;
+	color: #333;
+	font-size: 19px;
+	text-align: center;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
 }
 
 .video_data {
-float: right;
-padding: 2px 0 0 2px;
-width: 80%;
+	float: right;
+	padding: 2px 0 0 2px;
+	width: 80%;
 }
 
 .video_title {
-color: #333;
-font-size: 13px;
-font-weight: bold;
-text-decoration: none;
+	color: #333;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 .metadata {
-color: #888;
-font-size: 11px;
+	color: #888;
+	font-size: 11px;
 }
 
 .metadata .viewcount {
-float: right;
-color: #888;
-font-weight: normal;
+	float: right;
+	color: #888;
+	font-weight: normal;
 }
 
 .metadata .company {
-color: #888;
-font-weight: normal;
+	color: #888;
+	font-weight: normal;
 }
 
-.metadata .company .logo{
-height:20px;
-width:20px;
+.metadata .company .logo {
+	height: 20px;
+	width: 20px;
 }
-
 
 .ellipsis {
-display: block;
-position: relative;
-overflow: hidden;
--o-text-overflow: ellipsis;
-text-overflow: ellipsis;
-white-space: nowrap;
-zoom: 1;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	zoom: 1;
 }
-

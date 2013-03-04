@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/core/form_validation.html
  *
- */
+*/
 class MY_Form_validation extends CI_Form_validation
 {
 
@@ -135,7 +135,7 @@ class MY_Form_validation extends CI_Form_validation
 
 		// setup the db request
 		$this->CI->db->select($field)->from($table)
-			->where($field, $value)->limit(1);
+		->where($field, $value)->limit(1);
 
 		// check if there is a second field passed in
 		if (isset($fields[1]))
@@ -404,27 +404,27 @@ class MY_Form_validation extends CI_Form_validation
 // Helper Functions for Form Validation LIbrary
 //--------------------------------------------------------------------
 
-	/**
-	 * Check if the form has an error
-	 *
-	 * @access public
-	 *
-	 * @param string $field Name of the field
-	 *
-	 * @return bool
-	 */
-	function form_has_error($field=null)
+/**
+ * Check if the form has an error
+ *
+ * @access public
+ *
+ * @param string $field Name of the field
+ *
+ * @return bool
+ */
+function form_has_error($field=null)
+{
+
+	if (FALSE === ($OBJ =& _get_validation_object()))
 	{
+		return FALSE;
+	}
 
-		if (FALSE === ($OBJ =& _get_validation_object()))
-		{
-			return FALSE;
-		}
+	$return = $OBJ->has_error($field);
 
-		$return = $OBJ->has_error($field);
-
-		return $return;
-	}//end form_has_error()
+	return $return;
+}//end form_has_error()
 
 //--------------------------------------------------------------------
 

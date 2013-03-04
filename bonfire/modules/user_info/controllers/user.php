@@ -12,7 +12,7 @@ class user extends Admin_Controller {
 		$this->auth->restrict('User_Info.User.View');
 		$this->load->model('user_info_model', null, true);
 		$this->lang->load('user_info');
-		
+
 		Template::set_block('sub_nav', 'user/_sub_nav');
 	}
 

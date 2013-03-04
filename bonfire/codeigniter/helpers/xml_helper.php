@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/xml_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
  * @access	public
  * @param	string
  * @return	string
- */
+*/
 if ( ! function_exists('xml_convert'))
 {
 	function xml_convert($str, $protect_all = FALSE)
@@ -50,8 +50,8 @@ if ( ! function_exists('xml_convert'))
 		}
 
 		$str = str_replace(array("&","<",">","\"", "'", "-"),
-							array("&amp;", "&lt;", "&gt;", "&quot;", "&apos;", "&#45;"),
-							$str);
+				array("&amp;", "&lt;", "&gt;", "&quot;", "&apos;", "&#45;"),
+				$str);
 
 		// Decode the temp markers back to entities
 		$str = preg_replace("/$temp(\d+);/","&#\\1;",$str);

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @category	Libraries
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/benchmark.html
- */
+*/
 class CI_Benchmark {
 
 	/**
@@ -47,7 +47,7 @@ class CI_Benchmark {
 	 * @access	public
 	 * @param	string	$name	name of the marker
 	 * @return	void
-	 */
+	*/
 	function mark($name)
 	{
 		$this->marker[$name] = microtime();

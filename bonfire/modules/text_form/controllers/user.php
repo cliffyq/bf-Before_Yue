@@ -12,7 +12,7 @@ class user extends Admin_Controller {
 		$this->auth->restrict('Text_form.User.View');
 		$this->load->model('text_form_model', null, true);
 		$this->lang->load('text_form');
-		
+
 		Template::set_block('sub_nav', 'user/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class user extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class user extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a text form object.
+	Creates a text form object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class user extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of text form data.
+	Allows editing of text form data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class user extends Admin_Controller {
 	/*
 		Method: save_text_form()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_text_form($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class user extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('text_form_edu','edu','max_length['phd', 'master', 'undergraduate']');
 
 		if ($this->form_validation->run() === FALSE)
@@ -187,7 +187,7 @@ class user extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['text_form_edu']        = $this->input->post('text_form_edu');
 

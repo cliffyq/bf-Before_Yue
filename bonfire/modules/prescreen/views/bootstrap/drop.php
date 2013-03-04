@@ -1,2 +1,4 @@
-<div> <?php echo $drop ?></div>
-<div> whatever</div>
+<div>
+	<?php echo $drop ?>
+</div>
+<div>whatever</div>

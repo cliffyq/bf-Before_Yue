@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 /**
  * Address Helpers
@@ -24,7 +24,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/address_helpers.html
  *
- */
+*/
 
 if ( ! function_exists('state_select'))
 {
@@ -97,7 +97,7 @@ if ( ! function_exists('country_select'))
 		}
 
 		$class  = ( !empty($class) && $class[1] != '' ) ? ' class="' . $class . '" ' : '';
-		
+
 		$output  = '<select name="'. $select_name .'" id="' . $select_name . '" ' . $class . ' >';
 		$output .= '<option value="">&nbsp;</option>' . PHP_EOL;
 		foreach ($countries as $country_iso => $country)

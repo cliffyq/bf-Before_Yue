@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/number_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
  * @access	public
  * @param	mixed	// will be cast as int
  * @return	string
- */
+*/
 if ( ! function_exists('byte_format'))
 {
 	function byte_format($num, $precision = 1)

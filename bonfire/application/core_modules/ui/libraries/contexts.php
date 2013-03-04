@@ -10,7 +10,7 @@
  * @license   http://guides.cibonfire.com/license.html
  * @link      http://cibonfire.com
  * @since     Version 1.0
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@
  * @author     Bonfire Dev Team
  * @link       http://cibonfire.com/docs/guides/contexts.html
  *
- */
+*/
 class Contexts
 {
 
@@ -45,7 +45,7 @@ class Contexts
 	 * @static
 	 *
 	 * @var array
-	 */
+	*/
 	protected static $menu	= array();
 
 	/**
@@ -55,7 +55,7 @@ class Contexts
 	 * @static
 	 *
 	 * @var string
-	 */
+	*/
 	protected static $outer_class	= 'nav';
 
 	/**
@@ -117,16 +117,16 @@ class Contexts
 	 * @var array
 	 */
 	protected static $contexts = array();
-	
+
 	/**
-	 * Stores errors created during the 
+	 * Stores errors created during the
 	 * Context creation.
 	 *
 	 * @access protected
 	 * @static
 	 *
 	 * @var array
-	 */
+	*/
 	protected static $errors = array();
 
 	//--------------------------------------------------------------------
@@ -135,7 +135,7 @@ class Contexts
 	 * Calls the class init
 	 *
 	 * @return void
-	 */
+	*/
 	public function __construct()
 	{
 		self::$ci =& get_instance();
@@ -173,7 +173,7 @@ class Contexts
 	 * @static
 	 *
 	 * @param  array  Array of Context Menus to Display normally stored in application config.
-	 * @param  string Area to link to defaults to SITE_AREA or Admin area.	 
+	 * @param  string Area to link to defaults to SITE_AREA or Admin area.
 	 *
 	 * @return void
 	 */
@@ -189,7 +189,7 @@ class Contexts
 		self::$site_area = $site_area;
 
 		unset($contexts, $site_area);
-		
+
 		log_message('debug', 'UI/Contexts set_contexts has been called.');
 
 	}//end set_contexts()
@@ -202,7 +202,7 @@ class Contexts
 	 *
 	 * @static
 	 *
-	 * @return array 
+	 * @return array
 	 */
 	public static function get_contexts()
 	{
@@ -211,30 +211,30 @@ class Contexts
 
 
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Returns a string of any errors during the create context process.
 	 *
 	 * @access	public
-	 * @static 
-	 * 
+	 * @static
+	 *
 	 * @param	string	$open	A string to place at the beginning of every error.
 	 * @param	string	$close	A string to place at the close of every error.
-	 * 
+	 *
 	 * @return 	string
 	 */
-	public static function errors($open='<li>', $close='</li>') 
+	public static function errors($open='<li>', $close='</li>')
 	{
 		$out = '';
-	
+
 		foreach (self::$errors as $error)
 		{
 			$out .= $open . $error . $close ."\n";
 		}
-		
+
 		return $out;
 	}
-	
+
 	//--------------------------------------------------------------------
 
 	/**
@@ -400,10 +400,10 @@ class Contexts
 				$mod_config = module_config($module);
 
 				self::$actions[$module] = array(
-					'weight'		=> isset($mod_config['weights'][$context]) ? $mod_config['weights'][$context] : 0,
-					'display_name'	=> isset($mod_config['name']) ? $mod_config['name'] : $module,
-					'title' 		=> isset($mod_config['description']) ? $mod_config['description'] : $module,
-					'menus'			=> isset($mod_config['menus']) ? $mod_config['menus'] : FALSE,
+						'weight'		=> isset($mod_config['weights'][$context]) ? $mod_config['weights'][$context] : 0,
+						'display_name'	=> isset($mod_config['name']) ? $mod_config['name'] : $module,
+						'title' 		=> isset($mod_config['description']) ? $mod_config['description'] : $module,
+						'menus'			=> isset($mod_config['menus']) ? $mod_config['menus'] : FALSE,
 				);
 
 				self::$actions[$module]['menu_topic'] = isset($mod_config['menu_topic']) ? $mod_config['menu_topic'] : self::$actions[$module]['display_name'];
@@ -428,7 +428,7 @@ class Contexts
 		foreach (self::$actions as $module => $config)
 		{
 			// Make sure the user has permission to view this page.
-//			if ((isset($permissions[$context][$module]) && has_permission($permissions[$context][$module])) || (isset($permissions[$context]) && is_array($permissions[$context]) && !array_key_exists($module, $permissions[$context])))
+			//			if ((isset($permissions[$context][$module]) && has_permission($permissions[$context][$module])) || (isset($permissions[$context]) && is_array($permissions[$context]) && !array_key_exists($module, $permissions[$context])))
 			if (has_permission('Bonfire.'.ucfirst($module).'.View') || has_permission(ucfirst($module).'.'.ucfirst($context).'.View'))
 			{
 				// Drop-down menus?
@@ -464,12 +464,12 @@ class Contexts
 	//--------------------------------------------------------------------
 	// !BUILDER METHODS
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Creates everything needed for a new context to run. Includes
 	 * creating permissions, assigning them to certain roles, and
 	 * even creating an application migration for the permissions.
-	 * 
+	 *
 	 * @access public
 	 * @static
 	 *
@@ -479,66 +479,66 @@ class Contexts
 	 *
 	 * @return 	bool
 	 */
-	public static function create_context($name='', $roles=array(), $migrate=false) 
+	public static function create_context($name='', $roles=array(), $migrate=false)
 	{
 		if (empty($name))
 		{
 			self::$errors = lang('ui_no_context_name');
 			return false;
 		}
-		
+
 		/*
 			1. Try to write it to the config file so that it
-				will show in the menu no matter what. 
+		will show in the menu no matter what.
 		*/
 		self::$ci->load->helper('config_file');
 
 		$contexts = self::$contexts;
-		
+
 		// If it alread exists, we don't need to do anything!
 		if (!in_array(strtolower($name), $contexts))
 		{
 			array_unshift($contexts, strtolower($name));
-		
+
 			if (!write_config('application', array('contexts' => $contexts), null))
 			{
 				self::$errors[] = lang('ui_cant_write_config');
 				return false;
 			}
-		}		
-	
+		}
+
 		/*
 			2. Create our permissions
 		*/
 		$cname = 'Site.'. ucfirst($name) .'.View';
-		
+
 		// First - create the actual permission
 		self::$ci->load->model('permissions/permission_model');
-		
+
 		if (!self::$ci->permission_model->permission_exists($cname))
 		{
 			$pid = self::$ci->permission_model->insert(array(
-				'name'			=> $cname,
-				'description'	=> 'Allow user to view the '. ucwords($name) .' Context.',
+					'name'			=> $cname,
+					'description'	=> 'Allow user to view the '. ucwords($name) .' Context.',
 			));
 		}
 		else
 		{
 			$pid = self::$ci->permission_model->find_by('name', $cname)->permission_id;
 			$exists = true;
-			
+				
 		}
-	
-		// Do we have any roles to apply this to? 
-		// If we don't we can quite since there won't be anything 
+
+		// Do we have any roles to apply this to?
+		// If we don't we can quite since there won't be anything
 		// to migrate.
 		if (count($roles) == 0)
 		{
 			return true;
 		}
-		
+
 		self::$ci->load->model('roles/role_permission_model');
-		
+
 		foreach ($roles as $role)
 		{
 			// Assign By Id
@@ -553,11 +553,11 @@ class Contexts
 				self::$ci->role_permission_model->assign_to_role($role, $cname);
 			}
 		}
-	
+
 		// If we made it here, we were successful!
 		return true;
 	}
-	
+
 	//--------------------------------------------------------------------
 
 	//--------------------------------------------------------------------

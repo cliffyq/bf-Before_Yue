@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_result {
 
 	var $conn_id				= NULL;
@@ -394,14 +394,30 @@ class CI_DB_result {
 	 * operational due to the unavailability of the database resource IDs with
 	 * cached results.
 	 */
-	public function num_rows() { return $this->num_rows; }
-	public function num_fields() { return 0; }
-	public function list_fields() { return array(); }
-	public function field_data() { return array(); }
-	public function free_result() { return TRUE; }
-	protected function _data_seek() { return TRUE; }
-	protected function _fetch_assoc() { return array(); }
-	protected function _fetch_object() { return array(); }
+	public function num_rows() {
+		return $this->num_rows;
+	}
+	public function num_fields() {
+		return 0;
+	}
+	public function list_fields() {
+		return array();
+	}
+	public function field_data() {
+		return array();
+	}
+	public function free_result() {
+		return TRUE;
+	}
+	protected function _data_seek() {
+		return TRUE;
+	}
+	protected function _fetch_assoc() {
+		return array();
+	}
+	protected function _fetch_object() {
+		return array();
+	}
 
 }
 // END DB_result class

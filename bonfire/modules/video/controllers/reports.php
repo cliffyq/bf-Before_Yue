@@ -12,7 +12,7 @@ class reports extends Admin_Controller {
 		$this->auth->restrict('Video.Reports.View');
 		$this->load->model('video_model', null, true);
 		$this->lang->load('video');
-		
+
 		Template::set_block('sub_nav', 'reports/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Video object.
+	Creates a Video object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class reports extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Video data.
+	Allows editing of Video data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class reports extends Admin_Controller {
 	/*
 		Method: save_video()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_video($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class reports extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('video_title','title','required|max_length[50]');
 		$this->form_validation->set_rules('video_company_id','company_id','required|max_length[6]');
 		$this->form_validation->set_rules('video_description','description','max_length[140]');
@@ -191,7 +191,7 @@ class reports extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['video_title']        = $this->input->post('video_title');
 		$data['video_company_id']        = $this->input->post('video_company_id');

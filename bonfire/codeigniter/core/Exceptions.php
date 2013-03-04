@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Exceptions
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/exceptions.html
- */
+*/
 class CI_Exceptions {
 	var $action;
 	var $severity;
@@ -46,24 +46,24 @@ class CI_Exceptions {
 	 * @access public
 	 */
 	var $levels = array(
-						E_ERROR				=>	'Error',
-						E_WARNING			=>	'Warning',
-						E_PARSE				=>	'Parsing Error',
-						E_NOTICE			=>	'Notice',
-						E_CORE_ERROR		=>	'Core Error',
-						E_CORE_WARNING		=>	'Core Warning',
-						E_COMPILE_ERROR		=>	'Compile Error',
-						E_COMPILE_WARNING	=>	'Compile Warning',
-						E_USER_ERROR		=>	'User Error',
-						E_USER_WARNING		=>	'User Warning',
-						E_USER_NOTICE		=>	'User Notice',
-						E_STRICT			=>	'Runtime Notice'
-					);
+			E_ERROR				=>	'Error',
+			E_WARNING			=>	'Warning',
+			E_PARSE				=>	'Parsing Error',
+			E_NOTICE			=>	'Notice',
+			E_CORE_ERROR		=>	'Core Error',
+			E_CORE_WARNING		=>	'Core Warning',
+			E_COMPILE_ERROR		=>	'Compile Error',
+			E_COMPILE_WARNING	=>	'Compile Warning',
+			E_USER_ERROR		=>	'User Error',
+			E_USER_WARNING		=>	'User Warning',
+			E_USER_NOTICE		=>	'User Notice',
+			E_STRICT			=>	'Runtime Notice'
+	);
 
 
 	/**
 	 * Constructor
-	 */
+	*/
 	public function __construct()
 	{
 		$this->ob_level = ob_get_level();

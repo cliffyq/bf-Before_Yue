@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Emailer
 {
 
@@ -68,7 +68,7 @@ class Emailer
 	 * @access private
 	 *
 	 * @var bool
-	 */
+	*/
 	private $debug = FALSE;
 
 	/**

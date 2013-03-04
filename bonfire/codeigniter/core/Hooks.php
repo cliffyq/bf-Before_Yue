@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @category	Libraries
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/encryption.html
- */
+*/
 class CI_Hooks {
 
 	/**
@@ -44,7 +44,7 @@ class CI_Hooks {
 	 * Determines wether hook is in progress, used to prevent infinte loops
 	 *
 	 * @var bool
-	 */
+	*/
 	var $in_progress	= FALSE;
 
 	/**
@@ -82,7 +82,7 @@ class CI_Hooks {
 
 		if (defined('ENVIRONMENT') AND is_file(APPPATH.'config/'.ENVIRONMENT.'/hooks.php'))
 		{
-		    include(APPPATH.'config/'.ENVIRONMENT.'/hooks.php');
+			include(APPPATH.'config/'.ENVIRONMENT.'/hooks.php');
 		}
 		elseif (is_file(APPPATH.'config/hooks.php'))
 		{

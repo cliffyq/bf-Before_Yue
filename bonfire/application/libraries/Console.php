@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@
  * @author     Lonnie Ezell (http://lonnieezell.com)
  * @link       http://guides.cibonfire.com/core/console.html
  *
- */
+*/
 class Console {
 
 	/**
@@ -41,9 +41,9 @@ class Console {
 	 * @var array
 	 */
 	private static $logs = array(
-		'console'		=> array(),
-		'log_count'		=> 0,
-		'memory_count'	=> 0,
+			'console'		=> array(),
+			'log_count'		=> 0,
+			'memory_count'	=> 0,
 	);
 
 	/**
@@ -53,7 +53,7 @@ class Console {
 	 * @static
 	 *
 	 * @var object
-	 */
+	*/
 	private static $ci;
 
 	//--------------------------------------------------------------------
@@ -112,8 +112,8 @@ class Console {
 		}
 
 		$log_item = array(
-			'data' => $data,
-			'type' => 'log'
+				'data' => $data,
+				'type' => 'log'
 		);
 
 		self::add_to_console('log_count', $log_item);
@@ -143,10 +143,10 @@ class Console {
 		}
 
 		$log_item = array(
-			'data' => $memory,
-			'type' => 'memory',
-			'name' => $name,
-			'data_type' => gettype($object)
+				'data' => $memory,
+				'type' => 'memory',
+				'name' => $name,
+				'data_type' => gettype($object)
 		);
 
 		self::add_to_console('memory_count', $log_item);

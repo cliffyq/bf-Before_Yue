@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Shopping Cart
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/cart.html
- */
+*/
 class CI_Cart {
 
 	// These are the regular expression rules that we use to validate the product ID and product name
@@ -39,7 +39,7 @@ class CI_Cart {
 	 * Shopping Class Constructor
 	 *
 	 * The constructor loads the Session class, used to store the shopping cart contents.
-	 */
+	*/
 	public function __construct($params = array())
 	{
 		// Set the super object to a local variable for use later

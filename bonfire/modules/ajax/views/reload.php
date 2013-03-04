@@ -1,3 +1,4 @@
-<p>  There should be 
-<?php   echo $src ?>
+<p>
+	There should be
+	<?php   echo $src ?>
 </p>

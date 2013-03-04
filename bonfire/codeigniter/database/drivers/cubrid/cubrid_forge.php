@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		Esen Sagynov
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_cubrid_forge extends CI_DB_forge {
 
 	/**
@@ -102,8 +102,8 @@ class CI_DB_cubrid_forge extends CI_DB_forge {
 								$sql .= '('.implode(',', $attributes['CONSTRAINT']).')';
 								break;
 							case 'enum': 	// As of version 8.4.0 CUBRID does not support
-											// enum data type.
-											break;
+								// enum data type.
+								break;
 							case 'set':
 								$sql .= '("'.implode('","', $attributes['CONSTRAINT']).'")';
 								break;
@@ -186,8 +186,8 @@ class CI_DB_cubrid_forge extends CI_DB_forge {
 		if (count($primary_keys) > 0)
 		{
 			$key_name = "pk_" . $table . "_" .
-				$this->db->_protect_identifiers(implode('_', $primary_keys));
-			
+					$this->db->_protect_identifiers(implode('_', $primary_keys));
+
 			$primary_keys = $this->db->_protect_identifiers($primary_keys);
 			$sql .= ",\n\tCONSTRAINT " . $key_name . " PRIMARY KEY(" . implode(', ', $primary_keys) . ")";
 		}
@@ -206,7 +206,7 @@ class CI_DB_cubrid_forge extends CI_DB_forge {
 					$key_name = $this->db->_protect_identifiers($key);
 					$key = array($key_name);
 				}
-				
+
 				$sql .= ",\n\tKEY \"{$key_name}\" (" . implode(', ', $key) . ")";
 			}
 		}

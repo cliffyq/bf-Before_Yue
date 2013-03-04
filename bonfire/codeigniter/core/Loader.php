@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @author		ExpressionEngine Dev Team
  * @category	Loader
  * @link		http://codeigniter.com/user_guide/libraries/loader.html
- */
+*/
 class CI_Loader {
 
 	// All these are set automatically. Don't mess with them.
@@ -48,21 +48,21 @@ class CI_Loader {
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_library_paths	= array();
 	/**
 	 * List of paths to load models from
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_model_paths		= array();
 	/**
 	 * List of paths to load helpers from
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_helper_paths		= array();
 	/**
 	 * List of loaded base classes
@@ -70,57 +70,57 @@ class CI_Loader {
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_base_classes		= array(); // Set by the controller class
 	/**
 	 * List of cached variables
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_cached_vars		= array();
 	/**
 	 * List of loaded classes
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_classes			= array();
 	/**
 	 * List of loaded files
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_loaded_files		= array();
 	/**
 	 * List of loaded models
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_models			= array();
 	/**
 	 * List of loaded helpers
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_helpers			= array();
 	/**
 	 * List of class name mappings
 	 *
 	 * @var array
 	 * @access protected
-	 */
+	*/
 	protected $_ci_varmap			= array('unit_test' => 'unit',
-											'user_agent' => 'agent');
+			'user_agent' => 'agent');
 
 	/**
 	 * Constructor
 	 *
 	 * Sets the path to the view files and gets the initial output buffering level
-	 */
+	*/
 	public function __construct()
 	{
 		$this->_ci_ob_level  = ob_get_level();
@@ -794,12 +794,12 @@ class CI_Loader {
 
 		/*
 		 * Extract and cache variables
-		 *
-		 * You can either set variables using the dedicated $this->load_vars()
-		 * function or via the second parameter of this function. We'll merge
-		 * the two types and cache them so that views that are embedded within
-		 * other views can have access to these variables.
-		 */
+		*
+		* You can either set variables using the dedicated $this->load_vars()
+		* function or via the second parameter of this function. We'll merge
+		* the two types and cache them so that views that are embedded within
+		* other views can have access to these variables.
+		*/
 		if (is_array($_ci_vars))
 		{
 			$this->_ci_cached_vars = array_merge($this->_ci_cached_vars, $_ci_vars);
@@ -808,16 +808,16 @@ class CI_Loader {
 
 		/*
 		 * Buffer the output
-		 *
-		 * We buffer the output for two reasons:
-		 * 1. Speed. You get a significant speed boost.
-		 * 2. So that the final rendered template can be
-		 * post-processed by the output class.  Why do we
-		 * need post processing?  For one thing, in order to
-		 * show the elapsed page load time.  Unless we
-		 * can intercept the content right before it's sent to
-		 * the browser and then stop the timer it won't be accurate.
-		 */
+		*
+		* We buffer the output for two reasons:
+		* 1. Speed. You get a significant speed boost.
+		* 2. So that the final rendered template can be
+		* post-processed by the output class.  Why do we
+		* need post processing?  For one thing, in order to
+		* show the elapsed page load time.  Unless we
+		* can intercept the content right before it's sent to
+		* the browser and then stop the timer it won't be accurate.
+		*/
 		ob_start();
 
 		// If the PHP installation does not support short tags we'll
@@ -845,14 +845,14 @@ class CI_Loader {
 
 		/*
 		 * Flush the buffer... or buff the flusher?
-		 *
-		 * In order to permit views to be nested within
-		 * other views, we need to flush the content back out whenever
-		 * we are beyond the first level of output buffering so that
-		 * it can be seen and included properly by the first included
-		 * template and any subsequent ones. Oy!
-		 *
-		 */
+		*
+		* In order to permit views to be nested within
+		* other views, we need to flush the content back out whenever
+		* we are beyond the first level of output buffering so that
+		* it can be seen and included properly by the first included
+		* template and any subsequent ones. Oy!
+		*
+		*/
 		if (ob_get_level() > $this->_ci_ob_level + 1)
 		{
 			ob_end_flush();

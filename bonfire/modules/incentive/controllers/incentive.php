@@ -12,7 +12,7 @@ class incentive extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('incentive_model', null, true);
 		$this->lang->load('incentive');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class incentive extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -34,8 +34,8 @@ class incentive extends Front_Controller {
 	}
 
 	//--------------------------------------------------------------------
-    
-	
+
+
 
 
 }

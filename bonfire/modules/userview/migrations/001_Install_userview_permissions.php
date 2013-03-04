@@ -4,22 +4,22 @@ class Migration_Install_userview_permissions extends Migration {
 
 	// permissions to migrate
 	private $permission_values = array(
-		array('name' => 'Userview.Content.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Content.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Content.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Content.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Reports.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Reports.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Reports.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Reports.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Settings.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Settings.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Settings.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Settings.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Developer.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Developer.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Developer.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Userview.Developer.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Content.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Content.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Content.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Content.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Reports.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Reports.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Reports.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Reports.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Settings.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Settings.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Settings.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Settings.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Developer.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Developer.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Developer.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Userview.Developer.Delete', 'description' => '', 'status' => 'active',),
 	);
 
 	//--------------------------------------------------------------------
@@ -44,7 +44,7 @@ class Migration_Install_userview_permissions extends Migration {
 	{
 		$prefix = $this->db->dbprefix;
 
-        // permissions
+		// permissions
 		foreach ($this->permission_values as $permission_value)
 		{
 			$query = $this->db->select('permission_id')->get_where("permissions", array('name' => $permission_value['name'],));

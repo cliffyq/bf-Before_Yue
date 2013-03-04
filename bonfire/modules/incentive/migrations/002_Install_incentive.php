@@ -7,36 +7,36 @@ class Migration_Install_incentive extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'incentive_company_id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
-			'incentive_name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 25,
-				
-			),
-			'incentive_description' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 140,
-				
-			),
-			'incentive_price' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
-			'incentive_category_id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'incentive_company_id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
+				'incentive_name' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 25,
+
+				),
+				'incentive_description' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 140,
+
+				),
+				'incentive_price' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
+				'incentive_category_id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

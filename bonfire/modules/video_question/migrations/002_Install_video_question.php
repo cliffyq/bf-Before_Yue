@@ -7,21 +7,21 @@ class Migration_Install_video_question extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'video_question_video_id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
-			'video_question_question_id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'video_question_video_id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
+				'video_question_question_id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

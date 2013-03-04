@@ -1,9 +1,11 @@
 <?php echo modules::run('update/update/update_check'); ?>
 
-<br/>
+<br />
 
 <div class="admin-box">
-	<h3><?php echo lang('si.system_info') ?></h3>
+	<h3>
+		<?php echo lang('si.system_info') ?>
+	</h3>
 
 	<table class="table table-striped">
 		<tbody>
@@ -13,11 +15,10 @@
 			</tr>
 			<tr>
 				<td>CodeIgniter Version</td>
-				<td>
-					<?php 
-						echo CI_CORE == true ? 'Core ' : 'Reactor ';
-						echo CI_VERSION;
-					?>
+				<td><?php 
+				echo CI_CORE == true ? 'Core ' : 'Reactor ';
+				echo CI_VERSION;
+				?>
 				</td>
 			</tr>
 			<tr>
@@ -26,22 +27,20 @@
 			</tr>
 			<tr>
 				<td>Server Time</td>
-				<td>
-				<?php 
-	
-			        $thetimeis = getdate(time()); 
-			            $thehour = $thetimeis['hours']; 
-			            $theminute = $thetimeis['minutes']; 
-			        if($thehour > 12){ 
-			            $thehour = $thehour - 12; 
-			            $dn = "pm"; 
-			        }else{ 
-			            $dn = "am"; 
-			        } 
-			        
-					echo "$thehour:$theminute $dn"; 
-				?>   
-				</td>
+				<td><?php 
+
+				$thetimeis = getdate(time());
+				$thehour = $thetimeis['hours'];
+				$theminute = $thetimeis['minutes'];
+				if($thehour > 12){
+			            $thehour = $thehour - 12;
+			            $dn = "pm";
+			        }else{
+			            $dn = "am";
+			        }
+
+			        echo "$thehour:$theminute $dn";
+			        ?></td>
 			</tr>
 			<tr>
 				<td>Local Time</td>

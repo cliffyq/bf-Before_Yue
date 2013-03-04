@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/smiley_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@
  * @param	mixed	alias name or array of alias->field_id pairs
  * @param	string	field_id if alias name was passed in
  * @return	array
- */
+*/
 if ( ! function_exists('smiley_js'))
 {
 	function smiley_js($alias = '', $field_id = '', $inline = TRUE)
@@ -53,21 +53,21 @@ if ( ! function_exists('smiley_js'))
 
 		if ($do_setup === TRUE)
 		{
-				$do_setup = FALSE;
+			$do_setup = FALSE;
 
-				$m = array();
+			$m = array();
 
-				if (is_array($alias))
+			if (is_array($alias))
+			{
+				foreach ($alias as $name => $id)
 				{
-					foreach ($alias as $name => $id)
-					{
-						$m[] = '"'.$name.'" : "'.$id.'"';
-					}
+					$m[] = '"'.$name.'" : "'.$id.'"';
 				}
+			}
 
-				$m = '{'.implode(',', $m).'}';
+			$m = '{'.implode(',', $m).'}';
 
-				$r .= <<<EOF
+			$r .= <<<EOF
 				var smiley_map = {$m};
 
 				function insert_smiley(smiley, field_id) {
@@ -231,13 +231,13 @@ if ( ! function_exists('_get_smiley_array'))
 	{
 		if (defined('ENVIRONMENT') AND file_exists(APPPATH.'config/'.ENVIRONMENT.'/smileys.php'))
 		{
-		    include(APPPATH.'config/'.ENVIRONMENT.'/smileys.php');
+			include(APPPATH.'config/'.ENVIRONMENT.'/smileys.php');
 		}
 		elseif (file_exists(APPPATH.'config/smileys.php'))
 		{
 			include(APPPATH.'config/smileys.php');
 		}
-		
+
 		if (isset($smileys) AND is_array($smileys))
 		{
 			return $smileys;

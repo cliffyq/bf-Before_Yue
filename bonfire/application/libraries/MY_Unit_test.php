@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/core/unit_test.html
  *
- */
+*/
 class MY_Unit_test extends CI_Unit_test
 {
 

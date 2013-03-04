@@ -19,9 +19,9 @@ class Migration_Restructure_keyboard_shortcut_settings extends Migration {
 			foreach ($keys as $name => $shortcut)
 			{
 				$new_keys[] = array(
-					'name'   => $name,
-					'module' => 'core.ui',
-					'value'  => $shortcut,
+						'name'   => $name,
+						'module' => 'core.ui',
+						'value'  => $shortcut,
 				);
 			}
 
@@ -66,9 +66,9 @@ class Migration_Restructure_keyboard_shortcut_settings extends Migration {
 			if (count($new_keys))
 			{
 				$rec = array(
-					'name'   => 'ui.shortcut_keys',
-					'module' => 'core',
-					'value'  => serialize($new_keys),
+						'name'   => 'ui.shortcut_keys',
+						'module' => 'core',
+						'value'  => serialize($new_keys),
 				);
 				// insert the new keys into the db
 				if ($this->db->insert('settings', $rec))

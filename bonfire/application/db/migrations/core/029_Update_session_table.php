@@ -13,11 +13,11 @@ class Migration_Update_session_table extends Migration
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'user_agent' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 120,
-				'null' => FALSE,
-			),
+				'user_agent' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 120,
+						'null' => FALSE,
+				),
 		);
 
 		$this->dbforge->modify_column('sessions', $fields);
@@ -31,11 +31,11 @@ class Migration_Update_session_table extends Migration
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'user_agent' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 50,
-				'null' => FALSE,
-			),
+				'user_agent' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 50,
+						'null' => FALSE,
+				),
 		);
 
 		$this->dbforge->modify_column('sessions', $fields);

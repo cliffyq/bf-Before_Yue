@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Auth
 {
 
@@ -50,7 +50,7 @@ class Auth
 	 * @access public
 	 *
 	 * @var string
-	 */
+	*/
 	public $login_destination = '/';
 
 	/**
@@ -86,7 +86,7 @@ class Auth
 	 * @access private
 	 *
 	 * @var object
-	 */
+	*/
 	private $ci;
 
 	//--------------------------------------------------------------------
@@ -217,8 +217,8 @@ class Auth
 
 				// Save the login info
 				$data = array(
-					'last_login'			=> date('Y-m-d H:i:s', time()),
-					'last_ip'				=> $this->ip_address,
+						'last_login'			=> date('Y-m-d H:i:s', time()),
+						'last_ip'				=> $this->ip_address,
 				);
 				$this->ci->user_model->update($user->id, $data);
 
@@ -259,8 +259,8 @@ class Auth
 	public function logout()
 	{
 		$data = array(
-			'user_id'	=> $this->user_id(),
-			'role_id'	=> $this->role_id()
+				'user_id'	=> $this->user_id(),
+				'role_id'	=> $this->role_id()
 		);
 
 		Events::trigger('before_logout', $data);
@@ -508,7 +508,7 @@ class Auth
 			}
 		}
 
-		 return in_array($permission, $this->all_perms);
+		return in_array($permission, $this->all_perms);
 
 	}//end permission_exists()
 
@@ -704,7 +704,9 @@ class Auth
 
 		$cookie = get_cookie('autologin', TRUE);
 
-		if (!$cookie) {	return;	}
+		if (!$cookie) {
+			return;
+		}
 
 		// We have a cookie, so split it into user_id and token
 		list($user_id, $test_token) = explode('~', $cookie);
@@ -726,7 +728,9 @@ class Auth
 				$this->ci->load->model('users/User_model', 'user_model', TRUE);
 				$user = $this->ci->user_model->select('id, username, email, password_hash, users.role_id')->find($user_id);
 
-				if (!$user) { return; }
+				if (!$user) {
+					return;
+				}
 
 				$this->setup_session($user->id, $user->username, $user->password_hash, $user->email, $user->role_id, TRUE, $test_token, $user->username);
 			}
@@ -759,7 +763,9 @@ class Auth
 		}
 
 		// Generate a random string for our token
-		if (!function_exists('random_string')) { $this->load->helper('string'); }
+		if (!function_exists('random_string')) {
+			$this->load->helper('string');
+		}
 
 		$token = random_string('alnum', 128);
 
@@ -769,9 +775,9 @@ class Auth
 		{
 			// Create a new token
 			$data = array(
-				'user_id'		=> $user_id,
-				'token'			=> $token,
-				'created_on'	=> date('Y-m-d H:i:s')
+					'user_id'		=> $user_id,
+					'token'			=> $token,
+					'created_on'	=> date('Y-m-d H:i:s')
 			);
 			$this->ci->db->insert('user_cookies', $data);
 		}
@@ -905,12 +911,12 @@ class Auth
 		}
 
 		$data = array(
-			'user_id'		=> $user_id,
-			'auth_custom'	=> $us_custom,
-			'user_token'	=> do_hash($user_id . $password_hash),
-			'identity'		=> $login,
-			'role_id'		=> $role_id,
-			'logged_in'		=> TRUE,
+				'user_id'		=> $user_id,
+				'auth_custom'	=> $us_custom,
+				'user_token'	=> do_hash($user_id . $password_hash),
+				'identity'		=> $login,
+				'role_id'		=> $role_id,
+				'logged_in'		=> TRUE,
 		);
 
 		$this->ci->session->set_userdata($data);
@@ -1076,8 +1082,8 @@ if (!function_exists('abbrev_name'))
 		}
 
 		/*
-			TODO: Consider an optional parameter for picking custom var session.
-				Making it auth private, and using auth custom var
+		TODO: Consider an optional parameter for picking custom var session.
+		Making it auth private, and using auth custom var
 		*/
 
 		return $name;
