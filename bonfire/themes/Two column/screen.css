@@ -87,7 +87,7 @@ Page Structure
 	display: none;
 }
 
-.dropdown-menu>li>ul {
+.dropdown-menu > li > ul {
 	display: none;
 	list-style-type: none;
 	position: absolute;
@@ -97,7 +97,7 @@ Page Structure
 	border: 1px solid #ccc;
 }
 
-.dropdown-menu>li:hover>ul {
+.dropdown-menu > li:hover > ul {
 	display: block;
 }
 
@@ -126,9 +126,9 @@ a.brand {
 	border-radius: 0px;
 	border-bottom: 1px solid #d5d5d5;
 	border-top: 1px solid #163355;
-	-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .08);
-	-moz-box-shadow: 0 3px 5px rgba(0, 0, 0, .08);
-	box-shadow: 0 3px 5px rgba(0, 0, 0, .08);
+	-webkit-box-shadow: 0 3px 5px rgba(0,0,0,.08);
+	-moz-box-shadow: 0 3px 5px rgba(0,0,0,.08);
+	box-shadow: 0 3px 5px rgba(0,0,0,.08);
 	position: fixed;
 	margin-top: 40px;
 	z-index: 5;
@@ -143,7 +143,7 @@ a.brand {
 	margin-top: -36px;
 }
 
-.subnav .nav>li>a {
+.subnav .nav > li > a {
 	margin: 0;
 	padding-top: 11px;
 	padding-bottom: 11px;
@@ -170,9 +170,9 @@ a.brand {
 	background-color: #ddd;
 	border-right-color: #c5c5c5;
 	border-left: 0;
-	-webkit-box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.1);
-	box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0 5px 5px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 5px 5px rgba(0,0,0,0.1);
+	box-shadow: inset 0 5px 5px rgba(0,0,0,0.1);
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
@@ -351,7 +351,7 @@ Grids
 	line-height: 36px;
 	color: #fff;
 	font-size: 16px;
-	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
+	text-shadow: 0px 1px 2px rgba(0,0,0,0.8);
 	padding: 0 10px;
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
@@ -387,7 +387,7 @@ Grids
 	margin-bottom: 3px;
 }
 
-.admin-box>p {
+.admin-box > p {
 	margin-left: 10px;
 }
 
@@ -422,7 +422,7 @@ Login Page
 /*
 Tabs
  */
-.nav-tabs>li>a {
+.nav-tabs > li > a {
 	border-color: #d5d5d5;
 }
 
@@ -455,7 +455,7 @@ Tabs
 	color: #fff;
 }
 
-.admin-box .nav-tabs>li>a {
+.admin-box .nav-tabs > li > a {
 	border-color: #243957;
 }
 
@@ -493,7 +493,7 @@ Forms
 	margin-bottom: 0;
 }
 
-.form-horizontal .control-group>label {
+.form-horizontal .control-group > label {
 	font-weight: bold;
 	width: 180px;
 }
@@ -535,14 +535,14 @@ input[type=checkbox],input[type=radio] {
 
 @
 -moz-document url-prefix  () { .admin-box legend {
-	font-weight: normal;
+	 font-weight: normal;
 }
 
 /*
 Additional Buttons
  */
 }
-.btn.dark {
+ .btn.dark {
 	background-color: #333333;
 	background-image: -webkit-linear-gradient(top, #434343, #131313);
 	background-image: -moz-linear-gradient(top, #434343, #131313);
@@ -589,7 +589,7 @@ Additional Buttons
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0,0,0,0.6);
 	z-index: 9999;
 	display: none;
 }
@@ -611,6 +611,23 @@ Additional Buttons
 	margin: 0 auto;
 }
 
+.update_status{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.status_img{
+	width: 120px;
+}
+
+.video_box_settings{
+	margin-left: 100px; 
+	width:400px;
+}
+
+.video_info_elements{
+	width:386px;
+}
 /*
  * Drop-down menu 3rd Level fix/hack?
  */
@@ -621,7 +638,7 @@ li.parent-menu {
 /*--------------------------------------------------------------------
 // RESPONSIVE FIXES
 //-------------------------------------------------------------------*/
-@media ( max-width : 979px) {
+@media (max-width: 979px) {
 	.navbar-fixed-top {
 		position: relative;
 	}
@@ -652,7 +669,7 @@ li.parent-menu {
 	.toolbar-profile-img img {
 		width: 24px;
 		height: 24px;
-	}
+}
 	#tb_email,#user-menu .dropdown-toggle,#user-menu p {
 		display: none !important;
 	}
@@ -661,14 +678,14 @@ li.parent-menu {
 	}
 }
 
-@media ( max-width : 767px) {
+@media (max-width: 767px) {
 	.navbar-fixed-top {
 		margin-left: 0;
 		margin-right: 0;
 	}
 }
 
-@media ( max-width : 480px) {
+@media (max-width: 480px) {
 	#sub-menu {
 		display: block;
 		float: none;
