@@ -134,30 +134,42 @@ class company_company extends Admin_Controller {
 		$this -> load -> model('video/video_model');
 		if ($this -> input -> is_ajax_request()) {
 			$id = $this -> video_model -> video_saving();
+			if(!$id) {
+				echo 'error';
+			}else
 			echo $id;
 		}
 	}
 
 	public function video_info_setting($video_id = false) {
-
+	
+//		$company_result	
 		if ($video_id == false) {
 			template::set('msg', 'error');
-			Template::set_theme('two column');
+			template::set_theme('two column');
 			template::set_view('company_company/operation_status');
+			template::render();
 		}
 
 		$this -> load -> model('video/video_model');
 
 		$result = $this -> video_model -> find_by('id', $video_id);
 		//console::log($result);
-		$video_company = false;
 		if ($result !== false) {
 			$video_company = $result -> video_company_id;
 			//	console::log('company: '.$video_company);
 		}
 
 		$user_id = $this -> auth -> user_id();
-		$user_company = $this -> company_model -> find_by('company_userid', $user_id) -> id;
+		$company_object = $this -> company_model -> find_by('company_userid', $user_id);
+		if(!$company_object) {
+			template::set('msg', 'error');
+			template::set_theme('two column');
+			template::set_view('company_company/operation_status');
+			template::render();
+			return false;
+		}
+		$user_company = $company_object->id;
 		//console::log('company id: '.$user_company);
 		if ($video_company !== $user_company) {//check if user has the correct company of video
 			template::set('msg', 'error');

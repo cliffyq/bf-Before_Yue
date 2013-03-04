@@ -47,7 +47,7 @@
 		
 		public function video_saving() {
 			$path = $this->_set_video_path();
-			if($path ==false){
+			if($path === false){
 				return false;
 			}
 			$this->config->load('upload_video');
@@ -107,7 +107,7 @@
 				$this->load->helper('base64');
 				$user_id = $this->auth->user_id();
 				$company_object = $this->company_model->find_by('company_userid',$user_id);
-				if($company_object == False){
+				if(!$company_object){
 					return false;
 				}
 				$company_dir = $company_object->company_name;

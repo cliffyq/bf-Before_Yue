@@ -26,10 +26,16 @@ function showRequest(){
 }
 
 function showResponse(result){
+//	console.log(result);
+	if(result == 'error'){
+		result = false;
+	}
 	video_id = result;
-	//console.log(video_id);
+	
+	console.log(video_id);
 	$('.video_choosing').remove();
 	$('.video_info_setting').load('video_info_setting/'+video_id);
+
 }
 
 var bar = $('.bar'); 
