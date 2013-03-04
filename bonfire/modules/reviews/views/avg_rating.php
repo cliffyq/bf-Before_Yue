@@ -1,4 +1,4 @@
-<div id="reviews_avg_rating">
+<div id = "reviews_avg_rating">
 	<div class="">
 		<label for="reviews_avg_rating_stars">Average Rating:</label>
 	</div>

@@ -1,23 +1,21 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
-
-		<div class="container">
+		
+	    <div class="container">
 			<!-- .btn-navbar is used as the toggle for collapsible content -->
 			<a class="btn btn-navbar" data-toggle="collapse"
 				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
 			</a> <a href="<?=site_url('/');?>" class="logo"></a> </a>
 			<!-- Everything you want hidden at 940px or less, place within here -->
-			<div class="nav-collapse collapse">
-
-
+			<div class="">
+				
 				<ul class="nav pull-right">
-
-					<?php //style="height:40px" ?>
+					
 					<?php if (isset($current_user->email)) : ?>
 					<!--user menu-->
 					<li class="">
-
+						
 						<button class="btn btn-info dropdown-toggle"
 							data-toggle="dropdown"
 							href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>"
@@ -36,13 +34,13 @@
 									<div class="toolbar-profile-img">
 										<img src=<?= base_url();?>
 											/bonfire/themes/two%20column/images/user.png height='100px' />
-									</div>
-
+									</div> 
+									
 									<div class="toolbar-profile-info">
 										<p>
 											<b><?php echo $current_user->display_name ?> </b><br />
 											<?php e($current_user->email) ?>
-											<br />
+											<br/>
 										</p>
 										<a
 											href="<?php echo site_url(SITE_AREA .'/settings/users/edit') ?>"><?php echo lang('bf_user_settings')?>
@@ -53,11 +51,11 @@
 							</li>
 						</ul>
 					</li>
-
+					
 					<?php else :  ?>
-
+					
 					<li class="">
-
+						
 						<button class="dropdown-toggle btn" data-toggle="dropdown"
 							href="#">
 							<?php echo lang('bf_action_login') ?>
@@ -81,11 +79,11 @@
 							<input class="btn btn-primary"
 								onClick="location.href='<?php echo site_url('/register')?>';"
 								name="button2" type="button" id="button2" value="Register" />
-
+							
 							<?php endif; ?>
 							<?php echo form_close(); ?>
 						</ul>
-
+						
 					</li>
 					<!--
 						<li>
@@ -93,10 +91,14 @@
 						<?php //echo lang('bf_action_login') ?>
 						</a>
 						</li>
-					-->
+					-->	
 					<?php endif; ?>
 				</ul>
-
+				
+				
+				
+			<div class="input-append input-prepend offset9 top_search_panel">
+					<input type="text" placeholder="Search All"><button type="submit" class="btn" ><i class="icon-search"></i></button>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
