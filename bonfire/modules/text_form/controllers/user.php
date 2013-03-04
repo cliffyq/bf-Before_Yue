@@ -179,7 +179,7 @@ class user extends Admin_Controller {
 		}
 
 
-		$this->form_validation->set_rules('text_form_edu','edu','max_length['phd', 'master', 'undergraduate']');
+		$this->form_validation->set_rules('text_form_edu','edu',"max_length['phd', 'master', 'undergraduate']");
 
 		if ($this->form_validation->run() === FALSE)
 		{
