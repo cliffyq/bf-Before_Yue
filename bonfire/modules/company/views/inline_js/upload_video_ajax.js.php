@@ -28,6 +28,7 @@ function showRequest(){
 function showResponse(result){
 	video_id = result;
 	//console.log(video_id);
+	$('.video_choosing').remove();
 	$('.video_info_setting').load('video_info_setting/'+video_id);
 }
 

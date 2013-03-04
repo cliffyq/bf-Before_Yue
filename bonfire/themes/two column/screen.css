@@ -627,9 +627,13 @@ Additional Buttons
 	width: 120px;
 }
 
-.video_box{
+.video_box_settings{
 	margin-left: 100px; 
-	width:320px;
+	width:400px;
+}
+
+.video_info_elements{
+	width:386px;
 }
 /*
  * Drop-down menu 3rd Level fix/hack?
