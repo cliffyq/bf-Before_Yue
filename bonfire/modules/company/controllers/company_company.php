@@ -155,6 +155,7 @@ class company_company extends Admin_Controller {
 
 		$result = $this -> video_model -> find_by('id', $video_id);
 		//console::log($result);
+		$video_company = false;
 		if ($result !== false) {
 			$video_company = $result -> video_company_id;
 			//	console::log('company: '.$video_company);
@@ -219,6 +220,27 @@ class company_company extends Admin_Controller {
 		$result = $this -> video_model -> find_all_by(array('id' => $video_id, 'video_company_id' => $user_company, 'video_path' => $path));
 		return $result;
 	}
+
+	public function video_manager(){
+		$user_id = $this -> auth -> user_id();
+		$company_object = $this -> company_model -> find_by('company_userid', $user_id);
+		if(!$company_object) {
+			template::set('msg', 'error');
+			template::set_theme('two column');
+			template::set_view('company_company/operation_status');
+			template::render();
+			return false;
+		}
+		$user_company_id = $company_object->id;
+		
+		$this -> load -> model('video/video_model');
+		$results = $this->video_model->find_all_by('video_company_id', $user_company_id);
+		//console::log($results);
+		template::set_theme('two column');
+		template::set('videos', $results);
+		template::render();
+	}
+
 
 	public function video_deleting($video_id = false, $company_name = false, $video_path = false) {
 		$result = $this -> video_company_checking($video_id, $company_name, $video_path);
