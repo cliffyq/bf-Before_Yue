@@ -146,7 +146,7 @@
 				$this->load->helper('base64');
 				$user_id = $this->auth->user_id();
 				$company_object = $this->company_model->find_by('company_userid',$user_id);
-				if($company_object === False){
+				if(!$company_object){
 					return false;
 				}
 				$company_dir = $company_object->company_name;
