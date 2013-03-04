@@ -11,9 +11,8 @@
 
 		<li class="nav-header">MEDIA</li>
 		<li
-		<?php echo   $this->uri->uri_string() == SITE_AREA .'/content/video/create' ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url(SITE_AREA .'/content/video/create') ?>"
-			id="sidebar-new-meida">Upload New Media</a>
+		<?php echo   $this->uri->uri_string() == site_url('company/company_company/video_uploading') ? 'class="active"' : '' ?>>
+		<a href="<?php echo site_url('company/company_company/video_uploading') ?>" id="sidebar-new-meida">Upload New Media</a>
 		</li>
 		<li
 		<?php echo   $this->uri->uri_string() == site_url(SITE_AREA .'/user/incentive/index') ? 'class="active"' : '' ?>>

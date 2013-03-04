@@ -156,6 +156,7 @@ class company_company extends Admin_Controller {
 
 		$result = $this -> video_model -> find_by('id', $video_id);
 		//console::log($result);
+		$video_company = false;
 		if ($result !== false) {
 			$video_company = $result -> video_company_id;
 			//	console::log('company: '.$video_company);
