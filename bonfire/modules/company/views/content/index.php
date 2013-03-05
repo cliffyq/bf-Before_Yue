@@ -47,7 +47,7 @@
 
 
 				<td><img
-					src="<?php echo modules::run('company/content/get_logo', $record->company_logo)?>"
+					src="<?php echo modules::run('company/company_company/get_logo', $record->company_logo)?>"
 					alt="Company logo" height="30" class="logo" /></td>
 				<td><?php echo $record->company_url?></td>
 				<td><?php echo $record->company_industry_id?></td>
