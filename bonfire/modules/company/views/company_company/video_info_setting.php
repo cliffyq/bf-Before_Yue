@@ -5,7 +5,7 @@
 	</h2>
 	<?php elseif(isset($video_info)):
 			if($video_info->ajax == 0): ?>
-				<h2>Video Info Settings</h2>
+				<h2>Edit Video</h2>
 			<?php endif ?>
 			
 		<?php $attributes = array('id' => 'video_upadte', 'class' => "form-horizontal", 'method' => "POST");
@@ -53,11 +53,12 @@
 						
 						<div class="control-group">
 							<div class="controls">
-			<input class="btn btn-primary  change_submit" type="submit"
-				name="submit" id="submit" value="save changes"> <a class="btn">cancel</a>
-			<a class="btn btn-danger offset1"
-				href="<?=site_url('company/company_company/video_deleting').'/'.$video_info->id.'/'.$video_info->video_path?>">delete
-				this video</a>
+								 <input class="btn btn-primary  change_submit" type="submit" name="submit" id="submit" value="save changes">
+								 <?php if($video_info->ajax == 0): ?>
+								 	<a class="btn offset1" href="<?=site_url('company/company_company/video_manager')?>">cancel</a>
+								 <?php else: ?>
+								 	<a class="btn btn-danger offset1" href="<?=site_url('company/company_company/video_deleting').'/'.$video_info->id.'/'.$video_info->video_path?>">cancel upload</a>
+								 <?php endif ?>
 							</div>
 						</div>
 						

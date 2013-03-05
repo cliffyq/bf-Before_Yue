@@ -8,7 +8,7 @@
 	<img class="status_img"
 		src="<?php echo site_url('bonfire/themes/two column/images/update_success').'.png'?>">
 	<h4>Operation successfully completed!</h4>
-	<?php endif ?>
-	<a class="btn btn-primary" href="<?=site_url()?>">back to homepage</a>
+<?php endif ?>
+<a class="btn btn-primary" href="<?=site_url('company/company_company/video_manager')?>">back video manager</a>
 
 </div>
