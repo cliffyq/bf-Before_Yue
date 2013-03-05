@@ -50,7 +50,7 @@ class company_company extends Admin_Controller {
 		Template::set('records', $records);
 		console::log(print_r($records, true));
 		//Template::set('toolbar_title', 'Manage Company');
-			Template::set_theme('Two column');
+			Template::set_theme('two_column');
 		Template::render();
 	}
 
@@ -127,7 +127,7 @@ class company_company extends Admin_Controller {
 		Assets::add_module_js('company', 'jquery.form.js');
 		Assets::add_js($this -> load -> view('inline_js/upload_video_ajax.js.php', null, true), 'inline');
 		//Assets::add_js($this->load->view('inline_js/test_upload.js.php',null,true),'inline');
-		template::set_theme('two column');
+		template::set_theme('two_column');
 		template::render();
 	}
 
@@ -147,7 +147,7 @@ class company_company extends Admin_Controller {
 //		$company_result	
 		if ($video_id == false) {
 			template::set('msg', 'error');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			template::render();
 		}
@@ -166,7 +166,7 @@ class company_company extends Admin_Controller {
 		$company_object = $this -> company_model -> find_by('company_userid', $user_id);
 		if(!$company_object) {
 			template::set('msg', 'error');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			template::render();
 			return false;
@@ -175,13 +175,13 @@ class company_company extends Admin_Controller {
 		//console::log('company id: '.$user_company);
 		if ($video_company !== $user_company) {//check if user has the correct company of video
 			template::set('msg', 'error');
-			Template::set_theme('two column');
+			Template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 
 		} else {
 			$result -> ajax = 0;
 			if (!$this -> input -> is_ajax_request()) {
-				Template::set_theme('two column');
+				Template::set_theme('two_column');
 			} else {
 				$result -> ajax = 1;
 			}
@@ -195,7 +195,7 @@ class company_company extends Admin_Controller {
 	public function video_info_updating($video_id = false, $company_name = false, $video_path = false) {
 		$result = $this -> video_company_checking($video_id, $company_name, $video_path);
 
-		template::set_theme('two column');
+		template::set_theme('two_column');
 		if ($result !== false || $this -> input -> post() !== false) {
 			$video_data = array('video_title' => $this -> input -> post('video_title'), 'video_description' => $this -> input -> post('video_description'), );
 			$this -> load -> model('video/video_model');
@@ -227,7 +227,7 @@ class company_company extends Admin_Controller {
 		$company_object = $this -> company_model -> find_by('company_userid', $user_id);
 		if(!$company_object) {
 			template::set('msg', 'error');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			template::render();
 			return false;
@@ -237,7 +237,7 @@ class company_company extends Admin_Controller {
 		$this -> load -> model('video/video_model');
 		$results = $this->video_model->find_all_by('video_company_id', $user_company_id);
 		//console::log($results);
-		template::set_theme('two column');
+		template::set_theme('two_column');
 		template::set('videos', $results);
 		template::render();
 	}
@@ -255,7 +255,7 @@ class company_company extends Admin_Controller {
 		} else {template::set('msg', 'error');
 		}
 
-		Template::set_theme('two column');
+		Template::set_theme('two_column');
 		template::set_view('company_company/operation_status');
 		template::render();
 	}
@@ -350,7 +350,7 @@ class company_company extends Admin_Controller {
 	}
 		else
 
-			Template::set_theme('two column');
+			Template::set_theme('two_column');
 		Template::render();
 			
 			

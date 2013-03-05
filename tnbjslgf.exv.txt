@@ -171,62 +171,62 @@ Conflicts:
 #	new file:   bonfire/modules/video/views/video_card.php
 #	modified:   bonfire/modules/video/views/view.php
 #	modified:   bonfire/modules/video_view_history/models/video_view_history_model.php
-#	new file:   bonfire/themes/Two column/ajax.php
-#	new file:   bonfire/themes/Two column/css/bootstrap-responsive.css
-#	new file:   bonfire/themes/Two column/css/bootstrap-responsive.min.css
-#	new file:   bonfire/themes/Two column/css/bootstrap.css
-#	new file:   bonfire/themes/Two column/css/bootstrap.min.css
-#	new file:   bonfire/themes/Two column/css/main.css
-#	new file:   bonfire/themes/Two column/css/style.css
-#	new file:   bonfire/themes/Two column/css/test.css
-#	new file:   bonfire/themes/Two column/images/Footer.jpg
-#	new file:   bonfire/themes/Two column/images/Logo.png
-#	new file:   bonfire/themes/Two column/images/LogoPSD.jpg
-#	new file:   bonfire/themes/Two column/images/SlideImage1.gif
-#	new file:   bonfire/themes/Two column/images/SlideImage2.jpg
-#	new file:   bonfire/themes/Two column/images/SlideImage3.jpg
-#	new file:   bonfire/themes/Two column/images/SlideImage4.jpg
-#	new file:   bonfire/themes/Two column/images/black-opacity-60.png
-#	new file:   bonfire/themes/Two column/images/black-opacity-80.png
-#	new file:   bonfire/themes/Two column/images/glyphicons-halflings-sprite.png
-#	new file:   bonfire/themes/Two column/images/glyphicons-halflings-white.png
-#	new file:   bonfire/themes/Two column/images/glyphicons-halflings.png
-#	new file:   bonfire/themes/Two column/images/homepage/Footer.jpg
-#	new file:   bonfire/themes/Two column/images/homepage/Logo.png
-#	new file:   bonfire/themes/Two column/images/homepage/arrows.png
-#	new file:   bonfire/themes/Two column/images/homepage/black-opacity-40.png
-#	new file:   bonfire/themes/Two column/images/homepage/black-opacity-60.png
-#	new file:   bonfire/themes/Two column/images/homepage/black-opacity-80.png
-#	new file:   bonfire/themes/Two column/images/homepage/wall7.jpg
-#	new file:   bonfire/themes/Two column/images/homepage/white-opacity-40.png
-#	new file:   bonfire/themes/Two column/images/homepage/white-opacity-60.png
-#	new file:   bonfire/themes/Two column/images/homepage/white-opacity-80.png
-#	renamed:    bonfire/themes/main/images/logo.jpg -> bonfire/themes/Two column/images/logo.jpg
-#	new file:   bonfire/themes/Two column/images/logo_v1.png
-#	renamed:    bonfire/themes/main/images/mo.png -> bonfire/themes/Two column/images/mo.png
-#	renamed:    bonfire/themes/main/images/peter.png -> bonfire/themes/Two column/images/peter.png
-#	new file:   bonfire/themes/Two column/images/user.png
-#	new file:   bonfire/themes/Two column/images/wall1.png
-#	new file:   bonfire/themes/Two column/images/wall2.png
-#	new file:   bonfire/themes/Two column/images/wall3.png
-#	new file:   bonfire/themes/Two column/images/wall4.png
-#	new file:   bonfire/themes/Two column/images/wall7.jpg
-#	new file:   bonfire/themes/Two column/images/white-opacity-40.png
-#	new file:   bonfire/themes/Two column/images/white-opacity-60.png
-#	new file:   bonfire/themes/Two column/images/white-opacity-80.png
-#	new file:   bonfire/themes/Two column/index.php
-#	new file:   bonfire/themes/Two column/js/bootstrap.js
-#	new file:   bonfire/themes/Two column/js/bootstrap.min.js
-#	new file:   bonfire/themes/Two column/js/dropdown_control.js
-#	new file:   bonfire/themes/Two column/parts/_footer.php
-#	new file:   bonfire/themes/Two column/parts/_header.php
-#	new file:   bonfire/themes/Two column/parts/companyside.php
-#	new file:   bonfire/themes/Two column/parts/head.php
-#	new file:   bonfire/themes/Two column/parts/modal_login.php
-#	new file:   bonfire/themes/Two column/parts/sidebar.php
-#	new file:   bonfire/themes/Two column/parts/topbar.php
-#	new file:   bonfire/themes/Two column/screen-rtl.css
-#	new file:   bonfire/themes/Two column/screen.css
+#	new file:   bonfire/themes/two_column/ajax.php
+#	new file:   bonfire/themes/two_column/css/bootstrap-responsive.css
+#	new file:   bonfire/themes/two_column/css/bootstrap-responsive.min.css
+#	new file:   bonfire/themes/two_column/css/bootstrap.css
+#	new file:   bonfire/themes/two_column/css/bootstrap.min.css
+#	new file:   bonfire/themes/two_column/css/main.css
+#	new file:   bonfire/themes/two_column/css/style.css
+#	new file:   bonfire/themes/two_column/css/test.css
+#	new file:   bonfire/themes/two_column/images/Footer.jpg
+#	new file:   bonfire/themes/two_column/images/Logo.png
+#	new file:   bonfire/themes/two_column/images/LogoPSD.jpg
+#	new file:   bonfire/themes/two_column/images/SlideImage1.gif
+#	new file:   bonfire/themes/two_column/images/SlideImage2.jpg
+#	new file:   bonfire/themes/two_column/images/SlideImage3.jpg
+#	new file:   bonfire/themes/two_column/images/SlideImage4.jpg
+#	new file:   bonfire/themes/two_column/images/black-opacity-60.png
+#	new file:   bonfire/themes/two_column/images/black-opacity-80.png
+#	new file:   bonfire/themes/two_column/images/glyphicons-halflings-sprite.png
+#	new file:   bonfire/themes/two_column/images/glyphicons-halflings-white.png
+#	new file:   bonfire/themes/two_column/images/glyphicons-halflings.png
+#	new file:   bonfire/themes/two_column/images/homepage/Footer.jpg
+#	new file:   bonfire/themes/two_column/images/homepage/Logo.png
+#	new file:   bonfire/themes/two_column/images/homepage/arrows.png
+#	new file:   bonfire/themes/two_column/images/homepage/black-opacity-40.png
+#	new file:   bonfire/themes/two_column/images/homepage/black-opacity-60.png
+#	new file:   bonfire/themes/two_column/images/homepage/black-opacity-80.png
+#	new file:   bonfire/themes/two_column/images/homepage/wall7.jpg
+#	new file:   bonfire/themes/two_column/images/homepage/white-opacity-40.png
+#	new file:   bonfire/themes/two_column/images/homepage/white-opacity-60.png
+#	new file:   bonfire/themes/two_column/images/homepage/white-opacity-80.png
+#	renamed:    bonfire/themes/main/images/logo.jpg -> bonfire/themes/two_column/images/logo.jpg
+#	new file:   bonfire/themes/two_column/images/logo_v1.png
+#	renamed:    bonfire/themes/main/images/mo.png -> bonfire/themes/two_column/images/mo.png
+#	renamed:    bonfire/themes/main/images/peter.png -> bonfire/themes/two_column/images/peter.png
+#	new file:   bonfire/themes/two_column/images/user.png
+#	new file:   bonfire/themes/two_column/images/wall1.png
+#	new file:   bonfire/themes/two_column/images/wall2.png
+#	new file:   bonfire/themes/two_column/images/wall3.png
+#	new file:   bonfire/themes/two_column/images/wall4.png
+#	new file:   bonfire/themes/two_column/images/wall7.jpg
+#	new file:   bonfire/themes/two_column/images/white-opacity-40.png
+#	new file:   bonfire/themes/two_column/images/white-opacity-60.png
+#	new file:   bonfire/themes/two_column/images/white-opacity-80.png
+#	new file:   bonfire/themes/two_column/index.php
+#	new file:   bonfire/themes/two_column/js/bootstrap.js
+#	new file:   bonfire/themes/two_column/js/bootstrap.min.js
+#	new file:   bonfire/themes/two_column/js/dropdown_control.js
+#	new file:   bonfire/themes/two_column/parts/_footer.php
+#	new file:   bonfire/themes/two_column/parts/_header.php
+#	new file:   bonfire/themes/two_column/parts/companyside.php
+#	new file:   bonfire/themes/two_column/parts/head.php
+#	new file:   bonfire/themes/two_column/parts/modal_login.php
+#	new file:   bonfire/themes/two_column/parts/sidebar.php
+#	new file:   bonfire/themes/two_column/parts/topbar.php
+#	new file:   bonfire/themes/two_column/screen-rtl.css
+#	new file:   bonfire/themes/two_column/screen.css
 #	modified:   bonfire/themes/Two/css/main.css
 #	modified:   bonfire/themes/Two/parts/sidebar.php
 #	modified:   bonfire/themes/main/css/main.css

@@ -18,7 +18,7 @@ class themetest extends Admin_Controller {
 
 	public function topbug()
 	{
-		Template::set_theme('two column','junk');
+		Template::set_theme('two_column','junk');
 		Template::render();
 	}
 

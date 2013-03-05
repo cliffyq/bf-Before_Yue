@@ -24,7 +24,7 @@ class test_upload extends Admin_Controller {
 		//$data['images'] = $this->Gallery_model->get_images();
 		else{
 			Assets::add_js($this->load->view('inline_js/test_upload.js.php',null,true),'inline');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::render();
 		}
 	}

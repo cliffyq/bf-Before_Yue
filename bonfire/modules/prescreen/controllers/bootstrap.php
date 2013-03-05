@@ -58,7 +58,7 @@ class bootstrap extends Front_Controller {
 			
 		$video_part=$this->load->module('prescreen/bootstrap')->video_part();
 		Template::set('video_part',$video_part);
-		Template::set_theme('Two column','junk');
+		Template::set_theme('two_column','junk');
 		Template::render();
 			
 		/*

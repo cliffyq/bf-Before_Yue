@@ -3839,7 +3839,7 @@
 				
 				/* Do the sort - here we want multi-column sorting based on a given data source (column)
 				 * and sorting function (from oSort) in a certain direction. It's reasonably complex to
-				 * follow on it's own, but this is what we want (example two column sorting):
+				 * follow on it's own, but this is what we want (example two_column sorting):
 				 *  fnLocalSorting = function(a,b){
 				 *  	var iTest;
 				 *  	iTest = oSort['string-asc']('data11', 'data12');
@@ -9400,7 +9400,7 @@
 		/**
 		 * Allows a column's sorting to take multiple columns into account when 
 		 * doing a sort. For example first name / last name columns make sense to 
-		 * do a multi-column sort over the two columns.
+		 * do a multi-column sort over the two_columns.
 		 *  @type array
 		 *  @default null <i>Takes the value of the column index automatically</i>
 		 *  @dtopt Columns
