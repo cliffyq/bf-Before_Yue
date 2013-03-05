@@ -109,10 +109,19 @@ class themetest extends Admin_Controller {
 		console::log($time>$old['created_on']?'1':'2');
 	}
 
-	public function sider_active()
+		public function toprated()
+		{
+			//$result=$this->load->model('reviews/reviews_model')->average_rating(47);
+			$option='toprated';
+			$results=$this->load->model('video/video_model')->find_all(1);
+			foreach ($results as $key=>&$result)
 	{
+				$result[$option]=$this->load->model('reviews/reviews_model')->average_rating($result['id']);
+				$viewcount[$key]=$result[$option];
 			
 	}
+			console::log($results);
+		}
 
 
 
