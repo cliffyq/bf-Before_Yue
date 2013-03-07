@@ -123,6 +123,22 @@
 			console::log($results);
 		}
 		
+		public function stars()
+		{
+			/*
+			$a=array();
+			$a=1;
+			foreach ($a as $b)
+			{
+				console::log($b);
+			}
+			*/
+			$data['a1']=$this->load->module('reviews')->avg_rating(47);
+			$data['a2']=$this->load->module('reviews')->avg_rating(46,4);
+			Template::set($data);
+			Template::render();
+		}
+		
 		
 		
 	}				
