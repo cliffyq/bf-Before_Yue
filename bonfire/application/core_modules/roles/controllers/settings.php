@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Settings extends Admin_Controller
 {
 
@@ -108,9 +108,9 @@ class Settings extends Admin_Controller
 			}
 		}
 
-        Template::set('contexts', list_contexts(true));
+		Template::set('contexts', list_contexts(true));
 
-        Template::set('toolbar_title', 'Create New Role');
+		Template::set('toolbar_title', 'Create New Role');
 		Template::set_view('settings/role_form');
 		Template::render();
 
@@ -164,9 +164,9 @@ class Settings extends Admin_Controller
 		}
 
 		Template::set('role', $this->role_model->find($id));
-        Template::set('contexts', list_contexts(true));
+		Template::set('contexts', list_contexts(true));
 
-        Template::set('toolbar_title', 'Edit Role');
+		Template::set('toolbar_title', 'Edit Role');
 		Template::set_view('settings/role_form');
 		Template::render();
 
@@ -229,7 +229,7 @@ class Settings extends Admin_Controller
 				if (!isset($domains[$domain][$name]))
 				{
 					$domains[$domain][$name] = array(
-						$action => $value
+							$action => $value
 					);
 				}
 				else
@@ -293,8 +293,8 @@ class Settings extends Admin_Controller
 
 		$this->form_validation->set_rules('description', 'lang:bf_description', 'trim|strip_tags|max_length[255]|xss_clean');
 		$this->form_validation->set_rules('login_destination', 'lang:role_login_destination', 'trim|strip_tags|max_length[255]|xss_clean');
-        $this->form_validation->set_rules('default_context', 'lang:role_default_context', 'trim|strip_tags|xss_clean');
-        $this->form_validation->set_rules('default', 'lang:role_default_role', 'trim|strip_tags|is_numeric|max_length[1]|xss_clean');
+		$this->form_validation->set_rules('default_context', 'lang:role_default_context', 'trim|strip_tags|xss_clean');
+		$this->form_validation->set_rules('default', 'lang:role_default_role', 'trim|strip_tags|is_numeric|max_length[1]|xss_clean');
 		$this->form_validation->set_rules('can_delete', 'lang:role_can_delete_role', 'trim|strip_tags|is_numeric|max_length[1]|xss_clean');
 
 		$_POST['role_id'] = $id;
@@ -332,9 +332,9 @@ class Settings extends Admin_Controller
 		// Add a new management permission for the role.
 		if ($type ==  'insert')	{
 			$add_perm = array(
-				'name'=>'Permissions.'.ucwords($this->input->post('role_name')).'.Manage',
-				'description'=>'To manage the access control permissions for the '.ucwords($this->input->post('role_name')).' role.',
-				'status'=>'active'
+					'name'=>'Permissions.'.ucwords($this->input->post('role_name')).'.Manage',
+					'description'=>'To manage the access control permissions for the '.ucwords($this->input->post('role_name')).' role.',
+					'status'=>'active'
 			);
 
 			if ( $this->permission_model->insert($add_perm) ) {
@@ -416,7 +416,7 @@ class Settings extends Admin_Controller
 
 		//Turn profiler off instead of die?
 		$this->output->enable_profiler(FALSE);
-		
+
 		$pieces = explode(',',$this->input->post('role_perm', TRUE));
 
 		if (!$this->auth->has_permission('Permissions.'.$this->role_model->find( (int) $pieces[0])->role_name.'.Manage')) {

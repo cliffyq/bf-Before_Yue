@@ -10,12 +10,12 @@ class test_123_bug extends CodeIgniterUnitTestCase
 	public function setUp()
 	{
 
-    }
+	}
 
-    public function tearDown()
+	public function tearDown()
 	{
 
-    }
+	}
 
 	public function test_issue3()
 	{

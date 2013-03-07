@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @category	User Agent
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/user_agent.html
- */
+*/
 class CI_User_agent {
 
 	var $agent		= NULL;

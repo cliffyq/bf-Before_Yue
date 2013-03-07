@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @link       http://guides.cibonfire.com/core/unit_test.html
  * @version    3.0
  *
- */
+*/
 class Assets
 {
 
@@ -69,10 +69,10 @@ class Assets
 	 * @var array
 	 */
 	private static $asset_folders 	= array(
-										'css'		=> 'css',
-										'js'		=> 'js',
-										'images'	=> 'images'
-									);
+			'css'		=> 'css',
+			'js'		=> 'js',
+			'images'	=> 'images'
+	);
 
 	/**
 	 * The name of the cache folders for the various generated assets.
@@ -80,7 +80,7 @@ class Assets
 	 * @access private
 	 *
 	 * @var string
-	 */
+	*/
 	private static $asset_cache_folder 	= 'cache';
 
 	/**
@@ -98,7 +98,7 @@ class Assets
 	 * @access protected
 	 *
 	 * @var array
-	 */
+	*/
 	protected static $external_scripts 	= array();
 
 	/**
@@ -108,7 +108,7 @@ class Assets
 	 * @access protected
 	 *
 	 * @var array
-	 */
+	*/
 	protected static $module_scripts 	= array();
 
 	/**
@@ -117,7 +117,7 @@ class Assets
 	 * @access private
 	 *
 	 * @var array
-	 */
+	*/
 	private static $styles				= array();
 
 	/**
@@ -126,7 +126,7 @@ class Assets
 	 * @access private
 	 *
 	 * @var array
-	 */
+	*/
 	private static $module_styles		= array();
 
 
@@ -137,7 +137,7 @@ class Assets
 	 * @access private
 	 *
 	 * @var bool
-	 */
+	*/
 	private static $globals          = TRUE;
 
 
@@ -173,9 +173,9 @@ class Assets
 
 		/*
 			It is recommended to combine as many config files as sensible into
-			a single file for performance reasons. To handle these situations,
-			we should check to see if the config file is already loaded before
-			loading it ourself.
+		a single file for performance reasons. To handle these situations,
+		we should check to see if the config file is already loaded before
+		loading it ourself.
 		*/
 		if (config_item('assets.base_folder') === FALSE)
 		{
@@ -251,8 +251,8 @@ class Assets
 		{
 			// Make sure to include a file based on media type.
 			$styles[] = array(
-				'file'	=> $media,
-				'media'	=> $media
+					'file'	=> $media,
+					'media'	=> $media
 			);
 
 			$styles = array_merge(self::$styles, $styles);
@@ -266,15 +266,15 @@ class Assets
 		else
 		{
 			$styles[] = array(
-				'file'	=> $style,
-				'media'	=> $media
+					'file'	=> $style,
+					'media'	=> $media
 			);
 		}
 
 		// Add a style named for the controller so it will be looked for.
 		$styles[] = array(
-			'file'	=> self::$ci->router->class,
-			'media' => $media
+				'file'	=> self::$ci->router->class,
+				'media' => $media
 		);
 
 		$styles     = self::find_files($styles, 'css', $bypass_inheritance);
@@ -303,10 +303,10 @@ class Assets
 				}
 
 				$attr = array(
-					'rel'	=> 'stylesheet',
-					'type'	=> 'text/css',
-					'href'	=> is_array($s) ? $s['file'] : $s,
-					'media'	=> !empty($s['media']) ? $s['media'] : $media
+						'rel'	=> 'stylesheet',
+						'type'	=> 'text/css',
+						'href'	=> is_array($s) ? $s['file'] : $s,
+						'media'	=> !empty($s['media']) ? $s['media'] : $media
 				);
 
 				if (!$combine)
@@ -390,10 +390,10 @@ class Assets
 
 		// Create our link attributes
 		$attr = array(
-			'rel'	=> 'stylesheet',
-			'type'	=> 'text/css',
-			'href'	=> base_url() .self::$asset_base . '/' . self::$asset_cache_folder . '/' . $file_name.$min.".css",
-			'media'	=> $media
+				'rel'	=> 'stylesheet',
+				'type'	=> 'text/css',
+				'href'	=> base_url() .self::$asset_base . '/' . self::$asset_cache_folder . '/' . $file_name.$min.".css",
+				'media'	=> $media
 		);
 
 		if (self::generate_file($files, $file_name, 'css')) {
@@ -432,8 +432,8 @@ class Assets
 		if (is_string($style))
 		{
 			self::$styles[] = array(
-				'file'	=> $style,
-				'media'	=> $media
+					'file'	=> $style,
+					'media'	=> $media
 			);
 		}
 		// Add an array
@@ -442,8 +442,8 @@ class Assets
 			foreach ($style as $s)
 			{
 				self::$styles[] = array(
-					'file'	=> $s,
-					'media'	=> $media
+						'file'	=> $s,
+						'media'	=> $media
 				);
 			}
 		}
@@ -477,9 +477,9 @@ class Assets
 		if (is_string($file_path))
 		{
 			self::$module_styles[] = array(
-				'module' => $module,
-				'file'	=> $file_path,
-				'media' => $media
+					'module' => $module,
+					'file'	=> $file_path,
+					'media' => $media
 			);
 		}
 		// Add an array
@@ -488,9 +488,9 @@ class Assets
 			foreach ($file_path as $s)
 			{
 				self::$module_styles[] = array(
-					'module' => $module,
-					'file'	=> $s,
-					'media'	=> $media
+						'module' => $module,
+						'file'	=> $s,
+						'media'	=> $media
 				);
 			}
 		}
@@ -528,11 +528,13 @@ class Assets
 			{
 				if ($prepend)
 				{
-					array_unshift(self::${$type}, $script);
+					array_unshift(self::${
+						$type}, $script);
 				}
 				else
 				{
-					array_push(self::${$type}, $script);
+					array_push(self::${
+						$type}, $script);
 				}
 			}
 		}
@@ -551,11 +553,15 @@ class Assets
 
 			if ($prepend)
 			{
-				self::${$type} = array_merge($temp, self::${$type});
+				self::${
+					$type} = array_merge($temp, self::${
+						$type});
 			}
 			else
 			{
-				self::${$type} = array_merge(self::${$type}, $temp);
+				self::${
+					$type} = array_merge(self::${
+						$type}, $temp);
 			}
 		}
 
@@ -582,8 +588,8 @@ class Assets
 		if (is_string($file))
 		{
 			self::$module_scripts[] = array(
-				'module' => $module,
-				'file'	=> $file
+					'module' => $module,
+					'file'	=> $file
 			);
 		}
 		// Add an array
@@ -592,8 +598,8 @@ class Assets
 			foreach ($file as $s)
 			{
 				self::$module_scripts[] = array(
-					'module' => $module,
-					'file'	=> $s,
+						'module' => $module,
+						'file'	=> $s,
 				);
 			}
 		}
@@ -636,7 +642,8 @@ class Assets
 		{
 			foreach ($script as $s)
 			{
-				self::${$type}[] = $s;
+				self::${
+					$type}[] = $s;
 			}
 		}
 
@@ -698,7 +705,7 @@ class Assets
 		// Make sure we check for a 'global.js' file.
 		if (self::$globals)
 		{
-				$scripts[] = 'global';
+			$scripts[] = 'global';
 		}
 
 		// Add a style named for the controller so it will be looked for.
@@ -735,16 +742,16 @@ class Assets
 				}
 
 				$attr = array(
-					'src'	=> (strpos($script, $http_protocol . ':') !== FALSE ||
-										strpos($script, 'http:') !== FALSE ||
-										strpos($script, 'https:') !== FALSE) ?
+						'src'	=> (strpos($script, $http_protocol . ':') !== FALSE ||
+								strpos($script, 'http:') !== FALSE ||
+								strpos($script, 'https:') !== FALSE) ?
 
 						// It has a full url built in, so leave it alone
 						$script :
 
 						// Otherwise, build the full url
 						base_url() . self::$asset_base .'/'. self::$asset_folders['js'] .'/'. $script,
-							'type'=>'text/javascript'
+						'type'=>'text/javascript'
 				);
 
 				if ($list)
@@ -823,8 +830,8 @@ class Assets
 		$src = self::combine_js($scripts, 'module');
 
 		$attr = array(
-			'src'	=> $src,
-			'type'	=> 'text/javascript'
+				'src'	=> $src,
+				'type'	=> 'text/javascript'
 		);
 
 		if ($list)
@@ -966,8 +973,8 @@ class Assets
 		if (empty($image)) return '';
 
 		$attrs = array(
-			'src'	=> $image,
-			'alt'	=> isset($extra_attrs['alt']) ? $extra_attrs['alt'] : ''
+				'src'	=> $image,
+				'alt'	=> isset($extra_attrs['alt']) ? $extra_attrs['alt'] : ''
 		);
 
 		unset($extra_attrs['alt']);
@@ -1329,8 +1336,8 @@ class Assets
 					$file_path = '';
 
 					$file = array(
-						'file'			=> $file_path,
-						'server_path'	=> $path
+							'file'			=> $file_path,
+							'server_path'	=> $path
 					);
 					if (isset($media))
 					{
@@ -1366,16 +1373,16 @@ class Assets
 
 					/*
 					 * If default_theme and active_theme are the same,
-					 * checking the default_theme would just repeat the
-					 * active_theme section below, resulting in duplicates
-					 */
+					* checking the default_theme would just repeat the
+					* active_theme section below, resulting in duplicates
+					*/
 					if (!$bypass_inheritance && $default_theme !== $active_theme)
 					{
 						/*
 							DEFAULT THEME
 
-							First, check the default theme. Add it to the array. We check here first so that it
-							will get overwritten by anything in the active theme.
+						First, check the default theme. Add it to the array. We check here first so that it
+						will get overwritten by anything in the active theme.
 						*/
 						if (($file_array = self::get_file_array($site_path, $path . '/' . $default_theme, $file, $type, $media)))
 						{
@@ -1395,9 +1402,9 @@ class Assets
 					/*
 						ACTIVE THEME
 
-						By grabbing a copy from both the default theme and the active theme, we can
-						handle simple CSS-only overrides for a theme, completely changing it's appearance
-						through a simple child css file.
+					By grabbing a copy from both the default theme and the active theme, we can
+					handle simple CSS-only overrides for a theme, completely changing it's appearance
+					through a simple child css file.
 					*/
 					if (!empty($active_theme)) // separated this because the else if below should not run if $active_theme is empty
 					{
@@ -1419,8 +1426,8 @@ class Assets
 					/*
 						ASSET BASE
 
-						If the file hasn't been found, yet, we have one more place to look for it:
-						in the folder specified by 'assets.base_folder', and under the $type sub-folder.
+					If the file hasn't been found, yet, we have one more place to look for it:
+					in the folder specified by 'assets.base_folder', and under the $type sub-folder.
 					*/
 					if (!$found)
 					{
@@ -1433,9 +1440,9 @@ class Assets
 						/*
 							ASSETS ROOT
 
-							Finally, one last check to see if it is simply under assets/. This is useful for
-							keeping collections of scripts (say, TinyMCE or MarkItUp together for easy upgrade.
-						*/
+						Finally, one last check to see if it is simply under assets/. This is useful for
+						keeping collections of scripts (say, TinyMCE or MarkItUp together for easy upgrade.
+								*/
 						else if (($file_array = self::get_file_array($site_path, self::$asset_base . '/', $file, $type, $media)))
 						{
 							$new_files[] = $file_array;

@@ -1,0 +1,30 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$lang['general_page_manage']			= 'Manage general page';
+$lang['general_page_edit']				= 'Edit';
+$lang['general_page_true']				= 'True';
+$lang['general_page_false']				= 'False';
+$lang['general_page_create']			= 'Create';
+$lang['general_page_list']				= 'List';
+$lang['general_page_new']				= 'New';
+$lang['general_page_edit_text']			= 'Edit this to suit your needs';
+$lang['general_page_no_records']			= 'There aren\'t any general_page in the system.';
+$lang['general_page_create_new']			= 'Create a new general page.';
+$lang['general_page_create_success']			= 'general page successfully created.';
+$lang['general_page_create_failure']			= 'There was a problem creating the general_page: ';
+$lang['general_page_create_new_button']			= 'Create New general page';
+$lang['general_page_invalid_id']			= 'Invalid general page ID.';
+$lang['general_page_edit_success']			= 'general page successfully saved.';
+$lang['general_page_edit_failure']			= 'There was a problem saving the general_page: ';
+$lang['general_page_delete_success']			= 'record(s) successfully deleted.';
+$lang['general_page_delete_failure']			= 'We could not delete the record: ';
+$lang['general_page_delete_error']			= 'You have not selected any records to delete.';
+$lang['general_page_actions']			= 'Actions';
+$lang['general_page_cancel']			= 'Cancel';
+$lang['general_page_delete_record']			= 'Delete this general page';
+$lang['general_page_delete_confirm']			= 'Are you sure you want to delete this general_page?';
+$lang['general_page_edit_heading']			= 'Edit general page';
+
+// Activities
+$lang['general_page_act_create_record']			= 'Created record with ID';
+$lang['general_page_act_edit_record']			= 'Updated record with ID';
+$lang['general_page_act_delete_record']			= 'Deleted record with ID';

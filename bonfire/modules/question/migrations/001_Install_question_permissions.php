@@ -4,34 +4,34 @@ class Migration_Install_question_permissions extends Migration {
 
 	// permissions to migrate
 	private $permission_values = array(
-		array('name' => 'Question.Commonauth.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Commonauth.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Commonauth.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Commonauth.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Company.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Company.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Company.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Company.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.User.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.User.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.User.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.User.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Content.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Content.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Content.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Content.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Reports.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Reports.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Reports.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Reports.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Settings.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Settings.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Settings.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Settings.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Developer.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Developer.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Developer.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Question.Developer.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Commonauth.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Commonauth.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Commonauth.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Commonauth.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Company.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Company.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Company.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Company.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.User.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.User.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.User.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.User.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Content.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Content.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Content.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Content.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Reports.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Reports.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Reports.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Reports.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Settings.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Settings.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Settings.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Settings.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Developer.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Developer.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Developer.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Question.Developer.Delete', 'description' => '', 'status' => 'active',),
 	);
 
 	//--------------------------------------------------------------------
@@ -56,7 +56,7 @@ class Migration_Install_question_permissions extends Migration {
 	{
 		$prefix = $this->db->dbprefix;
 
-        // permissions
+		// permissions
 		foreach ($this->permission_values as $permission_value)
 		{
 			$query = $this->db->select('permission_id')->get_where("permissions", array('name' => $permission_value['name'],));

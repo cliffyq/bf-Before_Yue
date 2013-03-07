@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/file_helpers.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@
  * @access	public
  * @param	string	path to file
  * @return	string
- */
+*/
 if ( ! function_exists('read_file'))
 {
 	function read_file($file)
@@ -264,18 +264,18 @@ if ( ! function_exists('get_dir_file_info'))
 // --------------------------------------------------------------------
 
 /**
-* Get File Info
-*
-* Given a file and path, returns the name, path, size, date modified
-* Second parameter allows you to explicitly declare what information you want returned
-* Options are: name, server_path, size, date, readable, writable, executable, fileperms
-* Returns FALSE if the file cannot be found.
-*
-* @access	public
-* @param	string	path to file
-* @param	mixed	array or comma separated string of information returned
-* @return	array
-*/
+ * Get File Info
+ *
+ * Given a file and path, returns the name, path, size, date modified
+ * Second parameter allows you to explicitly declare what information you want returned
+ * Options are: name, server_path, size, date, readable, writable, executable, fileperms
+ * Returns FALSE if the file cannot be found.
+ *
+ * @access	public
+ * @param	string	path to file
+ * @param	mixed	array or comma separated string of information returned
+ * @return	array
+ */
 if ( ! function_exists('get_file_info'))
 {
 	function get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'))

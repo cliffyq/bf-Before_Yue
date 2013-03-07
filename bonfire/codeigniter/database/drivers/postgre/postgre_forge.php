@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_postgre_forge extends CI_DB_forge {
 
 	/**
@@ -128,8 +128,8 @@ class CI_DB_postgre_forge extends CI_DB_forge {
 				}
 
 				// If this is an auto-incrementing primary key, use the serial data type instead
-				if (in_array($field, $primary_keys) && array_key_exists('AUTO_INCREMENT', $attributes) 
-					&& $attributes['AUTO_INCREMENT'] === TRUE)
+				if (in_array($field, $primary_keys) && array_key_exists('AUTO_INCREMENT', $attributes)
+				&& $attributes['AUTO_INCREMENT'] === TRUE)
 				{
 					$sql .= ' SERIAL';
 				}

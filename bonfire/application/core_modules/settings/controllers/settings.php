@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Settings extends Admin_Controller
 {
 
@@ -124,32 +124,32 @@ class Settings extends Admin_Controller
 		}
 
 		$data = array(
-			array('name' => 'site.title', 'value' => $this->input->post('title')),
-			array('name' => 'site.system_email', 'value' => $this->input->post('system_email')),
-			array('name' => 'site.status', 'value' => $this->input->post('status')),
-			array('name' => 'site.list_limit', 'value' => $this->input->post('list_limit')),
+				array('name' => 'site.title', 'value' => $this->input->post('title')),
+				array('name' => 'site.system_email', 'value' => $this->input->post('system_email')),
+				array('name' => 'site.status', 'value' => $this->input->post('status')),
+				array('name' => 'site.list_limit', 'value' => $this->input->post('list_limit')),
 
-			array('name' => 'auth.allow_register', 'value' => isset($_POST['allow_register']) ? 1 : 0),
-			array('name' => 'auth.user_activation_method', 'value' => isset($_POST['user_activation_method']) ? $_POST['user_activation_method'] : 0),
-			array('name' => 'auth.login_type', 'value' => $this->input->post('login_type')),
-			array('name' => 'auth.use_usernames', 'value' => isset($_POST['use_usernames']) ? $this->input->post('use_usernames') : 0),
-			array('name' => 'auth.allow_remember', 'value' => isset($_POST['allow_remember']) ? 1 : 0),
-			array('name' => 'auth.remember_length', 'value' => (int)$this->input->post('remember_length')),
-			array('name' => 'auth.use_extended_profile', 'value' => isset($_POST['use_ext_profile']) ? 1 : 0),
-			array('name' => 'auth.allow_name_change', 'value' => $this->input->post('allow_name_change') ? 1 : 0),
-			array('name' => 'auth.name_change_frequency', 'value' => $this->input->post('name_change_frequency')),
-			array('name' => 'auth.name_change_limit', 'value' => $this->input->post('name_change_limit')),
-			array('name' => 'auth.password_min_length', 'value' => $this->input->post('password_min_length')),
-			array('name' => 'auth.password_force_numbers', 'value' => $this->input->post('password_force_numbers')),
-			array('name' => 'auth.password_force_symbols', 'value' => $this->input->post('password_force_symbols')),
-			array('name' => 'auth.password_force_mixed_case', 'value' => $this->input->post('password_force_mixed_case')),
-			array('name' => 'auth.password_show_labels', 'value' => $this->input->post('password_show_labels') ? 1 : 0),
+				array('name' => 'auth.allow_register', 'value' => isset($_POST['allow_register']) ? 1 : 0),
+				array('name' => 'auth.user_activation_method', 'value' => isset($_POST['user_activation_method']) ? $_POST['user_activation_method'] : 0),
+				array('name' => 'auth.login_type', 'value' => $this->input->post('login_type')),
+				array('name' => 'auth.use_usernames', 'value' => isset($_POST['use_usernames']) ? $this->input->post('use_usernames') : 0),
+				array('name' => 'auth.allow_remember', 'value' => isset($_POST['allow_remember']) ? 1 : 0),
+				array('name' => 'auth.remember_length', 'value' => (int)$this->input->post('remember_length')),
+				array('name' => 'auth.use_extended_profile', 'value' => isset($_POST['use_ext_profile']) ? 1 : 0),
+				array('name' => 'auth.allow_name_change', 'value' => $this->input->post('allow_name_change') ? 1 : 0),
+				array('name' => 'auth.name_change_frequency', 'value' => $this->input->post('name_change_frequency')),
+				array('name' => 'auth.name_change_limit', 'value' => $this->input->post('name_change_limit')),
+				array('name' => 'auth.password_min_length', 'value' => $this->input->post('password_min_length')),
+				array('name' => 'auth.password_force_numbers', 'value' => $this->input->post('password_force_numbers')),
+				array('name' => 'auth.password_force_symbols', 'value' => $this->input->post('password_force_symbols')),
+				array('name' => 'auth.password_force_mixed_case', 'value' => $this->input->post('password_force_mixed_case')),
+				array('name' => 'auth.password_show_labels', 'value' => $this->input->post('password_show_labels') ? 1 : 0),
 
-			array('name' => 'updates.do_check', 'value' => isset($_POST['do_check']) ? 1 : 0),
-			array('name' => 'updates.bleeding_edge', 'value' => isset($_POST['bleeding_edge']) ? 1 : 0),
-			array('name' => 'site.show_profiler', 'value' => isset($_POST['show_profiler']) ? 1 : 0),
-			array('name' => 'site.show_front_profiler', 'value' => isset($_POST['show_front_profiler']) ? 1 : 0),
-			array('name' => 'site.languages', 'value' => $this->input->post('languages') != '' ? serialize($this->input->post('languages')) : ''),
+				array('name' => 'updates.do_check', 'value' => isset($_POST['do_check']) ? 1 : 0),
+				array('name' => 'updates.bleeding_edge', 'value' => isset($_POST['bleeding_edge']) ? 1 : 0),
+				array('name' => 'site.show_profiler', 'value' => isset($_POST['show_profiler']) ? 1 : 0),
+				array('name' => 'site.show_front_profiler', 'value' => isset($_POST['show_front_profiler']) ? 1 : 0),
+				array('name' => 'site.languages', 'value' => $this->input->post('languages') != '' ? serialize($this->input->post('languages')) : ''),
 
 
 		);

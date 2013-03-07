@@ -12,7 +12,6 @@ class company extends Admin_Controller {
 		$this->auth->restrict('Incentive.Company.View');
 		$this->load->model('incentive_model', null, true);
 		$this->lang->load('incentive');
-		//$this->load->library('form_validation');
 		
 		Template::set_block('sub_nav', 'company/_sub_nav');
 	}
@@ -91,7 +90,6 @@ class company extends Admin_Controller {
 		Assets::add_module_js('incentive', 'incentive.js');
 
 		Template::set('toolbar_title', lang('incentive_create') . ' incentive');
-		Template::set_theme('two column','junk');
 		Template::render();
 	}
 
@@ -151,7 +149,6 @@ class company extends Admin_Controller {
 		Assets::add_module_js('incentive', 'incentive.js');
 
 		Template::set('toolbar_title', lang('incentive_edit') . ' incentive');
-		Template::set_theme('two column');
 		Template::render();
 	}
 

@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-	
+
 class content extends Admin_Controller {
 
 	//--------------------------------------------------------------------
@@ -12,7 +12,7 @@ class content extends Admin_Controller {
 		$this->auth->restrict('Video.Content.View');
 		$this->load->model('video_model', null, true);
 		$this->lang->load('video');
-		
+
 		Template::set_block('sub_nav', 'content/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class content extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class content extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Video object.
+	Creates a Video object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class content extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Video data.
+	Allows editing of Video data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class content extends Admin_Controller {
 	/*
 		Method: save_video()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_video($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class content extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('video_title','title','required|max_length[50]');
 		$this->form_validation->set_rules('video_company_id','company_id','required|max_length[6]');
 		$this->form_validation->set_rules('video_description','description','max_length[140]');
@@ -191,7 +191,7 @@ class content extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['video_title']        = $this->input->post('video_title');
 		$data['video_company_id']        = $this->input->post('video_company_id');
@@ -218,9 +218,9 @@ class content extends Admin_Controller {
 
 		return $return;
 	}
-	
+
 	//self_function
-	
+
 	public function view()
 	{
 		$id = $this->uri->segment(5);
@@ -230,21 +230,21 @@ class content extends Admin_Controller {
 			Template::set_message(lang('video_invalid_id'), 'error');
 			redirect(SITE_AREA .'/content/video');
 		}
-		
+
 		Assets::clear_cache();
 		Assets::add_module_css('video','video-js.css');
 		Assets::add_module_js('video','video.js');
 		Assets::add_js($this->load->view('content/videofunction',null,true),'inline');
-		
+
 		$records = $this->video_model->find($id);
 		Template::set('records', $records);
 		Template::set('toolbar_title', 'Manage Video');
-		
-		
+
+
 		Template:: render();
-		
-		
-		
+
+
+
 			
 	}
 

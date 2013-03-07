@@ -1,11 +1,11 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Migration_Install_initial_tables extends Migration {
-	
-	public function up() 
+
+	public function up()
 	{
 		$prefix = $this->db->dbprefix;
-	
+
 		// Email Queue
 		$this->dbforge->add_field('`id` int(11) NOT NULL AUTO_INCREMENT');
 		$this->dbforge->add_field('`to_email` varchar(128) NOT NULL');
@@ -20,7 +20,7 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_field("`date_sent` datetime DEFAULT NULL");
 		$this->dbforge->add_key('id', true);
 		$this->dbforge->create_table('email_queue');
-	
+
 		// Login Attempts
 		$this->dbforge->add_field("`id` bigint(20) NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("`ip_address` varchar(40) NOT NULL");
@@ -28,7 +28,7 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_field("`time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP");
 		$this->dbforge->add_key('id', true);
 		$this->dbforge->create_table('login_attempts');
-		
+
 		// Permissions
 		$this->dbforge->add_field("`permission_id` int(11) NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("`role_id` int(11) NOT NULL");
@@ -49,13 +49,13 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_key('permission_id', true);
 		$this->dbforge->add_key('role_id');
 		$this->dbforge->create_table('permissions');
-		
+
 		$this->db->query("INSERT INTO {$prefix}permissions VALUES(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)");
 		$this->db->query("INSERT INTO {$prefix}permissions VALUES(2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}permissions VALUES(3, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)");
 		$this->db->query("INSERT INTO {$prefix}permissions VALUES(4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}permissions VALUES(5, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
-		
+
 		// Roles
 		$this->dbforge->add_field("`role_id` int(11) NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("`role_name` varchar(60) NOT NULL");
@@ -64,13 +64,13 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_field("`can_delete` tinyint(1) NOT NULL DEFAULT '1'");
 		$this->dbforge->add_key('role_id', true);
 		$this->dbforge->create_table('roles');
-		
+
 		$this->db->query("INSERT INTO {$prefix}roles VALUES(1, 'Administrator', 'Has full control over every aspect of the site.', 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}roles VALUES(2, 'Editor', 'Can handle day-to-day management, but does not have full power.', 0, 1)");
 		$this->db->query("INSERT INTO {$prefix}roles VALUES(3, 'Banned', 'Banned users are not allowed to sign into your site.', 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}roles VALUES(4, 'User', 'This is the default user with access to login.', 1, 0)");
 		$this->db->query("INSERT INTO {$prefix}roles VALUES(6, 'Developer', 'Developers typically are the only ones that can access the developer tools. Otherwise identical to Administrators, at least until the site is handed off.', 0, 1)");
-		
+
 		// Sessions
 		$this->dbforge->add_field("`session_id` varchar(40) NOT NULL DEFAULT '0'");
 		$this->dbforge->add_field("`ip_address` varchar(16) NOT NULL DEFAULT '0'");
@@ -79,14 +79,14 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_field("`user_data` text");
 		$this->dbforge->add_key('session_id', true);
 		$this->dbforge->create_table('sessions');
-		
+
 		// States
 		$this->dbforge->add_field("`id` int(11) NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("`name` char(40) NOT NULL");
 		$this->dbforge->add_field("`abbrev` char(2) NOT NULL");
 		$this->dbforge->add_key('id', true);
 		$this->dbforge->create_table('states');
-		
+
 		$this->db->query("INSERT INTO {$prefix}states VALUES(1, 'Alaska', 'AK')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(2, 'Alabama', 'AL')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(3, 'American Samoa', 'AS')");
@@ -150,7 +150,7 @@ class Migration_Install_initial_tables extends Migration {
 		$this->db->query("INSERT INTO {$prefix}states VALUES(63, 'Armed Forces Europe', 'AE')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(64, 'Armed Forces Middle East', 'AE')");
 		$this->db->query("INSERT INTO {$prefix}states VALUES(65, 'Armed Forces Pacific', 'AP')");
-		
+
 		// Users
 		$this->dbforge->add_field("`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("`role_id` int(11) NOT NULL DEFAULT '4'");
@@ -175,7 +175,7 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_key('id', true);
 		$this->dbforge->add_key('email');
 		$this->dbforge->create_table('users');
-		
+
 		// User Cookies
 		$this->dbforge->add_field("`user_id` bigint(20) NOT NULL");
 		$this->dbforge->add_field("`token` varchar(128) NOT NULL");
@@ -183,10 +183,10 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->add_key('token');
 		$this->dbforge->create_table('user_cookies');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	public function down() 
+
+	public function down()
 	{
 		$this->dbforge->drop_table('email_queue');
 		$this->dbforge->drop_table('login_attempts');
@@ -198,7 +198,7 @@ class Migration_Install_initial_tables extends Migration {
 		$this->dbforge->drop_table('users');
 		$this->dbforge->drop_table('user_cookies');
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 }

@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Settings extends Admin_Controller
 {
 
@@ -92,7 +92,7 @@ class Settings extends Admin_Controller
 						array('name' => 'smtp_pass', 'value' => isset($_POST['smtp_pass']) ? $_POST['smtp_pass'] : ''),
 						array('name' => 'smtp_port', 'value' => isset($_POST['smtp_port']) ? $_POST['smtp_port'] : ''),
 						array('name' => 'smtp_timeout', 'value' => isset($_POST['smtp_timeout']) ? $_POST['smtp_timeout'] : '5')
-					 );
+				);
 
 				$updated = FALSE;
 				// save the settings to the db
@@ -201,7 +201,7 @@ class Settings extends Admin_Controller
 				'to'		=> $this->input->post('email'),
 				'subject'	=> lang('em_test_mail_subject'),
 				'message'	=> lang('em_test_mail_body')
-			 );
+		);
 
 		$results = $this->emailer->send($data, FALSE);
 
@@ -267,9 +267,9 @@ class Settings extends Admin_Controller
 			$this->load->library('emailer');
 
 			$data = array(
-				'to'		=> $this->settings_lib->item('site.system_email'),
-				'subject'	=> lang('em_test_mail_subject'),
-				'message'	=> lang('em_test_mail_body')
+					'to'		=> $this->settings_lib->item('site.system_email'),
+					'subject'	=> lang('em_test_mail_subject'),
+					'message'	=> lang('em_test_mail_body')
 			);
 
 			$this->emailer->send($data, TRUE);
@@ -340,7 +340,7 @@ class Settings extends Admin_Controller
 	 */
 	public function create()
 	{
-		
+
 		$this->load->model('users/user_model');
 		$this->load->library('emailer');
 
@@ -350,7 +350,7 @@ class Settings extends Admin_Controller
 			$this->form_validation->set_rules('email_subject', 'Email Subject', 'required|xss_clean|trim|min_length[1]|max_length[255]');
 			$this->form_validation->set_rules('email_content', 'Email Content', 'required|trim|min_length[1]');
 			$this->form_validation->set_rules('checked','Users', 'required');
-			
+
 			if ($this->form_validation->run() === FALSE)
 			{
 				Template::set('email_subject', $this->security->xss_clean($this->input->post('email_subject')));
@@ -360,8 +360,8 @@ class Settings extends Admin_Controller
 			else
 			{
 				$data = array (
-					'subject'	=> $this->input->post('email_subject'),
-					'message'	=> $this->input->post('email_content'),
+						'subject'	=> $this->input->post('email_subject'),
+						'message'	=> $this->input->post('email_content'),
 				);
 
 				$checked = $this->input->post('checked');
@@ -378,7 +378,7 @@ class Settings extends Admin_Controller
 							$result = $this->emailer->send($data,TRUE);
 							if ($result) $success_count++;
 						}
-	
+
 					}
 
 					if ($result)

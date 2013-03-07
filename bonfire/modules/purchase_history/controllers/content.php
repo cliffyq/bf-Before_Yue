@@ -12,7 +12,7 @@ class content extends Admin_Controller {
 		$this->auth->restrict('Purchase_history.Content.View');
 		$this->load->model('purchase_history_model', null, true);
 		$this->lang->load('purchase_history');
-		
+
 		Template::set_block('sub_nav', 'content/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class content extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class content extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Purchase history object.
+	Creates a Purchase history object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class content extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Purchase history data.
+	Allows editing of Purchase history data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class content extends Admin_Controller {
 	/*
 		Method: save_purchase_history()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_purchase_history($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class content extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('purchase_history_user_id','user_id','max_length[11]');
 		$this->form_validation->set_rules('purchase_history_incentive_id','incentive_id','max_length[11]');
 
@@ -188,7 +188,7 @@ class content extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['purchase_history_user_id']        = $this->input->post('purchase_history_user_id');
 		$data['purchase_history_incentive_id']        = $this->input->post('purchase_history_incentive_id');

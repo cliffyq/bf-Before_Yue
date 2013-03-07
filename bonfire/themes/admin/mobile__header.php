@@ -1,18 +1,19 @@
 <?php
-	Assets::add_js('mobile');
+Assets::add_js('mobile');
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-    <title><?php echo isset($toolbar_title) ? $toolbar_title .' : ' : ''; ?> <?php e(settings_item('site.title')) ?></title>
+<meta charset="utf-8">
+<title><?php echo isset($toolbar_title) ? $toolbar_title .' : ' : ''; ?>
+	<?php e(settings_item('site.title')) ?></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php echo Assets::css(null, 'screen', true); ?>
+<?php echo Assets::css(null, 'screen', true); ?>
 
-    <script src="<?php echo js_path(); ?>modernizr-2.5.3.js"></script>
-	<script type="text/javascript">
+<script src="<?php echo js_path(); ?>modernizr-2.5.3.js"></script>
+<script type="text/javascript">
 	(function(doc) {
 		// Fix viewport scaling when changing device orientation.
 		var addEvent = 'addEventListener',
@@ -47,22 +48,29 @@
 				<div class="nav secondary-nav">
 					<a href="<?php echo site_url('logout'); ?>" style="float: right">Logout</a>
 
-					<h1><?php e(settings_item('site.title')); ?></h1>
+					<h1>
+						<?php e(settings_item('site.title')); ?>
+					</h1>
 
 					<div class="clearfix"></div>
 				</div>
 				<?php echo Contexts::render_menu('both', true); ?>
-			</div><!-- /container -->
-			<div style="clearfix"></div>
+			</div>
+			<!-- /container -->
+			<div style=""></div>
 			<?php echo Contexts::render_mobile_navs(); ?>
-		</div><!-- /topbar-inner -->
+		</div>
+		<!-- /topbar-inner -->
 
-	</div><!-- /topbar -->
+	</div>
+	<!-- /topbar -->
 
 	<div id="nav-bar">
 		<div class="container">
 			<?php if (isset($toolbar_title)) : ?>
-				<h1><?php echo $toolbar_title ?></h1>
+			<h1>
+				<?php echo $toolbar_title ?>
+			</h1>
 			<?php endif; ?>
 
 			<?php Template::block('sub_nav', ''); ?>

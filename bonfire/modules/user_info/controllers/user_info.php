@@ -12,7 +12,7 @@ class user_info extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('user_info_model', null, true);
 		$this->lang->load('user_info');
-		
+
 	}
 
 	//--------------------------------------------------------------------

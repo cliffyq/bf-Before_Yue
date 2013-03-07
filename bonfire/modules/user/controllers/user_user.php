@@ -1,12 +1,11 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 	
 	class user extends __Controller {
 		
 		//--------------------------------------------------------------------
 		
-		
-		public function __construct()
-		{
 			parent::__construct();
 
 			$this->load->library('form_validation');
@@ -16,14 +15,14 @@
 		
 		//--------------------------------------------------------------------
 		
-		
-		
 		/*
 			Method: index()
 			
 			Displays a list of form data.
 		*/
-		public function index()
-		{
+	public function index() {
 
-		}
+	}
+}
+
+}

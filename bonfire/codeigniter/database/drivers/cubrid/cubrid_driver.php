@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 2.0.2
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @category	Database
  * @author		Esen Sagynov
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_cubrid_driver extends CI_DB {
 
 	// Default CUBRID Broker port. Will be used unless user
@@ -389,7 +389,7 @@ class CI_DB_cubrid_driver extends CI_DB {
 		{
 			return 0;
 		}
-		
+
 		$query = $this->query($this->_count_string . $this->_protect_identifiers('numrows') . " FROM " . $this->_protect_identifiers($table, TRUE, NULL, FALSE));
 
 		if ($query->num_rows() == 0)

@@ -12,7 +12,7 @@ class user extends Admin_Controller {
 		$this->auth->restrict('User_information.User.View');
 		$this->load->model('user_information_model', null, true);
 		$this->lang->load('user_information');
-		
+
 		Template::set_block('sub_nav', 'user/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class user extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -67,7 +67,7 @@ class user extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a user information object.
+	Creates a user information object.
 	*/
 	public function create()
 	{
@@ -101,7 +101,7 @@ class user extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of user information data.
+	Allows editing of user information data.
 	*/
 	public function edit()
 	{
@@ -163,15 +163,15 @@ class user extends Admin_Controller {
 	/*
 		Method: save_user_information()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_user_information($type='insert', $id=0)
 	{
@@ -179,7 +179,7 @@ class user extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('user_information_user_id','user_id','max_length[11]');
 		$this->form_validation->set_rules('user_information_current_points','current_points','max_length[11]');
 
@@ -189,7 +189,7 @@ class user extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['user_information_user_id']        = $this->input->post('user_information_user_id');
 		$data['user_information_current_points']        = $this->input->post('user_information_current_points');
@@ -215,12 +215,12 @@ class user extends Admin_Controller {
 	}
 
 	//--------------------------------------------------------------------
-    public  function get_current_points()
-	{ 	
-	      $row =$this->user_information_model->find_user_information_by_uid($this->auth->user_id());
-		  
-		  return $row->user_information_current_points;
-	
+	public  function get_current_points()
+	{
+		$row =$this->user_information_model->find_user_information_by_uid($this->auth->user_id());
+
+		return $row->user_information_current_points;
+
 	}
 
 

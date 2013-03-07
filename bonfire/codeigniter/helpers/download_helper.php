@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/download_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@
  * @param	string	filename
  * @param	mixed	the data to be downloaded
  * @return	void
- */
+*/
 if ( ! function_exists('force_download'))
 {
 	function force_download($filename = '', $data = '')

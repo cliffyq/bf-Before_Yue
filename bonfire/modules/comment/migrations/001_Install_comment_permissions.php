@@ -4,34 +4,34 @@ class Migration_Install_comment_permissions extends Migration {
 
 	// permissions to migrate
 	private $permission_values = array(
-		array('name' => 'Comment.Commonauth.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Commonauth.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Commonauth.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Commonauth.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Company.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Company.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Company.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Company.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.User.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.User.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.User.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.User.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Content.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Content.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Content.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Content.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Reports.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Reports.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Reports.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Reports.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Settings.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Settings.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Settings.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Settings.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Developer.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Developer.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Developer.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Comment.Developer.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Commonauth.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Commonauth.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Commonauth.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Commonauth.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Company.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Company.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Company.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Company.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.User.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.User.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.User.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.User.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Content.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Content.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Content.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Content.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Reports.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Reports.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Reports.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Reports.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Settings.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Settings.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Settings.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Settings.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Developer.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Developer.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Developer.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Comment.Developer.Delete', 'description' => '', 'status' => 'active',),
 	);
 
 	//--------------------------------------------------------------------
@@ -56,7 +56,7 @@ class Migration_Install_comment_permissions extends Migration {
 	{
 		$prefix = $this->db->dbprefix;
 
-        // permissions
+		// permissions
 		foreach ($this->permission_values as $permission_value)
 		{
 			$query = $this->db->select('permission_id')->get_where("permissions", array('name' => $permission_value['name'],));

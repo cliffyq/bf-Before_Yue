@@ -12,7 +12,7 @@ class commonauth extends Admin_Controller {
 		$this->auth->restrict('User_Info.Commonauth.View');
 		$this->load->model('user_info_model', null, true);
 		$this->lang->load('user_info');
-		
+
 		Template::set_block('sub_nav', 'commonauth/_sub_nav');
 	}
 

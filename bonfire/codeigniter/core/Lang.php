@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Language
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/language.html
- */
+*/
 class CI_Lang {
 
 	/**
@@ -36,14 +36,14 @@ class CI_Lang {
 	 * List of loaded language files
 	 *
 	 * @var array
-	 */
+	*/
 	var $is_loaded	= array();
 
 	/**
 	 * Constructor
 	 *
 	 * @access	public
-	 */
+	*/
 	function __construct()
 	{
 		log_message('debug', "Language Class Initialized");

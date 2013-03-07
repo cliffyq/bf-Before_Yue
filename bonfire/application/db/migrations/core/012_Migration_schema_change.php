@@ -25,17 +25,17 @@ class Migration_Migration_schema_change extends Migration {
 
 			// modify the schema_version table
 			$fields = array(
-							'type' => array(
-								'type' => 'VARCHAR',
-								'constraint' => 20,
-								'null' => FALSE,
-							),
-							'version' => array(
-								'type' => 'INT',
-								'constraint' => '4',
-								'default'    => 0,
-							),
-					);
+					'type' => array(
+							'type' => 'VARCHAR',
+							'constraint' => 20,
+							'null' => FALSE,
+					),
+					'version' => array(
+							'type' => 'INT',
+							'constraint' => '4',
+							'default'    => 0,
+					),
+			);
 			$this->dbforge->add_field($fields);
 			$this->dbforge->add_key('type', TRUE);
 			$this->dbforge->create_table('schema_version');

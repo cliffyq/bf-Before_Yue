@@ -1,7 +1,8 @@
-<div >wt
+<div>
+	wt
 	<?php  
-			
-			echo $rows;
 
-	?>	
+	echo $rows;
+
+	?>
 </div>

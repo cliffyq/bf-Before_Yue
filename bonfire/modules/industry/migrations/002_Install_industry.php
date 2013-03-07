@@ -7,16 +7,16 @@ class Migration_Install_industry extends Migration {
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'id' => array(
-				'type' => 'INT',
-				'constraint' => 11,
-				'auto_increment' => TRUE,
-			),
-			'industry_industry_name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 40,
-				
-			),
+				'id' => array(
+						'type' => 'INT',
+						'constraint' => 11,
+						'auto_increment' => TRUE,
+				),
+				'industry_industry_name' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 40,
+
+				),
 		);
 		$this->dbforge->add_field($fields);
 		$this->dbforge->add_key('id', true);

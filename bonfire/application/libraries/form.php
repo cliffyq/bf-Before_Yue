@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @link       http://guides.cibonfire.com/core/unit_test.html
  * @version    3.0
  *
- */
+*/
 class Form
 {
 
@@ -49,12 +49,12 @@ class Form
 	 */
 	private static $template = '<div class="clearfix">
 	{label}
-	<div class="input {error_class}">
-		{input}
-		<span class="inline-help">{help}</span>
-		<span class="inline-help error">{error}</span>
-	</div>
-</div>';
+			<div class="input {error_class}">
+			{input}
+			<span class="inline-help">{help}</span>
+			<span class="inline-help error">{error}</span>
+			</div>
+			</div>';
 
 
 	/**
@@ -66,10 +66,10 @@ class Form
 	 * @var string
 	 */
 	private static $standard_inputs = array(
-		'button', 'checkbox', 'color', 'date', 'datetime', 'datetime-local',
-		'email', 'file', 'hidden', 'image', 'month', 'number', 'password',
-		'radio', 'range', 'reset', 'search', 'submit', 'tel', 'text', 'time',
-		'url', 'week'
+			'button', 'checkbox', 'color', 'date', 'datetime', 'datetime-local',
+			'email', 'file', 'hidden', 'image', 'month', 'number', 'password',
+			'radio', 'range', 'reset', 'search', 'submit', 'tel', 'text', 'time',
+			'url', 'week'
 	);
 
 
@@ -80,10 +80,10 @@ class Form
 	 * @static
 	 *
 	 * @var array
-	 */
+	*/
 	private static $custom_inputs = array(
-		'state'		=> 'state_select',
-		'country'	=> 'country_select'
+			'state'		=> 'state_select',
+			'country'	=> 'country_select'
 	);
 
 	//--------------------------------------------------------------------
@@ -95,7 +95,7 @@ class Form
 	 * @uses   init()
 	 *
 	 * @return void
-	 */
+	*/
 	public function __construct()
 	{
 		self::init();
@@ -290,7 +290,7 @@ class Form
 
 		/*
 		 * @TODO Is this required?  Is this file even used anymore?
-		 */
+		*/
 		print_r($options);
 
 		return $input;

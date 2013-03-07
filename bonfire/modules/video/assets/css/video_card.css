@@ -65,7 +65,6 @@ height:20px;
 width:20px;
 }
 
-
 .ellipsis {
 display: block;
 position: relative;
@@ -75,4 +74,3 @@ text-overflow: ellipsis;
 white-space: nowrap;
 zoom: 1;
 }
-

@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_utility extends CI_DB_forge {
 
 	var $db;
@@ -32,7 +32,7 @@ class CI_DB_utility extends CI_DB_forge {
 	 *
 	 * Grabs the CI super object instance so we can access it.
 	 *
-	 */
+	*/
 	function __construct()
 	{
 		// Assign the main database object to $this->db
@@ -112,7 +112,7 @@ class CI_DB_utility extends CI_DB_forge {
 
 		if (is_bool($sql))
 		{
-				show_error('db_must_use_set');
+			show_error('db_must_use_set');
 		}
 
 		$query = $this->db->query($sql);
@@ -302,14 +302,14 @@ class CI_DB_utility extends CI_DB_forge {
 
 		// Set up our default preferences
 		$prefs = array(
-							'tables'		=> array(),
-							'ignore'		=> array(),
-							'filename'		=> '',
-							'format'		=> 'gzip', // gzip, zip, txt
-							'add_drop'		=> TRUE,
-							'add_insert'	=> TRUE,
-							'newline'		=> "\n"
-						);
+				'tables'		=> array(),
+				'ignore'		=> array(),
+				'filename'		=> '',
+				'format'		=> 'gzip', // gzip, zip, txt
+				'add_drop'		=> TRUE,
+				'add_insert'	=> TRUE,
+				'newline'		=> "\n"
+		);
 
 		// Did the user submit any preferences? If so set them....
 		if (count($params) > 0)

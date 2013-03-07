@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Developer extends Admin_Controller
 {
 
@@ -133,9 +133,9 @@ class Developer extends Admin_Controller
 		}
 		else
 		{
-			$msg = 'There was an error migrating the database.'; 
-			logit($msg . "\n" . $this->migrations->error, 'error');	
-			$msg = '<h4 class="alert-heading">' . $msg . '</h4><br /><strong>' . $this->migrations->error . '</strong>';			
+			$msg = 'There was an error migrating the database.';
+			logit($msg . "\n" . $this->migrations->error, 'error');
+			$msg = '<h4 class="alert-heading">' . $msg . '</h4><br /><strong>' . $this->migrations->error . '</strong>';
 			Template::set_message($msg, 'error');
 		}//end if
 
@@ -194,7 +194,7 @@ class Developer extends Admin_Controller
 		}
 
 		// Sort Module Migrations in Reverse Order instead of Randomness.
-		foreach ($modules as &$mod) 
+		foreach ($modules as &$mod)
 		{
 			if ( ! array_key_exists('migrations', $mod))
 			{
@@ -207,9 +207,9 @@ class Developer extends Admin_Controller
 		foreach ($modules as $module => $migrations)
 		{
 			$mod_versions[$module] = array(
-				'installed_version'	=> $this->migrations->get_schema_version($module .'_'),
-				'latest_version'	=> $this->migrations->get_latest_version($module .'_'),
-				'migrations'		=> $migrations['migrations']
+					'installed_version'	=> $this->migrations->get_schema_version($module .'_'),
+					'latest_version'	=> $this->migrations->get_latest_version($module .'_'),
+					'migrations'		=> $migrations['migrations']
 			);
 		}
 

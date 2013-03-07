@@ -12,7 +12,7 @@ class video_question extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('video_question_model', null, true);
 		$this->lang->load('video_question');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class video_question extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{

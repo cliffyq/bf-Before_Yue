@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
-| -------------------------------------------------------------------------
+ | -------------------------------------------------------------------------
 | URI ROUTING
 | -------------------------------------------------------------------------
 | This file lets you re-map URI requests to specific controller functions.
@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "preview/homepage";
 $route['404_override'] = '';
-//Ajax 
+//Ajax
 $route['(:any)/(:any)/ajax/(:any)/(:any)/(:any)']="$3/$4/$5";
 $route['(:any)/ajax/(:any)/(:any)']="$2/$3";
 // Authorization

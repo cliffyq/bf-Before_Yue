@@ -52,3 +52,6 @@ bonfire/application/config/config.php
 
 #ignore uploads
 upload/*
+
+#ignore .buildpath
+.buildpath

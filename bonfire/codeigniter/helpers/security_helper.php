@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/security_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@
  * @param	string
  * @param	bool	whether or not the content is an image file
  * @return	string
- */
+*/
 if ( ! function_exists('xss_clean'))
 {
 	function xss_clean($str, $is_image = FALSE)

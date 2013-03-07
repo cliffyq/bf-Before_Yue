@@ -80,4 +80,4 @@
 			Assets::add_js($this->load->view('inline_js/review_collapse.js.php',null,true),'inline');
 			return $this->load->view('_review_panel',$data, true);
 		}
-	}										
+}

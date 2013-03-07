@@ -3,7 +3,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				
+
 				<th>title</th>
 				<th>company name</th>
 				<th>description</th>
@@ -14,7 +14,7 @@
 		</thead>
 		<?php if (isset($records) && is_array($records) && count($records)) : ?>
 		<tfoot>
-			
+
 		</tfoot>
 		<?php endif; ?>
 		<tbody>
@@ -22,11 +22,12 @@
 			<?php foreach ($records as $record) : ?>
 			<tr>
 				<?php if ($this->auth->has_permission('Video.Content.View')) : ?>
-				<td><?php echo anchor('/user/view/'.$record->id, '<i class="icon-pencil">&nbsp;</i>' .  $record->video_title) ?></td>
+				<td><?php echo anchor('/user/view/'.$record->id, '<i class="icon-pencil">&nbsp;</i>' .  $record->video_title) ?>
+				</td>
 				<?php else: ?>
 				<td><?php echo $record->video_title ?></td>
 				<?php endif; ?>
-				
+
 				<td><?php echo $record->video_company_id?></td>
 				<td><?php echo $record->video_description?></td>
 				<td><?php echo $record->video_length?></td>
@@ -41,5 +42,5 @@
 			<?php endif; ?>
 		</tbody>
 	</table>
-	
-</div>				
+
+</div>

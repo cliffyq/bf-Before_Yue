@@ -1,1 +1,4 @@
-<h1> Congratulations ,<?php echo $val ;?></h1>
+<h1>
+	Congratulations ,
+	<?php echo $val ;?>
+</h1>

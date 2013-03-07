@@ -1,21 +1,21 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Migration_Remove_old_permissions_table extends Migration {
-	
-	public function up() 
+
+	public function up()
 	{
 		$prefix = $this->db->dbprefix;
-		
+
 		$this->dbforge->drop_table('permissions_old');
-		
+
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	public function down() 
+
+	public function down()
 	{
 		$prefix = $this->db->dbprefix;
-		
+
 		// Permissions
 		$this->dbforge->add_field("`permission_id` int(11) NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("`role_id` int(11) NOT NULL");
@@ -37,14 +37,14 @@ class Migration_Remove_old_permissions_table extends Migration {
 		$this->dbforge->add_key('permission_id', true);
 		$this->dbforge->add_key('role_id');
 		$this->dbforge->create_table('permissions_old');
-		
+
 		$this->db->query("INSERT INTO {$prefix}permissions_old VALUES(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)");
 		$this->db->query("INSERT INTO {$prefix}permissions_old VALUES(2, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}permissions_old VALUES(3, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}permissions_old VALUES(4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
 		$this->db->query("INSERT INTO {$prefix}permissions_old VALUES(5, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 }

@@ -3,38 +3,38 @@
 class Migration_User_meta_move extends Migration {
 
 	private $core_user_fields = array(
-		'id',
-		'role_id',
-		'email',
-		'username',
-		'password_hash',
-		'reset_hash',
-		'salt',
-		'last_login',
-		'last_ip',
-		'created_on',
-		'deleted',
-		'banned',
-		'ban_message',
-		'reset_by'
+			'id',
+			'role_id',
+			'email',
+			'username',
+			'password_hash',
+			'reset_hash',
+			'salt',
+			'last_login',
+			'last_ip',
+			'created_on',
+			'deleted',
+			'banned',
+			'ban_message',
+			'reset_by'
 	);
 
 	private $default_fields = array(
-		'first_name',
-		'last_name',
-		'street_1',
-		'street_2',
-		'city',
-		'zipcode',
-		'state_code',
-		'country_iso'
+			'first_name',
+			'last_name',
+			'street_1',
+			'street_2',
+			'city',
+			'zipcode',
+			'state_code',
+			'country_iso'
 	);
 
 	//--------------------------------------------------------------------
 
 	/*
 		Adding the table for user_meta and moving all current meta fields
-		over to the new table.
+	over to the new table.
 	*/
 	public function up()
 	{
@@ -51,11 +51,11 @@ class Migration_User_meta_move extends Migration {
 		$filename .= '/db/backups/backup_meta_users_table.txt';
 
 		$prefs = array(
-			'tables'		=> $this->db->dbprefix .'users',
-			'format'		=> 'txt',
-			'filename'		=> $filename,
-			'add_drop'		=> true,
-			'add_insert'	=> true
+				'tables'		=> $this->db->dbprefix .'users',
+				'format'		=> 'txt',
+				'filename'		=> $filename,
+				'add_drop'		=> true,
+				'add_insert'	=> true
 		);
 		$backup =& $this->dbutil->backup($prefs);
 
@@ -91,9 +91,9 @@ class Migration_User_meta_move extends Migration {
 					if (!empty($row->$field))
 					{
 						$data = array(
-							'user_id'	=> $row->id,
-							'meta_key'		=> $field,
-							'meta_value'	=> $row->$field
+								'user_id'	=> $row->id,
+								'meta_key'		=> $field,
+								'meta_value'	=> $row->$field
 						);
 
 						$this->db->insert('user_meta', $data);
@@ -124,20 +124,20 @@ class Migration_User_meta_move extends Migration {
 			Create display_name field in users table
 		*/
 		$field = array(
-			'display_name'	=> array(
-				'type'			=> 'varchar',
-				'constraint'	=> 255,
-				'null'			=> true,
-				'default'		=> ''
-			)
+				'display_name'	=> array(
+						'type'			=> 'varchar',
+						'constraint'	=> 255,
+						'null'			=> true,
+						'default'		=> ''
+				)
 		);
 		$this->dbforge->add_column('users', $field);
 
 		$field = array(
-			'display_name_changed'	=> array(
-				'type'			=> 'date',
-				'null'			=> true,
-			)
+				'display_name_changed'	=> array(
+						'type'			=> 'date',
+						'null'			=> true,
+				)
 		);
 		$this->dbforge->add_column('users', $field);
 
@@ -174,18 +174,18 @@ class Migration_User_meta_move extends Migration {
 	/*
 		Method: setup_module_meta()
 
-		Sets up a new module to have custom field information usable.
-		This sets up 2 new tables:
+	Sets up a new module to have custom field information usable.
+	This sets up 2 new tables:
 
-			'*_fields'	- Holds the fields and their display information.
-			'*_meta'	- Holds the actual custom data.
+	'*_fields'	- Holds the fields and their display information.
+	'*_meta'	- Holds the actual custom data.
 
-		Parameters:
-			$module	- A string with the name of the module. This is the
-					  name that will be used for the table names.
+	Parameters:
+	$module	- A string with the name of the module. This is the
+	name that will be used for the table names.
 
-		Returns:
-			true/false
+	Returns:
+	true/false
 	*/
 	public function setup_module_meta()
 	{
@@ -195,27 +195,27 @@ class Migration_User_meta_move extends Migration {
 		if (!$this->db->table_exists('user_meta'))
 		{
 			$fields = array(
-				'meta_id'	=> array(
-					'type'			=> 'INT',
-					'constraint'	=> 20,
-					'unsigned'		=> true,
-					'auto_increment'	=> true
-				),
-				'user_id'	=> array(
-					'type'			=> 'INT',
-					'constraint'	=> 20,
-					'unsigned'		=> true,
-					'default'		=> 0
-				),
-				'meta_key'	=> array(
-					'type'			=> 'varchar',
-					'constraint'	=> 255,
-					'default'		=> ''
-				),
-				'meta_value' => array(
-					'type'		=> 'text',
-					'null'		=> true,
-				)
+					'meta_id'	=> array(
+							'type'			=> 'INT',
+							'constraint'	=> 20,
+							'unsigned'		=> true,
+							'auto_increment'	=> true
+					),
+					'user_id'	=> array(
+							'type'			=> 'INT',
+							'constraint'	=> 20,
+							'unsigned'		=> true,
+							'default'		=> 0
+					),
+					'meta_key'	=> array(
+							'type'			=> 'varchar',
+							'constraint'	=> 255,
+							'default'		=> ''
+					),
+					'meta_value' => array(
+							'type'		=> 'text',
+							'null'		=> true,
+					)
 			);
 			$this->dbforge->add_field($fields);
 			$this->dbforge->add_key('meta_id', TRUE);
@@ -231,14 +231,14 @@ class Migration_User_meta_move extends Migration {
 	/*
 		Method: remove_module_meta()
 
-		Removes any meta/field tables from the database for a given module.
-		Intended to be used during migrations.
+	Removes any meta/field tables from the database for a given module.
+	Intended to be used during migrations.
 
-		Parameters:
-			$module	- A string with the module name
+	Parameters:
+	$module	- A string with the module name
 
-		Returns:
-			true/false
+	Returns:
+	true/false
 	*/
 	public function remove_module_meta()
 	{

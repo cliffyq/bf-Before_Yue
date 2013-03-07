@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 /**
  * Array Helpers
@@ -24,7 +24,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/array_helpers.html
  *
- */
+*/
 
 if ( ! function_exists('array_index_by_key'))
 {

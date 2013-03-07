@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://cibonfire.com
  *
- */
+*/
 class Settings extends Admin_Controller
 {
 
@@ -38,7 +38,7 @@ class Settings extends Admin_Controller
 	 * @return void
 	 */
 	public function __construct()
-    {
+	{
 		parent::__construct();
 
 		$this->auth->restrict('Bonfire.Users.View');
@@ -55,11 +55,11 @@ class Settings extends Admin_Controller
 
 	/*
 	 * Display the user list and manage the user deletions/banning/purge
-	 *
-	 * @access public
-	 *
-	 * @return  void
-	 */
+	*
+	* @access public
+	*
+	* @return  void
+	*/
 	public function index($offset=0)
 	{
 		$this->auth->restrict('Bonfire.Users.Manage');
@@ -216,7 +216,7 @@ class Settings extends Admin_Controller
 				foreach ($meta_fields as $field)
 				{
 					if (!isset($field['admin_only']) || $field['admin_only'] === FALSE
-						|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
+					|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
 							&& isset($this->current_user) && $this->current_user->role_id == 1))
 					{
 						$meta_data[$field['name']] = $this->input->post($field['name']);
@@ -235,13 +235,13 @@ class Settings extends Admin_Controller
 			}
 		}
 
-        $settings = $this->settings_lib->find_all();
-        if ($settings['auth.password_show_labels'] == 1) {
-            Assets::add_module_js('users','password_strength.js');
-            Assets::add_module_js('users','jquery.strength.js');
-            Assets::add_js($this->load->view('users_js', array('settings'=>$settings), true), 'inline');
-        }
-        Template::set('roles', $this->role_model->select('role_id, role_name, default')->where('deleted', 0)->find_all());
+		$settings = $this->settings_lib->find_all();
+		if ($settings['auth.password_show_labels'] == 1) {
+			Assets::add_module_js('users','password_strength.js');
+			Assets::add_module_js('users','jquery.strength.js');
+			Assets::add_js($this->load->view('users_js', array('settings'=>$settings), true), 'inline');
+		}
+		Template::set('roles', $this->role_model->select('role_id, role_name, default')->where('deleted', 0)->find_all());
 		Template::set('languages', unserialize($this->settings_lib->item('site.languages')));
 
 		Template::set('toolbar_title', lang('us_create_user'));
@@ -299,7 +299,7 @@ class Settings extends Admin_Controller
 				foreach ($meta_fields as $field)
 				{
 					if (!isset($field['admin_only']) || $field['admin_only'] === FALSE
-						|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
+					|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
 							&& isset($this->current_user) && $this->current_user->role_id == 1))
 					{
 						$meta_data[$field['name']] = $this->input->post($field['name']);
@@ -334,14 +334,14 @@ class Settings extends Admin_Controller
 			redirect(SITE_AREA .'/settings/users');
 		}
 
-        $settings = $this->settings_lib->find_all();
-        if ($settings['auth.password_show_labels'] == 1) {
-            Assets::add_module_js('users','password_strength.js');
-            Assets::add_module_js('users','jquery.strength.js');
-            Assets::add_js($this->load->view('users_js', array('settings'=>$settings), true), 'inline');
-        }
+		$settings = $this->settings_lib->find_all();
+		if ($settings['auth.password_show_labels'] == 1) {
+			Assets::add_module_js('users','password_strength.js');
+			Assets::add_module_js('users','jquery.strength.js');
+			Assets::add_js($this->load->view('users_js', array('settings'=>$settings), true), 'inline');
+		}
 
-        Template::set('toolbar_title', lang('us_edit_user'));
+		Template::set('toolbar_title', lang('us_edit_user'));
 
 		Template::set_view('settings/user_form');
 
@@ -364,9 +364,9 @@ class Settings extends Admin_Controller
 	private function _ban($user_id, $ban_message='')
 	{
 		$data = array(
-			'banned'		=> 1,
-			'ban_message'	=> $ban_message
-			);
+				'banned'		=> 1,
+				'ban_message'	=> $ban_message
+		);
 
 		$this->user_model->update($user_id, $data);
 
@@ -541,7 +541,7 @@ class Settings extends Admin_Controller
 		foreach ($meta_fields as $field)
 		{
 			if (!isset($field['admin_only']) || $field['admin_only'] === FALSE
-				|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
+			|| (isset($field['admin_only']) && $field['admin_only'] === TRUE
 					&& isset($this->current_user) && $this->current_user->role_id == 1))
 			{
 				$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
@@ -557,10 +557,10 @@ class Settings extends Admin_Controller
 
 		// Compile our core user elements to save.
 		$data = array(
-			'email'		=> $this->input->post('email'),
-			'username'	=> $this->input->post('username'),
-			'language'	=> $this->input->post('language'),
-			// 'timezone'	=> $this->input->post('timezones'),
+				'email'		=> $this->input->post('email'),
+				'username'	=> $this->input->post('username'),
+				'language'	=> $this->input->post('language'),
+				// 'timezone'	=> $this->input->post('timezones'),
 		);
 
 		if ($this->input->post('password'))
@@ -717,9 +717,9 @@ class Settings extends Admin_Controller
 
 					$data = array
 					(
-						'to'		=> $this->user_model->find($user_id)->email,
-						'subject'	=> lang('us_account_active'),
-						'message'	=> $this->load->view('_emails/activated', array('link'=>site_url(),'title'=>$settings->value), true)
+							'to'		=> $this->user_model->find($user_id)->email,
+							'subject'	=> lang('us_account_active'),
+							'message'	=> $this->load->view('_emails/activated', array('link'=>site_url(),'title'=>$settings->value), true)
 					);
 
 					if ($this->emailer->send($data))

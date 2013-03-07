@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 2.1.1
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
  * @category	Database
  * @author		EllisLab Dev Team
  * @link		http://codeigniter.com/database/
- */
+*/
 class CI_DB_pdo_forge extends CI_DB_forge {
 
 	/**

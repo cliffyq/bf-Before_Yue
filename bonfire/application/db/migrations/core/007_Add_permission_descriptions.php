@@ -1,11 +1,11 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Migration_Add_permission_descriptions extends Migration {
-	
-	public function up() 
+
+	public function up()
 	{
 		$prefix = $this->db->dbprefix;
-		
+
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = 'Allow users to login to the site' WHERE `name` = 'Site.Signin.Allow';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = 'Allow users to login to the site when the site is offline' WHERE `name` = 'Site.Signin.Offline';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = 'Allow users to view the Content Context' WHERE `name` = 'Site.Content.View';");
@@ -22,15 +22,15 @@ class Migration_Add_permission_descriptions extends Migration {
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = 'Allow users to manage the Emailer settings' WHERE `name` = 'Bonfire.Emailer.Manage';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = 'Allow users access to the Log details' WHERE `name` = 'Bonfire.Logs.View';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = 'Allow users to manage the Log files' WHERE `name` = 'Bonfire.Logs.Manage';");
-		
+
 	}
-	
+
 	//--------------------------------------------------------------------
-	
-	public function down() 
+
+	public function down()
 	{
 		$prefix = $this->db->dbprefix;
-		
+
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = '' WHERE `name` = 'Site.Signin.Allow';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = '' WHERE `name` = 'Site.Signin.Offline';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = '' WHERE `name` = 'Site.Content.View';");
@@ -48,7 +48,7 @@ class Migration_Add_permission_descriptions extends Migration {
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = '' WHERE `name` = 'Bonfire.Logs.View';");
 		$this->db->query("UPDATE {$prefix}permissions SET `description` = '' WHERE `name` = 'Bonfire.Logs.Manage';");
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 }

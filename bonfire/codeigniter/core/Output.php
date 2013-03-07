@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
  * @category	Output
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/output.html
- */
+*/
 class CI_Output {
 
 	/**
@@ -54,14 +54,14 @@ class CI_Output {
 	 *
 	 * @var array
 	 * @access 	protected
-	 */
+	*/
 	protected $mime_types		= array();
 	/**
 	 * Determines wether profiler is enabled
 	 *
 	 * @var book
 	 * @access 	protected
-	 */
+	*/
 	protected $enable_profiler	= FALSE;
 	/**
 	 * Determines if output compression is enabled
@@ -82,7 +82,7 @@ class CI_Output {
 	 *
 	 * @var bool
 	 * @access 	protected
-	 */
+	*/
 	protected $parse_exec_vars	= TRUE;
 
 	/**
@@ -96,7 +96,7 @@ class CI_Output {
 		// Get mime types for later
 		if (defined('ENVIRONMENT') AND file_exists(APPPATH.'config/'.ENVIRONMENT.'/mimes.php'))
 		{
-		    include APPPATH.'config/'.ENVIRONMENT.'/mimes.php';
+			include APPPATH.'config/'.ENVIRONMENT.'/mimes.php';
 		}
 		else
 		{
@@ -472,8 +472,8 @@ class CI_Output {
 		}
 
 		$uri =	$CI->config->item('base_url').
-				$CI->config->item('index_page').
-				$CI->uri->uri_string();
+		$CI->config->item('index_page').
+		$CI->uri->uri_string();
 
 		$cache_path .= md5($uri);
 
@@ -517,8 +517,8 @@ class CI_Output {
 
 		// Build the file path.  The file name is an MD5 hash of the full URI
 		$uri =	$CFG->item('base_url').
-				$CFG->item('index_page').
-				$URI->uri_string;
+		$CFG->item('index_page').
+		$URI->uri_string;
 
 		$filepath = $cache_path.md5($uri);
 

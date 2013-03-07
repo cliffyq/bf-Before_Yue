@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@
  * @category	Helpers
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/helpers/directory_helper.html
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -38,7 +38,7 @@
  * @param	string	path to source
  * @param	int		depth of directories to traverse (0 = fully recursive, 1 = current dir, etc)
  * @return	array
- */
+*/
 if ( ! function_exists('directory_map'))
 {
 	function directory_map($source_dir, $directory_depth = 0, $hidden = FALSE)

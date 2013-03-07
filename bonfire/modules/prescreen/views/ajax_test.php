@@ -1,2 +1,2 @@
-<div id='replace'> original content</div>
-<button id='request'>click </button>
+<div id='replace'>original content</div>
+<button id='request'>click</button>

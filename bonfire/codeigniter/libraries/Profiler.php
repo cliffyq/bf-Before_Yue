@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -29,21 +29,21 @@
  * @category	Libraries
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/general/profiling.html
- */
+*/
 class CI_Profiler {
 
 	protected $_available_sections = array(
-										'benchmarks',
-										'get',
-										'memory_usage',
-										'post',
-										'uri_string',
-										'controller_info',
-										'queries',
-										'http_headers',
-										'session_data',
-										'config'
-										);
+			'benchmarks',
+			'get',
+			'memory_usage',
+			'post',
+			'uri_string',
+			'controller_info',
+			'queries',
+			'http_headers',
+			'session_data',
+			'config'
+	);
 
 	protected $_query_toggle_count = 25;
 

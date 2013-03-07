@@ -9,38 +9,554 @@ SimpleTest::ignore('MockSimpleTestCase');
 
 class TestOfErrorQueue extends UnitTestCase {
 
-    function setUp() {
-        $context = &SimpleTest::getContext();
-        $queue = &$context->get('SimpleErrorQueue');
-        $queue->clear();
-    }
+	function setUp() {
+		$context = &SimpleTest::getContext();
+		$queue = &$context->get('SimpleErrorQueue');
+		$queue->clear();
+	}
 
-    function tearDown() {
-        $context = &SimpleTest::getContext();
-        $queue = &$context->get('SimpleErrorQueue');
-        $queue->clear();
-    }
+	function tearDown() {
+		$context = &SimpleTest::getContext();
+		$queue = &$context->get('SimpleErrorQueue');
+		$queue->clear();
+	}
 
-    function testOrder() {
-        $context = &SimpleTest::getContext();
-        $queue = &$context->get('SimpleErrorQueue');
-        $queue->add(1024, 'Ouch', 'here.php', 100);
-        $queue->add(512, 'Yuk', 'there.php', 101);
-        $this->assertEqual(
-                $queue->extract(),
-                array(1024, 'Ouch', 'here.php', 100));
-        $this->assertEqual(
-                $queue->extract(),
-                array(512, 'Yuk', 'there.php', 101));
-        $this->assertFalse($queue->extract());
-    }
+	function testOrder() {
+		$context = &SimpleTest::getContext();
+		$queue = &$context->get('SimpleErrorQueue');
+		$queue->add(1024, 'Ouch', 'here.php', 100);
+		$queue->add(512, 'Yuk', 'there.php', 101);
+		$this->assertEqual(
+				$queue->extract(),
+				array(1024, 'Ouch', 'here.php', 100));
+		$this->assertEqual(
+				$queue->extract(),
+				array(512, 'Yuk', 'there.php', 101));
+		$this->assertFalse($queue->extract());
+	}
 
-    function testAssertNoErrorsGivesTrueWhenNoErrors() {
-        $test = &new MockSimpleTestCase();
-        $test->expectOnce('assert', array(
-                new IdenticalExpectation(new TrueExpectation()),
-                true,
-                'Should be no errors'));
+	function testAssertNoErrorsGivesTrueWhenNoErrors() {
+		$test = &new MockSimpleTestCase();
+		$test->expectOnce('assert', array(
+				new IdenticalExpectation(new TrueExpectation()),
+				true,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		'Should be no errors'));
         $test->setReturnValue('assert', true);
         $queue = &new SimpleErrorQueue();
         $queue->setTestCase($test);

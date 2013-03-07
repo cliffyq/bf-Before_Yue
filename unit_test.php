@@ -8,7 +8,7 @@ $cli_mode = setup_cli($argv); // Determines if running in cli mode
 
 /**
  * Configure your paths here:
- */
+*/
 define('MAIN_PATH', realpath(dirname(__FILE__)).'/');
 define('SIMPLETEST', MAIN_PATH .'tests/simpletest/'); // Directory of simpletest
 define('ROOT', MAIN_PATH); // Directory of codeigniter index.php
@@ -101,8 +101,8 @@ if (isset($_GET['all']) || isset($_POST['all']))
 
 //Capture CodeIgniter output, discard and load system into $CI variable
 ob_start();
-	include(ROOT . 'index.php');
-	$CI =& get_instance();
+include(ROOT . 'index.php');
+$CI =& get_instance();
 ob_end_clean();
 
 $CI->load->library('session');
@@ -154,20 +154,20 @@ elseif (isset($_POST['test'])) //single test
  */
 function setup_cli($argv)
 {
-	if (php_sapi_name() == 'cli') 
+	if (php_sapi_name() == 'cli')
 	{
-		if(isset($argv[1])) 
+		if(isset($argv[1]))
 		{
 			if(stripos($argv[1],'.php') !== false)
 			{
 				$_POST['test'] = $argv[1];
 			}
-			else 
+			else
 			{
 				$_POST[$argv[1]] = $argv[1];
 			}
 		}
-		else 
+		else
 		{
 			$_POST['all'] = 'all';
 		}

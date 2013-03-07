@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 
 
 if (!function_exists('list_languages'))
@@ -53,7 +53,7 @@ if (!function_exists('list_languages'))
 }
 
 
-	//--------------------------------------------------------------------
+//--------------------------------------------------------------------
 
 if (!function_exists('list_lang_files'))
 {
@@ -112,7 +112,7 @@ if (!function_exists('list_lang_files'))
 }
 
 
-	//--------------------------------------------------------------------
+//--------------------------------------------------------------------
 
 if (!function_exists('find_lang_files'))
 {
@@ -141,7 +141,7 @@ if (!function_exists('find_lang_files'))
 
 	}//end find_lang_files()
 }
-	//--------------------------------------------------------------------
+//--------------------------------------------------------------------
 
 if (!function_exists('load_lang_file'))
 {
@@ -191,7 +191,7 @@ if (!function_exists('load_lang_file'))
 
 	}//end load_lang_file()
 }
-	//--------------------------------------------------------------------
+//--------------------------------------------------------------------
 
 if (!function_exists('save_lang_file'))
 {
@@ -290,7 +290,7 @@ if (!function_exists('save_lang_file'))
 				$contents .= '$lang[\''.$name.'\'] = '. $val .";\n";
 			}
 		}//end foreach
-		
+
 		// is the code we are producing OK?
 		if (!is_null(eval(str_replace('<?php', '', $contents))))
 		{
@@ -310,14 +310,14 @@ if (!function_exists('save_lang_file'))
 			$CI->load->helper('file');
 		}
 
-        if ($return == FALSE)
-        {
-		    $result = write_file($path, $contents);
-        }
-        else
-        {
-            return $contents;
-        }
+		if ($return == FALSE)
+		{
+			$result = write_file($path, $contents);
+		}
+		else
+		{
+			return $contents;
+		}
 
 		if ($result === FALSE)
 		{
@@ -330,4 +330,4 @@ if (!function_exists('save_lang_file'))
 
 	}//end save_lang_file()
 }
-	//--------------------------------------------------------------------
+//--------------------------------------------------------------------

@@ -1,4 +1,4 @@
-<h2>Main page</h2> 
+<h2>Main page</h2>
 
 <p>Calling function below</p>
 

@@ -12,7 +12,7 @@ class developer extends Admin_Controller {
 		$this->auth->restrict('Incentive.Developer.View');
 		$this->load->model('incentive_model', null, true);
 		$this->lang->load('incentive');
-		
+
 		Template::set_block('sub_nav', 'developer/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class developer extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class developer extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a incentive object.
+	Creates a incentive object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class developer extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of incentive data.
+	Allows editing of incentive data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class developer extends Admin_Controller {
 	/*
 		Method: save_incentive()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_incentive($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class developer extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('incentive_company_id','company_id','max_length[11]');
 		$this->form_validation->set_rules('incentive_name','name','max_length[25]');
 		$this->form_validation->set_rules('incentive_description','description','max_length[140]');
@@ -191,7 +191,7 @@ class developer extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['incentive_company_id']        = $this->input->post('incentive_company_id');
 		$data['incentive_name']        = $this->input->post('incentive_name');

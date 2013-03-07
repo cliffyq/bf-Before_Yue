@@ -12,7 +12,7 @@ class commonauth extends Admin_Controller {
 		$this->auth->restrict('Video_Question.Commonauth.View');
 		$this->load->model('video_question_model', null, true);
 		$this->lang->load('video_question');
-		
+
 		Template::set_block('sub_nav', 'commonauth/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class commonauth extends Admin_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,7 +66,7 @@ class commonauth extends Admin_Controller {
 	/*
 		Method: create()
 
-		Creates a Video Question object.
+	Creates a Video Question object.
 	*/
 	public function create()
 	{
@@ -100,7 +100,7 @@ class commonauth extends Admin_Controller {
 	/*
 		Method: edit()
 
-		Allows editing of Video Question data.
+	Allows editing of Video Question data.
 	*/
 	public function edit()
 	{
@@ -162,15 +162,15 @@ class commonauth extends Admin_Controller {
 	/*
 		Method: save_video_question()
 
-		Does the actual validation and saving of form data.
+	Does the actual validation and saving of form data.
 
-		Parameters:
-			$type	- Either "insert" or "update"
-			$id		- The ID of the record to update. Not needed for inserts.
+	Parameters:
+	$type	- Either "insert" or "update"
+	$id		- The ID of the record to update. Not needed for inserts.
 
-		Returns:
-			An INT id for successful inserts. If updating, returns TRUE on success.
-			Otherwise, returns FALSE.
+	Returns:
+	An INT id for successful inserts. If updating, returns TRUE on success.
+	Otherwise, returns FALSE.
 	*/
 	private function save_video_question($type='insert', $id=0)
 	{
@@ -178,7 +178,7 @@ class commonauth extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-		
+
 		$this->form_validation->set_rules('video_question_video_id','Video ID','max_length[11]');
 		$this->form_validation->set_rules('video_question_question_id','Question ID','max_length[11]');
 
@@ -188,7 +188,7 @@ class commonauth extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-		
+
 		$data = array();
 		$data['video_question_video_id']        = $this->input->post('video_question_video_id');
 		$data['video_question_question_id']        = $this->input->post('video_question_question_id');

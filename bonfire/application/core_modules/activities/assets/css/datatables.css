@@ -1,7 +1,14 @@
 /*
  * Datatables
  */
-.dataTables_wrapper {margin:0}
-.dataTables_filter {width: 30%}
+.dataTables_wrapper {
+	margin: 0
+}
 
-.dataTables_filter input {display: inline}
+.dataTables_filter {
+	width: 30%
+}
+
+.dataTables_filter input {
+	display: inline
+}

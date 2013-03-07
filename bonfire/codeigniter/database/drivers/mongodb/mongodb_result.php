@@ -11,12 +11,13 @@ class CI_DB_mongodb_result extends CI_DB_result {
 	 * @return	integer
 	 */
 	function num_rows()
-	{	var_dump($this->result_id);
+	{
+		var_dump($this->result_id);
 		return $this->result_id->count(true);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Number of fields in the result set
 	 *
@@ -27,9 +28,9 @@ class CI_DB_mongodb_result extends CI_DB_result {
 	{
 		//return @mysql_num_fields($this->result_id);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Fetch Field Names
 	 *
@@ -48,9 +49,9 @@ class CI_DB_mongodb_result extends CI_DB_result {
 
 		return $field_names;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Field data
 	 *
@@ -81,9 +82,9 @@ class CI_DB_mongodb_result extends CI_DB_result {
 
 		return $retval;
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Free the result
 	 *
@@ -97,9 +98,9 @@ class CI_DB_mongodb_result extends CI_DB_result {
 			$this->result_id = FALSE;
 		}
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Data Seek
 	 *
@@ -114,9 +115,9 @@ class CI_DB_mongodb_result extends CI_DB_result {
 	{
 		return mysql_data_seek($this->result_id, $n);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Result - associative array
 	 *
@@ -129,9 +130,9 @@ class CI_DB_mongodb_result extends CI_DB_result {
 	{
 		return mysql_fetch_assoc($this->result_id);
 	}
-	
+
 	//--------------------------------------------------------------------
-	
+
 	/**
 	 * Result - object
 	 *
@@ -144,7 +145,7 @@ class CI_DB_mongodb_result extends CI_DB_result {
 	{
 		return mysql_fetch_object($this->result_id);
 	}
-	
+
 	//--------------------------------------------------------------------
 }
 

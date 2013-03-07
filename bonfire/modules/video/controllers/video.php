@@ -97,20 +97,11 @@
 			}
 			//Template::set($data);
 			//Template ::render();
-			
 		}
 		
 		public function video_card($video,$index)
 		{
-			
 			$video['position']=$index+1;
-			//if (isset($video['toprated']))
-			//$video['toprated']=$this->load->modules('reviews')->avg_rating($video['id']);
-			//{
-			//$data['average_rating']=$this->load->module('reviews')->avg_rating($video['id'],$video['toprated']);
-			//Assets::add_module_js('reviews','jquery.raty.js');
-			//Assets::add_js($this->load->view('inline_js/avg_rating.js.php',null,true),'inline');
-			//}
 			$data['video']=$video;
 			//console::log($video);
 			$data['company']=$this->video_model->get_company($video['id']);
@@ -125,4 +116,4 @@
 		}
 		
 		
-	}		
+}

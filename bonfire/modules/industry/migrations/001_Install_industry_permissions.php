@@ -4,22 +4,22 @@ class Migration_Install_industry_permissions extends Migration {
 
 	// permissions to migrate
 	private $permission_values = array(
-		array('name' => 'Industry.Content.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Content.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Content.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Content.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Reports.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Reports.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Reports.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Reports.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Settings.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Settings.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Settings.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Settings.Delete', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Developer.View', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Developer.Create', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Developer.Edit', 'description' => '', 'status' => 'active',),
-		array('name' => 'Industry.Developer.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Content.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Content.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Content.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Content.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Reports.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Reports.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Reports.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Reports.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Settings.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Settings.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Settings.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Settings.Delete', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Developer.View', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Developer.Create', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Developer.Edit', 'description' => '', 'status' => 'active',),
+			array('name' => 'Industry.Developer.Delete', 'description' => '', 'status' => 'active',),
 	);
 
 	//--------------------------------------------------------------------
@@ -44,7 +44,7 @@ class Migration_Install_industry_permissions extends Migration {
 	{
 		$prefix = $this->db->dbprefix;
 
-        // permissions
+		// permissions
 		foreach ($this->permission_values as $permission_value)
 		{
 			$query = $this->db->select('permission_id')->get_where("permissions", array('name' => $permission_value['name'],));

@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Reports extends Admin_Controller
 {
 
@@ -45,7 +45,7 @@ class Reports extends Admin_Controller
 		$this->auth->restrict('Bonfire.Activities.View');
 
 		$this->lang->load('activities');
-		$this->lang->load('datatable');		
+		$this->lang->load('datatable');
 
 		Template::set('toolbar_title', lang('activity_title'));
 
@@ -55,15 +55,15 @@ class Reports extends Admin_Controller
 		Assets::add_js( array ( Template::theme_url('js/jquery.dataTables.min.js' )) );
 		Assets::add_js( array ( Template::theme_url('js/bootstrap-dataTables.js' )) );
 		Assets::add_css( array ( Template::theme_url('css/datatable.css') ) ) ;
-		Assets::add_css( array ( Template::theme_url('css/bootstrap-dataTables.css') ) ) ;		
+		Assets::add_css( array ( Template::theme_url('css/bootstrap-dataTables.css') ) ) ;
 
 
 		//Assets::add_module_css ('activities', 'datatables.css');
 
 
 		if (has_permission('Activities.User.View')
-				|| has_permission('Activities.Module.View')
-				|| has_permission('Activities.Date.View'))
+		|| has_permission('Activities.Module.View')
+		|| has_permission('Activities.Date.View'))
 		{
 			Template::set_block('sub_nav', 'reports/_sub_nav');
 		}
@@ -81,25 +81,25 @@ class Reports extends Admin_Controller
 	public function index()
 	{
 		if (has_permission('Activities.User.View')
-				|| has_permission('Activities.Module.View')
-				|| has_permission('Activities.Date.View'))
+		|| has_permission('Activities.Module.View')
+		|| has_permission('Activities.Date.View'))
 		{
 			// get top 5 modules
 			$this->db->group_by('module');
 			Template::set('top_modules', $this->activity_model->select('module, COUNT(module) AS activity_count')
-					->where('activities.deleted', 0)
-					->limit(5)
-					->order_by('activity_count', 'DESC')
-					->find_all() );
+			->where('activities.deleted', 0)
+			->limit(5)
+			->order_by('activity_count', 'DESC')
+			->find_all() );
 
 			// get top 5 users and usernames
 			$this->db->join('users', 'activities.user_id = users.id', 'left');
 			$query = $this->db->select('username, user_id, COUNT(user_id) AS activity_count')
-					->where('activities.deleted', 0)
-					->group_by('user_id')
-					->order_by('activity_count','DESC')
-					->limit(5)
-					->get($this->activity_model->get_table());
+			->where('activities.deleted', 0)
+			->group_by('user_id')
+			->order_by('activity_count','DESC')
+			->limit(5)
+			->get($this->activity_model->get_table());
 			Template::set('top_users', $query->result());
 
 			Template::set('users', $this->user_model->find_all());
@@ -260,15 +260,15 @@ class Reports extends Admin_Controller
 		{
 			case 'activity_date':
 				$value = 'activity_id';
-			break;
+				break;
 
 			case 'activity_module':
 				$value = 'module';
-			break;
+				break;
 
 			default:
 				$value = 'user_id';
-			break;
+				break;
 		}
 
 		// set a default delete then check if delete "all" was chosen
@@ -341,7 +341,7 @@ class Reports extends Admin_Controller
 					}
 				}
 				$where = 'module';
-			break;
+				break;
 
 			case 'activity_date':
 				foreach($this->activity_model->find_all_by('deleted', 0) as $e)
@@ -354,7 +354,7 @@ class Reports extends Admin_Controller
 					}
 				}
 				$where = 'activity_id';
-			break;
+				break;
 
 			case 'activity_own':
 			default:
@@ -378,16 +378,16 @@ class Reports extends Admin_Controller
 				}
 
 				$where = 'user_id';
-			break;
+				break;
 		}
 
 		// set some vars for the view
 		$vars = array(
-			'which'			=> $which,
-			'view_which'	=> ucwords(lang($which)),
-			'name'			=> $name,
-			'delete_action'	=> $where,
-			'delete_id'		=> $find_value
+				'which'			=> $which,
+				'view_which'	=> ucwords(lang($which)),
+				'name'			=> $name,
+				'delete_action'	=> $where,
+				'delete_id'		=> $find_value
 		);
 		Template::set('vars', $vars);
 

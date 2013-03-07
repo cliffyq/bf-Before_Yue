@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Base_Controller extends MX_Controller
 {
 
@@ -105,9 +105,9 @@ class Base_Controller extends MX_Controller
 		*/
 		if (ENVIRONMENT == 'production')
 		{
-		    $this->db->save_queries = FALSE;
+			$this->db->save_queries = FALSE;
 
-		    $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+			$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
 		}
 
 		// Testing niceties...
@@ -303,8 +303,8 @@ class Admin_Controller extends Authenticated_Controller
 
 		// load the keyboard shortcut keys
 		$shortcut_data = array(
-			'shortcuts' => config_item('ui.current_shortcuts'),
-			'shortcut_keys' => $this->settings_lib->find_all_by('module', 'core.ui'),
+				'shortcuts' => config_item('ui.current_shortcuts'),
+				'shortcut_keys' => $this->settings_lib->find_all_by('module', 'core.ui'),
 		);
 		Template::set('shortcut_data', $shortcut_data);
 

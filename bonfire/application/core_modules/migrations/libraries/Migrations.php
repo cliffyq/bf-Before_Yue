@@ -27,7 +27,7 @@
  * @author     Phil Sturgeon http://philsturgeon.co.uk/
  * @author     Spicer Matthews <spicer@cloudmanic.com> Cloudmanic Labs, LLC http://www.cloudmanic.com/
  * @author     Bonfire Dev Team
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@
  * @abstract
  * @author     Phil Sturgeon http://philsturgeon.co.uk/
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
- */
+*/
 abstract class Migration
 {
 
@@ -70,7 +70,7 @@ abstract class Migration
 	 *
 	 * @access public
 	 * @abstract
-	 */
+	*/
 	public abstract function down();
 
 	//--------------------------------------------------------------------
@@ -81,7 +81,7 @@ abstract class Migration
 	 * @param mixed $var
 	 *
 	 * @return object
-	 */
+	*/
 	function __get($var)
 	{
 		return get_instance()->$var;
@@ -181,8 +181,8 @@ class Migrations
 		if ( ! $this->_ci->db->table_exists('schema_version'))
 		{
 			$this->_ci->dbforge->add_field(array(
-				'type' => array('type' => 'VARCHAR', 'constraint' => 20, 'null' => FALSE),
-				'version' => array('type' => 'INT', 'constraint' => 4, 'default' => 0),
+					'type' => array('type' => 'VARCHAR', 'constraint' => 20, 'null' => FALSE),
+					'version' => array('type' => 'INT', 'constraint' => 4, 'default' => 0),
 			));
 			$this->_ci->dbforge->add_key('type', TRUE);
 			$this->_ci->dbforge->create_table('schema_version', TRUE);
@@ -644,8 +644,8 @@ class Migrations
 				if (!$query->num_rows())
 				{
 					$this->_ci->db->insert('schema_version', array(
-						'type'        => $type,
-						'version' => $schema_version,
+							'type'        => $type,
+							'version' => $schema_version,
 					));
 
 				}
@@ -665,18 +665,18 @@ class Migrations
 				$this->_ci->load->dbforge();
 
 				$this->_ci->dbforge->add_column('schema_version', array(
-					$type .'version'	=> array(
-						'type'			=> 'INT',
-						'constraint'	=> 4,
-						'null'			=> true,
-						'default'		=> 0
-					)
+						$type .'version'	=> array(
+								'type'			=> 'INT',
+								'constraint'	=> 4,
+								'null'			=> true,
+								'default'		=> 0
+						)
 				));
 
 			}
 
 			return $this->_ci->db->update('schema_version', array(
-				$type.'version' => $schema_version
+					$type.'version' => $schema_version
 			));
 
 		}//end if

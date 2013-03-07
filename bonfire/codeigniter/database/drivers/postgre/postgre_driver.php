@@ -11,7 +11,7 @@
  * @link		http://codeigniter.com
  * @since		Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @category	Database
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
- */
+*/
 class CI_DB_postgre_driver extends CI_DB {
 
 	var $dbdriver = 'postgre';
@@ -55,12 +55,12 @@ class CI_DB_postgre_driver extends CI_DB {
 	function _connect_string()
 	{
 		$components = array(
-								'hostname'	=> 'host',
-								'port'		=> 'port',
-								'database'	=> 'dbname',
-								'username'	=> 'user',
-								'password'	=> 'password'
-							);
+				'hostname'	=> 'host',
+				'port'		=> 'port',
+				'database'	=> 'dbname',
+				'username'	=> 'user',
+				'password'	=> 'password'
+		);
 
 		$connect_string = "";
 		foreach ($components as $key => $val)
@@ -297,8 +297,8 @@ class CI_DB_postgre_driver extends CI_DB {
 		if ($like === TRUE)
 		{
 			$str = str_replace(	array('%', '_', $this->_like_escape_chr),
-								array($this->_like_escape_chr.'%', $this->_like_escape_chr.'_', $this->_like_escape_chr.$this->_like_escape_chr),
-								$str);
+					array($this->_like_escape_chr.'%', $this->_like_escape_chr.'_', $this->_like_escape_chr.$this->_like_escape_chr),
+					$str);
 		}
 
 		return $str;

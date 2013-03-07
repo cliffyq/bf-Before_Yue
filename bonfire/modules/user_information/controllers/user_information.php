@@ -12,7 +12,7 @@ class user_information extends Front_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('user_information_model', null, true);
 		$this->lang->load('user_information');
-		
+
 	}
 
 	//--------------------------------------------------------------------
@@ -22,7 +22,7 @@ class user_information extends Front_Controller {
 	/*
 		Method: index()
 
-		Displays a list of form data.
+	Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -34,21 +34,21 @@ class user_information extends Front_Controller {
 	}
 
 	//--------------------------------------------------------------------
-      public  function get_current_points()
-	{ 	
-	      $row =$this->user_information_model->find_user_information_by_uid($this->auth->user_id());
-		  $data['your_current_points']=$row;
-		  $this->load->view('get_current_points',$data);
-		  /*
-		  if($this->input->is_ajax_request())
-		    {
-			   Template::set('records',$row);
-			   Template::render();
-			}
-		  else
-		  return $row->user_information_current_points;
-		 */
-	     
+	public  function get_current_points()
+	{
+		$row =$this->user_information_model->find_user_information_by_uid($this->auth->user_id());
+		$data['your_current_points']=$row;
+		$this->load->view('get_current_points',$data);
+		/*
+		 if($this->input->is_ajax_request())
+		 {
+		Template::set('records',$row);
+		Template::render();
+		}
+		else
+			return $row->user_information_current_points;
+		*/
+
 	}
 
 

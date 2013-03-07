@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Settings extends Admin_Controller
 {
 
@@ -37,7 +37,7 @@ class Settings extends Admin_Controller
 	 */
 	function __construct()
 	{
- 		parent::__construct();
+		parent::__construct();
 
 		$this->auth->restrict('Bonfire.Permissions.View');
 		$this->auth->restrict('Bonfire.Permissions.Manage');

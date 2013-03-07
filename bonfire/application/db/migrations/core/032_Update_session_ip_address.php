@@ -13,12 +13,12 @@ class Migration_Update_session_ip_address extends Migration
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'ip_address' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 45,
-				'null' => FALSE,
-				'default' => 0
-			),
+				'ip_address' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 45,
+						'null' => FALSE,
+						'default' => 0
+				),
 		);
 
 		$this->dbforge->modify_column('sessions', $fields);
@@ -32,12 +32,12 @@ class Migration_Update_session_ip_address extends Migration
 		$prefix = $this->db->dbprefix;
 
 		$fields = array(
-			'ip_address' => array(
-				'type' => 'VARCHAR',
-				'constraint' => 16,
-				'null' => FALSE,
-				'default' => 0,
-			),
+				'ip_address' => array(
+						'type' => 'VARCHAR',
+						'constraint' => 16,
+						'null' => FALSE,
+						'default' => 0,
+				),
 		);
 
 		$this->dbforge->modify_column('sessions', $fields);

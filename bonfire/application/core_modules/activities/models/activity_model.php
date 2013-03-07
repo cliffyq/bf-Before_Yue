@@ -11,7 +11,7 @@
  * @link      http://cibonfire.com
  * @since     Version 1.0
  * @filesource
- */
+*/
 
 // ------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@
  * @author     Bonfire Dev Team
  * @link       http://guides.cibonfire.com/helpers/file_helpers.html
  *
- */
+*/
 class Activity_model extends BF_Model
 {
 
@@ -148,9 +148,9 @@ class Activity_model extends BF_Model
 		}
 
 		$data = array(
-			'user_id'	=> $user_id,
-			'activity'	=> $activity,
-			'module'	=> $module
+				'user_id'	=> $user_id,
+				'activity'	=> $activity,
+				'module'	=> $module
 		);
 
 		return parent::insert($data);

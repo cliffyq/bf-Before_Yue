@@ -1,1 +1,1 @@
-<p>Ajax  should be displayed below </p>
+<p>Ajax should be displayed below</p>
