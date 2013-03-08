@@ -4,7 +4,7 @@
 	</div>
 	Test:<?php echo $average_rating ?>
 	<div id='video_video_panel_company'>
-		<img src="<?php echo modules::run('company/get_logo', $company->company_logo)?>" alt="Company logo" height="30" class = "logo"/><?php echo anchor_popup($company->company_url, $company->company_name) ?> 
+		<img src="<?php echo modules::run('company/company_company/get_logo', $company->company_logo)?>" alt="Company logo" height="30" class = "logo"/><?php echo anchor_popup($company->company_url, $company->company_name) ?> 
 	</div>
 	<div id='video_video_panel_view'>
 		<?php echo $video ?>
