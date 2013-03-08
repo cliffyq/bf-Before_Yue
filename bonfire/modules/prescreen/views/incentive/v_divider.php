@@ -12,10 +12,8 @@ if( isset($incentive) ) {
 }
 $id = isset($incentive['id']) ? $incentive['id'] : '';
 ?>
-<div class="admin-box" style="
-   background: #f5f5f5;
-">
-    <h2 style="margin-left: 500px">Upload New Incentive</h2>
+<div class="admin-box">
+    <h2>Upload New Incentive</h2>
 <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
 
  <fieldset>
@@ -23,7 +21,7 @@ $id = isset($incentive['id']) ? $incentive['id'] : '';
         <div class="control-group hidden <?php echo form_error('incentive_company_id') ? 'error' : ''; ?>">
             <?php echo form_label('company_id', 'incentive_company_id', array('class' => "control-label") ); ?>
             <div class='controls'>
-        <input id="incentive_company_id" type="text" name="incentive_company_id" maxlength="11" value="1"  />
+        <input id="incentive_company_id" type="text" name="incentive_company_id" maxlength="11" value="<?php echo set_value('incentive_company_id', isset($incentive['incentive_company_id']) ? $incentive['incentive_company_id'] : ''); ?>"  />
         <span class="help-inline"><?php echo form_error('incentive_company_id'); ?></span>
         </div>
         
@@ -34,7 +32,7 @@ $id = isset($incentive['id']) ? $incentive['id'] : '';
         <div class=span4>
         </div><!-- span4 -->
         <div class=span8>
-         <div class="trying"  style="border-left: 1px solid rgb(0, 207, 158);">
+         <div class="trying"  style="border-left: 1px solid #333;">
     
          <div class="control-group"  style="margin-left: 20px;<?php echo form_error('incentive_name') ? 'error' : ''; ?>">
             <?php echo form_label('Name', 'incentive_name' ); ?>
@@ -55,10 +53,10 @@ $id = isset($incentive['id']) ? $incentive['id'] : '';
         
          <div class="row-fluid">
         <div class=span4>
-        <p style='float: right;margin-top: 50px;"'>Enter incentive information</p>
+        <p>Enter incentive information</p>
         </div><!-- span4 -->
         <div class=span8>
-           <div class="trying"  style="border-left: 1px solid rgb(0, 207, 158);">
+           <div class="trying"  style="border-left: 1px solid #333;">
     
          <div class="control-group"  style="margin-left: 20px;<?php echo form_error('incentive_description') ? 'error' : ''; ?>">
             <?php echo form_label('Description', 'incentive_description' ); ?>
@@ -76,7 +74,7 @@ $id = isset($incentive['id']) ? $incentive['id'] : '';
         <div class=span4>
         </div><!-- span4 -->
         <div class=span8>
-         <div class="trying"  style="border-left: 1px solid rgb(0, 207, 158);">
+         <div class="trying"  style="border-left: 1px solid #333;">
     
          <div class="control-group"  style="margin-left: 20px;<?php echo form_error('incentive_category_id') ? 'error' : ''; ?>">
             <?php echo form_label('Category', 'incentive_category_id' ); ?>
@@ -94,11 +92,11 @@ $id = isset($incentive['id']) ? $incentive['id'] : '';
         
          <div class="row-fluid">
         <div class=span4>
-           <p style="float: right;margin-top: 50px;"">Enter incentive pricing</p>
+           <p>Enter incentive pricing</p>
         </div><!-- span4 -->
         <div class=span8>
         
-         <div class="trying"  style="border-left: 1px solid rgb(0, 207, 158);">
+         <div class="trying"  style="border-left: 1px solid #333;">
     
          <div class="control-group"  style="margin-left: 20px; <?php echo form_error('incentive_price') ? 'error' : ''; ?>">
             <?php echo form_label('Incentive Price', 'incentive_price' ); ?>
