@@ -123,7 +123,10 @@ class Company_model extends BF_Model {
 		if(!is_array($data)||empty($data))
 			return false;
 		$path = url_title($data['company_name'],'underscore').'/';
-		$fdata = $this->_upload_logo($logo_fieldname,$path);
+		$full_path='./'.LOGO_PATH.$path;
+		//$fdata = $this->_upload_logo($logo_fieldname,$path);
+		$this->load->helper('upload_helper');
+		$fdata=my_upload($logo_fieldname,$full_path,'company','upload_logo');
 		if(isset($fdata['error'])||!isset($fdata['upload_data']) || $fdata['upload_data'] == NULL){
 
 			return FALSE;

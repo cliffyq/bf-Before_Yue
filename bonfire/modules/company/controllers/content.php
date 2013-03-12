@@ -199,6 +199,7 @@ class content extends Admin_Controller {
 		$data['company_url']        = $this->input->post('company_url');
 		$data['company_industry_id']        = $this->input->post('company_industry_id');
 		$data['company_description']        = $this->input->post('company_description');
+		$data['company_userid'] = 0;
 			
 		if ($type == 'insert')
 		{
@@ -213,6 +214,7 @@ class content extends Admin_Controller {
 			$id = $this->company_model->insert($data);
 			if (!is_numeric($id)) return FALSE;
 			$return = $id; */
+		
 
 		}
 		else if ($type == 'update')
@@ -238,7 +240,7 @@ class content extends Admin_Controller {
 	//upload logo, $field_name = form input name, $path = path relative to the LOGO_PATH
 	public function _upload_logo($field_name,$path){
 			
-		$this->config->load('upload');
+		$this->config->load('upload_logo');
 		$preference['upload_path'] = './'.LOGO_PATH.$path;
 		$preference['allowed_types'] = $this->config->item('allowed_types');
 		$preference['max_size'] = $this->config->item('max_size');

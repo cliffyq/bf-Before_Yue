@@ -15,7 +15,7 @@
 							<div class="controls upload_button">
 					<span class="btn btn-success btn-wrap"> <i class="icon-arrow-up"></i>
 						<span>select a local video to upload</span> <input
-						id="video_upload" type="file" name="userfile" class="btn-input"
+						id="video_upload_file" type="file" name="userfile" class="btn-input"
 						style="width: 100%;">
 								</span>
 								<p>Types allowed: mp4, ogv, webm, wma, avi.</p>
