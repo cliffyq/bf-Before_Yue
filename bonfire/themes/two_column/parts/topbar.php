@@ -34,8 +34,7 @@
 										<?php// echo gravatar_link($current_user->email, 96, null, $current_user->display_name) ?>
 									</div> -->
 									<div class="toolbar-profile-img">
-										<img src=<?= base_url();?>
-											/bonfire/themes/two%20column/images/user.png height='100px' />
+										<img src=<?= base_url();?>/bonfire/themes/two_column/images/user.png height='100px' />
 									</div>
 
 									<div class="toolbar-profile-info">

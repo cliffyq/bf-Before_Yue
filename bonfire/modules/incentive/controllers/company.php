@@ -12,7 +12,7 @@ class company extends Admin_Controller {
 		$this->auth->restrict('Incentive.Company.View');
 		$this->load->model('incentive_model', null, true);
 		$this->lang->load('incentive');
-
+		
 		Template::set_block('sub_nav', 'company/_sub_nav');
 	}
 
@@ -23,7 +23,7 @@ class company extends Admin_Controller {
 	/*
 		Method: index()
 
-	Displays a list of form data.
+		Displays a list of form data.
 	*/
 	public function index()
 	{
@@ -66,12 +66,12 @@ class company extends Admin_Controller {
 	/*
 		Method: create()
 
-	Creates a incentive object.
+		Creates a incentive object.
 	*/
 	public function create()
 	{
 		$this->auth->restrict('Incentive.Company.Create');
-
+		
 		if ($this->input->post('save'))
 		{
 			if ($insert_id = $this->save_incentive())
@@ -87,9 +87,13 @@ class company extends Admin_Controller {
 				Template::set_message(lang('incentive_create_failure') . $this->incentive_model->error, 'error');
 			}
 		}
-		Assets::add_module_js('incentive', 'incentive.js');
-
+		//Assets::add_module_js('incentive', 'jquery.form.js');
+		Assets::add_js($this->load->view('inline_js/upload_image_ajax.js.php',null,true),'inline');
+		Assets::add_module_css('incentive','create_incentive.css');
+		
 		Template::set('toolbar_title', lang('incentive_create') . ' incentive');
+		Template::set_theme('two_column','junk');
+		
 		Template::render();
 	}
 
@@ -100,7 +104,7 @@ class company extends Admin_Controller {
 	/*
 		Method: edit()
 
-	Allows editing of incentive data.
+		Allows editing of incentive data.
 	*/
 	public function edit()
 	{
@@ -162,15 +166,15 @@ class company extends Admin_Controller {
 	/*
 		Method: save_incentive()
 
-	Does the actual validation and saving of form data.
+		Does the actual validation and saving of form data.
 
-	Parameters:
-	$type	- Either "insert" or "update"
-	$id		- The ID of the record to update. Not needed for inserts.
+		Parameters:
+			$type	- Either "insert" or "update"
+			$id		- The ID of the record to update. Not needed for inserts.
 
-	Returns:
-	An INT id for successful inserts. If updating, returns TRUE on success.
-	Otherwise, returns FALSE.
+		Returns:
+			An INT id for successful inserts. If updating, returns TRUE on success.
+			Otherwise, returns FALSE.
 	*/
 	private function save_incentive($type='insert', $id=0)
 	{
@@ -178,8 +182,8 @@ class company extends Admin_Controller {
 			$_POST['id'] = $id;
 		}
 
-
-		$this->form_validation->set_rules('incentive_company_id','company_id','max_length[11]');
+		
+		//$this->form_validation->set_rules('incentive_company_id','company_id','max_length[11]');
 		$this->form_validation->set_rules('incentive_name','name','max_length[25]');
 		$this->form_validation->set_rules('incentive_description','description','max_length[140]');
 		$this->form_validation->set_rules('incentive_price','price','max_length[11]');
@@ -191,16 +195,32 @@ class company extends Admin_Controller {
 		}
 
 		// make sure we only pass in the fields we want
-
+		
 		$data = array();
-		$data['incentive_company_id']        = $this->input->post('incentive_company_id');
+		/*
+		$company=$this->load->model('company/company_model')->find_by('company_userid',$this->auth->user_id());
+		if ($company ===false) return false;
+		$data['incentive_company_id']        = $company->id;
+		*/
 		$data['incentive_name']        = $this->input->post('incentive_name');
 		$data['incentive_description']        = $this->input->post('incentive_description');
 		$data['incentive_price']        = $this->input->post('incentive_price');
 		$data['incentive_category_id']        = $this->input->post('incentive_category_id');
 
 		if ($type == 'insert')
-		{
+		{	
+			$return = $this->incentive_model->create_incentive($data);
+			/*
+			$path = './'.INCENTIVE_PATH;
+			$this->load->helper('upload_helper');
+			$fdata = my_upload('incentive_image',$path,'incentive');
+			
+			if(isset($fdata['error'])||!isset($fdata['upload_data']) || $fdata['upload_data'] == NULL){
+			
+				return FALSE;
+			}
+			
+			//$data['company_logo'] = $path;
 			$id = $this->incentive_model->insert($data);
 
 			if (is_numeric($id))
@@ -210,6 +230,7 @@ class company extends Admin_Controller {
 			{
 				$return = FALSE;
 			}
+			*/
 		}
 		else if ($type == 'update')
 		{
@@ -220,7 +241,15 @@ class company extends Admin_Controller {
 	}
 
 	//--------------------------------------------------------------------
-
+	public function upload_incentive(){
+		$incentive=$this->input->post();
+		//echo json_encode($incentive);
+		
+		$this->load->helper('upload_helper');
+		$path=INCENTIVE_PATH;
+		my_upload('incentive_image',$path,'incentive');
+		
+	}
 
 
 }

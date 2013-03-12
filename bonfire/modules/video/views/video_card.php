@@ -22,7 +22,7 @@
 				</div>
 
 				<div class="company ellipsis">
-				Company: <img src="<?php echo modules::run('company/company_company/get_logo', $company->company_logo)?>" alt="Company logo" height="20px" class = "logo"/><?php echo anchor_popup($company->company_url, $company->company_name) ?> 
+				 <img src="<?php echo modules::run('company/company_company/get_logo', $company->company_logo)?>" alt="Company logo" height="20px" class = "logo"/><?php echo anchor_popup($company->company_url, $company->company_name) ?> 
 				</div>
 				
 			</div>

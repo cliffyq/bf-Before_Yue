@@ -2,7 +2,7 @@
 	<ul class="nav nav-list">
 		<li class="nav-header">HOME</li>
 		<li
-		<?php echo substr_compare($this->uri->uri_string(),'/company/company_company/video_charts',0) ? 'class="active"' : '' ?>>
+		<?php echo strpos($this->uri->uri_string(),'company/company_company/video_charts')===false ? '' : 'class="active"' ?>>
 			<a
 			href="<?php echo site_url('/company/company_company/video_charts') ?>"
 			id="sidebar-charts">Charts</a>
@@ -11,18 +11,18 @@
 
 		<li class="nav-header">MEDIA</li>
 
-		<li <?php echo   $this->uri->uri_string() == site_url('company/company_company/video_uploading') ? 'class="active"' : '' ?>>
+		<li <?php echo   $this->uri->uri_string() == 'company/company_company/video_uploading'? 'class="active"' : '' ?>>
 			<a href="<?php echo site_url('company/company_company/video_uploading') ?>" id="sidebar-new-meida">Upload New Video</a>
 		</li>
 		
-		<li <?php echo   $this->uri->uri_string() == site_url('company/company_company/video_manager') ? 'class="active"' : '' ?>>
+		<li <?php echo   $this->uri->uri_string() =='company/company_company/video_manager'? 'class="active"' : '' ?>>
 			<a href="<?php echo site_url('/company/company_company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
 		</li>
 
 		<li class="nav-header">INCENTIVES</li>
 		<li
-		<?php echo $this->uri->uri_string()== 'company' ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url(SITE_AREA .'/content/company') ?>"
+		<?php echo $this->uri->uri_string()== 'incentive/company/create' ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('incentive/company/create') ?>"
 			id="sidebar-new-incentive">Upload New Incentives</a>
 		</li>
 		<li

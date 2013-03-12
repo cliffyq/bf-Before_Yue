@@ -2,7 +2,7 @@
 
 class User_information_model extends BF_Model {
 
-	protected $table		= "user_information_";
+	protected $table		= "user_information";
 	protected $key			= "id";
 	protected $soft_deletes	= false;
 	protected $date_format	= "datetime";
