@@ -27,14 +27,23 @@
 			return FALSE;
 		}
 		
-		public function get_company($vid)
+		public function get_company($vid,$return_type=0)
 		{
+			if($return_type!=0 && $return_type!=1) return false;
 				$row=$this->find_by('id',$vid);
 				if ($row ===false) return false;
- 				$company=$this->load->model('company/company_model')->find_by('id',$row->video_company_id);
+ 				$company=$this->load->model('company/company_model')->find_by('id',$row->video_company_id,'and',$return_type);
+				if(!$company) return false;
+				if($return_type == 0){
 				if(strpos($company->company_url, 'http://')===false)
-				{
-				  $company->company_url='http://'. $company->company_url;
+					{
+				  	$company->company_url='http://'. $company->company_url;
+					}
+				}else{
+					if(strpos($company['company_url'], 'http://')===false)
+					{
+				  	$company['company_url']='http://'. $company['company_url'];
+					}
 				}
 				return $company;
 		}

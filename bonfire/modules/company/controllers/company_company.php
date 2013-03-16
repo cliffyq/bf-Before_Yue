@@ -127,7 +127,7 @@ class company_company extends Admin_Controller {
 		Assets::add_module_js('company', 'jquery.form.js');
 		Assets::add_js($this -> load -> view('inline_js/upload_video_ajax.js.php', null, true), 'inline');
 		//Assets::add_js($this->load->view('inline_js/test_upload.js.php',null,true),'inline');
-		template::set_theme('two column');
+		template::set_theme('two_column');
 		template::render();
 	}
 
@@ -145,11 +145,12 @@ class company_company extends Admin_Controller {
 	public function video_info_setting($video_id = false) {
 
 //		$company_result	
-		if ($video_id == false) {
+		if ($video_id === false) {
 			template::set('msg', 'error');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			template::render();
+			return;
 		}
 
 		$this -> load -> model('video/video_model');
@@ -166,7 +167,7 @@ class company_company extends Admin_Controller {
 		$company_object = $this -> company_model -> find_by('company_userid', $user_id);
 		if(!$company_object) {
 			template::set('msg', 'error');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			template::render();
 			return false;
@@ -175,27 +176,93 @@ class company_company extends Admin_Controller {
 		//console::log('company id: '.$user_company);
 		if ($video_company !== $user_company) {//check if user has the correct company of video
 			template::set('msg', 'error');
-			Template::set_theme('two column');
+			Template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
-
+			return;
 		} else {
+			//console::log(is_dir());
+			/*
+			if(!is_dir(!$result->video_path)){
+				template::set('msg', 'error');
+				template::set_theme('two_column');
+				template::set_view('company_company/operation_status');
+				template::render();
+				return false;
+			}*/
+			$this->load->model('question/question_model');
+			$this->load->model('answer/answer_model');
+			$this->load->model('video_question/video_question_model');
+					
+			$question_results = $this->question_model->find_all();
+			foreach ($question_results as $question_result){
+				$answer_result = $this->answer_model->find_by('id',$question_result->question_answer_id);
+				if($answer_result)
+				$question_result->question_answer_contents = json_decode($answer_result->answer_content);
+				/*
+				foreach($question_result->question_answer_contents as $answer_content){
+					console::log($answer_content);
+				}*/
+				//console::log($question_result);
+			}	
+			
+			//console::log($question_results);
+			$result->questions = $question_results;
+			//console::log($result->questions);
+			
+			/*initialize question info*/
 			$result -> ajax = 0;
-			if (!$this -> input -> is_ajax_request()) {
-				Template::set_theme('two column');
-			} else {
+			$selected_questions = false;
+			$question_number = 2; 
+			
+			if (!$this -> input -> is_ajax_request()) {//if video is an old one
+				Template::set_theme('two_column');
+				$this->load->model("video_question/video_question_model");
+				$selected_questions=$this->video_question_model->find_all_by('video_question_video_id',$video_id);
+				console::log($selected_questions);
+				$question_number = count($selected_questions);
+				console::log($question_number);
+				//console::log(array_keys($selected_questions));
+				
+			} else {//if video is newly uploaded
 				$result -> ajax = 1;
 			}
+			
+			
+		/*	
+			foreach($selected_questions as $index=>$selected_question){
+				console::log($index);
+				console::log($selected_question);
+			}
+		*/	
+			$result->selected_questions = $selected_questions;
+			$result->question_number = $question_number;
+			console::log($result);
 			Assets::add_js($this -> load -> view('inline_js/set_video_info.js.php', null, true), 'inline');
 			template::set('video_info', $result);
 		}
 		template::render();
 
 	}
+	
+	
+	//check if a user has permission to access the specified video
+	public function user_has_permision_to_video($vid=false,$uid=false)
+	{
+		if($vid===false) return false;
+		if($uid===false) $uid = $this -> auth -> user_id();
+	
+		$this -> load -> model('video/video_model');
 
+		$company = $this -> video_model -> get_company($vid);
+		if ($company === false) return false;
+		return $company->company_userid == $uid;
+	}
+	
+	
 	public function video_info_updating($video_id = false, $company_name = false, $video_path = false) {
 		$result = $this -> video_company_checking($video_id, $company_name, $video_path);
 
-		template::set_theme('two column');
+		template::set_theme('two_column');
 		if ($result !== false || $this -> input -> post() !== false) {
 			$video_data = array('video_title' => $this -> input -> post('video_title'), 'video_description' => $this -> input -> post('video_description'), );
 			$this -> load -> model('video/video_model');
@@ -203,7 +270,60 @@ class company_company extends Admin_Controller {
 			template::set('msg', 'ok');
 		} else {template::set('msg', 'error');
 		}
-		//console::log($this->input->post());
+		console::log($this->input->post());
+		
+		//initiation, might need helper in future
+		$this->load->model('question/question_model');
+		$this->load->model('answer/answer_model');
+		$this->load->model('video_question/video_question_model');
+		$this->db->where('video_question_video_id', $video_id);//delete old records
+		$result = $this->db->delete('bf_video_question'); 
+		
+		for($question_count=1; $question_count<=2; $question_count++){
+			
+			if(!$this->input->post('question_type_'.$question_count)){
+				if (!$this->input->post('question'.$question_count)) return false;
+				$video_question_data = array('video_question_video_id'=>$video_id,'video_question_question_id'=>$this->input->post('question'.$question_count));
+				$this->video_question_model->insert($video_question_data);
+				console::log($video_question_data);
+				
+			}else{
+				//group answer data
+				for($answer_count=1; $answer_count<=4; $answer_count++){
+					$answer_array[$answer_count] = $this->input->post('answer'.$question_count.'_'.$answer_count);
+				}
+				
+				
+				$answer_result = $this->answer_model->find_by('answer_content',json_encode($answer_array));//check if answer already exists
+				if($answer_result)
+					$answer_id = $answer_result->id;
+				else{
+					$answer_data = array('answer_content'=>json_encode($answer_array));
+					$answer_id = $this->answer_model->insert($answer_data);
+				}
+				
+				$question_result = $this->question_model->find_by('question_content',$this->input->post('question_type_'.$question_count));
+				if($question_result)
+					$question_id = $question_result->id;
+				else{
+					$question_data = array("question_content"=>$this->input->post('question_type_'.$question_count), "question_answer_id"=>$answer_id);
+					$question_id = $this->question_model->insert($question_data);
+				}
+				
+				$video_question_data = array('video_question_video_id'=>$video_id,'video_question_question_id'=>$question_id);
+				$video_question_id = $this->video_question_model->insert($video_question_data);
+				
+				//console::log('answer_id: '.$answer_id);
+				//console::log($answer_data);
+			}
+		}
+		
+		//console::log($this->input->post('question_type_'.$i));
+		
+		
+		
+		
+		
 		template::set_view('company_company/operation_status');
 		template::render();
 	}
@@ -227,7 +347,7 @@ class company_company extends Admin_Controller {
 		$company_object = $this -> company_model -> find_by('company_userid', $user_id);
 		if(!$company_object) {
 			template::set('msg', 'error');
-			template::set_theme('two column');
+			template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			template::render();
 			return false;
@@ -237,7 +357,7 @@ class company_company extends Admin_Controller {
 		$this -> load -> model('video/video_model');
 		$results = $this->video_model->find_all_by('video_company_id', $user_company_id);
 		//console::log($results);
-		template::set_theme('two column');
+		template::set_theme('two_column');
 		template::set('videos', $results);
 		template::render();
 	}
@@ -255,26 +375,28 @@ class company_company extends Admin_Controller {
 		} else {template::set('msg', 'error');
 		}
 
-		Template::set_theme('two column');
+		Template::set_theme('two_column');
 		template::set_view('company_company/operation_status');
 		template::render();
 	}
 
 	private function file_deleting($path) {
+		if(!is_dir($path))
+		return false;
 		$this -> config -> load('upload_video');
 		$preference = read_config('upload_video', TRUE, 'company');
 		$preference['upload_path'] = './' . VIDEO_UPLOAD_PATH . $path;
 		$dirname = $preference['upload_path'];
 		$folder_handler = dir($dirname);
-
-		while ($file = $folder_handler -> read()) {
-			if ($file == "." || $file == "..")
-				continue;
-			unlink($dirname . $file);
+		if (!(($files = @scandir($dir)) && count($files) <= 2)){
+			while ($file = $folder_handler -> read()) {
+				if ($file == "." || $file == "..")
+					continue;
+					unlink($dirname . $file);
+			}
+			$folder_handler -> close();
 		}
-		$folder_handler -> close();
 		rmdir($dirname);
-
 	}
 
 	public function video_charts($sort_option = "viewcount",$time_filter='all',$per_page = 6, $offset = 0)
