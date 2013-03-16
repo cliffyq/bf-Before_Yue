@@ -63,5 +63,6 @@ unset ( $ajax_request );
 define('VIDEO_UPLOAD_PATH', 'upload/video/');
 define('IMAGE_UPLOAD_PATH', 'upload/image/');
 define('LOGO_PATH', 'upload/image/logo/');
+define('INCENTIVE_PATH','upload/image/incentive/');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

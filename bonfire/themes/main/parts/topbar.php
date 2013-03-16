@@ -32,7 +32,7 @@
 									</div> -->
 									<div class="toolbar-profile-img">
 										<img src=<?= base_url();?>
-											/bonfire/themes/two%20column/images/user.png height='100px' />
+											/bonfire/themes/main/images/user.png height='100px' />
 									</div>
 
 									<div class="toolbar-profile-info">

@@ -45,7 +45,7 @@ function showProgress(event, position, total, percentComplete) {
 
 
 
-$("#video_upload").change(function(e){
+$("#video_upload_file").change(function(e){
  	e.preventDefault();
     var file = $('input[type="file"]').val();
     var get_ext = file.split('.');    
