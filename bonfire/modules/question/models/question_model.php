@@ -2,7 +2,7 @@
 	
 	class Question_model extends BF_Model {
 		
-		protected $table		= "question_";
+		protected $table		= "question";
 		protected $key			= "id";
 		protected $soft_deletes	= false;
 		protected $date_format	= "datetime";

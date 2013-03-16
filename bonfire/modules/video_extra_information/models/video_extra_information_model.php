@@ -2,7 +2,7 @@
 
 class Video_extra_information_model extends BF_Model {
 
-	protected $table		= "video_extra_information_";
+	protected $table		= "video_extra_information";
 	protected $key			= "id";
 	protected $soft_deletes	= false;
 	protected $date_format	= "datetime";

@@ -7,7 +7,7 @@
 			<?php endif ?>
 			
 		<?php $attributes = array('id' => 'video_upadte', 'class' => "form-horizontal", 'method' => "POST");
-		 echo form_open_multipart('company/company_company/video_info_updating/'.$video_info->id.'/'.$video_info->video_path, $attributes) ?>		
+		 echo form_open_multipart('company/company_company/video_info_updating/'.$video_info->id.$video_info->video_path, $attributes) ?>		
 						<div class="control-group">
 						 	<label class="control-label">Video</label>
 							<div class="video_box_settings controls" >
@@ -46,8 +46,107 @@
 								 <input type="text" value="" name="video_tags" class="video_info_elements">
 							</div>
 						</div>
-						
 						<div class="control-group">
+						 	<label class="control-label">Video Questions</label>
+							<div class="controls">
+							<?php if($video_info->selected_questions):
+								foreach($video_info->selected_questions as $index=>$selected_question):?>
+								<div class="choose_question">	
+									<div>
+										<b>question <?=$index+1?>:</b>
+										<label>choose questions:</label>
+										<select name="question<?=$index+1?>" id="question<?=$index+1?>" class="video_info_elements quesiton_choose">
+										 		<option value="" ><--choose a question here--></option>
+										 		<?php 
+										 			foreach($video_info->questions as $video_question):?>
+													<option value=<?=$video_question->id ?> 
+														<?php if($video_info->selected_questions !== false){
+														 if($video_question->id == $video_info->selected_questions[$index]->video_question_question_id) 
+														 echo "selected" ;} ?> >
+														Question: <?= $video_question->question_content?> 
+														Answers: 
+														<?php if($video_question->question_answer_contents):
+															foreach($video_question->question_answer_contents as $answer_content):?>
+																<?=$answer_content?>;
+														<?php endforeach; endif;?> 
+														
+													</option>
+										 		<?php endforeach; ?>
+										 </select>
+										 
+										<div>
+											<br>
+											<label>or type your own</label>
+											<div>
+												<p>question:</p>
+											 	<textarea name="question_type_<?=$index+1?>" class="video_info_elements question<?=$index+1?> question_type"></textarea>
+											 	<div class="answers_type" hidden>
+												 	<p>answer 1</p>
+												 	<input name="answer<?=$index+1?>_1" class="A1_1 question<?=$index+1?>" type="text">
+												 	<p>answer 2</p>
+												 	<input name="answer<?=$index+1?>_2" class="A1_2 question<?=$index+1?>" type="text">
+												 	<p>answer 3</p>
+												 	<input name="answer<?=$index+1?>_3" class="A1_3 question<?=$index+1?>" type="text">
+												 	<p>answer 4</p>
+												 	<input name="answer<?=$index+1?>_4" class="A1_4 question<?=$index+1?>" type="text">
+											 	</div>
+										 	</div>
+									 	</div>
+									</div>
+									<br><br>
+								</div>
+								<?php endforeach; ?>
+								<?php else: ?>
+									<?php for($index=0;$index<2;$index++):?>
+										<div class="choose_question">	
+											<div>
+												<b>question <?=$index+1?>:</b>
+												<label>choose questions:</label>
+												<select name="question<?=$index+1?>" id="question<?=$index+1?>" class="video_info_elements quesiton_choose">
+												 		<option value="" selected="selected"><--choose a question here--></option>
+												 		<?php 
+												 			foreach($video_info->questions as $video_question):?>
+															<option value=<?=$video_question->id ?> 
+																<?php if($video_info->selected_questions !== false){
+																 if($video_question->id == $video_info->selected_questions[$index]->video_question_question_id) 
+																 echo "selected" ;} ?> >
+																	Question: <?= $video_question->question_content?> 
+																	Answers: 
+																<?php if($video_question->question_answer_contents):
+																	foreach($video_question->question_answer_contents as $answer_content):?>
+																		<?=$answer_content?>;
+																<?php endforeach; endif;?> 
+															</option>
+												 		<?php endforeach; ?>
+												 </select>
+												 
+												<div>
+													<br>
+													<label>or type your own</label>
+													<p>question:</p>
+													<div>
+													 	<textarea name="question_type_<?=$index+1?>" class="video_info_elements question<?=$index+1?> question_type"></textarea>
+													 	<div class="answers_type" hidden>
+														 	<p>answer 1</p>
+														 	<input name="answer<?=$index+1?>_1" class="A1_1 question<?=$index+1?>" type="text">
+														 	<p>answer 2</p>
+														 	<input name="answer<?=$index+1?>_2" class="A1_2 question<?=$index+1?>" type="text">
+														 	<p>answer 3</p>
+														 	<input name="answer<?=$index+1?>_3" class="A1_3 question<?=$index+1?>" type="text">
+														 	<p>answer 4</p>
+														 	<input name="answer<?=$index+1?>_4" class="A1_4 question<?=$index+1?>" type="text">
+													 	</div>
+												 	</div>
+											 	</div>
+											</div>
+											<br><br>
+										</div>
+									<?php endfor; ?>
+								<?php endif; ?>
+							</div>
+						</div>
+
+					    <div class="control-group">
 							<div class="controls">
 								 <input class="btn btn-primary  change_submit" type="submit" name="submit" id="submit" value="save changes">
 								 <?php if($video_info->ajax == 0): ?>
