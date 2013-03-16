@@ -27,61 +27,70 @@
 			return FALSE;
 		}
 		
-		public function get_company($vid)
+		public function get_company($vid,$return_type=0)
 		{
-			$row=$this->find_by('id',$vid);
-			if ($row ===false) return false;
-			$company=$this->load->model('company/company_model')->find_by('id',$row->video_company_id);
-			if(strpos($company->company_url, 'http://')===false)
-			{
-				$company->company_url='http://'. $company->company_url;
-			}
-			return $company;
+			if($return_type!=0 && $return_type!=1) return false;
+				$row=$this->find_by('id',$vid);
+				if ($row ===false) return false;
+ 				$company=$this->load->model('company/company_model')->find_by('id',$row->video_company_id,'and',$return_type);
+				if(!$company) return false;
+				if($return_type == 0){
+				if(strpos($company->company_url, 'http://')===false)
+				{
+				  $company->company_url='http://'. $company->company_url;
+				}
+				}else{
+					if(strpos($company['company_url'], 'http://')===false)
+					{
+				  	$company['company_url']='http://'. $company['company_url'];
+					}
+				}
+				return $company;
 		}
 		
-		
-		public function video_chart($option='viewcount',$time_filter="all",$limit = 0, $offset = 0)
-		{
-			$return = array('rows'=>array(),'row_count'=>0);
+
+	public function video_chart($option='viewcount',$time_filter="all",$limit = 0, $offset = 0)
+	{
+		$return = array('rows'=>array(),'row_count'=>0);
 			
 			$results=$this->find_all(1);
 			
 			if(!empty($results))
 			{	
 				//time filter
-			if ($time_filter=='all') $time=0;
-			else
+		if ($time_filter=='all') $time=0;
+		else
 			$time=strtotime("today-1".$time_filter);
-				
+			
 			
 				foreach ($results as $key=>&$result)
-			{
+		{
 					switch($option)
-				{
+			{
 						case 'viewcount': $result[$option]=$this->load->model('video_view_history/video_view_history_model')->get_view_count($result['id'],$time);break;
 						case 'toprated': $result[$option]=$this->load->model('reviews/reviews_model')->average_rating($result['id'],$time);break;
 					}
 					
 					$viewcount[$key]=$result[$option];
-					$return['row_count']++;
+				$return['row_count']++;
 					
-				}
-				
-				
-				array_multisort($viewcount,SORT_DESC,$results);
-				
-				$return['rows']=array_slice($results,$offset,$limit);
-				
-				return $return;
 			}
-			else
+				
+				
+			array_multisort($viewcount,SORT_DESC,$results);
+				
+			$return['rows']=array_slice($results,$offset,$limit);
+
+			return $return;
+		}
+		else
 			return $return;
 			
 			
-		}
-		
-		
-		
+	}
+
+
+
 		public function find_max_id()
 		{
 			$this->db->select_max('id');
@@ -162,5 +171,5 @@
 				return $path;
 				//$this->video_setting_info
 				
-	}
+			}
 	}
