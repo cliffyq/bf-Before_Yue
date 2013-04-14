@@ -7,12 +7,12 @@
 
 		
 		<li class="nav-header">MEDIA</li>
-		<li <?php echo   $this->uri->uri_string() == site_url('company/company_company/video_uploading') ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url('company/company_company/video_uploading') ?>" id="sidebar-new-meida">Upload New Video</a>
+		<li <?php echo   $this->uri->uri_string() == site_url('video/company/upload_video') ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('video/company/upload_video') ?>" id="sidebar-new-meida">Upload New Video</a>
 		</li>
 		
-		<li <?php echo   $this->uri->uri_string() == site_url('company/company_company/video_manager') ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url('/company/company_company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
+		<li <?php echo   $this->uri->uri_string() == site_url('video/company/company_company/video_manager') ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('video/company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
 		</li>
 		
 		<li class="nav-header">INCENTIVES</li>
@@ -30,7 +30,7 @@
 		
 		<li class="nav-header">COMPANY</li>
 		<li <?php echo $this->uri->uri_string() == 'company_company' ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url('company/company_company/company_list/') ?>" id="sidebar-edit">Eidt Company Information</a>
+			<a href="<?php echo site_url('company/company_company/edit_company_info') ?>" id="sidebar-edit">Edit Company Information</a>
 		</li>
 		</ul>
 	</div><!--/.well -->	

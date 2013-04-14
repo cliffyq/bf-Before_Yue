@@ -36,7 +36,7 @@ class company extends Front_Controller {
 	//--------------------------------------------------------------------
 public function get_logo($path)
 		{
-			$this->config->load('upload');
+			$this->config->load('upload_logo');
 			$exts = explode("|",$this->config->item('allowed_types'));
 			foreach ($exts as $ext)
 			{
@@ -46,6 +46,7 @@ public function get_logo($path)
 			}
 			return '';
 		}
+
 
 
 

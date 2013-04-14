@@ -264,7 +264,7 @@
 		
 		private function upload_video($field_name,$path){                
 			
-			$this->config->load('upload');
+			$this->config->load('upload_video');
 			$preference['upload_path'] = './'.VIDEO_UPLOAD_PATH.$path;
 			$preference['allowed_types'] = $this->config->item('allowed_types');
 			$preference['file_name'] = $this->config->item('file_name');

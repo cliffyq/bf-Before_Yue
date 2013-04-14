@@ -146,12 +146,46 @@
 			}
 			$this->load->library('upload',$preference);
 			$this->error='';
+			
+			$this->load->helper('file');
+			delete_files($preference['upload_path'] = './'.LOGO_PATH.$path);
+			
 			if ( ! $this->upload->do_upload($field_name))
 			{
 				$data['error'] = $this->upload->display_errors();
 			}
 			else
 			{
+				
+				$data = array('upload_data' => $this->upload->data());
+			}
+			return $data;
+		}
+		
+		public function _upload_thumbnail($field_name,$path){
+			$preference = read_config('upload_thumbnail', TRUE, 'company');
+			$preference['upload_path'] = './'.VIDEO_UPLOAD_PATH.$path;
+			// if(!is_dir($preference['upload_path']))
+			// {
+				// mkdir($preference['upload_path'],0777,true);
+			// }
+			$this->load->library('upload',$preference);
+			$this->error='';
+			
+			$this->load->helper('file');
+			//unlink;
+			$files = glob($preference['upload_path'].'thumbnail'.".*");
+			foreach ($files as $file) {
+			  unlink($file);
+			}
+			
+			if ( ! $this->upload->do_upload($field_name))
+			{
+				$data['error'] = $this->upload->display_errors();
+			}
+			else
+			{
+				
 				$data = array('upload_data' => $this->upload->data());
 			}
 			return $data;

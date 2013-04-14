@@ -54,7 +54,7 @@
 			return $this->find_all();
 		}
 		
-		public function video_saving() {
+		public function save_video() {
 			$path = $this->_set_video_path();
 			if($path === false){
 				return false;

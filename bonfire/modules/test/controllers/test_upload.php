@@ -29,9 +29,9 @@
 			}
 		}
 		
-		public function set_info()
+		public function delete()
 		{
-			echo 'haha';
+			rmdir('./upload/video/Nike/aaaaa/');
 			
 		}
 	}

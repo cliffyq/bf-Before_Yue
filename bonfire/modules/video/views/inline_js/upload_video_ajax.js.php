@@ -35,7 +35,7 @@ function showResponse(result){
 	//console.log(video_id);
 	$('.video_choosing').remove();
 	//$('.video_info_setting').load('video_info_setting/'+video_id);
-	window.location.replace('video_info_setting/'+video_id);
+	window.location.replace('set_video_info/'+video_id);
 };
 
 
