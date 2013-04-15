@@ -30,4 +30,5 @@ $lang['report_act_edit_record']			= 'Updated record with ID';
 $lang['report_act_delete_record']			= 'Deleted record with ID';
 
 //custom errors
-$lang['report_no_record']			= 'No record found in the selected period';
+$lang['report_no_record']			= 'No record found in the selected time period';
+$lang['report_no_data']			= 'No data found';

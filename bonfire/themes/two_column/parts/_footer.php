@@ -1,4 +1,6 @@
-</div><!--/.container-->
+
+<!--/.container-->
+<!-- in footer!! -->
 
 
 

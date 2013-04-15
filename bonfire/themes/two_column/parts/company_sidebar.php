@@ -10,11 +10,11 @@
 
 		
 		<li class="nav-header">MEDIA</li>
-		<li <?php echo   $this->uri->uri_string() == site_url('video/company/upload_video') ? 'class="active"' : '' ?>>
+		<li <?php echo   $this->uri->uri_string() == 'video/company/upload_video' ? 'class="active"' : '' ?>>
 			<a href="<?php echo site_url('video/company/upload_video') ?>" id="sidebar-new-meida">Upload New Video</a>
 		</li>
 		
-		<li <?php echo   $this->uri->uri_string() == site_url('video/company/company_company/video_manager') ? 'class="active"' : '' ?>>
+		<li <?php echo   $this->uri->uri_string() == 'video/company/video_manager' ? 'class="active"' : '' ?>>
 			<a href="<?php echo site_url('video/company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
 		</li>
 		
@@ -25,8 +25,8 @@
 			id="sidebar-new-incentive">Upload New Incentives</a>
 		</li>
 		<li
-		<?php echo $this->uri->uri_string() == 'company' ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url(SITE_AREA .'/content/company') ?>"
+		<?php echo $this->uri->uri_string() == 'incentive/company/incentive_list' ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('incentive/company/incentive_list') ?>"
 			id="sidebar-current-incentive">View Current Incentives</a>
 		</li>
 		
@@ -39,7 +39,7 @@
 		</li>
 		
 		<li class="nav-header">COMPANY</li>
-		<li <?php echo $this->uri->uri_string() == 'company_company' ? 'class="active"' : '' ?>>
+		<li <?php echo $this->uri->uri_string() == 'company/company_company/edit_company_info' ? 'class="active"' : '' ?>>
 			<a href="<?php echo site_url('company/company_company/edit_company_info') ?>" id="sidebar-edit">Edit Company Information</a>
 		</li>
 		</ul>

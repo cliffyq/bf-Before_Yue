@@ -9,11 +9,12 @@ class commonauth extends Admin_Controller {
 	{
 		parent::__construct();
 
-		$this->auth->restrict('Incentive.Commonauth.View');
+		//$this->auth->restrict('Incentive.Commonauth.View');
 		$this->load->model('incentive_model', null, true);
 		$this->lang->load('incentive');
-
-		Template::set_block('sub_nav', 'commonauth/_sub_nav');
+		
+		Template::set_theme('two_column','junk');
+		//Template::set_block('sub_nav', 'commonauth/_sub_nav');
 	}
 
 	//--------------------------------------------------------------------
@@ -217,6 +218,24 @@ class commonauth extends Admin_Controller {
 		}
 
 		return $return;
+	}
+	
+	public function get_incentive_image($path,$option=NULL)
+	{
+		
+			$config = read_config('upload', TRUE, 'incentive');
+			$exts = explode("|",$config['allowed_types']);
+			foreach ($exts as $ext) {
+				$img = INCENTIVE_PATH . $path.'.'.$ext;
+				//console::log($img);
+				if (file_exists("./" . $img))
+					if($option=='url')
+					return base_url() . $img;
+					else
+					return $img;
+			}
+			return '';
+		
 	}
 
 	//--------------------------------------------------------------------

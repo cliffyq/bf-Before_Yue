@@ -55,7 +55,7 @@ class content extends Admin_Controller {
 		$records = $this->incentive_model->find_all();
 
 		Template::set('records', $records);
-		Template::set('toolbar_title', 'Manage incentive');
+		Template::set('toolbar_title', 'Manage Incentive');
 		Template::render();
 	}
 
@@ -66,7 +66,7 @@ class content extends Admin_Controller {
 	/*
 		Method: create()
 
-	Creates a incentive object.
+	Creates a Incentive object.
 	*/
 	public function create()
 	{
@@ -89,7 +89,7 @@ class content extends Admin_Controller {
 		}
 		Assets::add_module_js('incentive', 'incentive.js');
 
-		Template::set('toolbar_title', lang('incentive_create') . ' incentive');
+		Template::set('toolbar_title', lang('incentive_create') . ' Incentive');
 		Template::render();
 	}
 
@@ -100,7 +100,7 @@ class content extends Admin_Controller {
 	/*
 		Method: edit()
 
-	Allows editing of incentive data.
+	Allows editing of Incentive data.
 	*/
 	public function edit()
 	{
@@ -148,7 +148,7 @@ class content extends Admin_Controller {
 		Template::set('incentive', $this->incentive_model->find($id));
 		Assets::add_module_js('incentive', 'incentive.js');
 
-		Template::set('toolbar_title', lang('incentive_edit') . ' incentive');
+		Template::set('toolbar_title', lang('incentive_edit') . ' Incentive');
 		Template::render();
 	}
 
@@ -179,11 +179,13 @@ class content extends Admin_Controller {
 		}
 
 
-		$this->form_validation->set_rules('incentive_company_id','company_id','max_length[11]');
-		$this->form_validation->set_rules('incentive_name','name','max_length[25]');
+		$this->form_validation->set_rules('incentive_company_id','company_id','required|max_length[11]');
+		$this->form_validation->set_rules('incentive_name','name','required|max_length[25]');
 		$this->form_validation->set_rules('incentive_description','description','max_length[140]');
-		$this->form_validation->set_rules('incentive_price','price','max_length[11]');
-		$this->form_validation->set_rules('incentive_category_id','category_id','max_length[11]');
+		$this->form_validation->set_rules('incentive_price','price','required|max_length[11]');
+		$this->form_validation->set_rules('incentive_image_path','image_path','required|max_length[255]');
+		$this->form_validation->set_rules('incentive_amount_left','amount_left','required|max_length[11]');
+		$this->form_validation->set_rules('incentive_amount_total','amount_total','required|max_length[11]');
 
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -194,10 +196,12 @@ class content extends Admin_Controller {
 
 		$data = array();
 		$data['incentive_company_id']        = $this->input->post('incentive_company_id');
-		$data['incentive_name']        		 = $this->input->post('incentive_name');
-		$data['incentive_description']       = $this->input->post('incentive_description');
-		$data['incentive_price']        	 = $this->input->post('incentive_price');
-		$data['incentive_category_id']       = $this->input->post('incentive_category_id');
+		$data['incentive_name']        = $this->input->post('incentive_name');
+		$data['incentive_description']        = $this->input->post('incentive_description');
+		$data['incentive_price']        = $this->input->post('incentive_price');
+		$data['incentive_image_path']        = $this->input->post('incentive_image_path');
+		$data['incentive_amount_left']        = $this->input->post('incentive_amount_left');
+		$data['incentive_amount_total']        = $this->input->post('incentive_amount_total');
 
 		if ($type == 'insert')
 		{
@@ -220,7 +224,6 @@ class content extends Admin_Controller {
 	}
 
 	//--------------------------------------------------------------------
-
 
 
 

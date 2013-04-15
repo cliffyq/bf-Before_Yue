@@ -43,7 +43,7 @@ class report extends Admin_Controller {
 		Template::render();
 	}
 
-	public function get_company_for_user($uid=false){
+	private function get_company_for_user($uid=false){
 		if($uid===false) $uid = $this -> auth -> user_id();
 		$company = $this-> company_model -> find_by('company_userid', $uid);
 		if($company===false) return false;
@@ -82,21 +82,21 @@ class report extends Admin_Controller {
 		}
 		return array('start_time'=>$start_time,'end_time'=>$end_time);
 	}
-	public function get_video_list($cid, $filter,$check = false){
+	private function get_video_list($cid, $filter,$check = false){
 		if($cid===false) return false;
 		$period = $this->get_time_period($filter);
 		if($period===false) return false;
 		$field = array("video_company_id"=>$cid,"created_on >="=>"{$period['start_time']}","created_on <"=>"{$period['end_time']}");
 		return $check?$this->load->model('video/video_model')->find_by($field):$this->load->model('video/video_model')->find_all_by($field);
 	}
-	public function get_incentive_list($cid, $filter,$check = false){
+	private function get_incentive_list($cid, $filter,$check = false){
 		if($cid===false) return false;
 		$period = $this->get_time_period($filter);
 		if($period===false) return false;
 		// 		$field = array("incentive_company_id"=>$cid,"created_on >="=>"{$period['start_time']}","created_on <"=>"{$period['end_time']}");
 		return $check?$this->load->model('incentive/incentive_model')->find_by('incentive_company_id',$cid):$this->load->model('incentive/incentive_model')->find_all_by('incentive_company_id',$cid);
 	}
-	public function check_generate_report(){		
+	public function check_generate_report(){
 		$filter =  $this->input->post('filter');
 		$item_type = $this->input->post('item_type');
 		$export_type = $this->input->post('export_type');
@@ -113,7 +113,7 @@ class report extends Admin_Controller {
 			exit('Invalid time period');
 		}
 		if($items===false)
-			exit('No record found in the selected time period.');
+			exit(lang('report_no_record'));
 		exit('1');
 	}
 	public function generate_report($item_type,$export_type,$start_date=false,$end_date=false)
@@ -187,7 +187,7 @@ class report extends Admin_Controller {
 		{
 			foreach ($items as $item){
 				$newcsv =  $this->write_csv($item_type,$export_type, $item);
-				if($newcsv===false) return false;
+				if($newcsv===false) continue;
 				$csv .= $newcsv;
 			}
 		}
@@ -195,7 +195,7 @@ class report extends Admin_Controller {
 			$newcsv =  $this->write_csv($item_type,$export_type, $items);
 			if($newcsv===false) {
 				//console::log("error");
-				return false;
+				return $csv;
 			}
 			$csv .= $newcsv;
 		}
@@ -211,6 +211,8 @@ class report extends Admin_Controller {
 		if($item_type=='video')
 			$info = $this -> get_video_info($item);
 		if($info === false){
+			Console::log('no info');
+			throw new Exception( 'no info');
 			return false;
 		}
 		//Console::log($info);
@@ -226,30 +228,37 @@ class report extends Admin_Controller {
 			if ($export_type == 'purchase')
 				$results = $this->load->model('purchase_history/purchase_history_model')-> get_purchase_history($item->id);
 		}
-		if ($results === false ){
-			Console::log('false');
-			return false;
-		}
+		return $this->write_csv_for_item($info,$results);
+		// 		$name = $export_type . '_report_' . date("m-d-Y_His") . '.csv';
+		// 		force_download($name, $csv);
+	}
+	private function write_csv_for_item($info,$result_set){
 		$csv = '';
 		//$infoheaderDisplayed = false;
 		//$csv .= $this -> echocsv(array_keys($info));
 		//$csv .= $this -> echocsv($info);
 		$headerDisplayed = false;
-		foreach ($results as $data) {
-			$data = array_merge($info,$data);
-			// Add a header row if it hasn't been added yet
-			if (!$headerDisplayed) {
-					
-				// Use the keys from $data as the titles
-				$csv .= $this -> echocsv(array_keys($data));
-				$headerDisplayed = true;
+		//no result found
+		if($result_set===false){
+			$info['Data'] = lang('report_no_data');
+			$csv .= $this -> echocsv(array_keys($info));
+			$csv .= $this -> echocsv($info);
+		}
+		else{
+			foreach ($result_set as $data) {
+				$data = array_merge($info,$data);
+				// Add a header row if it hasn't been added yet
+				if (!$headerDisplayed) {
+						
+					// Use the keys from $data as the titles
+					$csv .= $this -> echocsv(array_keys($data));
+					$headerDisplayed = true;
+				}
+				// Put the data into the stream
+				$csv .= $this -> echocsv($data);
 			}
-			// Put the data into the stream
-			$csv .= $this -> echocsv($data);
 		}
 		return $csv;
-		// 		$name = $export_type . '_report_' . date("m-d-Y_His") . '.csv';
-		// 		force_download($name, $csv);
 	}
 	private function get_video_info($video){
 		if(!is_object($video)) return false;
@@ -257,7 +266,7 @@ class report extends Admin_Controller {
 	}
 	private function get_incentive_info($incentive){
 		if(!is_object($incentive)) return false;
-		return array('Incentive Name'=>$incentive->incentive_name,'Incentive Price'=>$incentive->incentive_price,'Incentive Category'=>$incentive->incentive_category_id);
+		return array('Incentive Name'=>$incentive->incentive_name,'Incentive Price'=>$incentive->incentive_price);
 	}
 	private function echocsv($fields) {
 		$return = '';

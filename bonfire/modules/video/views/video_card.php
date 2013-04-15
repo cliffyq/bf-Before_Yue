@@ -1,6 +1,7 @@
 <div class="video_card">
-		<?php echo anchor('/user/view/'.$video['id'], '<img src="http://i4.ytimg.com/vi/kffacxfA7G4/mqdefault.jpg">')?>
-
+		<div class='video_thumbnail'>
+		<?php echo anchor('/user/view/'.$video['id'], '<img src="'.$video['thumbnail'].'">')?>
+		</div>
 		<div class='position'><?php echo $video['position'] ?></div>
 
 
