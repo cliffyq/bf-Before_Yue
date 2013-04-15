@@ -32,9 +32,9 @@
 						</div>
 					<?php echo form_close();?>		
 
-				<div class="video_info_setting">
+				<!--<div class="video_info_setting">
 					<div class="loading_div hidden">
-						<img class="status_img span1" src="<?php echo site_url('bonfire/themes/two_column/images/ajax-loader').'.gif'?>" style="width: 32px; text-align: center; margin-bottom: 10px;">
+						<img class="status_img span1" src="<?php// echo site_url('bonfire/themes/two_column/images/ajax-loader').'.gif'?>" style="width: 32px; text-align: center; margin-bottom: 10px;">
 						<h6 style="padding-top: 15px">loading...</h6>
 					</div>
 					
@@ -42,7 +42,7 @@
 					
 					
 					
-				</div>
+				</div>-->
 			</div>
 		</div>
 </div>
