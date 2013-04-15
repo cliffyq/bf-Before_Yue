@@ -19,7 +19,7 @@
 	</div>
 	<div id='video_video_panel_points_earned'>
 		<label for = "video_video_panel_count">Points earned: </label>
-		<?php echo $points_earned->video_extra_information_points ?>
+		<?php echo $points_earned ?>
 	</div>
 	
 </div>

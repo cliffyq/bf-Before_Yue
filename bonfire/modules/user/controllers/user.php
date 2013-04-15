@@ -50,7 +50,7 @@ class user extends Front_Controller {
 		Template::set('video_panel',$video_panel);
 		Template::set('toolbar_title', 'Userview');
 		Template::set('id',$id);
-		Template::set_theme('Two');
+		Template::set_theme('two_column');
 		Template:: render();
 	}
 

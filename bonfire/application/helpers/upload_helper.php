@@ -42,7 +42,6 @@ if (!function_exists('my_upload')){
 			{
 				$data = array('upload_data' => $CI->upload->data());
 			}
-			return $data;
-		
+			return $data;		
 	}
 }

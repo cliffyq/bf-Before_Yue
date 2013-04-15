@@ -33,9 +33,9 @@
 
 		<li class="nav-header">REPORTS</li>
 		<li
-		<?php echo $this->uri->uri_string() == 'company_company' ? 'class="active"' : '' ?>>
+		<?php echo $this->uri->uri_string() == 'report/report' ? 'class="active"' : '' ?>>
 			<a
-			href="<?php echo site_url('company/company_company/company_list/') ?>"
+			href="<?php echo site_url('report/report/') ?>"
 			id="sidebar-report">Report</a>
 		</li>
 
@@ -44,7 +44,7 @@
 		<?php echo $this->uri->uri_string() == 'company_company' ? 'class="active"' : '' ?>>
 			<a
 			href="<?php echo site_url('company/company_company/company_list/') ?>"
-			id="sidebar-edit">Eidt Company Information</a>
+			id="sidebar-edit">Edit Company Information</a>
 		</li>
 	</ul>
 </div>

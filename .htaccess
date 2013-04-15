@@ -172,3 +172,12 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 
     ErrorDocument 404 index.php
 </IfModule>
+
+#for xdebug
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.php
+RewriteCond $1 !^(index\.php|img|css|js|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA] 

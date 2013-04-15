@@ -170,3 +170,13 @@ if ( ! function_exists('user_time'))
 
 	}//end user_time()
 }
+if ( ! function_exists('get_age'))
+{
+	function get_age($birth_year,$birth_month)
+	{
+		$dob = new DateTime($birth_year.'-'.$birth_month);
+		$now = new DateTime();
+		$interval = $now->diff($dob);
+		return $interval->y;
+	}
+}

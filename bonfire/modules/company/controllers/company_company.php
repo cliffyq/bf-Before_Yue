@@ -12,7 +12,7 @@ class company_company extends Admin_Controller {
 		$this -> load -> library('form_validation');
 		$this -> load -> model('company_model', null, true);
 		$this -> lang -> load('company');
-
+		Template::set_theme('two_column');
 	}
 
 	//--------------------------------------------------------------------
@@ -41,7 +41,7 @@ class company_company extends Admin_Controller {
 	public function company_admin($company_id) {
 		$company_data = $this -> company_model -> find_by('id', $company_id, 'and', 1);
 		Template::set('company_data', $company_data);
-		Template::set_theme('Two');
+		
 		Template::render();
 	}
 
@@ -50,7 +50,6 @@ class company_company extends Admin_Controller {
 		Template::set('records', $records);
 		console::log(print_r($records, true));
 		//Template::set('toolbar_title', 'Manage Company');
-			Template::set_theme('two_column');
 		Template::render();
 	}
 
@@ -59,7 +58,6 @@ class company_company extends Admin_Controller {
 		$videos = $this -> video_model -> find_all_by('video_company_id', $company_id, 'and', 1);
 		if ($videos !== false) {
 			Template::set('videos', $videos);
-			Template::set_theme('Two');
 			Template::render();
 		} else {
 		}
@@ -74,7 +72,6 @@ class company_company extends Admin_Controller {
 		Template::set('video_info', $video_info);
 		Template::set('view_histories', $view_histories);
 		Template::set('review_histories', $review_histories);
-		Template::set_theme('Two');
 		Template::render();
 	}
 
@@ -176,7 +173,6 @@ class company_company extends Admin_Controller {
 		//console::log('company id: '.$user_company);
 		if ($video_company !== $user_company) {//check if user has the correct company of video
 			template::set('msg', 'error');
-			Template::set_theme('two_column');
 			template::set_view('company_company/operation_status');
 			return;
 		} else {
@@ -215,7 +211,6 @@ class company_company extends Admin_Controller {
 			$question_number = 2; 
 			
 			if (!$this -> input -> is_ajax_request()) {//if video is an old one
-				Template::set_theme('two_column');
 				$this->load->model("video_question/video_question_model");
 				$selected_questions=$this->video_question_model->find_all_by('video_question_video_id',$video_id);
 				console::log($selected_questions);
@@ -375,7 +370,6 @@ class company_company extends Admin_Controller {
 		} else {template::set('msg', 'error');
 		}
 
-		Template::set_theme('two_column');
 		template::set_view('company_company/operation_status');
 		template::render();
 	}
@@ -473,7 +467,6 @@ class company_company extends Admin_Controller {
 	}
 		else
 
-			Template::set_theme('two_column');
 		Template::render();
 			
 			

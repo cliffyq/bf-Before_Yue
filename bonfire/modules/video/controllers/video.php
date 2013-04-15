@@ -85,9 +85,9 @@
 				
 				$points_earned=$this->load->model('video_extra_information/video_extra_information_model')->find_by('video_extra_information_video_id',$vid);
 				if($points_earned !== false)
-				$data['points_earned']=$points_earned;
+				$data['points_earned']=$points_earned->video_extra_information_points;
 				else 
-				$data['points_earned']->video_extra_information_points=0;
+				$data['points_earned']=0;
 				return  $this->load->view('video_panel',$data,true);
 			}
 			else

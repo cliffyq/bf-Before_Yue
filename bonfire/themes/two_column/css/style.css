@@ -119,12 +119,40 @@ h2 {
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-radius: 3px;
-	color: #696969
+	color: #696969;
+	/* 	padding:25px; */
+}
+
+.page_title {
+	font-weight: bold;
+	font-size: 30px;
+	margin: 25px 0;
 }
 
 .center_panel {
 	margin-top: 71px;
 	margin-bottom: 40px;
+}
+
+.table td {
+	vertical-align: middle;
+}
+
+.report-table {
+	margin-bottom: 5px;
+}
+
+.table .report-table-header {
+	color: #0088cc;
+	font-size: 18px;
+}
+
+.table .report-table-subheader {
+	color: #929292;
+}
+
+.table .report-table-caption {
+	margin-bottom: 8px;
 }
 
 .footer_panel {
@@ -139,6 +167,14 @@ h2 {
 
 .logo_div {
 	width: 440px;
+}
+
+.logo {
+	width: contain;
+}
+
+.page-title {
+	font-weight: bold;
 }
 
 .main_content .control-group .additional_field {
@@ -433,4 +469,36 @@ div.showcase-tooltip {
 	width: 0;
 	height: 0;
 	float: none;
+}
+
+.modal * {
+	font-family: inherit;
+}
+
+.modal-error {
+	width: 500px;
+}
+
+.modal-title {
+	font-weight: bold;
+}
+
+.modal-loading {
+	display:    none;
+    position:   fixed;
+    z-index:    1040;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 0, 0, 0, 0.05 ) 
+                url('../images/ajax-loader.gif')
+                50% 50% 
+                no-repeat;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal-loading {
+	display: block;
 }

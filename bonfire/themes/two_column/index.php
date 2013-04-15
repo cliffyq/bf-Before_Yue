@@ -10,6 +10,8 @@
 			<div class='container-fluid main_content'>
 			<?php
 				echo Template::message();
+				echo isset($page_title)?"<div class='page_title'>{$page_title}</div>":'';
+				echo isset($page_subtitle)?"<div class='page_subtitle'>{$page_title}</div>":'';
 				echo isset($content) ? $content : Template::yield();
 			?>
 			</div>
