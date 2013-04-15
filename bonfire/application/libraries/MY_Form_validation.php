@@ -112,7 +112,7 @@ class MY_Form_validation extends CI_Form_validation
 	/**
 	 * Checks that a value is unique in the database
 	 *
-	 * i.e. '…|required|unique[users.name.id.4]|trim…'
+	 * i.e. '...required|unique[users.name.id.4]|trim...'
 	 *
 	 * @abstract Rule to force value to be unique in table
 	 * @usage "unique[tablename.fieldname.(primaryKey-used-for-updates).(uniqueID-used-for-updates)]"
@@ -324,6 +324,7 @@ class MY_Form_validation extends CI_Form_validation
 		}
 
 		$type = explode('|', $types);
+		//console::log($type);
 		$filetype = pathinfo($str['name'],PATHINFO_EXTENSION);
 
 		if (!in_array($filetype, $type))
@@ -395,6 +396,81 @@ class MY_Form_validation extends CI_Form_validation
 		return (bool) ($str['size']<=$size);
 
 	}//end max_file_size()
+	
+	/**
+	 * Check whether there is a file to upload
+	 *
+	 * @access public
+	 *
+	 * @param string $str   String field name to validate
+	 *
+	 * @return bool
+	 */
+	function file_required($str)
+	{
+		if($str['size']===0)
+		{
+			$this->set_message('file_required','Uploading a file for %s is required.');
+			return FALSE;
+		}
+	
+		return TRUE;
+	}
+	
+	/**
+	 * tests the file extension for valid file types
+	 *
+	 * @param mixed $file
+	 * @param mixed $type
+	 */
+
+	function file_allowed_type($file,$type)
+	{
+		//is type of format a,b,c,d? -> convert to array
+		$exts = explode(',',$type);
+	
+		//is $type array? run self recursively
+		if(count($exts)>1)
+		{
+			foreach($exts as $v)
+			{
+				$rc = $this->file_allowed_type($file,$v);
+				if($rc===TRUE)
+				{
+					return TRUE;
+				}
+			}
+		}
+	
+		//is type a group type? image, application, word_document, code, zip .... -> load proper array
+		$ext_groups = array();
+		$ext_groups['image'] = array('jpg','jpeg','gif','png');
+		$ext_groups['application'] = array('exe','dll','so','cgi');
+		$ext_groups['php_code'] = array('php','php4','php5','inc','phtml');
+		$ext_groups['word_document'] = array('rtf','doc','docx');
+		$ext_groups['compressed'] = array('zip','gzip','tar','gz');
+	
+		if(array_key_exists($exts[0],$ext_groups))
+		{
+			$exts = $ext_groups[$exts[0]];
+		}
+	
+		//get file ext
+		$file_ext = strtolower(strrchr($file['name'],'.'));
+		$file_ext = substr($file_ext,1);
+	
+		if(!in_array($file_ext,$exts))
+		{
+			$this->set_message('file_allowed_type',"%s should be $type.");
+			return false;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
+	
+
 
 	//--------------------------------------------------------------------
 
@@ -425,6 +501,10 @@ function form_has_error($field=null)
 
 	return $return;
 }//end form_has_error()
+
+
+
+
 
 //--------------------------------------------------------------------
 

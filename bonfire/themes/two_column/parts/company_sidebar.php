@@ -26,8 +26,8 @@
 			id="sidebar-new-incentive">Upload New Incentives</a>
 		</li>
 		<li
-		<?php echo $this->uri->uri_string() == 'company' ? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url(SITE_AREA .'/content/company') ?>"
+		<?php echo $this->uri->uri_string() == 'incentive/company/incentive_list' ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('incentive/company/incentive_list') ?>"
 			id="sidebar-current-incentive">View Current Incentives</a>
 		</li>
 

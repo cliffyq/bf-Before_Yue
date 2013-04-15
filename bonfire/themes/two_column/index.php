@@ -1,7 +1,6 @@
 <?php echo theme_view('parts/_header'); ?>
 
-<div
-	class="container-fluid body">
+<div class="container-fluid body">
 	<!-- Start of Main Container -->
 	<div class="row-fluid">
 		<div class="span3">

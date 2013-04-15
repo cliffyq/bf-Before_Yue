@@ -1,17 +1,20 @@
+
 <div class="incentive_title">
 	<h2>Incentive Manager</h2>
-
+	<div class='incentive_subtitle'>
+		<?php echo anchor(site_url('incentive/company/create'),'click here to upload a new incentive!')?>
+	</div>
 	<div class="btn-group ">
 		<button class="btn  dropdown-toggle" data-toggle="dropdown">
-			<?php echo 'sort'?>
+			<?php echo $sort_option ?>
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-			<li><?php echo anchor(site_url('company/company_company/video_charts/viewcount/'),'Recently Added')?>
+			<li><?php echo anchor(site_url('incentive/company/incentive_list/Rencently_Added'),'Recently Added')?>
 			</li>
-			<li><?php echo anchor(site_url('company/company_company/video_charts/toprated/'),'Most Purchased')?>
+			<li><?php echo anchor(site_url('incentive/company/incentive_list/Most_Purchased'),'Most Purchased')?>
 			</li>
-			<li><?php echo anchor(site_url('company/company_company/video_charts/toprated/'),'Least Purchased')?>
+			<li><?php echo anchor(site_url('incentive/company/incentive_list/Least_Purchased'),'Least Purchased')?>
 			</li>
 		</ul>
 	</div>
@@ -55,7 +58,7 @@
 				value="<?php echo $record->id ?>" /></td>
 			<?php endif;?>
 			<td><img style="height: 50px"
-				src="<?php echo base_url().INCENTIVE_PATH.$record->incentive_image_path.'.jpg' ?>"
+				src="<?php echo $record->incentive_image_path ?>"
 				alt="incentive image" class="incentive_image" /> <!-- need a get image function  -->
 			</td>
 			<td><?= $record->incentive_name ?></td>
@@ -63,7 +66,7 @@
 			<td>Gift Card <!-- need a category pool  -->
 			</td>
 			<td><?= $record->created_on ?></td>
-			<td><?= $record->incentive_amount_left ?> / <?= $record->incentive_amount_purchased ?>
+			<td><?= $record->incentive_amount_left ?>/<?= $record->incentive_amount_purchased ?>
 			</td>
 			<td><?php echo anchor('incentive/company/edit/'. $record->id,'edit', 'class="btn btn-info"') ?>
 			</td>

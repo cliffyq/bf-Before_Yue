@@ -1,3 +1,22 @@
+@CHARSET "UTF-8";
+
+.incentive_title h2{
+	float: left;
+}
+
+.incentive_title .btn-group{
+	float: right;
+	margin-top: 30px;
+	margin-right: 30px;
+}
+
+.incentive_title .incentive_subtitle{
+	float:left;
+	padding-top: 40px;
+	padding-left:20px;
+	
+}
+	
 .create_incentive_form{
 	
 }
@@ -31,6 +50,10 @@
 
 .incentive_control_group input{
 	width:350px;
+}
+
+.incentive_control_group .incentive_amount input {
+	width:50px;
 }
 
 .incentive_control_group textarea{

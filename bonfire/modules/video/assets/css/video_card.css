@@ -15,6 +15,11 @@ border-radius: 2px;
 box-shadow: 0 1px 2px #aaa;
 }
 
+.video_thumbnail{
+	height: 149px;
+	width: 238px;
+}
+
 .position {
 float: left;
 margin: 4px 4px 0 0;

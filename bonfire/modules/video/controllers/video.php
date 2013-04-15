@@ -102,6 +102,8 @@
 		public function video_card($video,$index)
 		{
 			$video['position']=$index+1;
+			
+			$video['thumbnail']=$this->load->module('video/company')->_get_thumbnail($video['video_path']);
 			$data['video']=$video;
 			//console::log($video);
 			$data['company']=$this->video_model->get_company($video['id']);
