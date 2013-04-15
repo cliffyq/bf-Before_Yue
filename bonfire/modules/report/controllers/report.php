@@ -93,8 +93,8 @@ class report extends Admin_Controller {
 		if($cid===false) return false;
 		$period = $this->get_time_period($filter);
 		if($period===false) return false;
-		// 		$field = array("incentive_company_id"=>$cid,"created_on >="=>"{$period['start_time']}","created_on <"=>"{$period['end_time']}");
-		return $check?$this->load->model('incentive/incentive_model')->find_by('incentive_company_id',$cid):$this->load->model('incentive/incentive_model')->find_all_by('incentive_company_id',$cid);
+		$field = array("incentive_company_id"=>$cid,"created_on >="=>"{$period['start_time']}","created_on <"=>"{$period['end_time']}");
+		return $check?$this->load->model('incentive/incentive_model')->find_by($field):$this->load->model('incentive/incentive_model')->find_all_by($field);
 	}
 	public function check_generate_report(){
 		$filter =  $this->input->post('filter');
