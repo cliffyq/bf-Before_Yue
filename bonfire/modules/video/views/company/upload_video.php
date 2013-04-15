@@ -9,7 +9,7 @@
 			<div class="span12">
 				
 					<?php $attributes = array('id' => 'video_upload', 'class' => "form-horizontal");
-						echo form_open_multipart('company/company_company/video_transport', $attributes);?>
+						echo form_open_multipart('video/company/video_transport', $attributes);?>
 						<div class="control-group video_choosing">
 						 	<label class="control-label ">choose your media</label>
 							<div class="controls upload_button">
@@ -37,6 +37,11 @@
 						<img class="status_img span1" src="<?php echo site_url('bonfire/themes/two_column/images/ajax-loader').'.gif'?>" style="width: 32px; text-align: center; margin-bottom: 10px;">
 						<h6 style="padding-top: 15px">loading...</h6>
 					</div>
+					
+					
+					
+					
+					
 				</div>
 			</div>
 		</div>

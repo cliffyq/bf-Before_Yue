@@ -9,7 +9,7 @@
 			<?php endif ?>
 			
 		<?php $attributes = array('id' => 'video_upadte', 'class' => "form-horizontal", 'method' => "POST");
-		 echo form_open_multipart('company/company_company/video_info_updating/'.$video_info->id.$video_info->video_path, $attributes) ?>		
+		 echo form_open_multipart('video/company/update_video_info/'.$video_info->id, $attributes) ?>		
 						<div class="control-group">
 						 	<label class="control-label">Video</label>
 							<div class="video_box_settings controls" >
@@ -35,12 +35,22 @@
 						
 						<div class="control-group">
 						 	<label class="control-label">Thumbnail</label>
+							
+							
+							
 							<div class="controls">
-								 <input class="thumbnail_choice" type="hidden" name="video_thumbnail" value="1" style="width:0px; height:0px">
-								 
-								 <img style="width:130px" class="thumbnail_img" src="http://i00.i.aliimg.com/photo/v12/430742126/inflatable_water_game_water_amusement_park_water.summ.jpg"></img>
-								 <img style="width:130px" src="http://i00.i.aliimg.com/photo/v12/430742126/inflatable_water_game_water_amusement_park_water.summ.jpg"></img>
-								 <img style="width:130px" src="http://i00.i.aliimg.com/photo/v12/430742126/inflatable_water_game_water_amusement_park_water.summ.jpg"></img>
+								
+								
+								<div style="width:200px">
+									<img id="video_thumbnail_image" src="<?= $video_info->thumbnail?>" alt="your image" />
+								</div>
+								<br>
+								<div>
+								<span class='btn btn-wrap btn-info' >
+									<span>change thumbnail</span>
+									<input id="video_thumbnail" type="file" name="video_thumbnail" class="btn-input" style='width:100%'/>  	 
+								</span> 
+								</div>
 							</div>
 						</div>
 						
@@ -60,7 +70,13 @@
 										<b>question <?=$index+1?>:</b>
 										<label>choose questions:</label>
 										<select name="question<?=$index+1?>" id="question<?=$index+1?>" class="video_info_elements quesiton_choose">
-										 		<option value="" ><--choose a question here--></option>
+										 		<option value="" >
+										 			<?php if($index == 0):?>
+										 				<--choose a question here-->
+										 			<?php else:?>
+										 				<--choose an another question here-->
+										 			<?php endif;?>
+										 		</option>
 										 		<?php 
 										 			foreach($video_info->questions as $video_question):?>
 													<option value=<?=$video_question->id ?> 
@@ -152,11 +168,11 @@
 
 					    <div class="control-group">
 							<div class="controls">
-								 <input class="btn btn-primary  change_submit" type="submit" name="submit" id="submit" value="save changes">
+								 <input class="btn btn-primary  change_submit" type="submit" name="save" id="submit" value="save changes">
 								 <?php if($video_info->ajax == 0): ?>
-								 	<a class="btn offset1" href="<?=site_url('company/company_company/video_manager')?>">cancel</a>
+								 	<a class="btn offset1" href="<?=site_url('video/company/video_manager')?>">back to manager</a>
 								 <?php else: ?>
-								 	<a class="btn btn-danger offset1" href="<?=site_url('company/company_company/video_deleting').'/'.$video_info->id.'/'.$video_info->video_path?>">cancel upload</a>
+								 	<a class="btn btn-danger offset1" href="<?=site_url('video/company/delete_video').'/'.$video_info->id.'/'.$video_info->video_path?>">cancel upload</a>
 								 <?php endif ?>
 							</div>
 						</div>

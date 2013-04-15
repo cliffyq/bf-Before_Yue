@@ -34,7 +34,7 @@ $('#submit').on ('click', function(e){
 				return false;
 			}		
 		}
-
+		
 
 	});
 	if($(".question1").val() &&  $(".question2").val() && $(".question1").val()==$(".question2").val()){

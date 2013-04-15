@@ -6,19 +6,18 @@
 			<a
 			href="<?php echo site_url('/company/company_company/video_charts') ?>"
 			id="sidebar-charts">Charts</a>
-		</li>
+				</li>
 
-
+		
 		<li class="nav-header">MEDIA</li>
-
-		<li <?php echo   $this->uri->uri_string() == 'company/company_company/video_uploading'? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url('company/company_company/video_uploading') ?>" id="sidebar-new-meida">Upload New Video</a>
+		<li <?php echo   $this->uri->uri_string() == site_url('video/company/upload_video') ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('video/company/upload_video') ?>" id="sidebar-new-meida">Upload New Video</a>
 		</li>
 		
-		<li <?php echo   $this->uri->uri_string() =='company/company_company/video_manager'? 'class="active"' : '' ?>>
-			<a href="<?php echo site_url('/company/company_company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
+		<li <?php echo   $this->uri->uri_string() == site_url('video/company/company_company/video_manager') ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('video/company/video_manager') ?>" id="sidebar-video-manager">Video Manager</a>
 		</li>
-
+		
 		<li class="nav-header">INCENTIVES</li>
 		<li
 		<?php echo $this->uri->uri_string()== 'incentive/company/create' ? 'class="active"' : '' ?>>
@@ -30,7 +29,7 @@
 			<a href="<?php echo site_url(SITE_AREA .'/content/company') ?>"
 			id="sidebar-current-incentive">View Current Incentives</a>
 		</li>
-
+		
 		<li class="nav-header">REPORTS</li>
 		<li
 		<?php echo $this->uri->uri_string() == 'report/report' ? 'class="active"' : '' ?>>
@@ -38,14 +37,11 @@
 			href="<?php echo site_url('report/report/') ?>"
 			id="sidebar-report">Report</a>
 		</li>
-
+		
 		<li class="nav-header">COMPANY</li>
-		<li
-		<?php echo $this->uri->uri_string() == 'company_company' ? 'class="active"' : '' ?>>
-			<a
-			href="<?php echo site_url('company/company_company/company_list/') ?>"
-			id="sidebar-edit">Edit Company Information</a>
+		<li <?php echo $this->uri->uri_string() == 'company_company' ? 'class="active"' : '' ?>>
+			<a href="<?php echo site_url('company/company_company/edit_company_info') ?>" id="sidebar-edit">Edit Company Information</a>
 		</li>
-	</ul>
+		</ul>
 </div>
 <!--/.well -->
